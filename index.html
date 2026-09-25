@@ -94,6 +94,21 @@
         color: #c4f031;
       }
     </style>
+    <!-- Google tag (gtag.js). Loaded only on the production host so local dev and e2e runs send no hits. -->
+    <script>
+      if (location.hostname === 'mastap.github.io') {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+        gtag('js', new Date());
+        gtag('config', 'G-JNRXNEP8TM');
+        var ga = document.createElement('script');
+        ga.async = true;
+        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-JNRXNEP8TM';
+        document.head.appendChild(ga);
+      }
+    </script>
   </head>
   <body>
     <div id="root">
