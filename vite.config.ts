@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig, loadEnv, type Plugin } from 'vite';
 import { localToday } from './src/lib/dates.ts';
+import { RaceFileSchema } from './src/data/schema.ts';
 import { validateRaceFiles } from './src/data/validate.ts';
 import { dataDirFor, readRaceFiles } from './scripts/raceFiles.ts';
 import { racePageHtml } from './scripts/racePages.ts';
@@ -65,7 +66,8 @@ function raceDataModule(source: string | undefined): Plugin {
           .map((i) => `  ${i.file}${i.id ? ` [${i.id}]` : ''}: ${i.message}`);
         this.error(`Invalid race data:\n${lines.join('\n')}\nRun \`npm run validate:data\` for the full report.`);
       }
-      const records = files.flatMap((f) => JSON.parse(f.text) as unknown[]);
+      // Ship the schema-parsed records (e.g. trimmed strings), exactly what validation approved.
+      const records = files.flatMap((f) => RaceFileSchema.parse(JSON.parse(f.text)));
       // JSON.parse of a string literal is faster to evaluate than a large object literal.
       return `export default JSON.parse(${JSON.stringify(JSON.stringify(records))});`;
     },
