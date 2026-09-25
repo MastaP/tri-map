@@ -69,7 +69,10 @@ export interface Filters {
    */
   bike: Terrain[];
   run: Terrain[];
-  /** Include races whose next date is only estimated. */
+  /**
+   * Also show editions whose date is only estimated from the last one. Off by default:
+   * every date shown by default comes from an official source.
+   */
   showEstimated: boolean;
   /** Restrict to the current map viewport. */
   inMapArea: boolean;
@@ -86,7 +89,7 @@ export const DEFAULT_FILTERS: Filters = Object.freeze({
   openOnly: false,
   bike: [],
   run: [],
-  showEstimated: true,
+  showEstimated: false,
   inMapArea: false,
   shortlistOnly: false,
   sort: 'date',
@@ -341,6 +344,7 @@ export interface MonthBucket {
  * and at least to December of next year (`minMonths` long at the very least). The axis
  * comes from all races so it does not jump while filtering; the counts use every filter
  * except time. A race counts in every month it is held (e.g. Dec 2026 and Dec 2027).
+ * Estimated editions are counted (separately) only while estimated dates are shown.
  */
 export function monthHistogram(
   allRaces: readonly Race[],
@@ -369,6 +373,7 @@ export function monthHistogram(
   for (const r of filterRaces(allRaces, filters, ctx, ['time'])) {
     const seen = new Set<number>();
     for (const e of r.upcoming) {
+      if (e.estimated && !filters.showEstimated) continue;
       const i = index.get(editionMonth(e, ctx.today));
       if (i === undefined || seen.has(i)) continue;
       seen.add(i);
@@ -443,7 +448,10 @@ export function isDefaultFilters(f: Filters): boolean {
   return activeDimensions(f).length === 0;
 }
 
-/** The filter dimensions that currently narrow the results (sort excluded). */
+/**
+ * The filter dimensions set away from their default (sort excluded). All of them narrow
+ * the results except 'estimated', which adds races whose date is only estimated.
+ */
 export function activeDimensions(f: Filters): Dimension[] {
   const out: Dimension[] = [];
   if (f.q.trim()) out.push('q');
@@ -454,7 +462,8 @@ export function activeDimensions(f: Filters): Dimension[] {
   if (f.openOnly) out.push('entry');
   if (f.bike.length) out.push('bike');
   if (f.run.length) out.push('run');
-  if (!f.showEstimated) out.push('estimated');
+  // Estimated dates are off by default; turning them on is the non-default setting.
+  if (f.showEstimated) out.push('estimated');
   if (f.inMapArea) out.push('area');
   if (f.shortlistOnly) out.push('shortlist');
   return out;
@@ -479,7 +488,7 @@ export function clearDimension(f: Filters, dim: Dimension): Filters {
     case 'run':
       return { ...f, run: [] };
     case 'estimated':
-      return { ...f, showEstimated: true };
+      return { ...f, showEstimated: false };
     case 'area':
       return { ...f, inMapArea: false };
     case 'shortlist':
@@ -489,6 +498,21 @@ export function clearDimension(f: Filters, dim: Dimension): Filters {
 
 export function clearAll(f: Filters): Filters {
   return { ...DEFAULT_FILTERS, sort: f.sort };
+}
+
+/**
+ * Races left out only because their date in the searched period (or their next date)
+ * is not announced yet: they would match with estimated dates shown. 0 while estimated
+ * dates are shown. Estimates only ever add races, so this is a plain difference.
+ */
+export function hiddenByEstimates(races: readonly Race[], filters: Filters, ctx: FilterContext): number {
+  if (filters.showEstimated) return 0;
+  return filterRaces(races, { ...filters, showEstimated: true }, ctx).length - filterRaces(races, filters, ctx).length;
+}
+
+/** Whether a time range or a year in the search limits the results to a period. */
+export function searchesPeriod(filters: Filters): boolean {
+  return filters.time.kind !== 'any' || tokenize(filters.q).some(isYearToken);
 }
 
 export interface Relaxation {

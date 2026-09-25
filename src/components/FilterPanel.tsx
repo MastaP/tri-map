@@ -1,4 +1,4 @@
-import { CalendarCheck, Crosshair, Star, Ticket } from 'lucide-react';
+import { CalendarClock, Crosshair, Star, Ticket } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { BRAND_IDS, BRANDS, DISTANCE_IDS, DISTANCES } from '../data/brands.ts';
 import { TERRAINS } from '../data/constants.ts';
@@ -189,12 +189,12 @@ export function FilterPanel({
             Open entry only
           </ToggleChip>
           <ToggleChip
-            checked={!filters.showEstimated}
-            onChange={(v) => onChange((f) => ({ ...f, showEstimated: !v }))}
-            title="Hide races whose next date is only estimated from the last edition"
-            icon={<CalendarCheck className="size-3" />}
+            checked={filters.showEstimated}
+            onChange={(v) => onChange((f) => ({ ...f, showEstimated: v }))}
+            title="Also list races whose next date is not announced yet, estimated from the last edition"
+            icon={<CalendarClock className="size-3" />}
           >
-            Announced dates only
+            Estimated dates
           </ToggleChip>
           <ToggleChip
             checked={filters.inMapArea}

@@ -17,7 +17,7 @@ test.describe('entry type', () => {
 
     await openFilterPanel(page);
     await page.getByRole('switch', { name: /Open entry only/ }).click();
-    await expectResults(page, 14);
+    await expectResults(page, 13);
     await expect(card(page, 'ironman-kailua-kona-full')).toHaveCount(0);
     await expect(card(page, 'independent-norseman-full')).toHaveCount(0);
     await expect(page).toHaveURL(/open=1/);
@@ -25,7 +25,7 @@ test.describe('entry type', () => {
     await page.reload();
     // The panel stays open across reloads; closed, the filter shows as a removable chip.
     await expect(page.getByRole('switch', { name: /Open entry only/ })).toHaveAttribute('aria-checked', 'true');
-    await expectResults(page, 14);
+    await expectResults(page, 13);
     await page.getByRole('button', { name: /^Filters/ }).click();
     await expect(page.getByRole('button', { name: 'Open entry only: remove filter' })).toBeVisible();
   });
@@ -91,8 +91,8 @@ test.describe('course profile', () => {
   });
 
   test('races listed for a missing course profile show the edition inside the date range', async ({ page }) => {
-    // T100 Dubai: next edition Nov 2026, but the range asks for late 2027.
-    await openApp(page, '/?bike=flat&from=2027-10&to=2027-12');
+    // T100 Dubai: next edition Nov 2026, but the range asks for late 2027 (an estimate).
+    await openApp(page, '/?bike=flat&from=2027-10&to=2027-12&est=1');
     await page.getByRole('button', { name: 'Show them' }).click();
     const dubai = page.getByRole('list', { name: 'Races without a course profile' }).locator('li', {
       hasText: 'T100 Dubai',
@@ -103,7 +103,7 @@ test.describe('course profile', () => {
 
   test('a shared link restores the course filter', async ({ page }) => {
     await openApp(page, '/?bike=hilly,mountainous');
-    await expectResults(page, 4);
+    await expectResults(page, 5);
     await openFilterPanel(page);
     await expect(page.getByRole('button', { name: /^Bike course: Hilly/ })).toHaveAttribute('aria-pressed', 'true');
     await expect(page.getByRole('button', { name: /^Bike course: Flat/ })).toHaveAttribute('aria-pressed', 'false');
@@ -171,7 +171,7 @@ test.describe('nearest sort', () => {
       permissions: ['geolocation'],
     });
     const page = await context.newPage();
-    await openApp(page);
+    await openApp(page, '/?est=1');
     await expect(page.getByTestId('distance-away')).toHaveCount(0);
     await page.getByRole('button', { name: /^Nearest/ }).click();
     await expect(page.getByText('Distances from your location.')).toBeVisible();
@@ -231,7 +231,7 @@ test.describe('nearest sort', () => {
       });
     });
     await page.clock.install({ time: FIXED_NOW });
-    await page.goto('/');
+    await page.goto('/?est=1');
     await page.getByRole('button', { name: /^Nearest/ }).click();
     await page.clock.runFor(31_000); // the first request times out…
     await page.getByRole('button', { name: 'Try my location again' }).click();

@@ -44,9 +44,11 @@ import {
   clearDimension,
   facetCounts,
   filterRaces,
+  hiddenByEstimates,
   isListed,
   missingCourseRaces,
   monthHistogram,
+  searchesPeriod,
   shownEditions,
   sortRaces,
   suggestRelaxations,
@@ -95,8 +97,8 @@ function LiveCount({ count }: { count: number }) {
   );
 }
 
-function urlFor(filters: Filters, raceId: string | null, view: MapViewState | null): string {
-  const qs = serializeUrlState({ filters, raceId, view });
+function urlFor(filters: Filters, raceId: string | null, bounds: Bounds | null): string {
+  const qs = serializeUrlState({ filters, raceId, bounds });
   return `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
 }
 
@@ -138,7 +140,10 @@ export function App() {
   const [missingRace] = useState(() => !!initial.raceId && !raceById.has(initial.raceId));
   const [selectedId, setSelectedId] = useState<string | null>(() => (missingRace ? null : initial.raceId));
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [bounds, setBounds] = useState<Bounds | null>(null);
+  // A shared "in map area" link's box decides the results until the viewer moves the map:
+  // their screen shows at least that area, usually more (another size or shape).
+  const [bounds, setBounds] = useState<Bounds | null>(initial.bounds ?? null);
+  const sharedBox = useRef(initial.bounds ?? null);
   const [mapView, setMapView] = useState<MapViewState | null>(initial.view ?? null);
   const [mapFailed, setMapFailed] = useState(false);
   const geo = useGeolocation();
@@ -226,7 +231,11 @@ export function App() {
     () => races.filter((r) => isListed(r) && shortlist.has(r.id)).length,
     [races, shortlist],
   );
-  const starredHidden = filters.shortlistOnly ? Math.max(0, shortlistCount - results.length) : 0;
+  // Races left out only because their date is not announced yet (estimated dates off).
+  const estimatedHidden = useMemo(() => hiddenByEstimates(races, filters, ctx), [races, filters, ctx]);
+  // Starred races the other filters hide. Those that match everything but have no date
+  // announced yet (estimated dates off) are counted by the estimated-dates note instead.
+  const starredHidden = filters.shortlistOnly ? Math.max(0, shortlistCount - results.length - estimatedHidden) : 0;
   // "Half" alone hides the T100 (100 km) races, many of them former Challenge halves.
   const t100Alongside = useMemo(
     () =>
@@ -281,7 +290,11 @@ export function App() {
   const relax = useCallback((d: Dimension) => setFilters((f) => clearDimension(f, d)), []);
   const clearFilters = useCallback(() => setFilters((f) => clearAll(f)), []);
   const clearCourse = useCallback(() => setFilters((f) => ({ ...f, bike: [], run: [] })), []);
-  const showAllStarred = useCallback(() => setFilters((f) => ({ ...clearAll(f), shortlistOnly: true })), []);
+  const showAllStarred = useCallback(
+    () => setFilters((f) => ({ ...clearAll(f), shortlistOnly: true, showEstimated: f.showEstimated })),
+    [],
+  );
+  const showEstimated = useCallback(() => setFilters((f) => ({ ...f, showEstimated: true })), []);
   const includeT100 = useCallback(() => setFilters((f) => ({ ...f, distances: ['half', 't100'] })), []);
   const showMissingCourse = useCallback(() => {
     setMissingOpen(true);
@@ -301,9 +314,13 @@ export function App() {
     [geoStatus, requestLocation],
   );
 
-  const onViewChange = useCallback((b: Bounds, view: MapViewState) => {
-    setBounds(b);
+  const onViewChange = useCallback((b: Bounds, view: MapViewState, settling: boolean) => {
     setMapView(view);
+    // The first view of a shared "in map area" link fits its box; the box stays the
+    // filter (the viewport around it is larger) until the map moves on.
+    if (settling && sharedBox.current) return;
+    sharedBox.current = null;
+    setBounds(b);
   }, []);
   const onMapUnavailable = useCallback(() => {
     setMapFailed(true);
@@ -314,14 +331,14 @@ export function App() {
 
   const showToast = toast.show;
   const shareSearch = useCallback(async () => {
-    const url = new URL(urlFor(filters, null, mapView), window.location.href).toString();
+    const url = new URL(urlFor(filters, null, bounds), window.location.href).toString();
     showToast((await copyText(url)) ? 'Link to this search copied' : 'Could not copy the link');
-  }, [filters, mapView, showToast]);
+  }, [filters, bounds, showToast]);
 
   // ---- URL + history -------------------------------------------------------------
-  const urlView = filters.inMapArea ? mapView : null;
+  const urlBounds = filters.inMapArea ? bounds : null;
   useEffect(() => {
-    const url = urlFor(filters, selectedId, urlView);
+    const url = urlFor(filters, selectedId, urlBounds);
     if (url === currentUrl()) return;
     if (historyMode.current === 'push') {
       historyMode.current = 'replace';
@@ -330,7 +347,7 @@ export function App() {
     }
     const t = window.setTimeout(() => window.history.replaceState(window.history.state, '', url), 250);
     return () => window.clearTimeout(t);
-  }, [filters, selectedId, urlView]);
+  }, [filters, selectedId, urlBounds]);
 
   useEffect(() => {
     const onPop = () => {
@@ -354,9 +371,15 @@ export function App() {
       return;
     }
     const next = selectedRace.nextEdition;
-    const when = next ? (next.estimated ? `≈ ${formatMonthShort(next.date)}` : formatDate(next.date)) : null;
+    const when = !next
+      ? null
+      : !next.estimated
+        ? formatDate(next.date)
+        : filters.showEstimated
+          ? `≈ ${formatMonthShort(next.date)}`
+          : null;
     document.title = [selectedRace.name, when, 'TriMap'].filter(Boolean).join(' · ');
-  }, [selectedRace]);
+  }, [selectedRace, filters.showEstimated]);
 
   // Return focus to where the user was when the detail closes.
   const prevSelected = useRef(selectedId);
@@ -437,7 +460,7 @@ export function App() {
   }, [filters.sort, geo.position]);
   // A phone-sized map opens on the viewer's region (from the time zone) instead of a clipped world.
   const [homePoints] = useState<LngLat[] | null>(() => {
-    if (initial.filters.regions.length || initial.raceId) return null;
+    if (initial.filters.regions.length || initial.raceId || initial.bounds || initial.view) return null;
     const region = viewerRegion();
     const pts = region ? races.filter((r) => isListed(r) && r.region === region) : [];
     return pts.length >= 3 ? pts : null;
@@ -456,6 +479,9 @@ export function App() {
           onClearAll={clearFilters}
           noData={listedCount === 0}
           missingCourse={missingCourse.length}
+          estimatedHidden={estimatedHidden}
+          inPeriod={searchesPeriod(filters)}
+          onShowEstimated={showEstimated}
         />
       )}
       {(results.length > 0 || missingCourse.length > 0) && (
@@ -506,6 +532,9 @@ export function App() {
         onShowAllStarred={showAllStarred}
         t100Alongside={t100Alongside}
         onIncludeT100={includeT100}
+        estimatedHidden={results.length ? estimatedHidden : 0}
+        inPeriod={searchesPeriod(filters)}
+        onShowEstimated={showEstimated}
       />
     </>
   );
@@ -540,6 +569,7 @@ export function App() {
           fitKey={fitKey}
           focus={nearFocus}
           initialView={initial.view ?? null}
+          initialBounds={initial.bounds ?? null}
           homePoints={homePoints}
           bottomInset={mobileSheetInset}
           hideControls={!isDesktop && !!selectedRace}
@@ -568,13 +598,15 @@ export function App() {
         predecessors={predecessors}
         onSelect={selectRace}
         handle={handle}
+        showEstimated={filters.showEstimated}
+        onShowEstimated={showEstimated}
       />
     );
 
   const skipLink = (
     <a
       href="#results-title"
-      className="sr-only z-[70] rounded-lg bg-ink px-3 py-2 text-sm font-semibold text-on-ink focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+      className="sr-only z-[70] rounded-lg bg-ink px-3 py-2 text-sm font-semibold text-on-ink focus:not-sr-only focus:fixed focus:top-2 focus:left-2 pointer-coarse:py-3"
       onClick={(e) => {
         e.preventDefault();
         setMobileView('list');
@@ -738,7 +770,7 @@ export function App() {
             <button
               type="button"
               onClick={clearFilters}
-              className="h-9 rounded-full px-3 text-sm font-medium text-muted hover:bg-surface-2 hover:text-fg"
+              className="h-9 rounded-full px-3 text-sm font-medium text-muted hover:bg-surface-2 hover:text-fg pointer-coarse:h-11"
             >
               Clear all
             </button>

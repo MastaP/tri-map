@@ -118,7 +118,7 @@ test('a shared "in map area" search reopens the same map view and results', asyn
 });
 
 test('map markers show the edition that matches the search, and update in place', async ({ page }) => {
-  await openApp(page, '/?q=kona');
+  await openApp(page, '/?q=kona&est=1');
   await waitForMap(page);
   const pin = page.locator('.tm-marker[data-id="ironman-kailua-kona-full"] button');
   await expect(pin).toHaveAttribute('aria-label', /Sat 10 Oct 2026/);
@@ -133,7 +133,25 @@ test('an "in map area" link with an open race keeps the shared view', async ({ p
   await waitForMap(page);
   await expect(page.getByRole('heading', { level: 2, name: 'Challenge Almere-Amsterdam' })).toBeVisible();
   await page.waitForTimeout(1500); // any camera move would have happened by now
-  await expect(page).toHaveURL(/at=52\.37,5\.2,8/);
+  // The link now carries the area of that view (zoom 8 around Almere), not a flight to the race.
+  await expect(page).toHaveURL(/area=1&bbox=/);
+  const [west, south, east, north] = new URL(page.url()).searchParams.get('bbox')!.split(',').map(Number) as [
+    number,
+    number,
+    number,
+    number,
+  ];
+  expect(west < 5.2 && east > 5.2 && south < 52.37 && north > 52.37).toBe(true);
+  expect(east - west).toBeLessThan(8);
   await page.keyboard.press('Escape');
   await expectResults(page, 2);
+});
+
+test('the share page of a race whose next date is not announced does not state an estimate', async ({ request }) => {
+  const html = await (await request.get('/race/challenge-roth-full/')).text();
+  expect(html).toContain('<title>Challenge Roth · TriMap</title>');
+  expect(html).toContain('Next date not announced yet · last held Sun 5 Jul 2026');
+  expect(html).not.toContain('≈');
+  const celtman = await (await request.get('/race/independent-celtman-full/')).text();
+  expect(celtman).toContain('Non-standard full distance (3.4 / 202 / 41 km)');
 });

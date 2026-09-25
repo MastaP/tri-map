@@ -4,7 +4,7 @@
  * enforce them); cross-file and heuristic checks live in ./validate.ts.
  */
 import { z } from 'zod';
-import { BRAND_IDS, DISTANCE_IDS } from './brands.ts';
+import { BRAND_IDS, DISTANCE_IDS, DISTANCES } from './brands.ts';
 import { EDITION_STATUSES, ENTRY_TYPES, SWIM_TYPES, TERRAINS } from './constants.ts';
 import { isKnownCountry } from './regions.ts';
 
@@ -55,6 +55,18 @@ export const EditionSchema = z
 
 export type Edition = z.infer<typeof EditionSchema>;
 
+/** A near-standard race may differ from its category's standard by at most this much per leg. */
+export const MAX_LEG_DEVIATION = 0.25;
+
+/** Official swim/bike/run km, for races that are not raced over the standard distances. */
+export const CourseSchema = z.strictObject({
+  swim: z.number().positive(),
+  bike: z.number().positive(),
+  run: z.number().positive(),
+});
+
+export type Course = z.infer<typeof CourseSchema>;
+
 export const RaceSchema = z
   .strictObject({
     id: z.string().regex(ID_PATTERN, 'must be kebab-case ASCII (a-z, 0-9, "-")'),
@@ -75,6 +87,7 @@ export const RaceSchema = z
     swim: z.enum(SWIM_TYPES).optional(),
     bike: z.enum(TERRAINS).optional(),
     run: z.enum(TERRAINS).optional(),
+    course: CourseSchema.optional(),
     entry: z.enum(ENTRY_TYPES).optional(),
     recurring: z.boolean().optional(),
     continuedAs: z.string().regex(ID_PATTERN, 'must be the id of another race').optional(),
@@ -100,6 +113,19 @@ export const RaceSchema = z
           path: ['recurring'],
           message: 'cannot be true when continuedAs is set (the race is replaced, so it does not recur)',
         });
+      }
+    }
+    if (race.course !== undefined) {
+      const standard = DISTANCES[race.distance];
+      for (const leg of ['swim', 'bike', 'run'] as const) {
+        const deviation = Math.abs(race.course[leg] - standard[leg]) / standard[leg];
+        if (deviation > MAX_LEG_DEVIATION) {
+          ctx.addIssue({
+            code: 'custom',
+            path: ['course', leg],
+            message: `${race.course[leg]} km is more than ${MAX_LEG_DEVIATION * 100}% off the ${standard.long.toLowerCase()} ${leg} (${standard[leg]} km); the race is out of scope`,
+          });
+        }
       }
     }
     // The slug between brand and distance must not be empty.

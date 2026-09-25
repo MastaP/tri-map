@@ -32,7 +32,7 @@ export function MapUnavailable({ reason, onRetry, onShowList }: Props) {
               <button
                 type="button"
                 onClick={onShowList}
-                className="h-10 rounded-xl bg-ink px-4 text-sm font-semibold text-on-ink"
+                className="h-10 rounded-xl bg-ink px-4 text-sm font-semibold text-on-ink pointer-coarse:h-11"
               >
                 Show the list
               </button>
@@ -41,7 +41,7 @@ export function MapUnavailable({ reason, onRetry, onShowList }: Props) {
               <button
                 type="button"
                 onClick={onRetry}
-                className="h-10 rounded-xl border border-line-strong px-4 text-sm font-semibold hover:bg-surface-2"
+                className="h-10 rounded-xl border border-line-strong px-4 text-sm font-semibold hover:bg-surface-2 pointer-coarse:h-11"
               >
                 Try again
               </button>

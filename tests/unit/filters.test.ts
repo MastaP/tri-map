@@ -9,12 +9,14 @@ import {
   facetCounts,
   filterRaces,
   groupByMonth,
+  hiddenByEstimates,
   isListed,
   missingCourseCount,
   missingCourseRaces,
   monthHistogram,
   racesInBuckets,
   resolveTimeRange,
+  searchesPeriod,
   shownEditions,
   sortRaces,
   suggestRelaxations,
@@ -29,11 +31,19 @@ const races = fixtureRaces();
 const listed = races.filter(isListed);
 const ctx: FilterContext = { today: TODAY, bounds: null, shortlist: new Set() };
 const f = (over: Partial<Filters>): Filters => ({ ...DEFAULT_FILTERS, ...over });
+/** With estimated dates shown (they are off by default). */
+const est = (over: Partial<Filters>): Filters => f({ showEstimated: true, ...over });
 const ids = (list: { id: string }[]) => list.map((r) => r.id).sort();
 
 describe('filterRaces', () => {
-  it('returns everything with default filters', () => {
-    expect(filterRaces(races, DEFAULT_FILTERS, ctx)).toHaveLength(16);
+  it('returns every race with an announced next date by default', () => {
+    expect(DEFAULT_FILTERS.showEstimated).toBe(false);
+    const out = filterRaces(races, DEFAULT_FILTERS, ctx);
+    expect(out).toHaveLength(16);
+    // Challenge Roth's next date is only estimated: it needs "Estimated dates".
+    expect(ids(out)).not.toContain('challenge-roth-full');
+    expect(out.every((r) => r.nextEdition && !r.nextEdition.estimated)).toBe(true);
+    expect(filterRaces(races, est({}), ctx)).toHaveLength(17);
   });
 
   it('matches the start of words and knows common country names', () => {
@@ -54,7 +64,7 @@ describe('filterRaces', () => {
   it('searches name, city, country and series, accent- and case-insensitively', () => {
     expect(ids(filterRaces(races, f({ q: 'FLORIANOPOLIS' }), ctx))).toEqual(['ironman-florianopolis-full']);
     expect(ids(filterRaces(races, f({ q: 'wanaka' }), ctx))).toEqual(['t100-wanaka-t100']); // city is "Wānaka"
-    expect(ids(filterRaces(races, f({ q: 'germany' }), ctx))).toEqual([
+    expect(ids(filterRaces(races, est({ q: 'germany' }), ctx))).toEqual([
       'challenge-roth-full',
       'ironman-frankfurt-full',
     ]);
@@ -69,13 +79,13 @@ describe('filterRaces', () => {
 
   it('never lists races without a next edition (replaced or one-off races), whatever the filters', () => {
     const hidden = ['challenge-wanaka-half', 'ironman-nice-world-championship-half'];
-    expect(races).toHaveLength(18);
+    expect(races).toHaveLength(19);
     expect(races.filter((r) => !isListed(r)).map((r) => r.id)).toEqual(expect.arrayContaining(hidden));
     for (const filters of [
       DEFAULT_FILTERS,
       f({ q: '70.3 world championship' }),
       f({ time: { kind: 'range', from: '2026-01', to: '2027-12' } }),
-      f({ showEstimated: false }),
+      f({ showEstimated: true }),
     ]) {
       const out = ids(filterRaces(races, filters, ctx));
       for (const id of hidden) expect(out).not.toContain(id);
@@ -112,7 +122,7 @@ describe('filterRaces', () => {
 
   it('matches any upcoming edition in the range, not only the next one', () => {
     // Kona's next edition is Oct 2026; its Oct 2027 edition (estimated) is in a 2027 search.
-    const late2027 = f({ time: { kind: 'range', from: '2027-10', to: '2027-12' } });
+    const late2027 = est({ time: { kind: 'range', from: '2027-10', to: '2027-12' } });
     const out = filterRaces(races, late2027, ctx);
     expect(ids(out)).toEqual([
       'ironman-bahrain-half',
@@ -131,9 +141,7 @@ describe('filterRaces', () => {
     });
     expect(shownEditions(out, DEFAULT_FILTERS, TODAY).get('ironman-kailua-kona-full')?.date).toBe('2026-10-10');
     // Every race has a 2027 edition (known or estimated).
-    expect(filterRaces(races, f({ time: { kind: 'preset', preset: 'next-year' } }), ctx)).toHaveLength(16);
-    // Announced dates only: estimated editions do not count.
-    expect(ids(filterRaces(races, f({ ...late2027, showEstimated: false }), ctx))).toEqual(['ironman-bahrain-half']);
+    expect(filterRaces(races, est({ time: { kind: 'preset', preset: 'next-year' } }), ctx)).toHaveLength(17);
     // Sorting and month groups follow the shown edition.
     const sorted = sortRaces(out, 'date', null, shown);
     expect(sorted.map((r) => r.id)).toEqual([
@@ -147,23 +155,60 @@ describe('filterRaces', () => {
   });
 
   it('treats a year in the search as "has an edition that year"', () => {
-    expect(ids(filterRaces(races, f({ q: 'kona 2027' }), ctx))).toEqual(['ironman-kailua-kona-full']);
-    expect(ids(filterRaces(races, f({ q: 'roth 2027' }), ctx))).toEqual(['challenge-roth-full']);
-    expect(filterRaces(races, f({ q: 'roth 2026' }), ctx)).toHaveLength(0);
-    expect(filterRaces(races, f({ q: '2026' }), ctx)).toHaveLength(5);
-    const shown = shownEditions(races, f({ q: 'kona 2027' }), TODAY);
+    expect(ids(filterRaces(races, est({ q: 'kona 2027' }), ctx))).toEqual(['ironman-kailua-kona-full']);
+    expect(ids(filterRaces(races, est({ q: 'roth 2027' }), ctx))).toEqual(['challenge-roth-full']);
+    expect(filterRaces(races, est({ q: 'roth 2026' }), ctx)).toHaveLength(0);
+    expect(filterRaces(races, est({ q: '2026' }), ctx)).toHaveLength(5);
+    const shown = shownEditions(races, est({ q: 'kona 2027' }), TODAY);
     expect(shown.get('ironman-kailua-kona-full')?.date).toBe('2027-10-09');
   });
 
-  it('hides estimated dates when the toggle is off', () => {
-    const out = filterRaces(races, f({ showEstimated: false }), ctx);
-    expect(out).toHaveLength(15);
-    expect(out.some((r) => r.id === 'challenge-roth-full')).toBe(false);
+  it('only counts announced editions for a season-planning search while estimated dates are off', () => {
+    // Kona 2027, Cascais 2027, Dubai 2027 and Cozumel 2027 are projections: only Bahrain
+    // has an announced date in late 2027.
+    const late2027 = f({ time: { kind: 'range', from: '2027-10', to: '2027-12' } });
+    expect(ids(filterRaces(races, late2027, ctx))).toEqual(['ironman-bahrain-half']);
+    expect(hiddenByEstimates(races, late2027, ctx)).toBe(4);
+    // Next year: the eleven races with an announced 2027 date, not all seventeen.
+    const nextYear = f({ time: { kind: 'preset', preset: 'next-year' } });
+    expect(filterRaces(races, nextYear, ctx)).toHaveLength(11);
+    expect(hiddenByEstimates(races, nextYear, ctx)).toBe(6);
+    // A year in the search works the same way.
+    expect(filterRaces(races, f({ q: 'kona 2027' }), ctx)).toHaveLength(0);
+    expect(hiddenByEstimates(races, f({ q: 'kona 2027' }), ctx)).toBe(1);
+    expect(shownEditions(races, f({ q: 'kona 2027' }), TODAY).has('ironman-kailua-kona-full')).toBe(false);
+    // No estimated edition is ever shown: not in a range, not as a next edition.
+    for (const filters of [DEFAULT_FILTERS, late2027, nextYear, f({ q: '2027' })]) {
+      const shown = shownEditions(filterRaces(races, filters, ctx), filters, TODAY);
+      expect([...shown.values()].some((e) => e.estimated)).toBe(false);
+    }
+  });
+
+  it('shows races whose next date is only estimated once estimated dates are on', () => {
+    const off = filterRaces(races, DEFAULT_FILTERS, ctx);
+    expect(off.some((r) => r.id === 'challenge-roth-full')).toBe(false);
+    const on = filterRaces(races, est({}), ctx);
+    expect(on.some((r) => r.id === 'challenge-roth-full')).toBe(true);
+    expect(hiddenByEstimates(races, DEFAULT_FILTERS, ctx)).toBe(1);
+    expect(hiddenByEstimates(races, est({}), ctx)).toBe(0);
+    // Other filters still apply: no estimated-only race in Asia.
+    expect(hiddenByEstimates(races, f({ regions: ['asia'] }), ctx)).toBe(0);
+  });
+
+  it('knows when a search is limited to a period', () => {
+    expect(searchesPeriod(DEFAULT_FILTERS)).toBe(false);
+    expect(searchesPeriod(f({ q: 'roth' }))).toBe(false);
+    expect(searchesPeriod(f({ q: 'roth 2027' }))).toBe(true);
+    expect(searchesPeriod(f({ time: { kind: 'preset', preset: '6m' } }))).toBe(true);
   });
 
   it('restricts to the shortlist and the map viewport', () => {
     const shortlist = new Set(['challenge-roth-full', 'ironman-cozumel-full']);
-    expect(ids(filterRaces(races, f({ shortlistOnly: true }), { ...ctx, shortlist }))).toEqual([...shortlist].sort());
+    expect(ids(filterRaces(races, est({ shortlistOnly: true }), { ...ctx, shortlist }))).toEqual([...shortlist].sort());
+    // A starred race whose date is not announced yet waits for "Estimated dates".
+    expect(ids(filterRaces(races, f({ shortlistOnly: true }), { ...ctx, shortlist }))).toEqual([
+      'ironman-cozumel-full',
+    ]);
     const europe = [-12, 34, 32, 72] as const;
     expect(filterRaces(races, f({ inMapArea: true }), { ...ctx, bounds: europe })).toHaveLength(8);
     // No viewport yet → the area filter is a no-op.
@@ -178,7 +223,7 @@ describe('filterRaces', () => {
 
   it('keeps only open-entry races when asked (no qualifier-only or ballot races)', () => {
     const out = filterRaces(races, f({ openOnly: true }), ctx);
-    expect(out).toHaveLength(14);
+    expect(out).toHaveLength(13);
     expect(out.every((r) => r.entry === 'open')).toBe(true);
     expect(ids(filterRaces(races, f({ openOnly: false }), ctx))).toEqual(
       expect.arrayContaining(['ironman-kailua-kona-full', 'independent-norseman-full']),
@@ -192,6 +237,7 @@ describe('filterRaces', () => {
       'ironman-cozumel-full',
     ]);
     expect(ids(filterRaces(races, f({ bike: ['hilly', 'mountainous'] }), ctx))).toEqual([
+      'independent-celtman-full',
       'independent-embrunman-full',
       'independent-norseman-full',
       'ironman-south-africa-full',
@@ -206,7 +252,10 @@ describe('filterRaces', () => {
       'ironman-kailua-kona-full',
       't100-wanaka-t100',
     ]);
-    expect(ids(filterRaces(races, f({ run: ['mountainous'] }), ctx))).toEqual(['independent-norseman-full']);
+    expect(ids(filterRaces(races, f({ run: ['mountainous'] }), ctx))).toEqual([
+      'independent-celtman-full',
+      'independent-norseman-full',
+    ]);
   });
 
   it('can skip dimensions', () => {
@@ -246,12 +295,12 @@ describe('resolveTimeRange / describeTime', () => {
 
 describe('monthHistogram', () => {
   it('spans from the current month to the last month with data, at least to December next year', () => {
-    const h = monthHistogram(races, DEFAULT_FILTERS, ctx);
+    const h = monthHistogram(races, est({}), ctx);
     expect(h[0]!.key).toBe('2026-09');
     expect(h.at(-1)!.key).toBe('2027-12'); // Bahrain 2027-12-04
-    // 16 races; 5 of them are also counted a second time, in the month of their
+    // 17 races; 5 of them are also counted a second time, in the month of their
     // (estimated) 2027 edition.
-    expect(h.reduce((a, b) => a + b.count + b.estimated, 0)).toBe(21);
+    expect(h.reduce((a, b) => a + b.count + b.estimated, 0)).toBe(22);
     expect(h.find((b) => b.key === '2027-07')).toMatchObject({ key: '2027-07', count: 1, estimated: 1 }); // Norseman + Roth (est.)
     expect(h.find((b) => b.key === '2027-10')).toMatchObject({
       count: 0,
@@ -260,20 +309,30 @@ describe('monthHistogram', () => {
     });
   });
 
+  it('counts no estimated edition while estimated dates are off', () => {
+    const h = monthHistogram(races, DEFAULT_FILTERS, ctx);
+    // Same axis (it does not jump when the setting changes)…
+    expect(h.map((b) => b.key)).toEqual(monthHistogram(races, est({}), ctx).map((b) => b.key));
+    // …but only the 16 races with an announced date, once each.
+    expect(h.every((b) => b.estimated === 0 && b.estimatedIds.length === 0)).toBe(true);
+    expect(h.reduce((a, b) => a + b.count, 0)).toBe(16);
+    expect(h.find((b) => b.key === '2027-07')).toMatchObject({ count: 1, estimated: 0 }); // Norseman, not Roth
+  });
+
   it('counts with every filter except time', () => {
-    const h = monthHistogram(
-      races,
-      f({ brands: ['ironman'], time: { kind: 'range', from: '2026-10', to: '2026-10' } }),
-      ctx,
-    );
+    const filters = { brands: ['ironman'], time: { kind: 'range', from: '2026-10', to: '2026-10' } } as const;
+    const h = monthHistogram(races, est({ ...filters, brands: [...filters.brands] }), ctx);
     expect(h.reduce((a, b) => a + b.count + b.estimated, 0)).toBe(11);
+    // Without estimates: the 8 IRONMAN races, each in the month of its announced date.
+    const off = monthHistogram(races, f({ ...filters, brands: [...filters.brands] }), ctx);
+    expect(off.reduce((a, b) => a + b.count + b.estimated, 0)).toBe(8);
   });
 
   it('counts a race once across a multi-month selection', () => {
-    const h = monthHistogram(races, DEFAULT_FILTERS, ctx);
+    const h = monthHistogram(races, est({}), ctx);
     const all = racesInBuckets(h, 0, h.length - 1, true);
-    expect(all).toBe(16);
-    expect(racesInBuckets(h, 0, h.length - 1, false)).toBe(15); // Roth only has an estimate
+    expect(all).toBe(17);
+    expect(racesInBuckets(h, 0, h.length - 1, false)).toBe(16); // Roth only has an estimate
   });
 
   it('reaches December of next year even without data', () => {
@@ -317,7 +376,9 @@ describe('clampTimeToToday', () => {
 describe('facetCounts', () => {
   it('counts each option ignoring its own dimension', () => {
     const c = facetCounts(races, f({ brands: ['ironman'], regions: ['europe'] }), ctx);
-    expect(c.brand).toEqual({ ironman: 2, challenge: 3, t100: 1, independent: 2 });
+    // Challenge Roth's next date is not announced (estimated dates are off).
+    expect(c.brand).toEqual({ ironman: 2, challenge: 2, t100: 1, independent: 3 });
+    expect(facetCounts(races, est({ brands: ['ironman'], regions: ['europe'] }), ctx).brand.challenge).toBe(3);
     expect(c.region.europe).toBe(2);
     expect(c.region['latin-america']).toBe(2);
     expect(c.distance).toEqual({ full: 1, half: 1, t100: 0 });
@@ -325,8 +386,8 @@ describe('facetCounts', () => {
 
   it('counts course profiles (races without the profile are not counted)', () => {
     const c = facetCounts(races, DEFAULT_FILTERS, ctx);
-    expect(c.bike).toEqual({ flat: 3, rolling: 6, hilly: 2, mountainous: 2 });
-    expect(c.run).toEqual({ flat: 9, rolling: 2, hilly: 1, mountainous: 1 });
+    expect(c.bike).toEqual({ flat: 3, rolling: 5, hilly: 3, mountainous: 2 });
+    expect(c.run).toEqual({ flat: 8, rolling: 2, hilly: 1, mountainous: 2 });
     // The bike counts ignore the bike filter but respect the run filter.
     const withRun = facetCounts(races, f({ bike: ['flat'], run: ['rolling'] }), ctx);
     expect(withRun.bike).toEqual({ flat: 0, rolling: 2, hilly: 0, mountainous: 0 });
@@ -374,7 +435,7 @@ describe('sorting and grouping', () => {
     expect(byDate.at(-1)!.id).toBe('ironman-bahrain-half');
     const almere = byDate.filter((r) => r.city === 'Almere').map((r) => r.distance);
     expect(almere).toEqual(['full', 'half']);
-    expect(sortRaces(listed, 'name')[0]!.name).toBe('Challenge Almere-Amsterdam');
+    expect(sortRaces(listed, 'name')[0]!.name).toBe('Celtman Extreme Scottish Triathlon');
     // Races without a next date (only reachable by link) sort last.
     expect(
       sortRaces(races, 'date')
@@ -405,7 +466,7 @@ describe('sorting and grouping', () => {
     const groups = groupByMonth(sortRaces(listed, 'date'));
     expect(groups[0]).toMatchObject({ key: '2026-09' });
     expect(groups.map((g) => g.key)).toEqual([...new Set(groups.map((g) => g.key))]);
-    expect(groups.reduce((a, g) => a + g.races.length, 0)).toBe(16);
+    expect(groups.reduce((a, g) => a + g.races.length, 0)).toBe(17);
   });
 });
 
@@ -414,11 +475,14 @@ describe('helpers', () => {
     const filters = f({
       q: 'x',
       brands: ['t100'],
-      showEstimated: false,
+      showEstimated: true,
       time: { kind: 'preset', preset: '3m' },
       sort: 'name',
     });
+    // Estimated dates are off by default: showing them is the setting that counts.
     expect(activeDimensions(filters)).toEqual(['q', 'brand', 'time', 'estimated']);
+    expect(activeDimensions(f({ showEstimated: false }))).toEqual([]);
+    expect(clearDimension(filters, 'estimated').showEstimated).toBe(false);
     expect(clearAll(filters)).toEqual({ ...DEFAULT_FILTERS, sort: 'name' });
     expect(activeDimensions(f({ distances: ['full', 'half', 't100'] }))).toEqual([]);
 
@@ -434,9 +498,15 @@ describe('helpers', () => {
     const filters = f({ openOnly: true, run: ['mountainous'] });
     expect(filterRaces(races, filters, ctx)).toHaveLength(0);
     expect(suggestRelaxations(races, filters, ctx)).toEqual([
-      { dimension: 'run', count: 14 },
-      { dimension: 'entry', count: 1 },
+      { dimension: 'run', count: 13 },
+      { dimension: 'entry', count: 2 },
     ]);
+  });
+
+  it('never suggests hiding estimated dates (it only ever removes races)', () => {
+    const filters = est({ q: 'roth', regions: ['asia'] });
+    expect(filterRaces(races, filters, ctx)).toHaveLength(0);
+    expect(suggestRelaxations(races, filters, ctx).map((r) => r.dimension)).toEqual(['q', 'region']);
   });
 
   it('suggests which filter to relax, best first', () => {

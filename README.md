@@ -24,7 +24,8 @@ regenerates every image in `docs/screenshots` from the small fixture set in
   _and_ monogram, so it stays readable for colour-blind users and in greyscale
   (IRONMAN: red circle "IM", Challenge: blue rounded square "C", T100: teal hexagon
   "T", Independent: amber diamond with a spark). Full-distance races get an outer ring,
-  races whose date is only estimated are drawn hollow with a dashed outline,
+  races whose date is only estimated (when estimated dates are on) are drawn hollow with
+  a dashed outline,
   qualifier-only and ballot races carry a small lock / ticket pip, a few races close
   together fan out their own glyphs and bigger clusters are donuts showing the brand
   mix. A FULL / HALF / T100 tag, like the card badge, appears when you zoom in.
@@ -37,8 +38,10 @@ regenerates every image in `docs/screenshots` from the small fixture set in
   map legend share one state), region, and a **month histogram** you can click or drag
   across, with presets (3, 6 and 12 months, rest of this year, next year).
 - **Planning next season works.** A date range matches a race when any upcoming
-  edition falls in it, known or estimated, so "late 2027" also finds races whose next
-  edition is in late 2026; the card shows the 2027 date with "(next: Dec 2026)".
+  edition with an announced date falls in it, so "2027" also finds races whose next
+  edition is in late 2026; the card shows the 2027 date with "(next: Dec 2026)". With
+  **Estimated dates** on, projected editions count too, and the list says how many
+  races usually held in that period have no date announced yet.
 - **Can I just sign up?** Races that need a qualifying slot carry a "Qualifier only"
   badge, lottery/application races a "Ballot" badge (on cards, in the detail and in the
   map tooltip). **Open entry only** hides both.
@@ -60,17 +63,25 @@ regenerates every image in `docs/screenshots` from the small fixture set in
 - **Age-grouper emphasis.** A championship title is prominent only when you have to
   qualify for it; regional titles and pro tour finals held alongside an open race are a
   quiet secondary tag. T100 races read "T100 · 100 km"; cards name what you enter
-  ("T100", "T100 Challenger") and the detail names the pro tour.
-- **Estimated dates.** When the next edition is not announced yet, TriMap estimates it
-  from the last one (same month, weekday and week of the month) and labels it
-  "≈ Jul 2027 · date TBA". **Announced dates only** hides those.
+  ("T100", "T100 Challenger") and the detail names the series.
+- **Only announced dates by default.** Every date shown by default comes from an
+  official source. A race whose next date is not announced yet is left out of the
+  list, map and counts (the list says how many), and its page says "Next date not
+  announced yet · last held …". Turn on **Estimated dates** (`?est=1`) to see an
+  estimate from the last edition (same month, weekday and week of the month), labelled
+  "≈ Jul 2027 · date TBA".
+- **Near-standard distances.** A race held over official distances more than 5% off
+  its category's standard on some leg (Celtman: 3.4 / 202 / 41 km) shows those numbers
+  and a "Non-standard distance" tag on the card, in the detail and in the map tooltip.
+  The distance filter still works by category.
 - **Only in map area**, a **shortlist** (stars, stored in your browser; shortlisted
   cards spell out swim, bike and run for comparing), sort by date or name, sticky month
   headers, and an empty state that tells you which filter to relax.
 - **Shareable URLs.** Every filter, the sort and the open race live in the query string
   (`?dist=full&region=europe&when=6m&open=1&bike=flat,rolling&sort=near&race=challenge-roth-full`),
-  including the map view of an "In map area" search. A race's "Copy link" points at a
-  small page per race whose preview names the race in chat apps.
+  including the map area of an "In map area" search (`bbox=west,south,east,north`), so
+  a link made on a desktop shows the same races on a phone. A race's "Copy link" points
+  at a small page per race whose preview names the race in chat apps.
 - **Race detail** with swim/bike/run distances, swim type and bike/run profiles, how to
   enter, championship, countdown, all known editions, venue, notes, sources, **Add to
   calendar** (.ics, all-day), copy link, and a "Report a correction" link that
@@ -79,7 +90,7 @@ regenerates every image in `docs/screenshots` from the small fixture set in
   the list, filters and race details keep working.
 - Light/dark/system theme (the basemap follows), keyboard navigation with a skip link,
   visible focus, `prefers-reduced-motion`, WCAG AA contrast (checked with axe in the
-  e2e suite), 44px touch targets on phones.
+  e2e suite), 44px touch targets on touch screens (phones and tablets).
 
 ## Quick start
 
@@ -88,7 +99,7 @@ Requires Node 22+.
 ```bash
 npm ci
 npm run dev             # http://localhost:5173 with the real data in data/races
-npm run dev:fixtures    # same, with the 18-race fixture set (tests/fixtures/races)
+npm run dev:fixtures    # same, with the 19-race fixture set (tests/fixtures/races)
 ```
 
 ## Scripts
@@ -163,6 +174,11 @@ validator reports an unknown code.
 2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
 3. Push to `main`. `.github/workflows/deploy.yml` runs `npm ci`, `validate:data`,
    `typecheck`, `test`, `build`, and deploys `dist/` with `actions/deploy-pages`.
+
+The workflow also runs every Monday at 05:00 UTC. The per-race share pages
+(`race/<id>/`) and their "next date" text are written at build time, so the weekly
+rebuild keeps them current between pushes. GitHub pauses scheduled workflows in a
+repository with no activity for 60 days; re-enable it under **Actions** if that happens.
 
 The build uses `base: './'`, so it works under any Pages sub-path
 (`https://<user>.github.io/<repo>/`). The GitHub link in the header and the "Report a

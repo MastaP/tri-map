@@ -11,7 +11,12 @@ race (can I enter, when, where, how hilly) and keeps pro-only concepts in the ba
 
 Scope for v1: full distance (3.8/180/42.2), half distance (1.9/90/21.1) and T100
 (2/80/18) races from IRONMAN / IRONMAN 70.3, Challenge Family, the T100 Triathlon World
-Tour, and notable independent races. Data contract: `data/README.md`.
+Tour, and notable independent races. Near-standard races (a leg more than 5% but at
+most 25% off the standard) are included with their official `course` km. Data
+contract: `data/README.md`.
+
+**Dates by default are official.** Every date shown by default comes from an official
+source; estimated (projected) editions only appear with "Estimated dates" on.
 
 Hosting: GitHub Pages, fully static, no backend, no API keys.
 
@@ -54,10 +59,17 @@ Hosting: GitHub Pages, fully static, no backend, no API keys.
   and week of the month (the 1st Sunday of March 2026 → the 1st Sunday of March 2027),
   year by year until it is ≥ today, flagged `estimated: true`. (52-week steps would
   drift a race held on the 1st into the previous month.) `upcoming` lists every edition
-  still to come: the known ones, then such yearly estimates up to the end of next year. The UI shows estimated dates distinctly
-  ("≈ Jun 2027 · date TBA") and they can be toggled off. No estimate (next edition
-  `null`) for races marked `recurring: false` or `continuedAs`, or whose editions are
-  all cancelled.
+  still to come: the known ones, then such yearly estimates up to the end of next year.
+  Estimates are hidden by default (see "Estimated dates" below); when shown, the UI
+  marks them distinctly ("≈ Jun 2027 · date TBA"). No estimate (next edition `null`)
+  for races marked `recurring: false` or `continuedAs`, or whose editions are all
+  cancelled.
+- **Near-standard courses** (`src/data/course.ts`, pure, unit-tested): `isNearStandard`
+  is true when a race has `course` and any leg is more than 5% off its category's
+  standard. Wherever swim / bike / run km appear (detail, badge tooltips, map tooltip,
+  share pages, .ics) the official `course` km are shown instead of the standard ones,
+  and a near-standard race carries a "Non-standard distance" tag (cards, detail, map
+  tooltip) whose tooltip lists the real km. Filters still use the category.
 - **Listed races**: only races with a next edition appear in results, counts, the
   histogram and the map. The others (replaced, one-off, all cancelled) still open from
   a `?race=` link.
@@ -83,6 +95,12 @@ touch targets are 44px on coarse pointers. The map loads on demand on phones (fi
 its code fails to load or the browser has no WebGL 2, the list, filters and details
 keep working and the map area says so.
 
+Touch targets: on coarse pointers (phones and tablets) every control is at least
+44 × 44 px (links in running text become 44px tall too); with a mouse the compact
+sizes stay. The one exception is the month histogram, a range-slider-like control whose
+16+ month columns cannot each be 44px wide on a phone; the date presets and the range
+chip are the 44px alternative.
+
 Header: product name "TriMap", tagline, theme toggle (system/light/dark), link to the
 GitHub repo, data freshness ("Race data checked Sep 2026").
 
@@ -101,19 +119,24 @@ GitHub repo, data freshness ("Race data checked Sep 2026").
   matching the *other* filters; click or drag to select a month range (the selection
   stays in the heading, hovering shows a tooltip). Preset chips: Next 3 / 6 / 12 months,
   rest of this year, next year (none pressed = any time). A race matches a range when
-  **any** upcoming edition, known or estimated, falls in it, and it is then listed and
-  shown with that edition ("≈ Oct 2027 (next: Oct 2026)"), so planning next season
-  finds races whose next edition is still this year. A range from an old link that has
-  passed is dropped with a notice. A 4-digit year in the search ("roth 2027") works the
-  same way.
+  **any** upcoming edition with an announced date (or, with estimated dates on, an
+  estimated one) falls in it, and it is then listed and shown with that edition
+  (with estimated dates on, "≈ Oct 2027 (next: Oct 2026)"), so planning next season
+  finds races whose next edition is still this year. A range from an old link that has passed is dropped with
+  a notice. A 4-digit year in the search ("roth 2027") works the same way.
 - **Course**: bike and run profile (Flat, Rolling, Hilly, Mountainous, drawn as small
   elevation silhouettes) as a 2 × 4 matrix of toggles, OR within a discipline, AND
   between them. Selecting every profile still means "has course info". While active,
   races without that profile are excluded; the UI says how many were hidden and can
   list them in a "Course not listed yet" group.
 - **Open entry only** toggle: hides `qualification` and `ballot` races.
-- **Announced dates only** toggle (default off): hides estimated editions. Every
-  on/off switch is off by default and narrows the results when on.
+- **Estimated dates** toggle (default **off**): shows estimated editions too. With it
+  off, no estimated edition appears anywhere: list, map, histogram, counts, the
+  detail's next race ("Next date not announced yet · last held <date>" with a "Show
+  estimated dates" button) or the per-race share pages. When that leaves races out,
+  the results note (or the empty state) says so: "12 more races usually held in this
+  period have no date announced yet · Show estimated dates". Every on/off switch is off
+  by default; this is the one that adds races when on.
 - **Only in map area** toggle: restrict results to the current map viewport.
 - **Shortlist**: star races (localStorage); a "Shortlist only" toggle. While it is on,
   cards spell out swim, bike and run to compare, and starred races hidden by other
@@ -188,9 +211,12 @@ properly in chat apps; it forwards to `?race=<id>`.
 
 ### URL
 
-`?q=&dist=&brand=&region=&when=3m|6m|12m|year|next-year|from=&to=&open=1&bike=&run=&est=0&area=1&at=lat,lng,zoom&star=1&sort=name|near&race=`.
-Defaults are omitted; unknown values are ignored. `at` is written only with `area=1`, so
-a shared "In map area" search shows the same races.
+`?q=&dist=&brand=&region=&when=3m|6m|12m|year|next-year|from=&to=&open=1&bike=&run=&est=1&area=1&bbox=west,south,east,north&star=1&sort=name|near&race=`.
+Defaults are omitted; unknown values are ignored. `est=1` shows estimated dates (the
+old `est=0` is read as the default, off). `bbox` is written only with `area=1`: the
+recipient's map fits that box and the list keeps to it until they move the map, so a
+link made on a desktop shows the same races on a phone. Older links with the map
+centre and zoom (`at=lat,lng,zoom`) are still read.
 
 ### Quality bar
 
@@ -213,7 +239,8 @@ a shared "In map area" search shows the same races.
 ## Delivery
 
 - `README.md`: what it is, how to run, how to update data, how to deploy.
-- `.github/workflows/deploy.yml`: on push to `main` → `npm ci`, `validate:data`,
-  `test`, `build`, deploy with `actions/deploy-pages`.
+- `.github/workflows/deploy.yml`: on push to `main`, and weekly (Monday 05:00 UTC) so
+  the per-race share pages and their "next date" text do not go stale → `npm ci`,
+  `validate:data`, `test`, `build`, deploy with `actions/deploy-pages`.
 - Scripts: `dev`, `build`, `preview`, `test`, `test:e2e`, `validate:data`, `typecheck`,
   `lint` (if eslint is set up).

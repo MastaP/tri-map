@@ -46,7 +46,7 @@ export function Legend({ brandFilter, counts, onToggle, open, onOpenChange, clas
         type="button"
         onClick={() => onOpenChange(!open)}
         aria-expanded={open}
-        className="flex h-9 w-full items-center gap-2 px-3 font-display text-[12px] font-bold tracking-[0.12em] text-muted uppercase hover:text-fg"
+        className="flex h-9 w-full items-center gap-2 px-3 font-display text-[12px] font-bold tracking-[0.12em] text-muted uppercase hover:text-fg pointer-coarse:h-11"
       >
         {!open && (
           <span className="-ml-1 flex -space-x-1.5" aria-hidden="true">
@@ -71,7 +71,7 @@ export function Legend({ brandFilter, counts, onToggle, open, onOpenChange, clas
                   onClick={() => onToggle(b)}
                   title={`${BRANDS[b].description}: click to ${brandFilter.includes(b) ? 'remove from' : 'filter by'} brand`}
                   className={cn(
-                    'flex w-full items-center gap-2 rounded-lg px-1.5 py-1 text-left transition-colors hover:bg-surface-2',
+                    'flex w-full items-center gap-2 rounded-lg px-1.5 py-1 text-left transition-colors hover:bg-surface-2 pointer-coarse:min-h-11',
                     !active && 'text-faint',
                   )}
                 >

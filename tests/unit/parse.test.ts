@@ -7,7 +7,7 @@ describe('parseRaceFiles', () => {
   const byId = (id: string) => races.find((r) => r.id === id)!;
 
   it('loads every fixture race', () => {
-    expect(races).toHaveLength(18);
+    expect(races).toHaveLength(19);
     expect(new Set(races.map((r) => r.brand))).toEqual(new Set(['ironman', 'challenge', 't100', 'independent']));
     expect(new Set(races.map((r) => r.region)).size).toBe(7);
   });

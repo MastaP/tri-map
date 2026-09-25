@@ -20,7 +20,14 @@
       }
     ],
     "swim": "ocean",
-    "notes": "2/90/21.1 km; flagship of the Mount Festival of Multisport; formerly Port of Tauranga Half",
+    "bike": "flat",
+    "run": "flat",
+    "course": {
+      "swim": 2,
+      "bike": 90,
+      "run": 21.1
+    },
+    "notes": "Flagship of the Mount Festival of Multisport; fast, flat course at Mount Maunganui; formerly Port of Tauranga Half",
     "sources": [
       "https://mountfestival.kiwi/events/tauranga-half/",
       "https://www.nzherald.co.nz/bay-of-plenty-times/news/full-results-from-tauranga-half-and-mount-festival-of-multisport/C5LO2PNZVRHJTI7TRUB24TAEIE/"
@@ -106,7 +113,12 @@
     "swim": "lake",
     "bike": "mountainous",
     "run": "mountainous",
-    "notes": "Short of full: 3.5 km night swim in Phewa Lake, 165 km bike, 43 km off-road run to 4,000 m (Xtri lists 3.8/176/42.4)",
+    "course": {
+      "swim": 3.5,
+      "bike": 165,
+      "run": 43
+    },
+    "notes": "Night swim in Phewa Lake; road bike with 3,800 m of climbing; off-road run over a 4,000 m high point to a village homestay finish",
     "sources": [
       "https://himalxtri.com",
       "https://himalxtri.com/race-info-1",
@@ -198,6 +210,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in Regatta Lake at the National Water Sports Centre; flat bike; 3-lap run by the River Trent",
     "sources": [
       "https://outlaw-assets.s3.eu-west-2.amazonaws.com/race-info/Outlaw-Nottingham-Half-Race-Guide-2026.pdf",
@@ -258,8 +272,13 @@
     "swim": "ocean",
     "bike": "hilly",
     "run": "mountainous",
+    "course": {
+      "swim": 3.4,
+      "bike": 202,
+      "run": 41
+    },
     "entry": "ballot",
-    "notes": "Non-standard: 3.4 km cold sea-loch swim, 200 km bike (2,200 m), 42 km run over two Munros (1,600 m+) in Torridon",
+    "notes": "Cold sea-loch swim in Loch Shieldaig; bike with 2,200 m of climbing; run over two Munros (1,600 m+) in Torridon",
     "sources": [
       "https://celtman.squarespace.com/s/Race-Manual-2026.pdf",
       "https://cxtri.com",
@@ -289,6 +308,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "3.8/173/42 km lap course by Moritzburg Castle; 2027 event is 12-13 Jun, race day assumed Sat 12 Jun as in 2026",
     "sources": [
       "https://schlosstriathlon.de/wettkampfuebersicht/brockman-langdistanz/",
@@ -318,6 +339,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "1.9/87/21 km lap course by Moritzburg Castle; 2027 event is 12-13 Jun, race day assumed Sat 12 Jun as in 2026",
     "sources": [
       "https://schlosstriathlon.de/wettkampfuebersicht/halbdistanz/",
@@ -348,6 +371,7 @@
     ],
     "swim": "lake",
     "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in Long Pond; 54-mile rolling bike (436 m); hosted the 2026 USA Triathlon Long Course National Championships",
     "sources": [
       "https://www.outsiderendurance.com/patriot-half",
@@ -409,6 +433,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "1.9/88/21 km sea swim, Pays d'Auge bike, boardwalk run; 2027 festival is 18-20 Jun, L assumed Sat 19 Jun as in 2026",
     "sources": [
       "https://triathlondeauville.com/longue-distance/",
@@ -474,6 +500,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in Derwentwater; bike through the western Lake District; finish in Keswick",
     "sources": [
       "https://thelakesman.com/",
@@ -529,8 +557,13 @@
     "swim": "lake",
     "bike": "hilly",
     "run": "mountainous",
+    "course": {
+      "swim": 3.8,
+      "bike": 205,
+      "run": 42
+    },
     "entry": "ballot",
-    "notes": "Longer 205 km bike (2,000-2,400 m); swim ends under Tännforsen waterfall (~15 C); 43 km trail run over Åreskutan",
+    "notes": "Swim ends under the Tännforsen waterfall; bike with 2,000 m+ of climbing; mostly trail run over Åreskutan to Åre",
     "sources": [
       "https://www.swextri.com/s/Event-Manual-Draft-2026-ll85.pdf",
       "https://www.swextri.com/s/Swedeman-Results-2026.pdf",
@@ -559,7 +592,12 @@
       }
     ],
     "swim": "lake",
-    "notes": "2/90/21.1 km; swim in Hubbles Lake, finish at Heritage Park Pavilion; 35th edition in 2026",
+    "course": {
+      "swim": 2,
+      "bike": 90,
+      "run": 21.1
+    },
+    "notes": "Swim in Hubbles Lake; out-and-back bike on Hwy 779; 2-lap run in Stony Plain, finish at Heritage Park Pavilion; 35th edition in 2026",
     "sources": [
       "https://platinumracing.ca/great-white-north1/",
       "https://platinumracing.ca/great-white-north1/half/",
@@ -589,6 +627,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Shallow lake swim on the Holkham Hall estate, north Norfolk; TT-style rolling start",
     "sources": [
       "https://outlaw-assets.s3.eu-west-2.amazonaws.com/race-info/Holkham-2026/Outlaw-Holkham-Half-Race-Guide-2026.pdf",
@@ -619,7 +659,12 @@
     "swim": "lake",
     "bike": "mountainous",
     "run": "mountainous",
-    "notes": "Pyrenean mountain full: 3.8 km in Lac de Matemale, 193 km bike (4,940 m), 42 km run (1,252 m) on the Capcir plateau",
+    "course": {
+      "swim": 3.8,
+      "bike": 193,
+      "run": 42
+    },
+    "notes": "Pyrenean mountain race: swim in Lac de Matemale, bike with 4,940 m of climbing, run (1,252 m) on the Capcir plateau",
     "sources": [
       "https://altriman.fr/programme-2026/",
       "https://altriman.fr/altriman-full/",
@@ -649,6 +694,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in Regatta Lake at the National Water Sports Centre; flat bike; lap run by the River Trent; Outlaw Middle runs alongside",
     "sources": [
       "https://cdn.prod.website-files.com/688ce20dbd07239c65f1a79e/6a55037a08cf6e97e5f99fae_Outlaw-Original-Race-Guide-2026%20(3).pdf",
@@ -679,6 +726,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Launched 2026; raced alongside Outlaw Original in July at the National Water Sports Centre; separate from the May Outlaw Half",
     "sources": [
       "https://outlawtriathlon.com/outlaw-original/outlaw-middle",
@@ -743,6 +792,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Sea swim in the Flensburg Fjord at Sandwig beach; lap courses; 2027 entries sold out",
     "sources": [
       "https://www.ostseeman.de/",
@@ -772,6 +823,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "1.9/90/21.1 km; sea swim in the Flensburg Fjord; same day as the long distance; 2027 entries sold out",
     "sources": [
       "https://www.ostseeman.de/",
@@ -798,6 +851,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Hungary's classic long-distance race (37th edition in 2026); swim at Gyékényes lake, finish in Nagyatád",
     "sources": [
       "https://www.extrememan.hu/",
@@ -852,6 +907,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "rolling",
     "notes": "1.9/90/21 km; swim in Loch Tay from Kenmore; hilly Highland Perthshire bike; Scottish middle-distance championships",
     "sources": [
       "https://www.aberfeldytriathlon.com/aberfeldy-middle-distance-triathlon/"
@@ -879,6 +936,7 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
     "notes": "Ireland's only full-distance triathlon: swim in the Lakes of Killarney, bike the Ring of Kerry",
     "sources": [
       "https://hardman.ie/hardman-full-distance-triathlon-killarney/",
@@ -910,8 +968,13 @@
     "swim": "lake",
     "bike": "mountainous",
     "run": "mountainous",
+    "course": {
+      "swim": 3.8,
+      "bike": 195,
+      "run": 42.2
+    },
     "entry": "ballot",
-    "notes": "Dawn swim in Lago di Livigno, 195 km bike (5,000 m) incl. Stelvio, 42 km run to Carosello 3000 finish",
+    "notes": "Dawn swim in Lago di Livigno; bike (5,000 m) over the Bernina and Stelvio passes; run finishes at Carosello 3000",
     "sources": [
       "https://www.livigno.eu/en/events/icon",
       "https://www.xtriworldtour.com/events",
@@ -1069,6 +1132,7 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
     "notes": "Swim in the Nogat river, flat bike, finish inside Malbork Castle; 2026 edition hosted Polish long-distance champs",
     "sources": [
       "https://castletriathlon.com/malbork/regulamin-im/",
@@ -1097,6 +1161,7 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
     "notes": "Swim in the Nogat river; flat bike on the Żuławy plain; finish inside Malbork Castle",
     "sources": [
       "https://castletriathlon.com/malbork/regulamin-12-im/",
@@ -1121,8 +1186,13 @@
       }
     ],
     "swim": "ocean",
+    "course": {
+      "swim": 4,
+      "bike": 190,
+      "run": 42.2
+    },
     "entry": "ballot",
-    "notes": "A-type 4.0/190/42.2 km: sea swim at Sawata beach, bike around Sado Island; doubles as Japan Long Distance Championship",
+    "notes": "A-type race: sea swim at Sawata beach, bike around Sado Island, 4-lap coastal run; doubles as Japan Long Distance Championship",
     "sources": [
       "https://www.scsf.jp/triathlon/race_info.html",
       "https://www.jtu.or.jp/news/2026/09/08/86355/",
@@ -1183,6 +1253,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "1.9/89/21 km from Whitwell on Rutland Water; run turns at Normanton Church",
     "sources": [
       "https://www.thevitruviantriathlon.com/",
@@ -1209,7 +1281,12 @@
     "swim": "lake",
     "bike": "hilly",
     "run": "hilly",
-    "notes": "2/92/19.5 km: swim in Lac de Sainte-Croix; Verdon bike (1,450 m climbing); lakeside run (250 m)",
+    "course": {
+      "swim": 2,
+      "bike": 92,
+      "run": 19.5
+    },
+    "notes": "Swim in Lac de Sainte-Croix; Verdon bike (1,450 m climbing); lakeside run (250 m) with a stair climb to Les Salles-sur-Verdon",
     "sources": [
       "https://natureman-var.fr/en/3876-2/",
       "https://fftri.t2area.com/calendrier/natureman/triathlon-l.html",
@@ -1237,7 +1314,12 @@
     "swim": "ocean",
     "bike": "hilly",
     "run": "mountainous",
-    "notes": "3.9 km sea swim from Mon Repos; 176 km bike round Corfu (2,400 m); 40 km run (1,500 m) to Angelokastro",
+    "course": {
+      "swim": 3.9,
+      "bike": 176,
+      "run": 40
+    },
+    "notes": "Sea swim from Mon Repos; bike round Corfu (2,400 m); trail run (1,500 m) to Angelokastro",
     "sources": [
       "https://greekheroxtri.com",
       "https://www.xtriworldtour.com/events"
@@ -1261,6 +1343,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "3.8/182.8/42.2 km: swim in Gandia port, flat bike toward Cullera, run on the beach promenade",
     "sources": [
       "https://www.icantriathlon.com/",
@@ -1288,7 +1372,12 @@
     "swim": "lake",
     "bike": "mountainous",
     "run": "mountainous",
-    "notes": "Organiser total 242 km, bike ~196 km (Xtri lists 3.8/180/43.4); Sun Moon Lake swim; run to Hehuan Main Peak (3,417 m)",
+    "course": {
+      "swim": 3.8,
+      "bike": 196,
+      "run": 42
+    },
+    "notes": "Sun Moon Lake swim; bike climbs 3,600 m+ to Tataka Saddle; uphill run (2,700 m+) to Hehuan Main Peak (3,417 m)",
     "sources": [
       "https://www.formosaxtri.com",
       "https://www.xtriworldtour.com/events"
@@ -1313,6 +1402,7 @@
     ],
     "swim": "ocean",
     "bike": "hilly",
+    "run": "hilly",
     "entry": "ballot",
     "notes": "Point-to-point: ferry-jump swim in Aysén Fjord, 177 km bike (~2,500 m) on Carretera Austral, 43 km run to General Carrera Lake",
     "sources": [
@@ -1342,7 +1432,12 @@
     "swim": "lake",
     "bike": "mountainous",
     "run": "mountainous",
-    "notes": "Point-to-point: 4 km night swim at São Bento dam, 176 km bike (3,850 m) via Serra do Rio do Rastro, 39 km run (1,250 m)",
+    "course": {
+      "swim": 4,
+      "bike": 176,
+      "run": 39
+    },
+    "notes": "Point-to-point: night swim at São Bento dam, bike (3,850 m) via Serra do Rio do Rastro, run (1,250 m) to Morro da Igreja",
     "sources": [
       "https://en.fodaxman.com.br/prova",
       "https://www.xtriworldtour.com/events",
@@ -1370,7 +1465,12 @@
     "swim": "lake",
     "bike": "mountainous",
     "run": "mountainous",
-    "notes": "Inaugural Xtri prospect race; swim shortened to 3.0 km (altitude, cold) in Lake Tota; 185 km bike (3,200 m); 43 km run (2,000 m)",
+    "course": {
+      "swim": 3,
+      "bike": 185,
+      "run": 43
+    },
+    "notes": "Inaugural Xtri prospect race; short swim (altitude, cold) in Lake Tota; Andean bike (3,200 m); páramo run (2,000 m)",
     "sources": [
       "https://www.xtricolombia.com/",
       "https://www.xtricolombia.com/courses",
@@ -1395,6 +1495,7 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
     "notes": "Full distance returns in 2027 after half-only editions in 2025-26; swim in Derwentwater, finish in Keswick",
     "sources": [
       "https://thelakesman.com/",

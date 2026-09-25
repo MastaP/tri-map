@@ -1,6 +1,7 @@
 import { Star } from 'lucide-react';
 import { memo } from 'react';
 import { BRANDS, DISTANCES } from '../data/brands.ts';
+import { isNearStandard, legsText, raceLegs } from '../data/course.ts';
 import type { NextEdition } from '../data/nextEdition.ts';
 import type { Race } from '../data/types.ts';
 import { cn } from '../lib/cn.ts';
@@ -16,6 +17,7 @@ import {
   DateTile,
   DistanceBadge,
   EntryBadge,
+  NonStandardBadge,
   StatusBadge,
 } from './RaceBits.tsx';
 
@@ -61,14 +63,24 @@ export const RaceCard = memo(function RaceCard({
     : 'no upcoming date';
   const away = distanceKm === undefined ? '' : formatDistanceAway(distanceKm);
   const qualifierTitle = isQualifierChampionship(race);
+  const nonStandard = isNearStandard(race);
   // The bike hint only joins a simple badge row (distance, TBC, countdown), so the row
-  // still fits on one line on a 390px phone; qualifier/ballot, championship and
-  // estimated-date rows are full already. The shortlist shows the whole course instead.
+  // still fits on one line on a 390px phone; qualifier/ballot, championship,
+  // non-standard and estimated-date rows are full already. The shortlist shows the whole
+  // course instead.
   const showBike =
-    !showCourse && !!race.bike && race.entry === 'open' && !qualifierTitle && !!next && !next.estimated && !later;
+    !showCourse &&
+    !!race.bike &&
+    race.entry === 'open' &&
+    !qualifierTitle &&
+    !nonStandard &&
+    !!next &&
+    !next.estimated &&
+    !later;
   const label = [
     race.name,
     DISTANCES[race.distance].long,
+    nonStandard && `non-standard distance ${legsText(raceLegs(race))}`,
     race.entry !== 'open' && ENTRY_BADGE[race.entry],
     `${race.city}, ${race.countryName}`,
     away,
@@ -125,9 +137,10 @@ export const RaceCard = memo(function RaceCard({
           )}
         </p>
         <div className="mt-1.5 flex min-w-0 flex-wrap items-center gap-1.5">
-          <DistanceBadge distance={race.distance} />
+          <DistanceBadge distance={race.distance} course={race.course} />
           {showBike && <BikeHint terrain={race.bike!} />}
           <EntryBadge entry={race.entry} />
+          <NonStandardBadge race={race} short />
           {qualifierTitle && <ChampionshipBadge race={race} />}
           <StatusBadge next={next} />
           <span

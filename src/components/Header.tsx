@@ -14,7 +14,11 @@ interface Props {
 export function Header({ freshness, raceCount, themePref, onThemeChange, compact }: Props) {
   return (
     <header className="relative z-30 flex h-14 shrink-0 items-center gap-3 border-b border-line bg-surface px-4 lg:px-5">
-      <a href="./" className="group flex items-center gap-2.5 rounded-lg" aria-label="TriMap home">
+      <a
+        href="./"
+        className="group flex items-center gap-2.5 rounded-lg pointer-coarse:min-h-11"
+        aria-label="TriMap home"
+      >
         <LogoMark className="size-8 transition-transform duration-300 group-hover:-rotate-6" />
         <span className="font-display text-[26px] leading-none font-bold tracking-tight uppercase italic">
           Tri<span className="text-accent-text">Map</span>
@@ -42,7 +46,7 @@ export function Header({ freshness, raceCount, themePref, onThemeChange, compact
             href={REPO_URL}
             target="_blank"
             rel="noreferrer"
-            className="grid size-8 place-items-center rounded-full text-muted transition-colors hover:bg-surface-2 hover:text-fg max-sm:hidden"
+            className="grid size-8 place-items-center rounded-full text-muted transition-colors hover:bg-surface-2 hover:text-fg max-sm:hidden pointer-coarse:size-11"
             aria-label="TriMap on GitHub"
             title="Source code on GitHub"
           >

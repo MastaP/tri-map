@@ -24,7 +24,7 @@ import type { BrandId } from '../data/brands.ts';
 import type { NextEdition } from '../data/nextEdition.ts';
 import type { Race } from '../data/types.ts';
 import type { Theme } from '../hooks/useTheme.ts';
-import { pointsBounds, wrapLng, type Bounds, type LngLat, type MapViewState } from '../lib/geo.ts';
+import { normalizeBounds, pointsBounds, wrapLng, type Bounds, type LngLat, type MapViewState } from '../lib/geo.ts';
 import { cn } from '../lib/cn.ts';
 import { Legend } from './Legend.tsx';
 import {
@@ -102,13 +102,18 @@ export interface MapViewProps {
   onToggleBrand: (b: BrandId) => void;
   onSelect: (id: string) => void;
   onHover: (id: string | null) => void;
-  /** Viewport and view after every move (the centre feeds the "Nearest" fallback). */
-  onViewChange: (b: Bounds, view: MapViewState) => void;
+  /**
+   * Viewport and view after every move (the centre feeds the "Nearest" fallback).
+   * `settling` is true for the first view, until the map has loaded.
+   */
+  onViewChange: (b: Bounds, view: MapViewState, settling: boolean) => void;
   /** Changing this value fits the map to the current races (region, search, shortlist). */
   fitKey: string;
   /** Changing its key fits these points (e.g. the viewer and the nearest races). */
   focus?: FocusRequest | null;
-  /** Start here instead of fitting the races (a shared "In map area" link). */
+  /** Start by fitting this area instead of the races (a shared "In map area" link). */
+  initialBounds?: Bounds | null;
+  /** Start here instead of fitting the races (an older "In map area" link). */
   initialView?: MapViewState | null;
   /** On a narrow map, the first view fits these (the viewer's region) instead of the world. */
   homePoints?: readonly LngLat[] | null;
@@ -299,17 +304,25 @@ function MapCanvas(props: MapViewProps & { onCrash: () => void }) {
     map.on('zoom', syncZoomClass);
     syncZoomClass();
 
-    const reportView = () => {
+    // The first camera (a shared area, the open race or the fitted races) settles before
+    // the map has loaded; every move after that, or any drag / pinch / scroll before it,
+    // is the viewer's or follows the filters.
+    let settling = true;
+    const reportView = (e?: { originalEvent?: unknown }) => {
+      if (e?.originalEvent) settling = false;
       const b = map.getBounds();
       const c = map.getCenter();
-      latest.current.onViewChange([b.getWest(), b.getSouth(), b.getEast(), b.getNorth()], {
-        lng: wrapLng(c.lng),
-        lat: c.lat,
-        zoom: map.getZoom(),
-      });
+      latest.current.onViewChange(
+        normalizeBounds([b.getWest(), b.getSouth(), b.getEast(), b.getNorth()]),
+        { lng: wrapLng(c.lng), lat: c.lat, zoom: map.getZoom() },
+        settling,
+      );
     };
-    map.on('moveend', reportView);
-    map.once('load', reportView);
+    map.on('moveend', (e) => reportView(e));
+    map.once('load', () => {
+      reportView();
+      settling = false;
+    });
 
     /** Ids of the races in small clusters at a single venue (fetched once per marker). */
     const leafIds = new Map<string, string[]>();
@@ -507,9 +520,13 @@ function MapCanvas(props: MapViewProps & { onCrash: () => void }) {
 
     api.current = { update, highlight, fit: fitTo, setTheme, reveal: (id, n) => void reveal(id, n) };
 
-    if (initial.initialView) {
-      // A shared "in map area" search: its view decides the results, so it wins over the
-      // open race (which was inside that area when the link was made).
+    if (initial.initialBounds) {
+      // A shared "in map area" search: its area decides the results, so it wins over the
+      // open race (which was inside that area when the link was made). Fitted exactly, so
+      // a screen of another size or shape shows at least that area.
+      const [w, s, e, n] = initial.initialBounds;
+      map.fitBounds(new LngLatBounds([w, s], [e, n]), { padding: 0, duration: 0 });
+    } else if (initial.initialView) {
       map.jumpTo({ center: [initial.initialView.lng, initial.initialView.lat], zoom: initial.initialView.zoom });
     } else if (initial.selectedRace) {
       map.jumpTo({ center: [initial.selectedRace.lng, initial.selectedRace.lat], zoom: 6 });
@@ -605,7 +622,7 @@ function MapCanvas(props: MapViewProps & { onCrash: () => void }) {
   }, [hoveredId, hoveredSig, selectedRace, editionsRef]);
 
   // ---- camera ---------------------------------------------------------------------
-  const keepInitialView = useRef(!!props.initialView);
+  const keepInitialView = useRef(!!props.initialView || !!props.initialBounds);
   const fitKeyRef = useRef(fitKey);
   useEffect(() => {
     if (fitKeyRef.current === fitKey) return;

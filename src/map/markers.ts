@@ -3,6 +3,7 @@
  * selection halo). Kept out of React: maplibre owns their positioning.
  */
 import { BRAND_IDS, BRANDS, brandGlyphSvg, DISTANCES, glyphPixelSize, type BrandId } from '../data/brands.ts';
+import { isNearStandard, legsText, raceLegs } from '../data/course.ts';
 import type { NextEdition } from '../data/nextEdition.ts';
 import type { Race } from '../data/types.ts';
 import { formatDate, formatMonthShort } from '../lib/dates.ts';
@@ -38,6 +39,11 @@ export function entryLabel(race: Race): string | null {
   return race.entry === 'open' ? null : ENTRY_BADGE[race.entry];
 }
 
+/** "Non-standard distance: 3.4 / 202 / 41 km", or null for a race over the standard distances. */
+export function nonStandardLabel(race: Race): string | null {
+  return isNearStandard(race) ? `Non-standard distance: ${legsText(raceLegs(race))}` : null;
+}
+
 /** What a race marker shows; a marker whose signature changed is rebuilt. */
 export function markerSignature(edition: NextEdition | null): string {
   return edition ? `${edition.date}|${edition.estimated ? 'e' : edition.status}` : 'none';
@@ -60,9 +66,10 @@ export function raceMarkerElement(
   btn.style.width = `${px}px`;
   btn.style.height = `${px}px`;
   const entry = entryLabel(race);
+  const course = nonStandardLabel(race);
   btn.setAttribute(
     'aria-label',
-    [race.name, BRANDS[race.brand].label, DISTANCES[race.distance].long, entry, raceWhen(edition)]
+    [race.name, BRANDS[race.brand].label, DISTANCES[race.distance].long, course, entry, raceWhen(edition)]
       .filter(Boolean)
       .join(', '),
   );
@@ -79,6 +86,7 @@ export function raceMarkerElement(
   const title = el('strong', undefined, race.name);
   tip.append(title, el('span', undefined, `${raceWhen(edition)} · ${race.city}`));
   if (entry) tip.append(el('em', `tm-tip-entry tm-tip-entry-${race.entry}`, entry));
+  if (course) tip.append(el('em', 'tm-tip-course', course));
   root.append(btn, tag, tip);
   // Qualifier-only / ballot races carry a small lock / ticket pip, as on the cards.
   if (race.entry !== 'open') {
@@ -282,6 +290,8 @@ export function clusterPopupContent(
     const entry = entryLabel(r);
     const meta = el('span', 'tm-popup-meta', raceWhen(editionOf(r)));
     if (entry) meta.append(' ', el('em', `tm-popup-entry tm-popup-entry-${r.entry}`, entry));
+    const course = nonStandardLabel(r);
+    if (course) meta.append(el('span', 'tm-popup-course', course));
     text.append(document.createTextNode(`${r.name} · ${DISTANCES[r.distance].label}`), meta);
     b.append(glyph, text);
     b.addEventListener('click', () => onPick(r.id));

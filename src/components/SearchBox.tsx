@@ -43,7 +43,7 @@ export function SearchBox({ value, onChange, inputRef, className, placeholder = 
             inputRef?.current?.focus();
           }}
           aria-label="Clear search"
-          className="absolute top-1/2 right-2 grid size-7 -translate-y-1/2 place-items-center rounded-lg text-muted hover:bg-surface-3 hover:text-fg"
+          className="absolute top-1/2 right-2 grid size-7 -translate-y-1/2 place-items-center rounded-lg text-muted hover:bg-surface-3 hover:text-fg pointer-coarse:right-0 pointer-coarse:size-11 pointer-coarse:rounded-xl"
         >
           <X className="size-4" />
         </button>

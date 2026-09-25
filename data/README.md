@@ -43,6 +43,7 @@ A World Championship goes in the file for its region/brand like any other race.
   "swim": "river",                          // optional: "ocean" | "lake" | "river"  (sea/bay/lagoon => "ocean"; reservoir => "lake")
   "bike": "rolling",                        // optional bike course profile: "flat" | "rolling" | "hilly" | "mountainous"
   "run": "flat",                            // optional run course profile, same scale
+  "course": { "swim": 3.4, "bike": 202, "run": 41 }, // optional: official km, ONLY for near-standard races (see "Brand vs series")
   "entry": "open",                          // optional, default "open": "open" | "qualification" | "ballot" (see below)
   "notes": "Hilly bike, famous Heartbreak Hill", // optional, <= 140 chars, factual, no marketing fluff
   "recurring": false,                       // optional, default true. false = do NOT project future editions beyond the listed ones (see below)
@@ -130,5 +131,12 @@ the Americas (negative) and of `lat` in the southern hemisphere (negative).
   - T50 (short course) is out of scope.
 - `brand: "independent"` for everything else; put the series/organiser in `series`
   (e.g. `"Xtri World Tour"`, `"Outlaw"`) or omit it for a one-off race.
-- Only standard distances. A race is `full` if it is ~3.8/180/42.2, `half` if
-  ~1.9/90/21.1 (small course deviations are fine). Non-standard formats are excluded.
+- Standard and near-standard distances. A race is `full` if it is ~3.8/180/42.2,
+  `half` if ~1.9/90/21.1, `t100` if 2/80/18.
+  - Small deviations (up to ~5% on a leg) need nothing extra.
+  - A **near-standard** race (any leg more than ~5% off, but every leg within 25% of
+    its category's standard) is included **with** a `course` object giving the
+    official distances, e.g. Celtman `"course": { "swim": 3.4, "bike": 202, "run": 41 }`.
+    The app shows these numbers and tags the race "Non-standard distance".
+  - Anything with a leg more than 25% off the standard is out of scope; the
+    validator rejects a `course` like that.

@@ -10,14 +10,22 @@
     "lng": 6.483,
     "url": "https://www.embrunman.com",
     "editions": [
-      { "date": "2026-08-15", "status": "confirmed" },
-      { "date": "2027-08-15", "status": "confirmed" }
+      {
+        "date": "2026-08-15",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-15",
+        "status": "confirmed"
+      }
     ],
     "swim": "lake",
     "bike": "mountainous",
     "run": "hilly",
     "notes": "Swim in Lake Serre-Ponçon, Col d'Izoard on the bike; held every 15 August",
-    "sources": ["https://www.embrunman.com"],
+    "sources": [
+      "https://www.embrunman.com"
+    ],
     "verifiedAt": "2026-09-16"
   },
   {
@@ -32,15 +40,59 @@
     "lng": 7.071,
     "url": "https://nxtri.com",
     "editions": [
-      { "date": "2026-08-01", "status": "confirmed" },
-      { "date": "2027-07-31", "status": "tentative" }
+      {
+        "date": "2026-08-01",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-31",
+        "status": "tentative"
+      }
     ],
     "swim": "ocean",
     "bike": "mountainous",
     "run": "mountainous",
     "entry": "ballot",
     "notes": "Jump from a car ferry into the Hardangerfjord; mountain finish on Gaustatoppen",
-    "sources": ["https://nxtri.com"],
+    "sources": [
+      "https://nxtri.com"
+    ],
+    "verifiedAt": "2026-09-16"
+  },
+  {
+    "id": "independent-celtman-full",
+    "name": "Celtman Extreme Scottish Triathlon",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Shieldaig",
+    "country": "GB",
+    "lat": 57.524,
+    "lng": -5.647,
+    "url": "https://celtman.co.uk",
+    "editions": [
+      {
+        "date": "2026-06-20",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-19",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "hilly",
+    "run": "mountainous",
+    "course": {
+      "swim": 3.4,
+      "bike": 202,
+      "run": 41
+    },
+    "entry": "ballot",
+    "notes": "Sea-loch swim in Loch Shieldaig; the run crosses the Beinn Eighe ridge",
+    "sources": [
+      "https://celtman.co.uk"
+    ],
     "verifiedAt": "2026-09-16"
   }
 ]

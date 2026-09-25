@@ -23,7 +23,7 @@
     "swim": "ocean",
     "bike": "rolling",
     "run": "flat",
-    "notes": "Beach swim, split transition, finish near the City of Arts and Sciences. 2027 edition is an IRONMAN Pro Series event.",
+    "notes": "Beach swim, split transition, finish near the City of Arts and Sciences.",
     "sources": [
       "https://www.ironman.com/races/im703-valencia",
       "https://labs-v2.competitor.com/results/event/51314bcd-4b2f-450e-b1f6-fb0dc6c5f609",
@@ -394,7 +394,7 @@
     "swim": "lake",
     "bike": "rolling",
     "run": "flat",
-    "notes": "Swim in Lake Munksjön, transition at Östra torget in central Jönköping. 2027 edition is an IRONMAN Pro Series event.",
+    "notes": "Swim in Lake Munksjön, transition at Östra torget in central Jönköping.",
     "sources": [
       "https://www.ironman.com/races/im703-jonkoping",
       "https://labs-v2.competitor.com/results/event/7f88d2cc-ea65-e511-9409-005056951bf1",
@@ -662,7 +662,7 @@
     "swim": "lake",
     "bike": "flat",
     "run": "flat",
-    "notes": "Swim in Cospudener See, finish at the Quarterback Immobilien Arena. First held 2026; 2027 edition is a Pro Series event.",
+    "notes": "Swim in Cospudener See, finish at the Quarterback Immobilien Arena. First held 2026.",
     "sources": [
       "https://www.ironman.com/races/im703-leipzig",
       "https://labs-v2.competitor.com/results/event/915b8a0c-c158-405a-be06-c552fc629a9f",
@@ -1238,7 +1238,7 @@
     "swim": "river",
     "bike": "flat",
     "run": "flat",
-    "notes": "Back as a 70.3 in 2027 (run as a full IRONMAN in 2026). Flat course. 2027 edition is an IRONMAN Pro Series event.",
+    "notes": "Back as a 70.3 in 2027 (run as a full IRONMAN in 2026). Flat course.",
     "sources": [
       "https://www.ironman.com/races/im703-tours",
       "https://labs-v2.competitor.com/results/event/c795d5c4-a4ef-40cb-846e-9889cdb6ef12",

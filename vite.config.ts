@@ -139,13 +139,14 @@ function sitePages(source: string | undefined, siteUrl: string): Plugin {
     },
     generateBundle() {
       const files = readRaceFiles(dataDirFor(source));
-      const result = validateRaceFiles(files, localToday());
+      const today = localToday();
+      const result = validateRaceFiles(files, today);
       const names = new Map(result.races.map((r) => [r.id, r.name]));
       for (const race of result.races) {
         this.emitFile({
           type: 'asset',
           fileName: `race/${race.id}/index.html`,
-          source: racePageHtml(race, siteUrl, race.continuedAs ? names.get(race.continuedAs) : undefined),
+          source: racePageHtml(race, siteUrl, race.continuedAs ? names.get(race.continuedAs) : undefined, today),
         });
       }
     },

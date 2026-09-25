@@ -2,6 +2,7 @@
  * Minimal RFC 5545 calendar file for one race edition as an all-day event.
  */
 import { DISTANCES } from '../data/brands.ts';
+import { isNearStandard, raceLegs } from '../data/course.ts';
 import type { Race } from '../data/types.ts';
 import { addDays, type ISODate } from './dates.ts';
 
@@ -63,9 +64,10 @@ export function icsSequence(now: Date): number {
 
 export function buildIcs(race: Race, edition: IcsEdition, now: Date = new Date(), pageUrl?: string): string {
   const d = DISTANCES[race.distance];
+  const legs = raceLegs(race);
   const end = addDays(edition.endDate ?? edition.date, 1); // DTEND is exclusive for all-day events
   const description = [
-    `${d.long}: ${d.swim} km swim · ${d.bike} km bike · ${d.run} km run`,
+    `${isNearStandard(race) ? `Non-standard ${d.long.toLowerCase()}` : d.long}: ${legs.swim} km swim · ${legs.bike} km bike · ${legs.run} km run`,
     race.championship ? race.championship : null,
     edition.status === 'tentative' ? 'Date is tentative, check the official website.' : null,
     `Official website: ${race.url}`,

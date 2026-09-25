@@ -371,6 +371,24 @@
   font-style: normal;
   white-space: nowrap;
 }
+/* "Non-standard distance: 3.4 / 202 / 41 km" */
+.tm-tip .tm-tip-course {
+  display: block;
+  width: fit-content;
+  margin-top: 4px;
+  padding: 0 6px;
+  border-radius: 5px;
+  background: rgb(125 211 252 / 0.22);
+  color: #e0f2fe;
+  font: 600 11px/17px var(--font-sans);
+  font-style: normal;
+  white-space: nowrap;
+  opacity: 1;
+}
+[data-theme='dark'] .tm-tip .tm-tip-course {
+  background: #e0f2fe;
+  color: #0c4a6e;
+}
 .tm-marker:hover .tm-tip {
   opacity: 1;
   translate: -50% 0;
@@ -556,6 +574,20 @@
 .maplibregl-popup-close-button:hover {
   background: var(--tm-surface-2);
 }
+/* 44px touch targets for maplibre's own buttons on touch screens. The attribution's
+   "i" toggle keeps its look and gets an invisible 44px hit area; its credit links are
+   inline text and keep the slim bar. */
+@media (pointer: coarse) {
+  .maplibregl-popup-close-button {
+    width: 44px;
+    height: 44px;
+  }
+  .maplibregl-ctrl-attrib-button::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+  }
+}
 .tm-popup-list {
   min-width: 240px;
   max-width: 300px;
@@ -602,6 +634,9 @@
   color: var(--tm-muted);
   font-size: 12px;
   font-weight: 450;
+}
+.tm-popup-list .tm-popup-course {
+  display: block;
 }
 /* Same rose badge as the cards' "Qualifier only" / "Ballot". */
 .tm-popup-list .tm-popup-entry {

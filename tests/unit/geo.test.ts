@@ -1,7 +1,16 @@
 import { describe, expect, it } from 'vitest';
-import { inBounds, pointsBounds } from '../../src/lib/geo.ts';
+import { inBounds, normalizeBounds, pointsBounds } from '../../src/lib/geo.ts';
 
 describe('geo', () => {
+  it('normalizes a map box to west in [-180, 180), keeping what it covers', () => {
+    expect(normalizeBounds([4, 51, 6, 53])).toEqual([4, 51, 6, 53]);
+    expect(normalizeBounds([-200, -50, -150, 25])).toEqual([160, -50, 210, 25]);
+    expect(normalizeBounds([190, 0, 200, 10])).toEqual([-170, 0, -160, 10]);
+    expect(normalizeBounds([-300, -60, 300, 80])).toEqual([-180, -60, 180, 80]);
+    // Kona is inside the Pacific box before and after.
+    expect(inBounds(-155.99, 19.64, normalizeBounds([-200, -50, -150, 25]))).toBe(true);
+  });
+
   it('checks bounds including antimeridian-crossing boxes', () => {
     expect(inBounds(8.68, 50.11, [-10, 35, 30, 70])).toBe(true);
     expect(inBounds(-155.99, 19.64, [160, -50, 210, 25])).toBe(true); // Kona in a Pacific box

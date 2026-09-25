@@ -7,6 +7,7 @@ import type { ISODate } from '../lib/dates.ts';
 import { daysBetween } from '../lib/dates.ts';
 import { haversineKm } from '../lib/geo.ts';
 import { BRAND_IDS, DISTANCE_IDS, type BrandId, type DistanceId } from './brands.ts';
+import { isNearStandard, legsText, NEAR_STANDARD_TOLERANCE } from './course.ts';
 import { deriveRace } from './derive.ts';
 import { getCountry, isInRegionBox, REGION_IDS, REGIONS, type RegionId } from './regions.ts';
 import { formatIssuePath, RaceSchema, type RaceRecord } from './schema.ts';
@@ -151,6 +152,14 @@ export function validateRaceFiles(files: readonly SourceFile[], today: ISODate):
         push('warning', file, 'T100 races should use distance "t100"', id);
       }
       if (/\b20\d\d\b/.test(rec.name)) push('warning', file, 'name should not contain a year', id);
+      if (rec.course && !isNearStandard(rec)) {
+        push(
+          'warning',
+          file,
+          `course (${legsText(rec.course)}) is within ${NEAR_STANDARD_TOLERANCE * 100}% of the standard on every leg: leave "course" out`,
+          id,
+        );
+      }
 
       if (rec.verifiedAt > today) push('warning', file, `verifiedAt ${rec.verifiedAt} is in the future`, id);
       else if (daysBetween(rec.verifiedAt, today) > 365) {

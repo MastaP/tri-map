@@ -1,5 +1,7 @@
-import { Bike, Footprints, Lock, Ticket, Trophy, Waves } from 'lucide-react';
+import { Bike, Footprints, Lock, Ruler, Ticket, Trophy, Waves } from 'lucide-react';
 import { DISTANCES, type DistanceId } from '../data/brands.ts';
+import { isNearStandard, legsLong, nonStandardTitle, raceLegs } from '../data/course.ts';
+import type { Course } from '../data/schema.ts';
 import type { EntryType, Terrain } from '../data/constants.ts';
 import type { NextEdition } from '../data/nextEdition.ts';
 import type { Race } from '../data/types.ts';
@@ -22,10 +24,13 @@ const DISTANCE_BADGE: Record<DistanceId, string> = {
 
 export function DistanceBadge({
   distance,
+  course,
   long,
   className,
 }: {
   distance: DistanceId;
+  /** The race's official km, when they differ from the standard (see data/course.ts). */
+  course?: Course | undefined;
   long?: boolean;
   className?: string;
 }) {
@@ -36,7 +41,7 @@ export function DistanceBadge({
         DISTANCE_BADGE[distance],
         className,
       )}
-      title={`${DISTANCES[distance].long}: ${DISTANCES[distance].swim} km swim, ${DISTANCES[distance].bike} km bike, ${DISTANCES[distance].run} km run`}
+      title={`${DISTANCES[distance].long}: ${legsLong(raceLegs({ distance, course }))}`}
     >
       {distance === 't100' ? (
         // "T100 · 100 km": the name plus how far it is, with the unit in lower case.
@@ -101,6 +106,36 @@ export function EntryBadge({ entry, className }: { entry: EntryType; className?:
     >
       <Icon className="size-3 shrink-0" strokeWidth={2.4} aria-hidden="true" />
       {ENTRY_BADGE[entry]}
+    </span>
+  );
+}
+
+/**
+ * "Non-standard distance": the race is raced over official distances more than 5% off
+ * its category's standard on some leg. The title lists the real km.
+ */
+export function NonStandardBadge({
+  race,
+  short = false,
+  className,
+}: {
+  race: Pick<Race, 'distance' | 'course'>;
+  /** Cards: "Non-standard" next to the distance badge ("distance" stays in the accessible text). */
+  short?: boolean;
+  className?: string;
+}) {
+  if (!isNearStandard(race)) return null;
+  return (
+    <span
+      className={cn(
+        'inline-flex h-5 shrink-0 items-center gap-1 rounded-md bg-sky-100 px-1.5 text-[11px] font-semibold whitespace-nowrap text-sky-900 dark:bg-sky-400/15 dark:text-sky-200',
+        className,
+      )}
+      title={nonStandardTitle(race)}
+      data-testid="non-standard"
+    >
+      <Ruler className="size-3 shrink-0" strokeWidth={2.4} aria-hidden="true" />
+      Non-standard{short ? <span className="sr-only"> distance</span> : ' distance'}
     </span>
   );
 }

@@ -3,6 +3,11 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Weekly rebuild (Mondays 05:00 UTC): the per-race share pages (race/<id>/) and their
+  # "next date" text are generated at build time, so without a push they would go stale
+  # as races are held. Scheduled runs use the default branch.
+  schedule:
+    - cron: '0 5 * * 1'
   workflow_dispatch:
 
 permissions:

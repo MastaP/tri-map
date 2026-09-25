@@ -8,7 +8,7 @@ describe('validateRaceFiles', () => {
   it('passes the fixture data with only the expected estimated-date and course warnings', () => {
     const result = validateRaceFiles(fixtureFiles(), TODAY);
     expect(result.errorCount).toBe(0);
-    expect(result.races).toHaveLength(18);
+    expect(result.races).toHaveLength(19);
     // The replaced Challenge Wanaka and the one-off 70.3 World Championship have no next
     // date on purpose (continuedAs / recurring: false), so they raise no warning.
     expect(result.issues.filter((i) => /estimated/.test(i.message)).map((i) => i.id)).toEqual(['challenge-roth-full']);
@@ -107,16 +107,40 @@ describe('validateRaceFiles', () => {
     expect(text).toMatch(/ironman-testville-2-full: name should not contain a year/);
     expect(text).toMatch(/ironman-testville-2-full: possible duplicate of ironman-testville-full/);
   });
+
+  it('accepts a near-standard course, warns about one within 5% and rejects one out of scope', () => {
+    const r = validateRaceFiles(
+      [
+        file('ironman-full.json', [
+          makeRecord({ course: { swim: 3.4, bike: 202, run: 41 } }),
+          makeRecord({ id: 'ironman-b-full', lat: 50.3, course: { swim: 3.8, bike: 186, run: 42.2 } }),
+          makeRecord({ id: 'ironman-c-full', lat: 50.5, course: { swim: 3.8, bike: 230, run: 42.2 } }),
+        ]),
+      ],
+      TODAY,
+    );
+    const text = r.issues
+      .filter((i) => /^course/.test(i.message))
+      .map((i) => `${i.level} ${i.id}: ${i.message}`)
+      .join('\n');
+    // Celtman-like 3.4 / 202 / 41 km: fine, nothing to report.
+    expect(text).not.toMatch(/ironman-testville-full/);
+    expect(text).toMatch(
+      /warning ironman-b-full: course \(3\.8 \/ 186 \/ 42\.2 km\) is within 5% of the standard on every leg: leave "course" out/,
+    );
+    expect(text).toMatch(/error ironman-c-full: course\.bike: 230 km is more than 25% off the full distance bike/);
+    expect(r.races.map((x) => x.id)).toEqual(['ironman-testville-full', 'ironman-b-full']);
+  });
 });
 
 describe('summarize', () => {
   it('counts by brand, distance and region and races without a confirmed date', () => {
     const { races } = validateRaceFiles(fixtureFiles(), TODAY);
     const s = summarize(races);
-    expect(s.total).toBe(18);
+    expect(s.total).toBe(19);
     expect(s.byBrandDistance.ironman).toEqual({ full: 5, half: 4, t100: 0 });
     expect(s.byBrandDistance.t100).toEqual({ full: 0, half: 0, t100: 3 });
-    expect(s.byRegionDistance.europe.full).toBe(5);
+    expect(s.byRegionDistance.europe.full).toBe(6);
     expect(s.byBrandRegion.challenge.oceania).toBe(1);
     expect(s).toMatchObject({
       estimated: 1,

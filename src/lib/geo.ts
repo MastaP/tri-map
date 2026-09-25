@@ -68,6 +68,16 @@ export function wrapLng(lng: number): number {
   return ((((lng + 180) % 360) + 360) % 360) - 180;
 }
 
+/**
+ * Bounds with `west` in [-180, 180) (a map on a world copy reports e.g. west -200); a box
+ * that spans the whole world or more becomes [-180, south, 180, north].
+ */
+export function normalizeBounds([west, south, east, north]: Bounds): Bounds {
+  if (east - west >= 360) return [-180, south, 180, north];
+  const shift = wrapLng(west) - west;
+  return [west + shift, south, east + shift, north];
+}
+
 /** A map camera: centre and zoom. */
 export interface MapViewState {
   lng: number;

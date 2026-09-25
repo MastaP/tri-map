@@ -54,8 +54,9 @@ interface ToggleChipProps {
 }
 
 /**
- * On/off pill exposed as a switch; shows a check when on. Every switch is off by default
- * and narrows the results when on, so the lime "on" state always means "filtering".
+ * On/off pill exposed as a switch; shows a check when on. Every switch is off by default,
+ * so the lime "on" state always means "changed from the default" (all of them narrow the
+ * results except "Estimated dates", which adds races whose date is not announced yet).
  */
 export function ToggleChip({ checked, onChange, children, icon, title, disabled }: ToggleChipProps) {
   return (

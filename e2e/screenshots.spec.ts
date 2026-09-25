@@ -92,7 +92,7 @@ test.describe('screenshots', () => {
     await openApp(page, '/?region=europe', { theme: 'light' });
     await settle(page);
     await page.waitForTimeout(1200); // fit animation
-    await page.locator('main li[data-race-id="challenge-roth-full"]').hover();
+    await page.locator('main li[data-race-id="ironman-frankfurt-full"]').hover();
     await page.waitForTimeout(400);
     await page.screenshot({ path: `${OUT}/desktop-europe.png` });
   });

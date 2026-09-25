@@ -88,9 +88,9 @@ test.describe('TriMap smoke', () => {
     await page.getByRole('button', { name: /^Full distance/ }).click();
     await expectResults(page, 9);
     await openFilterPanel(page);
-    await page.getByRole('switch', { name: /Announced dates only/ }).click();
-    await expectResults(page, 8); // Challenge Roth only has an estimated date
-    await expect(page).toHaveURL(/dist=full.*est=0/);
+    await page.getByRole('switch', { name: /Estimated dates/ }).click();
+    await expectResults(page, 10); // Challenge Roth only has an estimated date
+    await expect(page).toHaveURL(/dist=full.*est=1/);
   });
 
   test('time presets and the empty state', async ({ page }) => {
@@ -110,7 +110,7 @@ test.describe('TriMap smoke', () => {
 
   test("a year search finds races whose next edition is earlier, shown with that year's date", async ({ page }) => {
     // Kona's next edition is Oct 2026; its 2027 edition is only estimated.
-    await openApp(page, '/?from=2027-10&to=2027-12');
+    await openApp(page, '/?from=2027-10&to=2027-12&est=1');
     await expectResults(page, 5);
     const kona = cards(page).filter({ hasText: 'IRONMAN World Championship' });
     await expect(kona).toContainText('≈ Oct 2027');
@@ -163,7 +163,7 @@ test.describe('TriMap smoke', () => {
   });
 
   test('deep link shows an estimated date and co-located races', async ({ page }) => {
-    await openApp(page, '/?race=challenge-roth-full');
+    await openApp(page, '/?race=challenge-roth-full&est=1');
     await expect(page.getByRole('heading', { level: 2, name: 'Challenge Roth' })).toBeVisible();
     await expect(page.getByText('≈ July 2027').first()).toBeVisible();
     await expect(page.getByRole('button', { name: /Add to calendar/ })).toBeDisabled();
@@ -184,7 +184,7 @@ test.describe('TriMap smoke', () => {
   });
 
   test('shortlist persists across reloads and compares courses', async ({ page }) => {
-    await openApp(page);
+    await openApp(page, '/?est=1');
     await page.getByRole('button', { name: 'Add IRONMAN Cozumel to shortlist' }).click();
     await page.getByRole('button', { name: 'Add Challenge Roth to shortlist' }).click();
     await page.reload();
@@ -196,13 +196,21 @@ test.describe('TriMap smoke', () => {
       /Sea.*Flat.*Flat/,
     );
     // Other filters that hide starred races are called out.
-    await page.getByRole('button', { name: /^Full distance/ }).click();
-    await page.getByRole('switch', { name: /Announced dates only/ }).click();
+    await page
+      .getByRole('group', { name: 'Region' })
+      .getByRole('button', { name: /Europe/ })
+      .click();
     await expect(cards(page)).toHaveCount(1);
     await expect(page.getByTestId('starred-hidden-note')).toHaveText('1 starred race is hidden by your other filters.');
     await page.getByRole('button', { name: 'Show all starred' }).click();
     await expect(cards(page)).toHaveCount(2);
-    await expect(page).toHaveURL(/\?star=1$/);
+    // "Show all starred" keeps estimated dates on, so Roth stays.
+    await expect(page).toHaveURL(/\?est=1&star=1$/);
+    // With estimated dates off, starred Roth waits for its date: that note, not "hidden by filters".
+    await page.getByRole('switch', { name: /Estimated dates/ }).click();
+    await expect(cards(page)).toHaveCount(1);
+    await expect(page.getByTestId('estimated-hidden-note')).toHaveText('1 more race has no date announced yet.');
+    await expect(page.getByTestId('starred-hidden-note')).toHaveCount(0);
   });
 
   test('mobile: list/map toggle and filter sheet', async ({ browser }) => {

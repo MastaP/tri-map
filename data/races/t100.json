@@ -23,7 +23,7 @@
     "swim": "ocean",
     "bike": "flat",
     "run": "flat",
-    "notes": "Age-group 100km on Sunday; pros race Saturday. Broadwater swim, flat coastal bike and run, finish in Surfers Paradise.",
+    "notes": "Age-group 100km on Sunday. Broadwater swim, flat coastal bike and run, finish in Surfers Paradise.",
     "sources": [
       "https://t100triathlon.com/gold-coast/participate/",
       "https://t100triathlon.com/gold-coast/participate/event-info/",
@@ -57,7 +57,7 @@
     "swim": "lake",
     "bike": "rolling",
     "run": "flat",
-    "notes": "Marina Bay (reservoir) non-wetsuit swim, bike on closed city roads. Age-group 100km on Sunday; pros race Saturday.",
+    "notes": "Marina Bay (reservoir) non-wetsuit swim, bike on closed city roads. Age-group 100km on Sunday.",
     "sources": [
       "https://t100triathlon.com/singapore/participate/event-info/",
       "https://www.t100triathlon.com/wp-content/uploads/2026/04/Singapore-T100-2026-100km-Olympic-Athlete-Guide.pdf",
@@ -85,7 +85,7 @@
       }
     ],
     "swim": "lake",
-    "notes": "AG 100km and pro women both Sat 23 May 2026; Alloz Reservoir swim. Not on the 2027 calendar; T100's Spain page now leads to Marbella.",
+    "notes": "AG 100km on Sat 23 May 2026; Alloz Reservoir swim. Not on the 2027 calendar; T100's Spain page now leads to Marbella.",
     "continuedAs": "t100-marbella-t100",
     "sources": [
       "https://stats.protriathletes.org/race/spain-t100/2026/results",
@@ -120,7 +120,7 @@
     ],
     "bike": "flat",
     "run": "flat",
-    "notes": "Age-group 100km only; pros race WTCS (2026) / T50 (2027), not T100. Royal Victoria Dock swim. 2027 100km listed as Sun 22 Aug TBC.",
+    "notes": "Age-group-only 100km race. Royal Victoria Dock swim. 2027 100km listed as Sun 22 Aug TBC.",
     "sources": [
       "https://t100triathlon.com/london/participate/event-info/",
       "https://t100triathlon.com/wp-content/uploads/2026/06/2026_T100_London_Athlete_Guide.pdf",
@@ -153,7 +153,8 @@
     ],
     "swim": "ocean",
     "bike": "rolling",
-    "notes": "Age-group 100km on Sunday; pros race Saturday. Swim off Locarno Beach, transition at Jericho Sailing Centre; packed-gravel run.",
+    "run": "flat",
+    "notes": "Age-group 100km on Sunday. Swim off Locarno Beach, transition at Jericho Sailing Centre; packed-gravel run.",
     "sources": [
       "https://t100triathlon.com/wp-content/uploads/2026/07/26_Vancouver_Athlete-Guide-.pdf",
       "https://t100triathlon.com/vancouver/participate/event-info/",
@@ -183,7 +184,7 @@
     "swim": "ocean",
     "bike": "rolling",
     "run": "flat",
-    "notes": "New venue Al Mamzar Beach in 2026. Age-group 100km Sun 15 Nov; pro women Sat 14 Nov. Not on the 2027 T100 calendar.",
+    "notes": "New venue Al Mamzar Beach in 2026. Age-group 100km Sun 15 Nov. Not on the 2027 T100 calendar.",
     "recurring": false,
     "sources": [
       "https://t100triathlon.com/dubai/participate/event-info/",
@@ -279,6 +280,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "T100 Challenger (Wanaka Triathlon) from 2027, replacing the half. Saturday race; two-lap 80 km bike toward Treble Cone.",
     "sources": [
       "https://challenge-wanaka.com/news/challenge-wanaka-evolves-entries-open-15-may-for-new-100km-middle-distance-race/",
@@ -306,6 +309,7 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
     "run": "hilly",
     "notes": "T100 Challenger from 2027, raced as Challenge Gran Canaria 100 on Saturday. Anfi del Mar swim, 4-lap closed-road bike.",
     "sources": [
@@ -333,6 +337,7 @@
       }
     ],
     "swim": "ocean",
+    "run": "rolling",
     "notes": "T100 Challenger weekend 24-25 Apr 2027; Sunday assumed (April 2026 race was a Sunday). Separate from the November Challenge race.",
     "sources": [
       "https://t100triathlon.com/media-releases/triathlon-world-tour-announces-31-more-races-for-2027/",
@@ -359,6 +364,7 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
     "run": "flat",
     "notes": "T100 Challenger from 2027 (Sunday). Two-lap sea swim, 3-lap 80 km bike on a closed highway, 4-lap run.",
     "sources": [
@@ -475,6 +481,7 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
     "run": "flat",
     "notes": "T100 Challenger (Korea Triathlon) from 2027, moving from July to May. Bike laps on the 33.9 km Saemangeum seawall.",
     "sources": [
@@ -616,6 +623,7 @@
     ],
     "swim": "ocean",
     "bike": "hilly",
+    "run": "rolling",
     "notes": "New for 2027, replacing the Pamplona Spain T100. Pro race Sat 18 Sep; AG 100km day TBC, Sunday 19 assumed. Venue TBC.",
     "sources": [
       "https://t100triathlon.com/marbella/participate/",
@@ -672,6 +680,7 @@
     ],
     "swim": "ocean",
     "bike": "hilly",
+    "run": "rolling",
     "notes": "T100 Challenger weekend 16-17 Oct 2027; Saturday assumed (the 2026 half is on Saturday). Technical bike with big elevation changes.",
     "sources": [
       "https://t100triathlon.com/media-releases/triathlon-world-tour-announces-31-more-races-for-2027/",

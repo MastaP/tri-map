@@ -233,7 +233,7 @@ export function MonthHistogram({
               onClick={() => onChange({ kind: 'any' })}
               aria-label="Clear dates"
               title="Clear dates"
-              className="relative grid size-5 shrink-0 place-items-center rounded-full text-muted before:absolute before:-inset-2 hover:bg-surface-3 hover:text-fg"
+              className="relative grid size-5 shrink-0 place-items-center rounded-full text-muted before:absolute before:-inset-2 hover:bg-surface-3 hover:text-fg pointer-coarse:before:-inset-3"
             >
               <X className="size-3.5" strokeWidth={2.5} />
             </button>

@@ -26,7 +26,7 @@ export function ThemeToggle({ pref, onChange, compact }: Props) {
         onClick={() => onChange(next.value)}
         aria-label={`${current.label}. Switch to ${next.label.toLowerCase()}`}
         title={`${current.label} (tap for ${next.label.toLowerCase()})`}
-        className="grid size-10 place-items-center rounded-full text-muted transition-colors hover:bg-surface-2 hover:text-fg"
+        className="grid size-10 place-items-center rounded-full text-muted transition-colors hover:bg-surface-2 hover:text-fg pointer-coarse:size-11"
       >
         <current.Icon className="size-[18px]" strokeWidth={2.2} />
       </button>
@@ -47,7 +47,7 @@ export function ThemeToggle({ pref, onChange, compact }: Props) {
           title={label}
           onClick={() => onChange(value)}
           className={cn(
-            'grid size-7 place-items-center rounded-full transition-colors',
+            'grid size-7 place-items-center rounded-full transition-colors pointer-coarse:size-11',
             pref === value
               ? 'bg-surface text-fg shadow-card ring-1 ring-line-strong ring-inset dark:bg-surface-3 dark:ring-fg/45'
               : 'text-faint hover:text-fg',

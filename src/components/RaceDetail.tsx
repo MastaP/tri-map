@@ -15,13 +15,15 @@ import {
 } from 'lucide-react';
 import { useEffect, useRef, type ReactNode } from 'react';
 import { correctionUrl, RACE_PAGES } from '../config.ts';
-import { BRANDS, DISTANCES } from '../data/brands.ts';
+import { BRANDS, DISTANCES, formatKm } from '../data/brands.ts';
+import { isNearStandard, raceLegs } from '../data/course.ts';
 import { REGIONS } from '../data/regions.ts';
 import type { Race } from '../data/types.ts';
 import { cn } from '../lib/cn.ts';
 import { formatDate, formatDateRange, formatLongDate, formatMonthLong, type ISODate } from '../lib/dates.ts';
 import { copyText } from '../lib/clipboard.ts';
 import { buildIcs, icsFileName } from '../lib/ics.ts';
+import { TOUCH_INLINE } from '../lib/touch.ts';
 import {
   countdownTo,
   ENTRY_EXPLAINER,
@@ -36,7 +38,7 @@ import {
 } from '../lib/raceText.ts';
 import { BrandGlyph } from './BrandGlyph.tsx';
 import { Flag } from './Flag.tsx';
-import { ChampionshipBadge, DistanceBadge, EntryBadge, TerrainGlyph } from './RaceBits.tsx';
+import { ChampionshipBadge, DistanceBadge, EntryBadge, NonStandardBadge, TerrainGlyph } from './RaceBits.tsx';
 
 interface Props {
   race: Race;
@@ -56,6 +58,9 @@ interface Props {
   onSelect: (id: string) => void;
   /** Replaces the close button row's left side on the mobile sheet (the drag handle). */
   handle?: ReactNode;
+  /** Whether estimated dates are shown (off by default: only announced dates). */
+  showEstimated: boolean;
+  onShowEstimated: () => void;
 }
 
 function IconButton({
@@ -96,11 +101,15 @@ export function RaceDetail({
   predecessors,
   onSelect,
   handle,
+  showEstimated,
+  onShowEstimated,
 }: Props) {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const next = race.nextEdition;
   const d = DISTANCES[race.distance];
+  const legs = raceLegs(race);
+  const nonStandard = isNearStandard(race);
   const correction = correctionUrl(race);
   const lastHeld = race.editions.findLast((e) => e.status !== 'cancelled' && (e.endDate ?? e.date) < today);
   const successorYear = successor ? firstYear(successor) : null;
@@ -164,7 +173,7 @@ export function RaceDetail({
           <button
             type="button"
             onClick={onClose}
-            className="inline-flex h-9 items-center gap-1 rounded-full pr-3 pl-2 text-sm font-medium text-muted transition-colors hover:bg-surface-2 hover:text-fg"
+            className="inline-flex h-9 items-center gap-1 rounded-full pr-3 pl-2 text-sm font-medium text-muted transition-colors hover:bg-surface-2 hover:text-fg pointer-coarse:h-11"
           >
             <ChevronLeft className="size-4" /> All races
             <kbd className="ml-1 hidden rounded border border-line px-1 text-[10px] leading-4 text-faint xl:inline">
@@ -208,8 +217,9 @@ export function RaceDetail({
             {race.name}
           </h2>
           <div className="mt-3 flex flex-wrap items-center gap-1.5">
-            <DistanceBadge distance={race.distance} long />
+            <DistanceBadge distance={race.distance} course={race.course} long />
             <EntryBadge entry={race.entry} />
+            <NonStandardBadge race={race} />
             <ChampionshipBadge race={race} short={false} />
           </div>
           <p className="mt-3 flex items-center gap-1.5 text-[15px] text-muted">
@@ -229,7 +239,10 @@ export function RaceDetail({
                     type="button"
                     onClick={() => onSelect(p.id)}
                     aria-label={`Formerly ${p.name}`}
-                    className="rounded font-semibold text-fg underline decoration-line-strong underline-offset-2 hover:decoration-fg"
+                    className={cn(
+                      'rounded font-semibold text-fg underline decoration-line-strong underline-offset-2 hover:decoration-fg',
+                      TOUCH_INLINE,
+                    )}
                   >
                     {p.name}
                   </button>
@@ -254,6 +267,26 @@ export function RaceDetail({
                     : 'Check the official website for news of a future edition.'}
                 </p>
                 {successor && <div className="mt-3">{successorLink}</div>}
+              </>
+            ) : next.estimated && !showEstimated ? (
+              // Only announced dates are shown by default; the estimate is one click away.
+              <>
+                <p className="mt-1 font-display text-[26px] leading-tight font-bold uppercase">
+                  Next date not announced yet
+                </p>
+                <p className="mt-1 text-sm text-muted" data-testid="next-not-announced">
+                  {lastHeld ? <>Last held {formatDate(lastHeld.date)} · </> : null}
+                  <button
+                    type="button"
+                    onClick={onShowEstimated}
+                    className={cn(
+                      'rounded font-semibold text-fg underline decoration-line-strong underline-offset-2 hover:decoration-fg',
+                      TOUCH_INLINE,
+                    )}
+                  >
+                    Show estimated dates
+                  </button>
+                </p>
               </>
             ) : next.estimated ? (
               <>
@@ -281,7 +314,7 @@ export function RaceDetail({
                 href={race.url}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex h-10 flex-auto items-center justify-center gap-2 rounded-xl bg-ink px-3.5 text-sm font-semibold whitespace-nowrap text-on-ink transition-transform hover:opacity-90 active:scale-[0.98]"
+                className="inline-flex h-10 flex-auto items-center justify-center gap-2 rounded-xl bg-ink px-3.5 text-sm font-semibold whitespace-nowrap text-on-ink transition-transform hover:opacity-90 active:scale-[0.98] pointer-coarse:h-11"
               >
                 Official website <ExternalLink className="size-4" />
               </a>
@@ -294,7 +327,7 @@ export function RaceDetail({
                     ? 'Available once the date is announced'
                     : 'Download an all-day calendar event (.ics)'
                 }
-                className="inline-flex h-10 flex-auto items-center justify-center gap-2 rounded-xl border border-line-strong bg-surface px-3.5 text-sm font-semibold whitespace-nowrap transition-colors hover:bg-surface-3 disabled:cursor-not-allowed disabled:opacity-45"
+                className="inline-flex h-10 flex-auto items-center justify-center gap-2 rounded-xl border border-line-strong bg-surface px-3.5 text-sm font-semibold whitespace-nowrap transition-colors hover:bg-surface-3 disabled:cursor-not-allowed disabled:opacity-45 pointer-coarse:h-11"
               >
                 <CalendarPlus className="size-4" /> Add to calendar
               </button>
@@ -321,7 +354,7 @@ export function RaceDetail({
                           <span className="text-[11px] font-semibold tracking-wide text-muted uppercase">
                             Also here
                           </span>
-                          <DistanceBadge distance={s.distance} />
+                          <DistanceBadge distance={s.distance} course={s.course} />
                           <EntryBadge entry={s.entry} />
                         </span>
                         <span className="min-w-0 font-medium text-pretty">
@@ -330,7 +363,9 @@ export function RaceDetail({
                             {' · '}
                             {s.nextEdition
                               ? s.nextEdition.estimated
-                                ? `≈ ${formatMonthLong(s.nextEdition.date)}`
+                                ? showEstimated
+                                  ? `≈ ${formatMonthLong(s.nextEdition.date)}`
+                                  : 'date not announced yet'
                                 : formatDate(s.nextEdition.date)
                               : 'no upcoming date'}
                           </span>
@@ -354,7 +389,7 @@ export function RaceDetail({
                 [
                   {
                     label: 'Swim',
-                    km: d.swim,
+                    km: legs.swim,
                     Icon: Waves,
                     detail: race.swim ? SWIM_LABEL[race.swim] : null,
                     title: race.swim ? SWIM_LONG[race.swim] : undefined,
@@ -363,7 +398,7 @@ export function RaceDetail({
                   },
                   {
                     label: 'Bike',
-                    km: d.bike,
+                    km: legs.bike,
                     Icon: Bike,
                     detail: race.bike ? TERRAIN_LABEL[race.bike] : null,
                     title: race.bike ? `${TERRAIN_LABEL[race.bike]} bike course` : undefined,
@@ -372,7 +407,7 @@ export function RaceDetail({
                   },
                   {
                     label: 'Run',
-                    km: d.run,
+                    km: legs.run,
                     Icon: Footprints,
                     detail: race.run ? TERRAIN_LABEL[race.run] : null,
                     title: race.run ? `${TERRAIN_LABEL[race.run]} run course` : undefined,
@@ -404,8 +439,14 @@ export function RaceDetail({
                 </div>
               ))}
             </div>
-            <p className="mt-2 text-[12px] text-faint">
-              {d.long} · {d.total} km total
+            <p className="mt-2 text-[12px] text-faint" data-testid="course-total">
+              {d.long} · {formatKm(legs.total)} total
+              {nonStandard && (
+                <>
+                  {' '}
+                  · standard {d.swim} / {d.bike} / {d.run} km
+                </>
+              )}
             </p>
           </section>
 
@@ -435,7 +476,7 @@ export function RaceDetail({
                     href={`https://www.openstreetmap.org/?mlat=${race.lat}&mlon=${race.lng}#map=13/${race.lat}/${race.lng}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 font-medium underline decoration-line-strong underline-offset-2 hover:decoration-fg"
+                    className="inline-flex items-center gap-1 font-medium underline decoration-line-strong underline-offset-2 hover:decoration-fg pointer-coarse:min-h-11"
                   >
                     <MapPin className="size-3.5" aria-hidden="true" /> Open in maps
                   </a>
@@ -443,7 +484,7 @@ export function RaceDetail({
                     href={`https://www.google.com/maps/dir/?api=1&destination=${race.lat},${race.lng}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 font-medium underline decoration-line-strong underline-offset-2 hover:decoration-fg"
+                    className="inline-flex items-center gap-1 font-medium underline decoration-line-strong underline-offset-2 hover:decoration-fg pointer-coarse:min-h-11"
                   >
                     <Navigation className="size-3.5" aria-hidden="true" /> Directions
                   </a>
@@ -499,7 +540,7 @@ export function RaceDetail({
                   </li>
                 );
               })}
-              {next?.estimated && (
+              {next?.estimated && showEstimated && (
                 <li className="flex items-center gap-3 rounded-xl border border-dashed border-line-strong px-3 py-2 text-sm text-muted">
                   <span className="tabular w-10 font-display text-base font-bold">{next.date.slice(0, 4)}</span>
                   <span className="flex-1">≈ {formatMonthLong(next.date.slice(0, 7))}</span>
@@ -516,7 +557,12 @@ export function RaceDetail({
               {sourceLabels(race.sources).map(({ url, label }, i) => (
                 <span key={url}>
                   {i > 0 && ', '}
-                  <a href={url} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-fg">
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={cn('underline underline-offset-2 hover:text-fg', TOUCH_INLINE)}
+                  >
                     {label}
                   </a>
                 </span>
@@ -529,7 +575,7 @@ export function RaceDetail({
                   href={correction}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-medium text-muted underline underline-offset-2 hover:text-fg"
+                  className={cn('font-medium text-muted underline underline-offset-2 hover:text-fg', TOUCH_INLINE)}
                 >
                   Report a correction
                 </a>

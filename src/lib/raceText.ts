@@ -80,6 +80,16 @@ export function countdownTo(next: Exclude<NextEdition, { estimated: true }>, tod
   return countdown(today, next.date);
 }
 
+/**
+ * "12 more races usually held in this period have no date announced yet." for races
+ * hidden while estimated dates are off. `more`: some races are listed already.
+ */
+export function estimatedHiddenText(n: number, inPeriod: boolean, more = true): string {
+  const races = `${n}${more ? ' more' : ''} ${n === 1 ? 'race' : 'races'}`;
+  const period = inPeriod ? ' usually held in this period' : '';
+  return `${races}${period} ${n === 1 ? 'has' : 'have'} no date announced yet.`;
+}
+
 /** "in 5 weeks", or "≈ Jul 2027 · date TBA" for estimates. */
 export function whenText(next: NextEdition | null, today: ISODate): string {
   if (!next) return 'No upcoming date';

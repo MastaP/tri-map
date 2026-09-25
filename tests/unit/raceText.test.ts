@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   courseSummary,
+  estimatedHiddenText,
   firstYear,
   isWorldChampionship,
   raceLink,
@@ -10,6 +11,12 @@ import {
 import { DISTANCES } from '../../src/data/brands.ts';
 
 describe('race text helpers', () => {
+  it('says how many races have no date announced yet', () => {
+    expect(estimatedHiddenText(12, true)).toBe('12 more races usually held in this period have no date announced yet.');
+    expect(estimatedHiddenText(1, false)).toBe('1 more race has no date announced yet.');
+    expect(estimatedHiddenText(3, true, false)).toBe('3 races usually held in this period have no date announced yet.');
+  });
+
   it('describes upcoming, running, estimated and missing dates', () => {
     const today = '2026-09-25';
     expect(whenText({ estimated: false, date: '2026-10-30', status: 'confirmed' }, today)).toBe('in 5 weeks');

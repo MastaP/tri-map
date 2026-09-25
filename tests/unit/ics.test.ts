@@ -59,6 +59,16 @@ describe('ics', () => {
     expect(seq(confirmed)).toBeGreaterThan(seq(tentative));
   });
 
+  it('describes the official km of a near-standard race', () => {
+    const celtman = fixtureRaces().find((r) => r.id === 'independent-celtman-full')!;
+    const ics = buildIcs(celtman, { date: '2027-06-19', status: 'confirmed' }, now);
+    const unfolded = ics.replace(/\r\n /g, '');
+    expect(unfolded).toContain('DESCRIPTION:Non-standard full distance: 3.4 km swim · 202 km bike · 41 km run');
+    expect(buildIcs(race, { date: '2027-06-27', status: 'confirmed' }, now).replace(/\r\n /g, '')).toContain(
+      'DESCRIPTION:Full distance: 3.8 km swim · 180 km bike · 42.2 km run',
+    );
+  });
+
   it('names the file after the race and date', () => {
     expect(icsFileName(race, '2027-06-27')).toBe('ironman-frankfurt-full-2027-06-27.ics');
   });

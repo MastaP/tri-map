@@ -30,7 +30,7 @@ function describe(d: Dimension, f: Filters): string {
     case 'entry':
       return 'Open entry only';
     case 'estimated':
-      return 'Announced dates only';
+      return 'Estimated dates';
     case 'area':
       return 'In map area';
     case 'shortlist':
@@ -65,7 +65,7 @@ export function ActiveFilters({
               type="button"
               onClick={() => onClear(d)}
               aria-label={`${text}: remove filter`}
-              className="inline-flex h-7 max-w-full items-center gap-1 rounded-full bg-accent-soft pr-2 pl-2.5 text-[12px] font-medium text-fg ring-1 ring-ink/15 transition-colors ring-inset hover:ring-ink/40 dark:ring-accent/40 pointer-coarse:h-10"
+              className="inline-flex h-7 max-w-full items-center gap-1 rounded-full bg-accent-soft pr-2 pl-2.5 text-[12px] font-medium text-fg ring-1 ring-ink/15 transition-colors ring-inset hover:ring-ink/40 dark:ring-accent/40 pointer-coarse:h-11"
             >
               <span className="truncate">{text}</span>
               <X className="size-3.5 shrink-0 text-muted" strokeWidth={2.5} aria-hidden="true" />

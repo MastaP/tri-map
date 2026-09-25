@@ -3,10 +3,14 @@
  *
  *   ?q=roth&dist=full,half&brand=ironman&region=europe,asia&when=6m
  *   ?from=2026-10&to=2027-03&open=1&bike=flat,rolling&run=flat
- *   &est=0&area=1&at=52.37,4.9,6&star=1&sort=near&race=<id>
+ *   &est=1&area=1&bbox=4.1,51.9,6.3,52.8&star=1&sort=near&race=<id>
  *
- * `at` (map centre lat,lng and zoom) is only written with `area=1`, so a shared "in map
- * area" search shows the same races to whoever opens it.
+ * `est=1` shows estimated dates (off by default; the old `est=0` is read as off).
+ *
+ * `bbox` (the map area west,south,east,north) is only written with `area=1`, so a shared
+ * "in map area" search shows the same races to whoever opens it, whatever the size of
+ * their screen. Older links carry the map centre and zoom instead (`at=lat,lng,zoom`);
+ * they are still read.
  *
  * Defaults are omitted; unknown or malformed values are ignored.
  */
@@ -14,7 +18,7 @@ import { BRAND_IDS, DISTANCE_IDS, isBrandId, isDistanceId } from '../data/brands
 import { isRegionId, REGION_IDS } from '../data/regions.ts';
 import { TERRAINS, type Terrain } from '../data/constants.ts';
 import { isMonthKey } from './dates.ts';
-import type { MapViewState } from './geo.ts';
+import { normalizeBounds, type Bounds, type MapViewState } from './geo.ts';
 import {
   DEFAULT_FILTERS,
   SORT_KEYS,
@@ -28,7 +32,9 @@ import {
 export interface UrlState {
   filters: Filters;
   raceId: string | null;
-  /** Map view for an "in map area" search. */
+  /** The map area of an "in map area" search (`bbox`). */
+  bounds?: Bounds | null;
+  /** An older "in map area" link's map centre and zoom (`at`), when it has no `bbox`. */
   view?: MapViewState | null;
 }
 
@@ -41,7 +47,23 @@ function parseView(raw: string | null): MapViewState | null {
   return { lat, lng, zoom };
 }
 
-const round = (n: number, digits: number) => String(Number(n.toFixed(digits)));
+function parseBounds(raw: string | null): Bounds | null {
+  if (!raw) return null;
+  const parts = raw.split(',').map(Number);
+  if (parts.length !== 4 || parts.some((n) => !Number.isFinite(n))) return null;
+  const [west, south, east, north] = parts as [number, number, number, number];
+  if (south < -90 || north > 90 || south >= north) return null;
+  if (west < -180 || west > 180 || east <= west || east - west > 360) return null;
+  return [west, south, east, north];
+}
+
+/** Rounded outwards to 3 decimals (about 100 m), so the box still holds every race it held. */
+function formatBounds(b: Bounds): string {
+  const [west, south, east, north] = normalizeBounds(b);
+  const down = (n: number) => String(Math.floor(Math.round(n * 1e6) / 1e3) / 1e3);
+  const up = (n: number) => String(Math.ceil(Math.round(n * 1e6) / 1e3) / 1e3);
+  return `${down(west)},${down(south)},${up(east)},${up(north)}`;
+}
 
 function list<T extends string>(
   raw: string | null,
@@ -77,6 +99,8 @@ export function parseUrlState(search: string): UrlState {
   }
   const race = p.get('race');
   const sort = p.get('sort');
+  const area = p.get('area') === '1';
+  const bounds = parseBounds(p.get('bbox'));
   return {
     filters: {
       q: (p.get('q') ?? '').slice(0, 100),
@@ -88,18 +112,20 @@ export function parseUrlState(search: string): UrlState {
       // Every profile selected still means "has course info", so it is kept as is.
       bike: list(p.get('bike'), isTerrain, TERRAINS, { collapseAll: false }),
       run: list(p.get('run'), isTerrain, TERRAINS, { collapseAll: false }),
-      showEstimated: p.get('est') !== '0',
+      // Off unless asked for; old links carry "est=0" for off, which is now the default.
+      showEstimated: p.get('est') === '1',
       inMapArea: p.get('area') === '1',
       shortlistOnly: p.get('star') === '1',
       sort: isSortKey(sort) ? sort : DEFAULT_FILTERS.sort,
     },
     raceId: race && /^[a-z0-9-]{3,120}$/.test(race) ? race : null,
-    view: p.get('area') === '1' ? parseView(p.get('at')) : null,
+    bounds: area ? bounds : null,
+    view: area && !bounds ? parseView(p.get('at')) : null,
   };
 }
 
 /** Query string without the leading "?" ("" when everything is default). */
-export function serializeUrlState({ filters: f, raceId, view }: UrlState): string {
+export function serializeUrlState({ filters: f, raceId, bounds }: UrlState): string {
   const p = new URLSearchParams();
   if (f.q.trim()) p.set('q', f.q.trim());
   if (f.distances.length) p.set('dist', f.distances.join(','));
@@ -113,10 +139,10 @@ export function serializeUrlState({ filters: f, raceId, view }: UrlState): strin
   if (f.openOnly) p.set('open', '1');
   if (f.bike.length) p.set('bike', f.bike.join(','));
   if (f.run.length) p.set('run', f.run.join(','));
-  if (!f.showEstimated) p.set('est', '0');
+  if (f.showEstimated) p.set('est', '1');
   if (f.inMapArea) {
     p.set('area', '1');
-    if (view) p.set('at', `${round(view.lat, 3)},${round(view.lng, 3)},${round(view.zoom, 1)}`);
+    if (bounds) p.set('bbox', formatBounds(bounds));
   }
   if (f.shortlistOnly) p.set('star', '1');
   if (f.sort !== DEFAULT_FILTERS.sort) p.set('sort', f.sort);

@@ -56,7 +56,8 @@ export const BRANDS: Record<BrandId, BrandStyle> = {
   t100: {
     id: 't100',
     label: 'T100',
-    description: 'T100 World Championship Tour and T100 Challenger',
+    // Named after what age-groupers race (the 100 km), not the pro tour.
+    description: 'T100 races over 100 km, incl. T100 Challenger',
     // Teal, not violet: violet and the Challenge blue look alike with red-green colour
     // blindness (ΔE2000 3.5 simulated); teal stays ≥ 14 apart from every other brand.
     color: '#0D9488',

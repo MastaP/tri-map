@@ -1,7 +1,10 @@
-import { Info, LocateFixed, MapPinned, Star } from 'lucide-react';
+import { CalendarClock, Info, LocateFixed, MapPinned, Star } from 'lucide-react';
 import type { ReactNode } from 'react';
 import type { GeoStatus } from '../hooks/useGeolocation.ts';
+import { cn } from '../lib/cn.ts';
 import type { Origin } from '../lib/nearest.ts';
+import { estimatedHiddenText } from '../lib/raceText.ts';
+import { TOUCH_INLINE } from '../lib/touch.ts';
 
 interface Props {
   /** Present while the "Nearest" sort is active. */
@@ -17,10 +20,17 @@ interface Props {
   /** T100 (100 km) races that would match if "Half" also included them. */
   t100Alongside: number;
   onIncludeT100: () => void;
+  /** Races that would match with estimated dates shown (their date is not announced yet). */
+  estimatedHidden: number;
+  /** A date range or a year narrows the search ("usually held in this period"). */
+  inPeriod: boolean;
+  onShowEstimated: () => void;
 }
 
-const linkBtn =
-  'shrink-0 rounded font-semibold text-fg underline decoration-line-strong underline-offset-2 hover:decoration-fg';
+const linkBtn = cn(
+  'shrink-0 rounded font-semibold text-fg underline decoration-line-strong underline-offset-2 hover:decoration-fg',
+  TOUCH_INLINE,
+);
 
 function Note({ icon, children }: { icon: ReactNode; children: ReactNode }) {
   return (
@@ -57,8 +67,13 @@ export function ResultsNotes({
   onShowAllStarred,
   t100Alongside,
   onIncludeT100,
+  estimatedHidden,
+  inPeriod,
+  onShowEstimated,
 }: Props) {
-  if (!nearest && missingCourse === 0 && starredHidden === 0 && t100Alongside === 0) return null;
+  if (!nearest && missingCourse === 0 && starredHidden === 0 && t100Alongside === 0 && estimatedHidden === 0) {
+    return null;
+  }
   const canAsk = nearest && nearest.origin?.source !== 'location' && nearest.geo !== 'pending';
   return (
     <div className="space-y-1.5 border-b border-line bg-surface-2/60 px-4 py-2" role="status">
@@ -101,6 +116,14 @@ export function ResultsNotes({
           ·{' '}
           <button type="button" onClick={onClearCourse} className={linkBtn}>
             Clear course filter
+          </button>
+        </Note>
+      )}
+      {estimatedHidden > 0 && (
+        <Note icon={<CalendarClock className="size-3.5" />}>
+          <span data-testid="estimated-hidden-note">{estimatedHiddenText(estimatedHidden, inPeriod)}</span>{' '}
+          <button type="button" onClick={onShowEstimated} className={linkBtn}>
+            Show estimated dates
           </button>
         </Note>
       )}
