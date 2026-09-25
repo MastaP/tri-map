@@ -1,0 +1,73 @@
+[
+  {
+    "id": "challenge-roth-full",
+    "name": "Challenge Roth",
+    "brand": "challenge",
+    "series": "Challenge Roth",
+    "distance": "full",
+    "city": "Roth",
+    "country": "DE",
+    "lat": 49.2461,
+    "lng": 11.0911,
+    "url": "https://www.challenge-roth.com",
+    "editions": [{ "date": "2026-07-05", "status": "confirmed" }],
+    "swim": "river",
+    "notes": "Swim in the Main-Danube Canal at Hilpoltstein; the Solarer Berg climb on the bike",
+    "sources": ["https://www.challenge-roth.com"],
+    "verifiedAt": "2026-09-17"
+  },
+  {
+    "id": "challenge-almere-amsterdam-full",
+    "name": "Challenge Almere-Amsterdam",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "full",
+    "city": "Almere",
+    "country": "NL",
+    "lat": 52.3703,
+    "lng": 5.2167,
+    "url": "https://www.challenge-almere.com",
+    "editions": [
+      { "date": "2026-09-12", "status": "confirmed" },
+      { "date": "2027-09-11", "status": "confirmed" }
+    ],
+    "swim": "lake",
+    "sources": ["https://www.challenge-almere.com"],
+    "verifiedAt": "2026-09-17"
+  },
+  {
+    "id": "challenge-almere-amsterdam-half",
+    "name": "Challenge Almere-Amsterdam",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Almere",
+    "country": "NL",
+    "lat": 52.3703,
+    "lng": 5.2167,
+    "url": "https://www.challenge-almere.com",
+    "editions": [
+      { "date": "2026-09-12", "status": "confirmed" },
+      { "date": "2027-09-11", "status": "confirmed" }
+    ],
+    "swim": "lake",
+    "sources": ["https://www.challenge-almere.com"],
+    "verifiedAt": "2026-09-17"
+  },
+  {
+    "id": "challenge-wanaka-half",
+    "name": "Challenge Wanaka",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Wānaka",
+    "country": "NZ",
+    "lat": -44.697,
+    "lng": 169.134,
+    "url": "https://www.challenge-wanaka.com",
+    "editions": [{ "date": "2027-02-20", "status": "confirmed" }],
+    "swim": "lake",
+    "sources": ["https://www.challenge-wanaka.com"],
+    "verifiedAt": "2026-09-17"
+  }
+]

@@ -1,0 +1,329 @@
+[
+  {
+    "id": "t100-gold-coast-t100",
+    "name": "Gold Coast T100",
+    "brand": "t100",
+    "series": "T100 Triathlon World Tour",
+    "distance": "t100",
+    "city": "Gold Coast",
+    "country": "AU",
+    "lat": -27.9661,
+    "lng": 153.4173,
+    "url": "https://t100triathlon.com/gold-coast/participate/",
+    "editions": [
+      {
+        "date": "2026-03-22",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-03-21",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Age-group 100km on Sunday; pro women raced Sat 21 Mar 2026. Swim in the Broadwater, flat course, finish in Surfers Paradise.",
+    "sources": [
+      "https://t100triathlon.com/gold-coast/participate/",
+      "https://t100triathlon.com/gold-coast/participate/event-info/",
+      "https://t100triathlon.com/gold-coast/pro/",
+      "https://sportstats.one/event/gold-coast-t100-triathlon?eventid=43078"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "t100-singapore-t100",
+    "name": "Singapore T100",
+    "brand": "t100",
+    "series": "T100 Triathlon World Tour",
+    "distance": "t100",
+    "city": "Singapore",
+    "country": "SG",
+    "lat": 1.2919,
+    "lng": 103.8639,
+    "url": "https://t100triathlon.com/singapore/participate/",
+    "editions": [
+      {
+        "date": "2026-04-26",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-11",
+        "status": "tentative"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Marina Bay (reservoir) swim; pro men raced Sat 25 Apr 2026. 2027 set for 10-11 Apr; 100km on 11 Apr per entry system, schedule TBC.",
+    "sources": [
+      "https://t100triathlon.com/singapore/participate/event-info/",
+      "https://www.t100triathlon.com/wp-content/uploads/2026/04/Singapore-T100-2026-100km-Olympic-Athlete-Guide.pdf",
+      "https://t100triathlon.com/singapore/participate/",
+      "https://in.registrations.protriathletes.org/singapore-t100-2027"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "t100-pamplona-t100",
+    "name": "Spain T100",
+    "brand": "t100",
+    "series": "T100 Triathlon World Tour",
+    "distance": "t100",
+    "city": "Pamplona",
+    "country": "ES",
+    "lat": 42.8168,
+    "lng": -1.6428,
+    "url": "https://stats.protriathletes.org/race/spain-t100/2026/results",
+    "editions": [
+      {
+        "date": "2026-05-23",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "AG 100km and pro women both Sat 23 May 2026. Swim in Alloz Reservoir, finish in Plaza del Castillo. Spain T100 moves to Marbella in 2027.",
+    "sources": [
+      "https://stats.protriathletes.org/race/spain-t100/2026/results",
+      "https://t100triathlon.com/participate/results-and-images/",
+      "https://triathlon.org/news/pamplona-will-be-the-new-home-of-100-in-spain",
+      "https://t100triathlon.com/media-releases/professional-triathletes-organisation-announce-pamplona-new-home-t100-spain/",
+      "https://sportstats.one/event/spain-t100-age-group-triathlon?eventid=43158"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "t100-san-francisco-t100",
+    "name": "San Francisco T100",
+    "brand": "t100",
+    "series": "T100 Triathlon World Tour",
+    "distance": "t100",
+    "city": "San Francisco",
+    "country": "US",
+    "lat": 37.8066,
+    "lng": -122.4391,
+    "url": "https://t100triathlon.com/san-francisco/pro/",
+    "editions": [
+      {
+        "date": "2026-06-06",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-05",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Pro men's T100 at the Escape From Alcatraz weekend; no age-group 100km in 2026 (amateurs raced EFAT). 2027: 5-6 Jun, race day TBC.",
+    "sources": [
+      "https://t100triathlon.com/san-francisco/pro/",
+      "https://t100triathlon.com/media-releases/pto-and-world-triathlon-launch-triathlon-world-tour/",
+      "https://stats.protriathletes.org/race/san-francisco-t100/2026/results"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "t100-london-t100",
+    "name": "London T100",
+    "brand": "t100",
+    "series": "T100 Triathlon World Tour",
+    "distance": "t100",
+    "city": "London",
+    "country": "GB",
+    "lat": 51.5081,
+    "lng": 0.0297,
+    "url": "https://t100triathlon.com/london/participate/",
+    "editions": [
+      {
+        "date": "2026-07-26",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-22",
+        "status": "tentative"
+      }
+    ],
+    "notes": "Age-group 100km only; pros race WTCS (2026) / T50 (2027), not T100. Swim in Royal Victoria Dock (ExCeL). 2027 100km date TBC.",
+    "sources": [
+      "https://t100triathlon.com/london/participate/event-info/",
+      "https://t100triathlon.com/wp-content/uploads/2026/06/2026_T100_London_Athlete_Guide.pdf",
+      "https://t100triathlon.com/london/participate/",
+      "https://sportstats.one/event/t100-triathlon-world-tour-london-uk?eventid=42152",
+      "https://t100triathlon.com/media-releases/pto-and-world-triathlon-launch-triathlon-world-tour/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "t100-vancouver-t100",
+    "name": "Vancouver T100",
+    "brand": "t100",
+    "series": "T100 Triathlon World Tour",
+    "distance": "t100",
+    "city": "Vancouver",
+    "country": "CA",
+    "lat": 49.2751,
+    "lng": -123.2004,
+    "url": "https://t100triathlon.com/vancouver/participate/",
+    "editions": [
+      {
+        "date": "2026-08-16",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-15",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Age-group 100km on Sunday; pro women raced Sat 15 Aug 2026. Swim off Locarno Beach, transition at Jericho Sailing Centre.",
+    "sources": [
+      "https://t100triathlon.com/wp-content/uploads/2026/07/26_Vancouver_Athlete-Guide-.pdf",
+      "https://t100triathlon.com/vancouver/pro/",
+      "https://t100triathlon.com/vancouver/participate/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "t100-french-riviera-t100",
+    "name": "French Riviera T100",
+    "brand": "t100",
+    "series": "T100 Triathlon World Tour",
+    "distance": "t100",
+    "city": "Fréjus",
+    "country": "FR",
+    "lat": 43.4175,
+    "lng": 6.7366,
+    "url": "https://t100triathlon.com/french-riviera/pro/",
+    "editions": [
+      {
+        "date": "2026-09-19",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-15",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Fréjus-Saint-Raphaël. 2026 was pro men only; age-group racing returns 2027 (PTO date 15 May, 100km day TBC).",
+    "sources": [
+      "https://t100triathlon.com/french-riviera/pro/",
+      "https://t100triathlon.com/media-releases/triathlon-world-tour-announces-31-more-races-for-2027/",
+      "https://stats.protriathletes.org/race/french-riviera-t100/2026/results",
+      "https://triathlon.org/news/world-triathlon-congress-welcomes-new-members-and-presents-the-2027-racing-calendar"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "t100-dubai-t100",
+    "name": "Dubai T100",
+    "brand": "t100",
+    "series": "T100 Triathlon World Tour",
+    "distance": "t100",
+    "city": "Dubai",
+    "country": "AE",
+    "lat": 25.3053,
+    "lng": 55.3544,
+    "url": "https://t100triathlon.com/dubai/participate/",
+    "editions": [
+      {
+        "date": "2026-11-15",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "New venue Al Mamzar Beach in 2026. Age-group 100km Sun 15 Nov; pro women Sat 14 Nov. Avg sea temperature 28-29°C.",
+    "sources": [
+      "https://t100triathlon.com/dubai/participate/event-info/",
+      "https://t100triathlon.com/media-releases/al-mamzar-announced-as-new-home-of-dubai-t100-triathlon-weekend/",
+      "https://t100triathlon.com/dubai/pro/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "t100-saudi-arabia-t100",
+    "name": "Saudi Arabia T100",
+    "brand": "t100",
+    "series": "T100 Triathlon World Tour",
+    "distance": "t100",
+    "city": "Jeddah",
+    "country": "SA",
+    "lat": 21.5989,
+    "lng": 39.1064,
+    "url": "https://t100triathlon.com/saudi-arabia/participate/",
+    "editions": [
+      {
+        "date": "2026-11-28",
+        "status": "tentative"
+      },
+      {
+        "date": "2027-11-27",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Debut; PTO targets Jeddah, venue unpublished. Event 27-28 Nov 2026 (pro men), 100km day TBC. 2027: 26-27 Nov.",
+    "sources": [
+      "https://t100triathlon.com/saudi-arabia/participate/",
+      "https://t100triathlon.com/saudi-arabia/pro/",
+      "https://t100triathlon.com/media-releases/landmark-agreement-set-to-grow-triathlon-in-saudi-arabia-through-world-class-events-and-development-pathways/",
+      "https://t100triathlon.com/media-releases/pto-and-world-triathlon-launch-triathlon-world-tour/",
+      "https://triathlon.org/events/2026-t100-triathlon-world-tour-saudi-arabia"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "t100-qatar-t100",
+    "name": "Qatar T100",
+    "brand": "t100",
+    "series": "T100 Triathlon World Tour",
+    "distance": "t100",
+    "championship": "T100 Triathlon World Championship Final",
+    "city": "Lusail",
+    "country": "QA",
+    "lat": 25.4175,
+    "lng": 51.506,
+    "url": "https://t100triathlon.com/qatar/participate/",
+    "editions": [
+      {
+        "date": "2026-12-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-12-11",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Season finale. Pro women Fri 11 Dec; pro men, AG Worlds and open 100km Sat 12 Dec 2026. 2027: 10-11 Dec, day TBC.",
+    "sources": [
+      "https://t100triathlon.com/qatar/participate/event-info/",
+      "https://t100triathlon.com/qatar/pro/",
+      "https://t100triathlon.com/media-releases/pto-and-world-triathlon-launch-triathlon-world-tour/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "t100-marbella-t100",
+    "name": "Marbella T100",
+    "brand": "t100",
+    "series": "T100 Triathlon World Tour",
+    "distance": "t100",
+    "city": "Marbella",
+    "country": "ES",
+    "lat": 36.5057,
+    "lng": -4.889,
+    "url": "https://t100triathlon.com/marbella/participate/",
+    "editions": [
+      {
+        "date": "2027-09-19",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "New for 2027 (18-19 Sep); pro race Sat 18 Sep, age-group 100km day and venue TBC. Sea swim, hilly bike.",
+    "sources": [
+      "https://t100triathlon.com/marbella/participate/",
+      "https://t100triathlon.com/marbella/pro/",
+      "https://t100triathlon.com/media-releases/pto-and-world-triathlon-launch-triathlon-world-tour/"
+    ],
+    "verifiedAt": "2026-09-25"
+  }
+]

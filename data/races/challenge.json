@@ -1,0 +1,1389 @@
+[
+  {
+    "id": "challenge-israman-full",
+    "name": "Challenge Israman",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "full",
+    "city": "Eilat",
+    "country": "IL",
+    "lat": 29.5483,
+    "lng": 34.9634,
+    "url": "https://israman.co.il/?lang=en",
+    "editions": [
+      {
+        "date": "2026-01-30",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-01-29",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Friday race. Red Sea swim; bike climbs from Eilat into the desert mountains on Route 12.",
+    "sources": [
+      "https://challengefamily.com/news/toyota-land-cruiser-challenge-israman-2026-delivers-record-breaking-performance-in-eilat/",
+      "https://challengefamily.com/races/challenge-israman/",
+      "https://israman.co.il/?lang=en",
+      "https://israman.co.il/?page_id=6033&lang=en"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-israman-half",
+    "name": "Challenge Israman",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Eilat",
+    "country": "IL",
+    "lat": 29.5483,
+    "lng": 34.9634,
+    "url": "https://israman.co.il/?lang=en",
+    "editions": [
+      {
+        "date": "2026-01-30",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-01-29",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Friday race. Red Sea swim (non-wetsuit in 2026); hilly desert bike into the Eilat Mountains.",
+    "sources": [
+      "https://challengefamily.com/news/toyota-land-cruiser-challenge-israman-2026-delivers-record-breaking-performance-in-eilat/",
+      "https://challengefamily.com/races/challenge-israman/",
+      "https://israman.co.il/?lang=en",
+      "https://israman.co.il/?page_id=6033&lang=en"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-sir-bani-yas-full",
+    "name": "Challenge Sir Bani Yas",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "full",
+    "city": "Sir Bani Yas Island",
+    "country": "AE",
+    "lat": 24.2913,
+    "lng": 52.6387,
+    "url": "https://www.challenge-sirbaniyas.com/en",
+    "editions": [
+      {
+        "date": "2026-01-31",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-01-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Organiser lists 3.8/172/42.2 km. Race village on Terminal Beach; a cruise ship is the race hotel. 2027 date per Challenge Family.",
+    "sources": [
+      "https://challengefamily.com/news/challenge-sir-bani-yas-welcomes-world-class-international-pro-field-to-unique-island-course/",
+      "https://challengefamily.com/races/challenge-sir-bani-yas/",
+      "https://www.challenge-sirbaniyas.com/en",
+      "https://www.challenge-sirbaniyas.com/en/athlete-info/race-village",
+      "https://www.challenge-sirbaniyas.com/en/athlete-info/races-courses"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-sir-bani-yas-half",
+    "name": "Challenge Sir Bani Yas",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Sir Bani Yas Island",
+    "country": "AE",
+    "lat": 24.2913,
+    "lng": 52.6387,
+    "url": "https://www.challenge-sirbaniyas.com/en",
+    "editions": [
+      {
+        "date": "2026-01-31",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-01-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Short course: 1.9/82/19.5 km per organiser. Race village on Terminal Beach; cruise ship race hotel. 2027 date per Challenge Family.",
+    "sources": [
+      "https://challengefamily.com/news/challenge-sir-bani-yas-welcomes-world-class-international-pro-field-to-unique-island-course/",
+      "https://challengefamily.com/races/challenge-sir-bani-yas/",
+      "https://www.challenge-sirbaniyas.com/en",
+      "https://www.challenge-sirbaniyas.com/en/athlete-info/race-village",
+      "https://www.challenge-sirbaniyas.com/en/athlete-info/races-courses"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-wanaka-half",
+    "name": "Challenge Wānaka",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Wanaka",
+    "country": "NZ",
+    "lat": -44.694,
+    "lng": 169.1388,
+    "url": "https://challenge-wanaka.com/",
+    "editions": [
+      {
+        "date": "2026-02-21",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Last half-distance edition was 2026; from 2027 the race is Challenge Wānaka 100 (2/80/18).",
+    "sources": [
+      "https://challengefamily.com/news/moody-and-jewett-crowned-champions-at-20th-anniversary-gallagher-insurance-challenge-wanaka/",
+      "https://challenge-wanaka.com/news/challenge-wanaka-evolves-entries-open-15-may-for-new-100km-middle-distance-race/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-mogan-gran-canaria-half",
+    "name": "Anfi Challenge Mogán-Gran Canaria",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Mogán",
+    "country": "ES",
+    "lat": 27.7738,
+    "lng": -15.694,
+    "url": "https://challenge-grancanaria.com/en/",
+    "editions": [
+      {
+        "date": "2026-04-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Hilly bike on closed roads. Last half edition was 2026; moves to the 100 distance (2/80/18) in 2027.",
+    "sources": [
+      "https://challengefamily.com/news/le-mesnager-and-pohle-take-first-wins-of-the-european-season-at-anfi-challenge-mogan-gran-canaria/",
+      "https://challenge-grancanaria.com/en/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-florianopolis-april-half",
+    "name": "Challenge Florianópolis",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Florianópolis",
+    "country": "BR",
+    "lat": -27.4403,
+    "lng": -48.5027,
+    "url": "https://challenge-brazil.com/florianopolis/",
+    "editions": [
+      {
+        "date": "2026-04-19",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "April edition (a second race runs in November). Swim off Jurerê Internacional; 2/80/18 from 2027.",
+    "sources": [
+      "https://challengefamily.com/news/swim-bike-run-in-paradise-challenge-florianopolis-returns-this-weekend/",
+      "https://challenge-brazil.com/florianopolis/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-taiwan-full",
+    "name": "Challenge Taiwan",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "full",
+    "city": "Taitung",
+    "country": "TW",
+    "lat": 22.7601,
+    "lng": 121.1699,
+    "url": "https://www.challenge-taiwan.com/",
+    "editions": [
+      {
+        "date": "2026-04-25",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-24",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Flowing Lake reservoir; two-lap coastal bike. Full and half start on the same Saturday morning.",
+    "sources": [
+      "https://www.challenge-taiwan.com/page/about/index.aspx?kind=2295",
+      "https://challengefamily.com/news/challenge-taiwan-worlds-largest-triathlon-set-for-record-breaking-weekend/",
+      "https://challengefamily.com/races/challenge-taiwan/",
+      "https://www.challenge-taiwan.com/page/about/index.aspx?kind=80"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-taiwan-half",
+    "name": "Challenge Taiwan",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Taitung",
+    "country": "TW",
+    "lat": 22.7601,
+    "lng": 121.1699,
+    "url": "https://www.challenge-taiwan.com/",
+    "editions": [
+      {
+        "date": "2026-04-25",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-24",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Festival with 10,000+ athletes. Swim in Flowing Lake reservoir; coastal bike along the Pacific.",
+    "sources": [
+      "https://www.challenge-taiwan.com/page/about/index.aspx?kind=2295",
+      "https://challengefamily.com/news/challenge-taiwan-worlds-largest-triathlon-set-for-record-breaking-weekend/",
+      "https://challengefamily.com/races/challenge-taiwan/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-cesenatico-half",
+    "name": "Challenge Cesenatico",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Cesenatico",
+    "country": "IT",
+    "lat": 44.1906,
+    "lng": 12.416,
+    "url": "https://challenge-cesenatico.com/",
+    "editions": [
+      {
+        "date": "2026-05-10",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Hilly, technical bike inland; flat seafront run. Moves to the 100 distance (2/80/18) in 2027.",
+    "sources": [
+      "https://challengefamily.com/news/solok-and-theunissen-claim-victory-at-challenge-cesenatico/",
+      "https://challenge-cesenatico.com/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-salou-half",
+    "name": "Challenge Salou-Costa Daurada",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Salou",
+    "country": "ES",
+    "lat": 41.0725,
+    "lng": 1.143,
+    "url": "https://challenge-salou.com/",
+    "editions": [
+      {
+        "date": "2026-05-10",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Flat bike on a closed highway, beachfront run. Moves to the 100 distance (2/80/18) in 2027.",
+    "sources": [
+      "https://challengefamily.com/news/draper-supreme-at-challenge-salou-costa-daurada-curridori-defends-title-with-verve/",
+      "https://challenge-salou.com/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-samorin-half",
+    "name": "The Championship",
+    "brand": "challenge",
+    "series": "The Championship",
+    "distance": "half",
+    "championship": "The Championship (Challenge Family)",
+    "city": "Šamorín",
+    "country": "SK",
+    "lat": 48.0187,
+    "lng": 17.2973,
+    "url": "https://thechampionship.de/races/the-championship/",
+    "editions": [
+      {
+        "date": "2026-05-24",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Qualification-only; flat, windy bike from x-bionic sphere. Raced over 2/80/18 from 2027.",
+    "sources": [
+      "https://challengefamily.com/news/the-championship-worlds-best-ready-for-showdown-in-samorin/",
+      "https://challengefamily.com/news/fast-racing-and-emotional-wins-define-the-championship-with-palmer-and-pohle-taking-top-honours/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-st-polten-half",
+    "name": "Challenge St. Pölten",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "St. Pölten",
+    "country": "AT",
+    "lat": 48.2207,
+    "lng": 15.6467,
+    "url": "https://challenge-stpoelten.com/races/middle-distance/",
+    "editions": [
+      {
+        "date": "2026-05-31",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim across two lakes, hilly bike. Not on Challenge's 2027 calendar; IRONMAN 70.3 St. Pölten is announced for 2027.",
+    "sources": [
+      "https://challenge-stpoelten.com/",
+      "https://challengefamily.com/news/record-breaking-racing-at-challenge-st-polten-with-wins-by-funk-and-pohle/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-gdansk-half",
+    "name": "LOTTO Challenge Gdańsk",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Gdańsk",
+    "country": "PL",
+    "lat": 54.4141,
+    "lng": 18.6249,
+    "url": "https://challenge-poland.com/",
+    "editions": [
+      {
+        "date": "2026-06-21",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Baltic swim by Brzeźno pier, flat fast bike. Moves to the 100 distance (2/80/18) in 2027.",
+    "sources": [
+      "https://challengefamily.com/news/athletes-head-to-largest-ever-challenge-gdansk/",
+      "https://challengefamily.com/news/start-to-finish-victories-for-stojanovic-and-lagownik-at-lotto-challenge-gdansk/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-quebec-full",
+    "name": "SAIL Challenge Québec",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "full",
+    "city": "Quebec City",
+    "country": "CA",
+    "lat": 46.8177,
+    "lng": -71.2045,
+    "url": "https://capquebec.com/en/",
+    "editions": [
+      {
+        "date": "2026-06-28",
+        "status": "confirmed"
+      }
+    ],
+    "notes": "Full distance first held in 2026; the announced 2027 edition lists only half, olympic and sprint.",
+    "sources": [
+      "https://raceroster.com/events/2026/107304/challenge-cap-quebec",
+      "https://sportstats.one/fr/event/challenge-cap-quebec",
+      "https://challengefamily.com/news/sail-challenge-quebec-announces-long-distance-for-2026/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-quebec-half",
+    "name": "SAIL Challenge Québec",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Quebec City",
+    "country": "CA",
+    "lat": 46.8177,
+    "lng": -71.2045,
+    "url": "https://capquebec.com/en/",
+    "editions": [
+      {
+        "date": "2026-06-28",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-25",
+        "status": "confirmed"
+      }
+    ],
+    "notes": "Swim in Bassin Louise, bike on the closed Dufferin-Montmorency highway, run through Old Québec.",
+    "sources": [
+      "https://raceroster.com/events/2026/107304/challenge-cap-quebec",
+      "https://challengefamily.com/races/challenge-quebec/",
+      "https://capquebec.com/en/",
+      "https://raceroster.com/events/2027/130644/challenge-quebec"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-sandefjord-half",
+    "name": "Challenge Sandefjord",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Sandefjord",
+    "country": "NO",
+    "lat": 59.1255,
+    "lng": 10.2216,
+    "url": "https://challenge-sandefjord.com/",
+    "editions": [
+      {
+        "date": "2026-06-28",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-27",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Bike is 85 km. 2027 listed only as June; last Sunday of June assumed, as in 2026.",
+    "sources": [
+      "https://challenge-sandefjord.com/",
+      "https://challengefamily.com/races/challenge-sandefjord/",
+      "https://challenge-sandefjord.com/race-information/time-schedule/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-walchsee-half",
+    "name": "Challenge Kaiserwinkl-Walchsee",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Walchsee",
+    "country": "AT",
+    "lat": 47.6512,
+    "lng": 12.3186,
+    "url": "https://challenge-walchsee.com/",
+    "editions": [
+      {
+        "date": "2026-06-28",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Alpine course, hilly bike on closed mountain roads. Moves to the 100 distance (2/80/18) in 2027.",
+    "sources": [
+      "https://challengefamily.com/news/worlds-best-gather-for-challenge-kaiserwinkl-walchsee-battle-in-the-breathtaking-alps/",
+      "https://challengefamily.com/news/derron-and-kraft-beat-the-heat-for-victory-at-challenge-kaiserwinkl-walchsee/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-roth-full",
+    "name": "DATEV Challenge Roth",
+    "brand": "challenge",
+    "series": "Challenge Roth",
+    "distance": "full",
+    "city": "Roth",
+    "country": "DE",
+    "lat": 49.2471,
+    "lng": 11.0911,
+    "url": "https://www.challenge-roth.com/en/",
+    "editions": [
+      {
+        "date": "2026-07-05",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Main-Donau canal swim, two-lap bike over Solar Hill, ~300,000 spectators; entries sell out almost instantly.",
+    "sources": [
+      "https://www.challenge-roth.com/en/",
+      "https://www.challenge-roth.com/en/news-area/roth-lives-triathlon.html",
+      "https://challengefamily.com/news/laidlow-sets-new-world-record-siffert-takes-convincing-career-win/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-gunsan-saemangeum-half",
+    "name": "Challenge Gunsan-Saemangeum",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Gunsan",
+    "country": "KR",
+    "lat": 35.9403,
+    "lng": 126.5343,
+    "url": "https://www.challenge-family.com/korea/",
+    "editions": [
+      {
+        "date": "2026-07-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Bike on the 33.9 km Saemangeum seawall. Moves to the T100 distance (2/80/18) in 2027.",
+    "sources": [
+      "https://challengefamily.com/news/caleb-noble-and-kieran-storch-crowd-pleasers-at-challenge-gunsan-saemangeum/",
+      "https://www.challenge-family.com/korea/",
+      "https://challengefamily.com/news/double-australian-victory-for-storch-and-birch-at-challenge-gunsan-saemangeum/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-turku-half",
+    "name": "Challenge Turku",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Turku",
+    "country": "FI",
+    "lat": 60.4411,
+    "lng": 22.2479,
+    "url": "https://challenge-turku.com/",
+    "editions": [
+      {
+        "date": "2026-07-26",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Aura river swim in the city centre. Last half-distance edition was 2026; the race moves to 2/80/18 in 2027.",
+    "sources": [
+      "https://challengefamily.com/news/rappo-and-theunissen-take-victories-at-challenge-turku/",
+      "https://challenge-turku.com/",
+      "https://challenge-turku.com/races/middle-distance/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-fortaleza-half",
+    "name": "Challenge Fortaleza",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Fortaleza",
+    "country": "BR",
+    "lat": -3.7221,
+    "lng": -38.5067,
+    "url": "https://challenge-brazil.com/fortaleza/",
+    "editions": [
+      {
+        "date": "2026-08-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Ocean swim at Praia de Iracema, windy coastal bike, hot run. Moves to the 100 distance in 2027.",
+    "sources": [
+      "https://challenge-brazil.com/fortaleza/",
+      "https://challengefamily.com/news/double-brazilian-victories-at-challenge-fortaleza/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-almere-amsterdam-full",
+    "name": "Challenge Almere-Amsterdam",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "full",
+    "city": "Almere",
+    "country": "NL",
+    "lat": 52.3677,
+    "lng": 5.2209,
+    "url": "https://challenge-almere.com/races/long-distance/",
+    "editions": [
+      {
+        "date": "2026-09-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Europe's oldest long-distance race; flat, often windy polder bike below sea level. 2026 hosted the European LD Champs.",
+    "sources": [
+      "https://challengefamily.com/news/landmark-challenge-family-weekend-with-10000-athletes-on-start-lines-around-the-world/",
+      "https://challengefamily.com/races/challenge-almere-amsterdam/",
+      "https://challenge-almere.com/races/long-distance/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-almere-amsterdam-half",
+    "name": "Challenge Almere-Amsterdam",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Almere",
+    "country": "NL",
+    "lat": 52.3677,
+    "lng": 5.2209,
+    "url": "https://challenge-almere.com/races/middle-distance/",
+    "editions": [
+      {
+        "date": "2026-09-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Bike is 94 km. Swim in the Weerwater lake; flat, often windy polder bike; same day as the full.",
+    "sources": [
+      "https://challengefamily.com/news/landmark-challenge-family-weekend-with-10000-athletes-on-start-lines-around-the-world/",
+      "https://challengefamily.com/races/challenge-almere-amsterdam/",
+      "https://challenge-almere.com/races/middle-distance/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-montreal-half",
+    "name": "SAIL Challenge Esprit Montréal",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Montreal",
+    "country": "CA",
+    "lat": 45.5075,
+    "lng": -73.5235,
+    "url": "https://challenge-espritmontreal.com/en/",
+    "editions": [
+      {
+        "date": "2026-09-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Raced as the Demi-Esprit. Swim in the 1976 Olympic rowing basin; bike laps on the F1 Circuit Gilles-Villeneuve.",
+    "sources": [
+      "https://sportstats.one/fr/event/triathlon-esprit-de-montreal",
+      "https://challengefamily.com/races/sail-challenge-esprit-montreal/",
+      "https://challenge-espritmontreal.com/en/",
+      "https://raceroster.com/events/2027/140884/challenge-esprit-montreal"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-samarkand-half",
+    "name": "Challenge Samarkand",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Samarkand",
+    "country": "UZ",
+    "lat": 39.6596,
+    "lng": 67.0558,
+    "url": "https://challenge-samarkand.com/",
+    "editions": [
+      {
+        "date": "2026-09-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Course 1.9/86/21.5 km; rowing-lake swim, flat bike past the Registan. Moves to 2/80/18 in 2027.",
+    "sources": [
+      "https://challengefamily.com/news/landmark-challenge-family-weekend-with-10000-athletes-on-start-lines-around-the-world/",
+      "https://challengefamily.com/news/victories-for-laidlow-and-van-coevorden-at-challenge-samarkand/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-sanremo-half",
+    "name": "Challenge Sanremo",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Sanremo",
+    "country": "IT",
+    "lat": 43.8171,
+    "lng": 7.787,
+    "url": "https://challenge-sanremo.com/",
+    "editions": [
+      {
+        "date": "2026-10-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Very hilly 80 km bike (organiser's menu says 81) with a 17 km climb to Bajardo; flat run on the seafront cycle path.",
+    "sources": [
+      "https://challenge-sanremo.com/",
+      "https://challengefamily.com/races/challenge-sanremo/",
+      "https://challenge-sanremo.com/races/middle-distance/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-vieux-boucau-half",
+    "name": "Challenge Vieux Boucau",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Vieux-Boucau-les-Bains",
+    "country": "FR",
+    "lat": 43.7828,
+    "lng": -1.4104,
+    "url": "https://challenge-vieuxboucau.com/?lang=en",
+    "editions": [
+      {
+        "date": "2026-10-10",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Saturday race. Swim in the sheltered marine lake; mostly flat Landes bike. Moves to 2/80/18 in 2027.",
+    "sources": [
+      "https://challenge-vieuxboucau.com/?lang=en",
+      "https://challengefamily.com/races/challenge-vieux-boucau/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-peguera-mallorca-half",
+    "name": "Challenge Peguera-Mallorca",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Peguera",
+    "country": "ES",
+    "lat": 39.5348,
+    "lng": 2.4569,
+    "url": "https://challenge-mallorca.com/",
+    "editions": [
+      {
+        "date": "2026-10-17",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Technical, hilly bike in the Serra de Tramuntana foothills. Moves to the 100 distance (2/80/18) in 2027.",
+    "sources": [
+      "https://challenge-mallorca.com/",
+      "https://challengefamily.com/races/challenge-peguera-mallorca/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-malaysia-half",
+    "name": "Challenge Malaysia",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Forest City",
+    "country": "MY",
+    "lat": 1.338,
+    "lng": 103.5868,
+    "url": "https://weactive.com.my/",
+    "editions": [
+      {
+        "date": "2026-10-18",
+        "status": "cancelled"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "2026 edition cancelled by the organiser, who says the race returns in 2027 (no date yet). Warm, non-wetsuit sea swim.",
+    "sources": [
+      "https://weactive.com.my/",
+      "https://www.challenge-family.com/challenge-family/races/challenge-malaysia/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-shanghai-half",
+    "name": "Challenge Shanghai",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Shanghai",
+    "country": "CN",
+    "lat": 30.8691,
+    "lng": 121.6745,
+    "url": "https://challenge-shanghai.com/",
+    "editions": [
+      {
+        "date": "2026-10-24",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "New in 2026. Swim in Bainiao Lake, Haiwan National Forest Park; flat coastal bike on Hangzhou Bay.",
+    "sources": [
+      "https://challenge-shanghai.com/",
+      "https://challengefamily.com/news/challenge-family-announces-china-expansion-with-launch-of-challenge-shanghai/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-barcelona-half",
+    "name": "Challenge Barcelona",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Barcelona",
+    "country": "ES",
+    "lat": 41.398,
+    "lng": 2.2118,
+    "url": "https://www.triathlon.barcelona/en/",
+    "editions": [
+      {
+        "date": "2026-10-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Sea swim off Mar Bella beach; flat bike laps on the coastal N-II between Montgat and Vilassar de Mar; seafront run.",
+    "sources": [
+      "https://www.triathlon.barcelona/en/atletas/distances-modalities/middle/",
+      "https://challengefamily.com/races/challenge-barcelona/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-forte-village-half",
+    "name": "Challenge Forte Village",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Pula",
+    "country": "IT",
+    "lat": 38.9365,
+    "lng": 8.9306,
+    "url": "https://challenge-fortevillage.com/",
+    "editions": [
+      {
+        "date": "2026-10-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Technical, hilly bike on closed coastal roads in south Sardinia. Moves to the 100 distance in 2027.",
+    "sources": [
+      "https://challenge-fortevillage.com/",
+      "https://challengefamily.com/races/challenge-forte-village/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-xiamen-half",
+    "name": "Challenge Xiamen",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Xiamen",
+    "country": "CN",
+    "lat": 24.6149,
+    "lng": 118.1368,
+    "url": "https://challenge-xiamen.com/",
+    "editions": [
+      {
+        "date": "2026-11-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim in Tong'an Bay; flat 3-lap bike on a traffic-free coastal track. Moves to the 100 distance in 2027.",
+    "sources": [
+      "https://challenge-xiamen.com/",
+      "https://challengefamily.com/races/challenge-xiamen/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-canberra-t100",
+    "name": "Challenge Canberra",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Canberra",
+    "country": "AU",
+    "lat": -35.2909,
+    "lng": 149.1009,
+    "url": "https://challenge-canberra.com/races/100-distance/",
+    "editions": [
+      {
+        "date": "2026-11-22",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Raced over the 100 distance (2/80/18). Lake Burley Griffin swim, 4-lap 80 km bike, lakeside run.",
+    "sources": [
+      "https://challenge-canberra.com/races/100-distance/",
+      "https://challengefamily.com/races/challenge-canberra/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-florianopolis-november-half",
+    "name": "Challenge Florianópolis",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "half",
+    "city": "Florianópolis",
+    "country": "BR",
+    "lat": -27.4403,
+    "lng": -48.5027,
+    "url": "https://challenge-brazil.com/florianopolis/",
+    "editions": [
+      {
+        "date": "2026-11-29",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "November edition with a pro race (an April race also runs). Swim off Jurerê Internacional beach.",
+    "sources": [
+      "https://challenge-brazil.com/florianopolis/",
+      "https://challengefamily.com/races/challenge-florianopolis-november/",
+      "https://challengefamily.com/news/age-group-racing-on-the-magic-isle-at-challenge-florianopolis/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-wanaka-t100",
+    "name": "Challenge Wānaka 100",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Wanaka",
+    "country": "NZ",
+    "lat": -44.694,
+    "lng": 169.1388,
+    "url": "https://challenge-wanaka.com/",
+    "editions": [
+      {
+        "date": "2027-02-20",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Replaces the half from 2027; T100 Challenger race. Two-lap 80 km bike toward Treble Cone.",
+    "sources": [
+      "https://challenge-wanaka.com/news/challenge-wanaka-evolves-entries-open-15-may-for-new-100km-middle-distance-race/",
+      "https://challengefamily.com/races/challenge-wanaka/",
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-mogan-gran-canaria-t100",
+    "name": "Anfi Challenge Mogán-Gran Canaria",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Mogán",
+    "country": "ES",
+    "lat": 27.7738,
+    "lng": -15.694,
+    "url": "https://challenge-grancanaria.com/en/",
+    "editions": [
+      {
+        "date": "2027-04-17",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "T100 Challenger race from 2027. Swim at Anfi del Mar beach; rolling 4-lap 80 km bike on closed roads.",
+    "sources": [
+      "https://challengefamily.com/races/challenge-mogan-gran-canaria/",
+      "https://challenge-grancanaria.com/en/",
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-florianopolis-april-t100",
+    "name": "Challenge Florianópolis",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Florianópolis",
+    "country": "BR",
+    "lat": -27.4403,
+    "lng": -48.5027,
+    "url": "https://challenge-brazil.com/florianopolis/",
+    "editions": [
+      {
+        "date": "2027-04-25",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "T100 Challenger weekend 24-25 Apr 2027; Sunday assumed (2026 race was a Sunday). Race page lists 2/80/18.",
+    "sources": [
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/",
+      "https://challengefamily.com/races/challenge-florianopolis-april/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-salou-t100",
+    "name": "Challenge Salou-Costa Daurada",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Salou",
+    "country": "ES",
+    "lat": 41.0725,
+    "lng": 1.143,
+    "url": "https://challenge-salou.com/",
+    "editions": [
+      {
+        "date": "2027-05-09",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "T100 Challenger race from 2027. Mediterranean swim, flat 3-lap bike on a closed highway.",
+    "sources": [
+      "https://challenge-salou.com/",
+      "https://challengefamily.com/races/challenge-salou-costa-daurada/",
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/",
+      "https://challenge-salou.com/distancias/t100-distance/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-cesenatico-t100",
+    "name": "Challenge Cesenatico",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Cesenatico",
+    "country": "IT",
+    "lat": 44.1906,
+    "lng": 12.416,
+    "url": "https://challenge-cesenatico.com/",
+    "editions": [
+      {
+        "date": "2027-05-16",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "T100 Challenger race from 2027. Adriatic beach swim, hilly bike in the Romagna hills, flat seafront run.",
+    "sources": [
+      "https://challenge-cesenatico.com/",
+      "https://challengefamily.com/races/challenge-cesenatico/",
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-samorin-t100",
+    "name": "The Championship",
+    "brand": "challenge",
+    "series": "The Championship",
+    "distance": "t100",
+    "championship": "The Championship (Challenge Family)",
+    "city": "Šamorín",
+    "country": "SK",
+    "lat": 48.0187,
+    "lng": 17.2973,
+    "url": "https://thechampionship.de/races/the-championship/",
+    "editions": [
+      {
+        "date": "2027-05-23",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "The Championship is qualification-only; an open 2/80/18 race runs on the same course that day. T100 Challenger from 2027.",
+    "sources": [
+      "https://thechampionship.de/races/the-championship/",
+      "https://challengefamily.com/races/the-championship/",
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/",
+      "https://thechampionship.de/races/challenge-samorin-middle-distance-open-race/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-gunsan-saemangeum-t100",
+    "name": "Challenge Gunsan-Saemangeum",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Gunsan",
+    "country": "KR",
+    "lat": 35.9403,
+    "lng": 126.5343,
+    "url": "https://www.challenge-family.com/korea/",
+    "editions": [
+      {
+        "date": "2027-05-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "T100 Challenger race from 2027, moving from July to May. Bike on the Saemangeum seawall.",
+    "sources": [
+      "https://www.challenge-family.com/korea/",
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/",
+      "https://www.challenge-family.com/korea/news/the-gunsan-saemangeum-race-will-transition-to-become-a-t100-event/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-gdansk-t100",
+    "name": "LOTTO Challenge Gdańsk",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Gdańsk",
+    "country": "PL",
+    "lat": 54.4141,
+    "lng": 18.6249,
+    "url": "https://challenge-poland.com/",
+    "editions": [
+      {
+        "date": "2027-06-20",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "T100 Challenger race from 2027. Baltic swim, flat single-loop 80 km bike, finish on Brzeźno pier.",
+    "sources": [
+      "https://challengefamily.com/races/challenge-gdansk/",
+      "https://challenge-poland.com/",
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/",
+      "https://challenge-poland.com/news/switching-from-middle-distance-to-t100/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-walchsee-t100",
+    "name": "Challenge Kaiserwinkl-Walchsee",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Walchsee",
+    "country": "AT",
+    "lat": 47.6512,
+    "lng": 12.3186,
+    "url": "https://challenge-walchsee.com/",
+    "editions": [
+      {
+        "date": "2027-06-27",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "T100 Challenger race from 2027. Lake Walchsee swim, hilly Alpine bike on closed roads.",
+    "sources": [
+      "https://challenge-walchsee.com/",
+      "https://challengefamily.com/races/challenge-kaiserwinkl-walchsee/",
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-turku-t100",
+    "name": "Challenge Turku",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Turku",
+    "country": "FI",
+    "lat": 60.4411,
+    "lng": 22.2479,
+    "url": "https://challenge-turku.com/races/middle-distance/",
+    "editions": [
+      {
+        "date": "2027-07-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Replaces the half from 2027 (2/80/18, Sunday). Swim at the mouth of the Aura river. Not on the 25 Sep 2026 T100 Challenger list.",
+    "sources": [
+      "https://challenge-turku.com/races/middle-distance/",
+      "https://challenge-turku.com/race-information/time-schedule/",
+      "https://challenge-turku.com/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-samarkand-t100",
+    "name": "Challenge Samarkand",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Samarkand",
+    "country": "UZ",
+    "lat": 39.6596,
+    "lng": 67.0558,
+    "url": "https://challenge-samarkand.com/",
+    "editions": [
+      {
+        "date": "2027-08-22",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "T100 Challenger race from 2027, moving from September to August. Swim in the Silk Road rowing canal.",
+    "sources": [
+      "https://challenge-samarkand.com/",
+      "https://challengefamily.com/races/challenge-samarkand/",
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-fortaleza-t100",
+    "name": "Challenge Fortaleza",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Fortaleza",
+    "country": "BR",
+    "lat": -3.7221,
+    "lng": -38.5067,
+    "url": "https://challenge-brazil.com/fortaleza/",
+    "editions": [
+      {
+        "date": "2027-08-29",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "T100 Challenger weekend 28-29 Aug 2027; Sunday assumed. 2/80/18 implied by the tier; race page still shows middle.",
+    "sources": [
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/",
+      "https://challengefamily.com/races/challenge-fortaleza/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-vieux-boucau-t100",
+    "name": "Challenge Vieux Boucau",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Vieux-Boucau-les-Bains",
+    "country": "FR",
+    "lat": 43.7828,
+    "lng": -1.4104,
+    "url": "https://challenge-vieuxboucau.com/?lang=en",
+    "editions": [
+      {
+        "date": "2027-10-09",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "T100 Challenger weekend 9-10 Oct 2027; Saturday assumed. 2/80/18 implied by the tier; race page still shows middle.",
+    "sources": [
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/",
+      "https://challengefamily.com/races/challenge-vieux-boucau/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-peguera-mallorca-t100",
+    "name": "Challenge Peguera-Mallorca",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Peguera",
+    "country": "ES",
+    "lat": 39.5348,
+    "lng": 2.4569,
+    "url": "https://challenge-mallorca.com/",
+    "editions": [
+      {
+        "date": "2027-10-16",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "T100 Challenger weekend 16-17 Oct 2027; Saturday assumed. 2/80/18 implied by the tier; race page still shows middle.",
+    "sources": [
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/",
+      "https://challengefamily.com/races/challenge-peguera-mallorca/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-forte-village-t100",
+    "name": "Challenge Forte Village",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Pula",
+    "country": "IT",
+    "lat": 38.9365,
+    "lng": 8.9306,
+    "url": "https://challenge-fortevillage.com/",
+    "editions": [
+      {
+        "date": "2027-10-24",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "T100 Challenger weekend 23-24 Oct 2027; Sunday assumed. 2/80/18 implied by the tier; race page still shows middle.",
+    "sources": [
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/",
+      "https://challengefamily.com/races/challenge-forte-village/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-xiamen-t100",
+    "name": "Challenge Xiamen",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Xiamen",
+    "country": "CN",
+    "lat": 24.6149,
+    "lng": 118.1368,
+    "url": "https://challenge-xiamen.com/",
+    "editions": [
+      {
+        "date": "2027-11-06",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "T100 Challenger weekend 6-7 Nov 2027; Saturday assumed. 2/80/18 implied by the tier; race page still shows middle.",
+    "sources": [
+      "https://challengefamily.com/news/triathlon-world-tour-announces-30-more-races-for-2027/",
+      "https://challengefamily.com/races/challenge-xiamen/"
+    ],
+    "verifiedAt": "2026-09-25"
+  }
+]

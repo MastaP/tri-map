@@ -1,0 +1,41 @@
+[
+  {
+    "id": "ironman-bahrain-half",
+    "name": "IRONMAN 70.3 Bahrain",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Manama",
+    "country": "BH",
+    "lat": 26.2426,
+    "lng": 50.5775,
+    "url": "https://www.ironman.com/races/im703-bahrain",
+    "editions": [
+      { "date": "2026-12-05", "status": "cancelled" },
+      { "date": "2027-12-04", "status": "tentative" }
+    ],
+    "swim": "ocean",
+    "notes": "2026 edition cancelled by the organiser; 2027 date is provisional",
+    "sources": ["https://www.ironman.com/races/im703-bahrain"],
+    "verifiedAt": "2026-09-19"
+  },
+  {
+    "id": "ironman-da-nang-half",
+    "name": "IRONMAN 70.3 Vietnam",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Da Nang",
+    "country": "VN",
+    "lat": 16.068,
+    "lng": 108.247,
+    "url": "https://www.ironman.com/races/im703-vietnam",
+    "editions": [
+      { "date": "2026-05-10", "status": "confirmed" },
+      { "date": "2027-05-09", "status": "confirmed" }
+    ],
+    "swim": "ocean",
+    "sources": ["https://www.ironman.com/races/im703-vietnam"],
+    "verifiedAt": "2026-09-19"
+  }
+]

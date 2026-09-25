@@ -1,0 +1,1276 @@
+[
+  {
+    "id": "ironman-taupo-full",
+    "name": "IRONMAN New Zealand",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Taupo",
+    "country": "NZ",
+    "lat": -38.6864,
+    "lng": 176.0688,
+    "url": "https://www.ironman.com/races/im-new-zealand",
+    "editions": [
+      {
+        "date": "2026-03-07",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-03-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake Taupō, lakeside run. Saturday race. 2027 edition is an IRONMAN Pro Series event.",
+    "sources": [
+      "https://www.ironman.com/races/im-new-zealand",
+      "https://labs-v2.competitor.com/results/event/cd98aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-penghu-full",
+    "name": "IRONMAN Penghu",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Magong",
+    "country": "TW",
+    "lat": 23.5259,
+    "lng": 119.567,
+    "url": "https://www.ironman.com/races/im-penghu",
+    "editions": [
+      {
+        "date": "2026-04-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Formerly IRONMAN Taiwan. Island race; bike crosses the Penghu Great Bridge.",
+    "sources": [
+      "https://www.ironman.com/races/im-penghu",
+      "https://labs-v2.competitor.com/results/event/8b4e50b2-04b2-e411-9400-005056951bf1"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-the-woodlands-full",
+    "name": "IRONMAN Texas",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "championship": "IRONMAN North American Championship",
+    "city": "The Woodlands",
+    "country": "US",
+    "lat": 30.1603,
+    "lng": -95.4584,
+    "url": "https://www.ironman.com/races/im-texas",
+    "editions": [
+      {
+        "date": "2026-04-18",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-24",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Lake Woodlands swim, closed-road bike, finish at Waterway Square. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im-texas",
+      "https://labs-v2.competitor.com/results/event/d998aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-da-nang-full",
+    "name": "IRONMAN Vietnam",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Da Nang",
+    "country": "VN",
+    "lat": 16.0684,
+    "lng": 108.2459,
+    "url": "https://www.ironman.com/races/im-vietnam",
+    "editions": [
+      {
+        "date": "2026-05-10",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-09",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Beach swim and single transition at East Sea (Bien Dong) Park. Full distance first held 2026.",
+    "sources": [
+      "https://www.ironman.com/races/im-vietnam",
+      "https://labs-v2.competitor.com/results/event/fd59deff-1ab9-41dc-8b31-a1bda1f248a8"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-jacksonville-full",
+    "name": "IRONMAN Jacksonville",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Jacksonville",
+    "country": "US",
+    "lat": 30.3218,
+    "lng": -81.6403,
+    "url": "https://www.ironman.com/races/im-jacksonville",
+    "editions": [
+      {
+        "date": "2026-05-16",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-16",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Downriver point-to-point swim in the St. Johns River, downtown run. First held 2026.",
+    "sources": [
+      "https://www.ironman.com/races/im-jacksonville",
+      "https://labs-v2.competitor.com/results/event/22798972-556d-4588-8100-cec96e73a60a",
+      "https://www.ironman.com/races/im-jacksonville/register"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-lanzarote-full",
+    "name": "IRONMAN Lanzarote",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Puerto del Carmen",
+    "country": "ES",
+    "lat": 28.9199,
+    "lng": -13.6631,
+    "url": "https://www.ironman.com/races/im-lanzarote",
+    "editions": [
+      {
+        "date": "2026-05-23",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-15",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Very hilly, often windy bike across volcanic terrain; swim at Playa Grande. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im-lanzarote",
+      "https://labs-v2.competitor.com/results/event/c598aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/ironman-adds-two-new-races-europe-2026-season",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-florianopolis-full",
+    "name": "IRONMAN Brazil",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Florianópolis",
+    "country": "BR",
+    "lat": -27.4403,
+    "lng": -48.5027,
+    "url": "https://www.ironman.com/races/im-brazil",
+    "editions": [
+      {
+        "date": "2026-05-31",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Sea swim at Jurerê beach on Santa Catarina Island; flat, fast run.",
+    "sources": [
+      "https://www.ironman.com/races/im-brazil",
+      "https://labs-v2.competitor.com/results/event/a798aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-hamburg-full",
+    "name": "IRONMAN Hamburg",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Hamburg",
+    "country": "DE",
+    "lat": 53.5509,
+    "lng": 9.9929,
+    "url": "https://www.ironman.com/races/im-hamburg",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in the Alster from Jungfernstieg, run along the Alster, finish at Rathausmarkt. Hosted the women's European Championship in 2026.",
+    "sources": [
+      "https://www.ironman.com/races/im-hamburg",
+      "https://labs-v2.competitor.com/results/event/0ed71b3d-6974-e611-9410-005056951bf1",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-cairns-full",
+    "name": "IRONMAN Cairns",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "championship": "IRONMAN Asia-Pacific Championship",
+    "city": "Cairns",
+    "country": "AU",
+    "lat": -16.9203,
+    "lng": 145.7709,
+    "url": "https://www.ironman.com/races/im-cairns",
+    "editions": [
+      {
+        "date": "2026-06-14",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim at Palm Cove, bike on the Captain Cook Highway, finish on the Cairns Esplanade. Split transitions.",
+    "sources": [
+      "https://www.ironman.com/races/im-cairns",
+      "https://labs-v2.competitor.com/results/event/6a6e11d2-86fe-e111-aa75-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-klagenfurt-full",
+    "name": "IRONMAN Kärnten-Klagenfurt, Austria",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Klagenfurt",
+    "country": "AT",
+    "lat": 46.6186,
+    "lng": 14.2551,
+    "url": "https://www.ironman.com/races/im-austria",
+    "editions": [
+      {
+        "date": "2026-06-14",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in the Wörthersee, hilly Carinthian bike, flat run along the lake and through Klagenfurt.",
+    "sources": [
+      "https://www.ironman.com/races/im-austria",
+      "https://labs-v2.competitor.com/results/event/e6b03b63-dbb0-e111-80ae-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-tours-full",
+    "name": "IRONMAN Tours Métropole - Loire Valley",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Tours",
+    "country": "FR",
+    "lat": 47.3774,
+    "lng": 0.7195,
+    "url": "https://www.ironman.com/races/im-tours",
+    "editions": [
+      {
+        "date": "2026-06-14",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Cher river swim, indoor transition and finish at the Parc des Expositions. 70.3 only in 2027; full distance returns 2028 (date TBA).",
+    "sources": [
+      "https://www.ironman.com/races/im-tours",
+      "https://labs-v2.competitor.com/results/event/22bf0d47-a1a2-46dd-8a09-a24bec7b5dcb",
+      "https://www.ironman.com/stories/news-updates/ironman-confirm-key-updates-2026-ironman-and-ironman-703-race-schedule-france",
+      "https://www.ironman.com/races/im-tours/course"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-frankfurt-full",
+    "name": "IRONMAN Frankfurt",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "championship": "IRONMAN European Championship",
+    "city": "Frankfurt am Main",
+    "country": "DE",
+    "lat": 50.1109,
+    "lng": 8.6821,
+    "url": "https://www.ironman.com/races/im-frankfurt",
+    "editions": [
+      {
+        "date": "2026-06-28",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-27",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in the Langener Waldsee, finish at the Römer. 2026 race shortened (125 km bike, half-marathon run) due to extreme heat.",
+    "sources": [
+      "https://www.ironman.com/races/im-frankfurt",
+      "https://labs-v2.competitor.com/results/event/b798aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman",
+      "https://www.triathlete.com/culture/news/casper-stornes-wins-shortened-2026-ironman-frankfurt-european-championship/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-nice-full",
+    "name": "IRONMAN France",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Nice",
+    "country": "FR",
+    "lat": 43.696,
+    "lng": 7.2656,
+    "url": "https://www.ironman.com/races/im-france",
+    "editions": [
+      {
+        "date": "2026-06-28",
+        "status": "cancelled"
+      },
+      {
+        "date": "2027-09-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "2026 race cancelled 2 days out by prefecture order (heatwave). Hilly bike into the Alpes-Maritimes. 2027 moved to September.",
+    "sources": [
+      "https://www.ironman.com/races/im-france",
+      "https://slowtwitch.com/triathlon/we-noticed-ironman-france-cancelled-due-to-historic-heat-wave-and-more/",
+      "https://triathlonmagazine.ca/news/breaking-news-ironman-nice-ironman-frankfurt-70-3-world-champs/",
+      "https://france3-regions.franceinfo.fr/provence-alpes-cote-d-azur/alpes-maritimes/nice/l-ironman-de-nice-annule-en-raison-de-la-canicule-annonce-la-prefecture-des-alpes-maritimes-3376123.html"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-thun-full",
+    "name": "IRONMAN Switzerland Thun",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Thun",
+    "country": "CH",
+    "lat": 46.7384,
+    "lng": 7.6285,
+    "url": "https://www.ironman.com/races/im-switzerland",
+    "editions": [
+      {
+        "date": "2026-07-05",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake Thun, hilly bike with Alpine views, flat run.",
+    "sources": [
+      "https://www.ironman.com/races/im-switzerland",
+      "https://labs-v2.competitor.com/results/event/d90fba34-21ae-e911-a986-000d3a364086",
+      "https://www.ironman.com/races/im-switzerland/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-vitoria-gasteiz-full",
+    "name": "IRONMAN Vitoria-Gasteiz",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Vitoria-Gasteiz",
+    "country": "ES",
+    "lat": 42.8467,
+    "lng": -2.6716,
+    "url": "https://www.ironman.com/races/im-vitoria",
+    "editions": [
+      {
+        "date": "2026-07-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in the Ullíbarri-Gamboa reservoir (Landa); T2 and finish in the city centre.",
+    "sources": [
+      "https://www.ironman.com/races/im-vitoria",
+      "https://labs-v2.competitor.com/results/event/47f47b8c-71ba-e811-a967-000d3a37468c",
+      "https://www.ironman.com/stories/news-updates/ironman-adds-two-new-races-europe-2026-season"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-lake-placid-full",
+    "name": "IRONMAN Lake Placid",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Lake Placid",
+    "country": "US",
+    "lat": 44.2825,
+    "lng": -73.9855,
+    "url": "https://www.ironman.com/races/im-lake-placid",
+    "editions": [
+      {
+        "date": "2026-07-19",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Mirror Lake swim, hilly Adirondack bike, finish at the Olympic Speed Skating Oval.",
+    "sources": [
+      "https://www.ironman.com/races/im-lake-placid",
+      "https://labs-v2.competitor.com/results/event/c398aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-ottawa-full",
+    "name": "IRONMAN Canada-Ottawa",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Ottawa",
+    "country": "CA",
+    "lat": 45.4272,
+    "lng": -75.6971,
+    "url": "https://www.ironman.com/races/im-canada-ottawa",
+    "editions": [
+      {
+        "date": "2026-08-02",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-08",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Ottawa River swim from Britannia Park, closed-road bike, flat downtown run to the finish at Major's Hill Park.",
+    "sources": [
+      "https://www.ironman.com/races/im-canada-ottawa",
+      "https://labs-v2.competitor.com/results/event/b8e35e3d-f89a-4545-86e8-327e1a93ff93",
+      "https://www.ironman.com/races/im-canada-ottawa/course"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-kalmar-full",
+    "name": "IRONMAN Kalmar-Sweden",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Kalmar",
+    "country": "SE",
+    "lat": 56.6643,
+    "lng": 16.3656,
+    "url": "https://www.ironman.com/races/im-kalmar",
+    "editions": [
+      {
+        "date": "2026-08-15",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-21",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Sea swim in the Kalmar Strait; bike crosses the Öland Bridge. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im-kalmar",
+      "https://labs-v2.competitor.com/results/event/bd98aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-copenhagen-full",
+    "name": "IRONMAN Copenhagen",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Copenhagen",
+    "country": "DK",
+    "lat": 55.6767,
+    "lng": 12.5807,
+    "url": "https://www.ironman.com/races/im-copenhagen",
+    "editions": [
+      {
+        "date": "2026-08-16",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-22",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Sea swim at Amager Strandpark, rolling bike through North Zealand, city-centre run to the finish at Christiansborg Palace.",
+    "sources": [
+      "https://www.ironman.com/races/im-copenhagen",
+      "https://labs-v2.competitor.com/results/event/6b909a24-f40f-e311-9ec7-005056956277",
+      "https://www.ironman.com/races/im-copenhagen/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-leeds-full",
+    "name": "IRONMAN Leeds",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Leeds",
+    "country": "GB",
+    "lat": 53.8394,
+    "lng": -1.4978,
+    "url": "https://www.ironman.com/races/im-leeds",
+    "editions": [
+      {
+        "date": "2026-08-16",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-15",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Waterloo Lake swim and single transition in Roundhay Park; hilly bike and run.",
+    "sources": [
+      "https://www.ironman.com/races/im-leeds",
+      "https://labs-v2.competitor.com/results/event/ab1297a2-42d5-4b6f-b408-23ae319f5a31"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-tallinn-full",
+    "name": "IRONMAN Tallinn",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Tallinn",
+    "country": "EE",
+    "lat": 59.426,
+    "lng": 24.6474,
+    "url": "https://www.ironman.com/races/im-tallinn",
+    "editions": [
+      {
+        "date": "2026-08-22",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake Raku; T2 and finish at Unibet Arena; 4-lap run along Tallinn Bay. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im-tallinn",
+      "https://labs-v2.competitor.com/results/event/37760ed4-c881-e711-9418-005056951bf1"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-vichy-full",
+    "name": "IRONMAN Vichy",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Vichy",
+    "country": "FR",
+    "lat": 46.1401,
+    "lng": 3.4064,
+    "url": "https://www.ironman.com/races/im-vichy",
+    "editions": [
+      {
+        "date": "2026-08-23",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-22",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Full distance returned in 2026 (last held 2023). Allier river swim (Lac d'Allier), hilly bike, finish at the Centre Omnisports.",
+    "sources": [
+      "https://www.ironman.com/races/im-vichy",
+      "https://labs-v2.competitor.com/results/event/17972a3a-75a5-e411-9400-005056951bf1",
+      "https://www.ironman.com/stories/news-updates/ironman-adds-two-new-races-europe-2026-season",
+      "https://www.ironman.com/races/im-vichy/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-madison-full",
+    "name": "IRONMAN Wisconsin",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Madison",
+    "country": "US",
+    "lat": 43.0717,
+    "lng": -89.3802,
+    "url": "https://www.ironman.com/races/im-wisconsin",
+    "editions": [
+      {
+        "date": "2026-09-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Lake Monona swim, transition via the Monona Terrace Helix, hilly bike, finish at the State Capitol.",
+    "sources": [
+      "https://www.ironman.com/races/im-wisconsin",
+      "https://labs-v2.competitor.com/results/event/e598aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-south-hokkaido-full",
+    "name": "IRONMAN Japan South Hokkaido",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Kikonai",
+    "country": "JP",
+    "lat": 41.6782,
+    "lng": 140.4343,
+    "url": "https://www.ironman.com/races/im-south-hokkaido",
+    "editions": [
+      {
+        "date": "2026-09-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim in Hakodate Bay (T1 Hokuto), bike on the Hakodate-Esashi expressway, finish in Kikonai. 2027 date TBA.",
+    "sources": [
+      "https://www.ironman.com/races/im-south-hokkaido",
+      "https://labs-v2.competitor.com/results/event/4cdb1049-4f27-4e32-b49d-4fc9ca73c2fb"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-tenby-full",
+    "name": "IRONMAN Wales",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Tenby",
+    "country": "GB",
+    "lat": 51.6759,
+    "lng": -4.7014,
+    "url": "https://www.ironman.com/races/im-wales",
+    "editions": [
+      {
+        "date": "2026-09-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-19",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Sea swim from North Beach, Tenby; hilly bike and run through Pembrokeshire.",
+    "sources": [
+      "https://www.ironman.com/races/im-wales",
+      "https://labs-v2.competitor.com/results/event/df98aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-cambridge-md-full",
+    "name": "IRONMAN Maryland",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Cambridge",
+    "country": "US",
+    "lat": 38.5747,
+    "lng": -76.0731,
+    "url": "https://www.ironman.com/races/im-maryland",
+    "editions": [
+      {
+        "date": "2026-09-19",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Choptank River swim, flat bike through the Blackwater wildlife refuge. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im-maryland",
+      "https://labs-v2.competitor.com/results/event/52f9c915-31ca-e311-b5f4-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-cervia-full",
+    "name": "IRONMAN Italy Emilia-Romagna",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Cervia",
+    "country": "IT",
+    "lat": 44.2556,
+    "lng": 12.3629,
+    "url": "https://www.ironman.com/races/im-emilia-romagna",
+    "editions": [
+      {
+        "date": "2026-09-19",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Adriatic sea swim, mostly flat bike and run in Cervia. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im-emilia-romagna",
+      "https://labs-v2.competitor.com/results/event/aa3f9693-bd9a-e611-9410-005056951bf1",
+      "https://www.ironman.com/races/im-emilia-romagna/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-chattanooga-full",
+    "name": "IRONMAN Chattanooga",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Chattanooga",
+    "country": "US",
+    "lat": 35.0558,
+    "lng": -85.3159,
+    "url": "https://www.ironman.com/races/im-chattanooga",
+    "editions": [
+      {
+        "date": "2026-09-27",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Downstream swim in the Tennessee River; transition and finish at Ross's Landing; rolling bike, run through downtown.",
+    "sources": [
+      "https://www.ironman.com/races/im-chattanooga",
+      "https://labs-v2.competitor.com/results/event/0a742931-cf10-e311-9ec7-005056956277",
+      "https://www.ironman.com/races/im-chattanooga/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-calella-barcelona-full",
+    "name": "IRONMAN Calella-Barcelona",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Calella",
+    "country": "ES",
+    "lat": 41.6134,
+    "lng": 2.6536,
+    "url": "https://www.ironman.com/races/im-barcelona",
+    "editions": [
+      {
+        "date": "2026-10-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Mediterranean sea swim in Calella, flat coastal bike and run, about 55 km north of Barcelona.",
+    "sources": [
+      "https://www.ironman.com/races/im-barcelona",
+      "https://labs-v2.competitor.com/results/event/c413f2e7-2dca-e311-b5f4-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-gurye-full",
+    "name": "IRONMAN Gurye Korea",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Gurye",
+    "country": "KR",
+    "lat": 35.218,
+    "lng": 127.4655,
+    "url": "https://www.ironman.com/races/im-gurye",
+    "editions": [
+      {
+        "date": "2026-10-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Guman reservoir (Jirisan Lake Park), mostly flat bike, run along the Seosicheon stream to Gurye Public Stadium.",
+    "sources": [
+      "https://www.ironman.com/races/im-gurye",
+      "https://labs-v2.competitor.com/results/event/6e0f4c83-40d8-e611-9412-005056951bf1",
+      "https://www.ironman.com/races/im-gurye/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-kona-full",
+    "name": "IRONMAN World Championship",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "championship": "IRONMAN World Championship",
+    "city": "Kailua-Kona",
+    "country": "US",
+    "lat": 19.6401,
+    "lng": -155.9959,
+    "url": "https://www.ironman.com/races/im-world-championship-kona",
+    "editions": [
+      {
+        "date": "2026-10-10",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-10-09",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Qualification only. From 2026 women and men race on the same day in Kona. Hot, windy Queen K bike.",
+    "sources": [
+      "https://www.ironman.com/races/im-world-championship-kona",
+      "https://labs-v2.competitor.com/results/event/e798aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-cascais-full",
+    "name": "IRONMAN Portugal-Cascais",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Cascais",
+    "country": "PT",
+    "lat": 38.6973,
+    "lng": -9.4218,
+    "url": "https://www.ironman.com/races/im-cascais",
+    "editions": [
+      {
+        "date": "2026-10-17",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim in Cascais Bay, rolling bike and run. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im-cascais",
+      "https://labs-v2.competitor.com/results/event/4a7d66f0-94f5-e911-a812-000d3a5a1cf8"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-port-macquarie-full",
+    "name": "IRONMAN Australia",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Port Macquarie",
+    "country": "AU",
+    "lat": -31.4299,
+    "lng": 152.9007,
+    "url": "https://www.ironman.com/races/im-australia",
+    "editions": [
+      {
+        "date": "2026-10-18",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-10-17",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Hastings River swim with a weir crossing. Moved from May to October from 2026. Hosts Oceania TriClub Championship.",
+    "sources": [
+      "https://www.ironman.com/races/im-australia",
+      "https://labs-v2.competitor.com/results/event/a598aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/races/im-australia/register-2027"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-sacramento-full",
+    "name": "IRONMAN California",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Sacramento",
+    "country": "US",
+    "lat": 38.5776,
+    "lng": -121.4992,
+    "url": "https://www.ironman.com/races/im-california",
+    "editions": [
+      {
+        "date": "2026-10-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Downriver swim from the American River into the Sacramento River, flat bike, run finishing on Capitol Mall.",
+    "sources": [
+      "https://www.ironman.com/races/im-california",
+      "https://labs-v2.competitor.com/results/event/d74670f6-7fb2-4813-96e1-fae4ab1b948c",
+      "https://www.ironman.com/races/im-california/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-san-juan-full",
+    "name": "IRONMAN San Juan",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "San Juan",
+    "country": "AR",
+    "lat": -31.5387,
+    "lng": -68.5363,
+    "url": "https://www.ironman.com/races/im-san-juan",
+    "editions": [
+      {
+        "date": "2026-11-01",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "First edition Nov 2026. Swim in the Punta Negra Dam reservoir, one-lap bike, run through downtown San Juan.",
+    "sources": [
+      "https://www.ironman.com/races/im-san-juan",
+      "https://www.ironman.com/stories/news-updates/san-juan-argentina-host-its-first-full-distance-ironman-and-5150-triathlon"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-panama-city-beach-full",
+    "name": "IRONMAN Florida",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Panama City Beach",
+    "country": "US",
+    "lat": 30.2216,
+    "lng": -85.8765,
+    "url": "https://www.ironman.com/races/im-florida",
+    "editions": [
+      {
+        "date": "2026-11-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Gulf of Mexico swim from Russell-Fields Pier, flat bike and run, finish at Aaron Bessant Park. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im-florida",
+      "https://labs-v2.competitor.com/results/event/b998aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/races/im-florida/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-langkawi-full",
+    "name": "IRONMAN Malaysia",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Langkawi",
+    "country": "MY",
+    "lat": 6.2993,
+    "lng": 99.7217,
+    "url": "https://www.ironman.com/races/im-malaysia",
+    "editions": [
+      {
+        "date": "2026-11-21",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-11-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Hot, humid island race: swim at Pantai Kok, hilly bike, flat run to the finish at Pantai Cenang. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im-malaysia",
+      "https://labs-v2.competitor.com/results/event/c998aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/races/im-malaysia/register-2027",
+      "https://www.ironman.com/races/im-malaysia/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-cozumel-full",
+    "name": "IRONMAN Cozumel",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "championship": "IRONMAN Latin American Championship",
+    "city": "Cozumel",
+    "country": "MX",
+    "lat": 20.5103,
+    "lng": -86.9496,
+    "url": "https://www.ironman.com/races/im-cozumel",
+    "editions": [
+      {
+        "date": "2026-11-22",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Warm Caribbean swim, flat island bike, finish at the City Hall plaza in San Miguel.",
+    "sources": [
+      "https://www.ironman.com/races/im-cozumel",
+      "https://labs-v2.competitor.com/results/event/b398aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-valdivia-full",
+    "name": "IRONMAN Valdivia",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Valdivia",
+    "country": "CL",
+    "lat": -39.8043,
+    "lng": -73.2574,
+    "url": "https://www.ironman.com/races/im-valdivia",
+    "editions": [
+      {
+        "date": "2026-11-29",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "First full-distance edition Nov 2026 (formerly 70.3). Point-to-point river swim, wetsuits mandatory.",
+    "sources": [
+      "https://www.ironman.com/races/im-valdivia",
+      "https://www.ironman.com/stories/news-updates/valdivia-chile-host-its-first-full-distance-ironman-triathlon-2026"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-muscat-full",
+    "name": "IRONMAN Oman",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Muscat",
+    "country": "OM",
+    "lat": 23.6256,
+    "lng": 58.4798,
+    "url": "https://www.ironman.com/races/im-oman",
+    "editions": [
+      {
+        "date": "2026-12-05",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "First full-distance IRONMAN in Oman. Sea swim and finish at Qurum Beach, bike out to Barka and back. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im-oman",
+      "https://www.ironman.com/races/im-oman/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-busselton-full",
+    "name": "IRONMAN Western Australia",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "championship": "IRONMAN Asia-Pacific Championship",
+    "city": "Busselton",
+    "country": "AU",
+    "lat": -33.6449,
+    "lng": 115.3462,
+    "url": "https://www.ironman.com/races/im-western-australia",
+    "editions": [
+      {
+        "date": "2026-12-06",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-12-05",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim alongside the Busselton Jetty, flat and fast bike and run.",
+    "sources": [
+      "https://www.ironman.com/races/im-western-australia",
+      "https://labs-v2.competitor.com/results/event/e198aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/races/im-western-australia/register-2027"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-mossel-bay-full",
+    "name": "IRONMAN South Africa, Mossel Bay",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "championship": "IRONMAN African Championship",
+    "city": "Mossel Bay",
+    "country": "ZA",
+    "lat": -34.177,
+    "lng": 22.1371,
+    "url": "https://www.ironman.com/races/im-mossel-bay",
+    "editions": [
+      {
+        "date": "2027-04-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "New home of IRONMAN South Africa from 2027 (held in Nelson Mandela Bay through Apr 2026). Swim at Santos Beach.",
+    "sources": [
+      "https://www.ironman.com/races/im-mossel-bay"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-davao-full",
+    "name": "IRONMAN Philippines Davao City",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Davao City",
+    "country": "PH",
+    "lat": 7.0423,
+    "lng": 125.5409,
+    "url": "https://www.ironman.com/races/im-philippines",
+    "editions": [
+      {
+        "date": "2027-06-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "First Davao edition 2027; IRONMAN Philippines was held in Subic Bay through June 2026.",
+    "sources": [
+      "https://www.ironman.com/races/im-philippines"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-les-sables-dolonne-full",
+    "name": "IRONMAN Les Sables d'Olonne-Vendée",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Les Sables d'Olonne",
+    "country": "FR",
+    "lat": 46.4967,
+    "lng": -1.7833,
+    "url": "https://www.ironman.com/races/im-les-sables-dolonne",
+    "editions": [
+      {
+        "date": "2027-06-27",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Alternates yearly with the 70.3: no full distance in 2026. Swim through the Vendée Globe channel.",
+    "sources": [
+      "https://www.ironman.com/races/im-les-sables-dolonne",
+      "https://www.ironman.com/stories/news-updates/ironman-confirm-key-updates-2026-ironman-and-ironman-703-race-schedule-france"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-knokke-heist-full",
+    "name": "IRONMAN Belgium Knokke-Heist",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Knokke-Heist",
+    "country": "BE",
+    "lat": 51.3534,
+    "lng": 3.2884,
+    "url": "https://www.ironman.com/races/im-knokke-heist",
+    "editions": [
+      {
+        "date": "2027-09-05",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "First edition 2027, replaces IRONMAN 70.3 Knokke-Heist. Canal swim at Sluis (NL); run along the beach.",
+    "sources": [
+      "https://www.ironman.com/races/im-knokke-heist"
+    ],
+    "verifiedAt": "2026-09-25"
+  }
+]

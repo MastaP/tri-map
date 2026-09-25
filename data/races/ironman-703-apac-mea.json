@@ -1,0 +1,888 @@
+[
+  {
+    "id": "ironman-muscat-half",
+    "name": "IRONMAN 70.3 Muscat",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "championship": "IRONMAN 70.3 Middle East Championship",
+    "city": "Muscat",
+    "country": "OM",
+    "lat": 23.6256,
+    "lng": 58.4798,
+    "url": "https://www.ironman.com/races/im703-oman",
+    "editions": [
+      {
+        "date": "2026-02-14",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-02-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim off Qurum Beach; IRONMAN Pro Series race in 2027.",
+    "sources": [
+      "https://www.ironman.com/races/im703-oman",
+      "https://labs-v2.competitor.com/results/event/d56de758-0895-e811-9421-005056951bf1",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-colombo-half",
+    "name": "IRONMAN 70.3 Colombo",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Colombo",
+    "country": "LK",
+    "lat": 6.928,
+    "lng": 79.8435,
+    "url": "https://www.ironman.com/races/im703-colombo",
+    "editions": [
+      {
+        "date": "2026-02-22",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim, transition and finish at Port City Colombo; flat bike on a closed coastal highway.",
+    "sources": [
+      "https://www.ironman.com/races/im703-colombo",
+      "https://labs-v2.competitor.com/results/event/ca7a8458-3a3a-e711-9417-005056951bf1",
+      "https://www.ironman.com/races/im703-colombo/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-new-zealand-half",
+    "name": "IRONMAN 70.3 New Zealand",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Taupo",
+    "country": "NZ",
+    "lat": -38.6922,
+    "lng": 176.0772,
+    "url": "https://www.ironman.com/races/im703-new-zealand",
+    "editions": [
+      {
+        "date": "2026-03-07",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-03-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Saturday race; swim in Lake Taupo, transition at Kaimanawa Reserve.",
+    "sources": [
+      "https://www.ironman.com/races/im703-new-zealand",
+      "https://labs-v2.competitor.com/results/event/f11b4433-9452-e711-9418-005056951bf1",
+      "https://www.ironman.com/races/im703-new-zealand/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-hengqin-half",
+    "name": "IRONMAN 70.3 Hengqin",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Hengqin, Zhuhai",
+    "country": "CN",
+    "lat": 22.1346,
+    "lng": 113.5249,
+    "url": "https://www.ironman.com/races/im703-hengqin",
+    "editions": [
+      {
+        "date": "2026-03-15",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-03-14",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Venue at Tianmu Qintai facing Macao; swim in the Tianmu River.",
+    "sources": [
+      "https://www.ironman.com/races/im703-hengqin",
+      "https://labs-v2.competitor.com/results/event/dd91f93e-fba6-43c1-b0f5-a8eb9d630a11",
+      "https://www.ironman.com/races/im703-hengqin/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-davao-half",
+    "name": "IRONMAN 70.3 Davao Philippines",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Davao City",
+    "country": "PH",
+    "lat": 7.0407,
+    "lng": 125.5351,
+    "url": "https://www.ironman.com/races/im703-davao-philippines",
+    "editions": [
+      {
+        "date": "2026-03-22",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim in Talomo Bay; flat coastal-road bike. 2027 race shares race day with full-distance IRONMAN Philippines.",
+    "sources": [
+      "https://www.ironman.com/races/im703-davao-philippines",
+      "https://labs-v2.competitor.com/results/event/3c1dd549-5aa4-e711-9419-005056951bf1",
+      "https://www.ironman.com/races/im703-davao-philippines/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-geelong-half",
+    "name": "IRONMAN 70.3 Geelong",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Geelong",
+    "country": "AU",
+    "lat": -38.1443,
+    "lng": 144.3637,
+    "url": "https://www.ironman.com/races/im703-geelong",
+    "editions": [
+      {
+        "date": "2026-03-22",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-03-21",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim in Corio Bay off Eastern Beach; IRONMAN Pro Series race in 2027.",
+    "sources": [
+      "https://www.ironman.com/races/im703-geelong",
+      "https://labs-v2.competitor.com/results/event/3bff5ad1-f53b-e311-9ec7-005056956277",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-western-sydney-half",
+    "name": "IRONMAN 70.3 Western Sydney",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Penrith",
+    "country": "AU",
+    "lat": -33.722,
+    "lng": 150.6792,
+    "url": "https://www.ironman.com/races/im703-western-sydney",
+    "editions": [
+      {
+        "date": "2026-05-03",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-02",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Held at the Sydney International Regatta Centre; moved from September to May in 2026.",
+    "sources": [
+      "https://www.ironman.com/races/im703-western-sydney",
+      "https://labs-v2.competitor.com/results/event/39894f5e-25a6-e311-b5f4-005056956277",
+      "https://www.ironman.com/races/im703-western-sydney/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-da-nang-half",
+    "name": "IRONMAN 70.3 Da Nang",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Da Nang",
+    "country": "VN",
+    "lat": 16.0684,
+    "lng": 108.2459,
+    "url": "https://www.ironman.com/races/im703-danang",
+    "editions": [
+      {
+        "date": "2026-05-10",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-09",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim start and finish at East Sea Park on the Da Nang beachfront; flat course.",
+    "sources": [
+      "https://www.ironman.com/races/im703-danang",
+      "https://labs-v2.competitor.com/results/event/7d32fb34-06b2-e411-9400-005056951bf1",
+      "https://www.ironman.com/races/im703-danang/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-shanghai-chongming-half",
+    "name": "IRONMAN 70.3 Shanghai Chongming",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Shanghai",
+    "country": "CN",
+    "lat": 31.7505,
+    "lng": 121.3957,
+    "url": "https://www.ironman.com/races/im703-shanghai-chongming",
+    "editions": [
+      {
+        "date": "2026-05-17",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Lake swim and run at Bright Tian Yuan, Chongming Island; flat course. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-shanghai-chongming",
+      "https://labs-v2.competitor.com/results/event/94dd54fc-db4f-e811-941e-005056951bf1",
+      "https://www.ironman.com/races/im703-shanghai-chongming/schedule",
+      "https://www.ironman.com/races/im703-shanghai-chongming/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-durban-half",
+    "name": "IRONMAN 70.3 Durban",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Durban",
+    "country": "ZA",
+    "lat": -29.8324,
+    "lng": 31.0354,
+    "url": "https://www.ironman.com/races/im703-durban",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim and T1 at uShaka Beach; T2 and finish at Suncoast on the Durban beachfront promenade.",
+    "sources": [
+      "https://www.ironman.com/races/im703-durban",
+      "https://labs-v2.competitor.com/results/event/05a02daa-99b0-e411-9400-005056951bf1",
+      "https://www.ironman.com/races/im703-durban/schedule",
+      "https://www.ironman.com/races/im703-durban/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-subic-bay-half",
+    "name": "IRONMAN 70.3 Subic Bay Philippines",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Subic Bay",
+    "country": "PH",
+    "lat": 14.8297,
+    "lng": 120.2986,
+    "url": "https://www.ironman.com/races/im703-subic-bay-philippines",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Hilly bike on the SCTEX expressway; T2 and finish at SBECC. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-subic-bay-philippines",
+      "https://labs-v2.competitor.com/results/event/30c4b1f7-08b2-e411-9400-005056951bf1",
+      "https://www.ironman.com/races/im703-subic-bay-philippines/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-cairns-half",
+    "name": "IRONMAN 70.3 Cairns",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Cairns",
+    "country": "AU",
+    "lat": -16.915,
+    "lng": 145.7724,
+    "url": "https://www.ironman.com/races/im703-cairns",
+    "editions": [
+      {
+        "date": "2026-06-14",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim starts at Palm Cove; finish on the Cairns Esplanade. Shares race day with IRONMAN Cairns in 2027.",
+    "sources": [
+      "https://www.ironman.com/races/im703-cairns",
+      "https://labs-v2.competitor.com/results/event/eec737b8-84fe-e111-aa75-005056956277",
+      "https://www.ironman.com/races/im703-cairns/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-goseong-half",
+    "name": "IRONMAN 70.3 Goseong",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Goseong",
+    "country": "KR",
+    "lat": 35.0544,
+    "lng": 128.3973,
+    "url": "https://www.ironman.com/races/im703-goseong",
+    "editions": [
+      {
+        "date": "2026-06-14",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Venue at Goseong Dinosaur Expo Park (Danghangpo); run has a 7% hill. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-goseong",
+      "https://labs-v2.competitor.com/results/event/80711e6b-fdca-e811-a96a-000d3a35f53a",
+      "https://www.ironman.com/races/im703-goseong/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-desaru-coast-half",
+    "name": "IRONMAN 70.3 Desaru Coast",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Desaru",
+    "country": "MY",
+    "lat": 1.539,
+    "lng": 104.263,
+    "url": "https://www.ironman.com/races/im703-desaru-coast",
+    "editions": [
+      {
+        "date": "2026-07-26",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim and transition at The Westin Desaru Coast; rolling bike and run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-desaru-coast",
+      "https://labs-v2.competitor.com/results/event/f8b9aa5e-b5b7-e911-a986-000d3a364086",
+      "https://www.ironman.com/races/im703-desaru-coast/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-lapu-lapu-half",
+    "name": "IRONMAN 70.3 Lapu-Lapu",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Lapu-Lapu City",
+    "country": "PH",
+    "lat": 10.3074,
+    "lng": 124.0135,
+    "url": "https://www.ironman.com/races/im703-cebu-philippines",
+    "editions": [
+      {
+        "date": "2026-08-09",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim at Mactan Newtown Beach; bike crosses the CCLEX bridge to Cebu City. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-cebu-philippines",
+      "https://labs-v2.competitor.com/results/event/6f98aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/races/im703-cebu-philippines/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-dali-half",
+    "name": "IRONMAN 70.3 Dali",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Dali",
+    "country": "CN",
+    "lat": 25.6079,
+    "lng": 100.231,
+    "url": "https://www.ironman.com/races/im703-dali",
+    "editions": [
+      {
+        "date": "2026-09-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "First edition 2026. Altitude ~2,000 m; point-to-point swim in the Xi'er River. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-dali",
+      "https://labs-v2.competitor.com/results/event/f044340f-44c7-45ac-b168-6dbc178fc954",
+      "https://www.ironman.com/races/im703-dali/schedule",
+      "https://www.ironman.com/races/im703-dali/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-sunshine-coast-half",
+    "name": "IRONMAN 70.3 Sunshine Coast",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Mooloolaba",
+    "country": "AU",
+    "lat": -26.6833,
+    "lng": 153.1233,
+    "url": "https://www.ironman.com/races/im703-sunshine-coast",
+    "editions": [
+      {
+        "date": "2026-09-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Ocean swim off Mooloolaba Beach; transition on Parkyn Parade.",
+    "sources": [
+      "https://www.ironman.com/races/im703-sunshine-coast",
+      "https://labs-v2.competitor.com/results/event/be8a13c2-88a0-e211-870b-005056956277",
+      "https://www.ironman.com/races/im703-sunshine-coast/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-sharm-el-sheikh-half",
+    "name": "IRONMAN 70.3 Sharm El-Sheikh",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Sharm El-Sheikh",
+    "country": "EG",
+    "lat": 27.9159,
+    "lng": 34.3259,
+    "url": "https://www.ironman.com/races/im703-sharm-el-sheikh",
+    "editions": [
+      {
+        "date": "2026-10-16",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Friday race. Moved from Sahl Hasheesh; Red Sea swim in Naama Bay.",
+    "sources": [
+      "https://www.ironman.com/races/im703-sharm-el-sheikh",
+      "https://www.ironman.com/races/im703-sharm-el-sheikh/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-port-macquarie-half",
+    "name": "IRONMAN 70.3 Port Macquarie",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Port Macquarie",
+    "country": "AU",
+    "lat": -31.42996,
+    "lng": 152.90072,
+    "url": "https://www.ironman.com/races/im703-port-macquarie",
+    "editions": [
+      {
+        "date": "2026-10-18",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-10-17",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Oceania TriClub Championship; moved from May to October in 2026. Swim in the Hastings River.",
+    "sources": [
+      "https://www.ironman.com/races/im703-port-macquarie",
+      "https://www.ironman.com/races/im703-port-macquarie/schedule",
+      "https://www.ironman.com/races/im703-port-macquarie/register-2027"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-dhofar-half",
+    "name": "IRONMAN 70.3 Dhofar",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Salalah",
+    "country": "OM",
+    "lat": 17.034,
+    "lng": 54.2992,
+    "url": "https://www.ironman.com/races/im703-dhofar",
+    "editions": [
+      {
+        "date": "2026-10-24",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Saturday race based at Hawana Salalah.",
+    "sources": [
+      "https://www.ironman.com/races/im703-dhofar",
+      "https://www.ironman.com/races/im703-dhofar/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-agadir-half",
+    "name": "IRONMAN 70.3 Agadir",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Agadir",
+    "country": "MA",
+    "lat": 30.4177,
+    "lng": -9.6044,
+    "url": "https://www.ironman.com/races/im703-agadir",
+    "editions": [
+      {
+        "date": "2026-10-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim in Agadir bay; single-loop bike inland and along the Taghazout coast; finish at Place Al Wahda.",
+    "sources": [
+      "https://www.ironman.com/races/im703-agadir",
+      "https://www.ironman.com/races/im703-agadir/schedule",
+      "https://www.ironman.com/races/im703-agadir/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-goa-half",
+    "name": "IRONMAN 70.3 Goa",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Panaji",
+    "country": "IN",
+    "lat": 15.4767,
+    "lng": 73.8067,
+    "url": "https://www.ironman.com/races/im703-goa",
+    "editions": [
+      {
+        "date": "2026-11-01",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim off Miramar Beach, Panaji; organiser rates bike and run as hilly.",
+    "sources": [
+      "https://www.ironman.com/races/im703-goa",
+      "https://www.ironman.com/races/im703-goa/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-kenting-half",
+    "name": "IRONMAN 70.3 Kenting",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Kenting",
+    "country": "TW",
+    "lat": 21.9414,
+    "lng": 120.8072,
+    "url": "https://www.ironman.com/races/im703-kenting",
+    "editions": [
+      {
+        "date": "2026-11-01",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim in Kenting Little Bay; transition at Howard Beach Resort; coastal bike on Highway 26.",
+    "sources": [
+      "https://www.ironman.com/races/im703-kenting",
+      "https://www.ironman.com/races/im703-kenting/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-melbourne-half",
+    "name": "IRONMAN 70.3 Melbourne",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Melbourne",
+    "country": "AU",
+    "lat": -37.8616,
+    "lng": 144.9718,
+    "url": "https://www.ironman.com/races/im703-melbourne",
+    "editions": [
+      {
+        "date": "2026-11-08",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-11-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim in Port Phillip Bay off St Kilda Beach; transition and finish at Catani Gardens.",
+    "sources": [
+      "https://www.ironman.com/races/im703-melbourne",
+      "https://www.ironman.com/races/im703-melbourne/schedule",
+      "https://www.ironman.com/races/im703-melbourne/register-2027"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-phu-quoc-half",
+    "name": "IRONMAN 70.3 Phu Quoc",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Phu Quoc",
+    "country": "VN",
+    "lat": 10.1143,
+    "lng": 103.9819,
+    "url": "https://www.ironman.com/races/im703-phu-quoc",
+    "editions": [
+      {
+        "date": "2026-11-15",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim, transition and finish at the Waterfront beach square by Phu Quoc Marina; bike along the southern coast.",
+    "sources": [
+      "https://www.ironman.com/races/im703-phu-quoc",
+      "https://www.ironman.com/races/im703-phu-quoc/schedule",
+      "https://www.ironman.com/races/im703-phu-quoc/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-langkawi-half",
+    "name": "IRONMAN 70.3 Langkawi",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Langkawi",
+    "country": "MY",
+    "lat": 6.2993,
+    "lng": 99.7217,
+    "url": "https://www.ironman.com/races/im703-langkawi",
+    "editions": [
+      {
+        "date": "2026-11-21",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-11-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Saturday race. Non-wetsuit swim, 2026 T1 at Holiday Villa, Pantai Tengah; hilly one-loop bike; finish at Pelangi Beach, Cenang.",
+    "sources": [
+      "https://www.ironman.com/races/im703-langkawi",
+      "https://www.ironman.com/races/im703-langkawi/schedule",
+      "https://www.ironman.com/races/im703-langkawi/course",
+      "https://www.ironman.com/races/im703-langkawi/register-2027"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-mossel-bay-half",
+    "name": "IRONMAN 70.3 Mossel Bay",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Mossel Bay",
+    "country": "ZA",
+    "lat": -34.177,
+    "lng": 22.1371,
+    "url": "https://www.ironman.com/races/im703-mossel-bay",
+    "editions": [
+      {
+        "date": "2026-11-22",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "African TriClub Championship; swim at De Bakke Beach, Santos Bay; hilly bike.",
+    "sources": [
+      "https://www.ironman.com/races/im703-mossel-bay",
+      "https://www.ironman.com/races/im703-mossel-bay/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-western-australia-half",
+    "name": "IRONMAN 70.3 Western Australia",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Busselton",
+    "country": "AU",
+    "lat": -33.6456,
+    "lng": 115.3446,
+    "url": "https://www.ironman.com/races/im703-western-australia",
+    "editions": [
+      {
+        "date": "2026-12-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim off Busselton Foreshore in Geographe Bay; transition at Signal Park; flat bike and run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-western-australia",
+      "https://www.ironman.com/races/im703-western-australia/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-bahrain-half",
+    "name": "IRONMAN 70.3 Bahrain",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Manama",
+    "country": "BH",
+    "lat": 26.2373,
+    "lng": 50.5604,
+    "url": "https://www.ironman.com/races/im703-bahrain",
+    "editions": [
+      {
+        "date": "2026-12-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Friday race at Reef Island, Manama; bike passes the Bahrain International Circuit.",
+    "sources": [
+      "https://www.ironman.com/races/im703-bahrain",
+      "https://www.ironman.com/races/im703-bahrain/schedule",
+      "https://www.ironman.com/races/im703-bahrain/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-nelson-mandela-bay-half",
+    "name": "IRONMAN 70.3 Nelson Mandela Bay",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "championship": "IRONMAN 70.3 African Championship",
+    "city": "Gqeberha (Port Elizabeth)",
+    "country": "ZA",
+    "lat": -33.981,
+    "lng": 25.6597,
+    "url": "https://www.ironman.com/races/im703-nelson-mandela-bay",
+    "editions": [
+      {
+        "date": "2027-01-31",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Returns in 2027 after no 2025-26 edition; swim and finish at Hobie Beach on the 2018 70.3 Worlds course.",
+    "sources": [
+      "https://www.ironman.com/races/im703-nelson-mandela-bay",
+      "https://labs-v2.competitor.com/results/event/72e540e0-4f6e-44f4-9735-d8b5424ae8f2"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-laoag-half",
+    "name": "IRONMAN 70.3 Laoag",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Laoag",
+    "country": "PH",
+    "lat": 18.208,
+    "lng": 120.5925,
+    "url": "https://www.ironman.com/races/im703-laoag",
+    "editions": [
+      {
+        "date": "2027-03-14",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "First edition 2027. Swim at Sadiri Beach (Fort Ilocandia); finish inside the Marcos Stadium in Laoag City.",
+    "sources": [
+      "https://www.ironman.com/races/im703-laoag",
+      "https://www.ironman.com/races/im703-laoag/schedule",
+      "https://www.ironman.com/races/im703-laoag/course"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-doha-half",
+    "name": "IRONMAN 70.3 Doha",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Doha",
+    "country": "QA",
+    "lat": 25.3019,
+    "lng": 51.5521,
+    "url": "https://www.ironman.com/races/im703-doha",
+    "editions": [
+      {
+        "date": "2027-03-20",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "First edition 2027 (Saturday). Swim at Old Doha Port; flat bike toward Lusail and Simaisma.",
+    "sources": [
+      "https://www.ironman.com/races/im703-doha",
+      "https://www.ironman.com/races/im703-doha/course"
+    ],
+    "verifiedAt": "2026-09-25"
+  }
+]

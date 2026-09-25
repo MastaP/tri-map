@@ -1,0 +1,1289 @@
+[
+  {
+    "id": "independent-tauranga-half",
+    "name": "Tauranga Half",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Mount Maunganui",
+    "country": "NZ",
+    "lat": -37.636,
+    "lng": 176.177,
+    "url": "https://mountfestival.kiwi/events/tauranga-half/",
+    "editions": [
+      {
+        "date": "2026-01-17",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-01-23",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "2/90/21.1 km; flagship of the Mount Festival of Multisport; formerly Port of Tauranga Half",
+    "sources": [
+      "https://mountfestival.kiwi/events/tauranga-half/",
+      "https://www.nzherald.co.nz/bay-of-plenty-times/news/full-results-from-tauranga-half-and-mount-festival-of-multisport/C5LO2PNZVRHJTI7TRUB24TAEIE/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-australian-alpine-ascent-full",
+    "name": "Australian Alpine Ascent XTRI",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Jindabyne",
+    "country": "AU",
+    "lat": -36.416,
+    "lng": 148.624,
+    "url": "https://aaaxtri.com/",
+    "editions": [
+      {
+        "date": "2026-02-14",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Cold swim in Lake Jindabyne, 187 km bike to Perisher, 44 km run in Kosciuszko NP; 2027 date TBC by organiser",
+    "sources": [
+      "https://www.eliteenergy.com.au/australian-alpine-ascent-returns-in-2026-with-xtri-world-tour-partnership/",
+      "https://www.xtriworldtour.com/aaa"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-wildflower-half",
+    "name": "Wildflower Long Course",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Lake San Antonio",
+    "country": "US",
+    "lat": 35.7985,
+    "lng": -120.8812,
+    "url": "https://www.wildflowerexperience.com/",
+    "editions": [
+      {
+        "date": "2026-05-02",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Historic California race; 1.2 mi / 56 mi / 13.1 mi with hilly bike and run; 2027 date not yet announced",
+    "sources": [
+      "https://www.wildflowerexperience.com/festival/schedule/",
+      "https://www.wildflowerexperience.com/",
+      "https://www.wildflowerexperience.com/race/distances/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-himalayan-xtri-full",
+    "name": "HimalayanXtri",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Pokhara",
+    "country": "NP",
+    "lat": 28.209,
+    "lng": 83.958,
+    "url": "https://himalxtri.com",
+    "editions": [
+      {
+        "date": "2026-05-09",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-08",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Organiser: 3.5 km night swim in Phewa Lake, 165 km bike, 43 km off-road run to 4,000 m; finish at Lwang (Xtri lists 3.8/176/42.4)",
+    "sources": [
+      "https://himalxtri.com",
+      "https://himalxtri.com/race-info-1",
+      "https://www.xtriworldtour.com/himalayan"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-frenchman-half",
+    "name": "Frenchman Triathlon L",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Carcans",
+    "country": "FR",
+    "lat": 45.083,
+    "lng": -1.144,
+    "url": "https://www.frenchmantriathlon.com/",
+    "editions": [
+      {
+        "date": "2026-05-15",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "1.9/90/21 km in Lac d'Hourtin-Carcans; flat course; raced the day before the XXL full",
+    "sources": [
+      "https://fftri.t2area.com/calendrier/frenchman-hourtin/triathlon-l/2026.html",
+      "https://www.frenchmantriathlon.com/frenchman-hourtin/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-frenchman-full",
+    "name": "Frenchman Triathlon XXL",
+    "brand": "independent",
+    "distance": "full",
+    "city": "Carcans",
+    "country": "FR",
+    "lat": 45.083,
+    "lng": -1.144,
+    "url": "https://www.frenchmantriathlon.com/",
+    "editions": [
+      {
+        "date": "2026-05-16",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-08",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lac d'Hourtin-Carcans; flat, fast course through Médoc pine forest; part of a multi-day festival",
+    "sources": [
+      "https://fftri.t2area.com/calendrier/frenchman-hourtin/triathlon-xxl/2026.html",
+      "https://www.frenchmantriathlon.com/frenchman-hourtin/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-outlaw-nottingham-half",
+    "name": "Outlaw Nottingham Half",
+    "brand": "independent",
+    "series": "Outlaw",
+    "distance": "half",
+    "city": "Nottingham",
+    "country": "GB",
+    "lat": 52.9446,
+    "lng": -1.0793,
+    "url": "https://outlawtriathlon.com/outlaw-nottingham/outlaw-half",
+    "editions": [
+      {
+        "date": "2026-05-17",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-23",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Regatta Lake at the National Water Sports Centre; flat bike; 3-lap run by the River Trent",
+    "sources": [
+      "https://outlaw-assets.s3.eu-west-2.amazonaws.com/race-info/Outlaw-Nottingham-Half-Race-Guide-2026.pdf",
+      "https://outlawtriathlon.com/outlaw-nottingham/outlaw-half"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-cotswold-113-half",
+    "name": "Cotswold 113",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Ashton Keynes",
+    "country": "GB",
+    "lat": 51.6538,
+    "lng": -1.9507,
+    "url": "https://www.113events.com/cotswold-113/",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake 32, Cotswold Water Park; flat, fast course",
+    "sources": [
+      "https://www.113events.com/cotswold-113/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-celtman-full",
+    "name": "Celtman Extreme Scottish Triathlon",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Shieldaig",
+    "country": "GB",
+    "lat": 57.5237,
+    "lng": -5.648,
+    "url": "https://cxtri.com",
+    "editions": [
+      {
+        "date": "2026-06-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Non-standard: 3.4 km cold sea-loch swim, 202 km bike, 41 km mountain run in Torridon; jellyfish and cold water",
+    "sources": [
+      "https://celtman.squarespace.com/s/Race-Manual-2026.pdf",
+      "https://cxtri.com",
+      "https://www.xtriworldtour.com/events"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-moritzburg-full",
+    "name": "Schlosstriathlon Moritzburg Barockman",
+    "brand": "independent",
+    "distance": "full",
+    "city": "Moritzburg",
+    "country": "DE",
+    "lat": 51.1648,
+    "lng": 13.6804,
+    "url": "https://schlosstriathlon.de/wettkampfuebersicht/brockman-langdistanz/",
+    "editions": [
+      {
+        "date": "2026-06-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-12",
+        "status": "tentative"
+      }
+    ],
+    "swim": "lake",
+    "notes": "3.8/173/42 km lap course by Moritzburg Castle; 2027 event is 12-13 Jun, race day assumed Sat 12 Jun as in 2026",
+    "sources": [
+      "https://schlosstriathlon.de/wettkampfuebersicht/brockman-langdistanz/",
+      "https://schlosstriathlon.de/",
+      "https://schlosstriathlon.de/app/uploads/2025/12/Ausschreibung2026_STM.pdf"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-moritzburg-half",
+    "name": "Schlosstriathlon Moritzburg Halbdistanz",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Moritzburg",
+    "country": "DE",
+    "lat": 51.1648,
+    "lng": 13.6804,
+    "url": "https://schlosstriathlon.de/wettkampfuebersicht/halbdistanz/",
+    "editions": [
+      {
+        "date": "2026-06-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-12",
+        "status": "tentative"
+      }
+    ],
+    "swim": "lake",
+    "notes": "1.9/87/21 km lap course by Moritzburg Castle; 2027 event is 12-13 Jun, race day assumed Sat 12 Jun as in 2026",
+    "sources": [
+      "https://schlosstriathlon.de/wettkampfuebersicht/halbdistanz/",
+      "https://schlosstriathlon.de/",
+      "https://schlosstriathlon.de/app/uploads/2025/12/Ausschreibung2026_STM.pdf"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-patriot-east-freetown-half",
+    "name": "Patriot Half",
+    "brand": "independent",
+    "distance": "half",
+    "city": "East Freetown",
+    "country": "US",
+    "lat": 41.772,
+    "lng": -70.949,
+    "url": "https://www.outsiderendurance.com/patriot-half",
+    "editions": [
+      {
+        "date": "2026-06-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Long Pond; 54-mile rolling bike; hosted the 2026 USA Triathlon Long Course National Championships",
+    "sources": [
+      "https://www.outsiderendurance.com/patriot-half",
+      "https://www.usatriathlon.org/articles/press-releases/champions-crowned-at-2026-usa-triathlon-long-course-national-championships-in-east-freetown-massachusetts"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-austria-extreme-full",
+    "name": "Austria eXtreme Triathlon",
+    "brand": "independent",
+    "distance": "full",
+    "city": "Graz",
+    "country": "AT",
+    "lat": 47.015,
+    "lng": 15.455,
+    "url": "https://www.autxtri.com/en",
+    "editions": [
+      {
+        "date": "2026-06-20",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-19",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Point-to-point Graz to Dachstein: 3.8 km Mur river swim (start Thondorf), 186 km bike, 44 km run to the Dachstein valley station",
+    "sources": [
+      "https://www.triathlon-austria.at/de/sport/eventdbshow-austria-extreme-triathlon-20.06.2026",
+      "https://www.autxtri.com/en/news",
+      "https://www.steiermark.com/en/Region-Graz/Vacation-planning/Events/Austria-eXtreme-Triathlon-Start_ed_79165802"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-deauville-half",
+    "name": "Triathlon Deauville Normandie Longue Distance",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Deauville",
+    "country": "FR",
+    "lat": 49.3605,
+    "lng": 0.0715,
+    "url": "https://triathlondeauville.com/longue-distance/",
+    "editions": [
+      {
+        "date": "2026-06-20",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-19",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "1.9/88/21 km sea swim, Pays d'Auge bike, boardwalk run; 2027 festival is 18-20 Jun, L assumed Sat 19 Jun as in 2026",
+    "sources": [
+      "https://triathlondeauville.com/longue-distance/",
+      "https://triathlondeauville.com/programme/",
+      "https://triathlondeauville.com/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-swissman-full",
+    "name": "Swissman Xtreme Triathlon",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Ascona",
+    "country": "CH",
+    "lat": 46.1553,
+    "lng": 8.7702,
+    "url": "https://suixtri.com/en/",
+    "editions": [
+      {
+        "date": "2026-06-20",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-26",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Point-to-point from Lago Maggiore over three Alpine passes to Kleine Scheidegg; 3.8/181/42 km, 5,100 m climbing",
+    "sources": [
+      "https://suixtri.com/en/news/",
+      "https://suixtri.com",
+      "https://www.xtriworldtour.com/events"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-lakesman-half",
+    "name": "Lakesman Half",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Keswick",
+    "country": "GB",
+    "lat": 54.599,
+    "lng": -3.142,
+    "url": "https://thelakesman.com/",
+    "editions": [
+      {
+        "date": "2026-06-21",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-20",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Derwentwater; bike through the western Lake District; finish in Keswick",
+    "sources": [
+      "https://thelakesman.com/",
+      "https://www.resultsbase.net/event/7285"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-susz-half",
+    "name": "Susz Triathlon Middle Distance",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Susz",
+    "country": "PL",
+    "lat": 53.719,
+    "lng": 19.338,
+    "url": "https://triathlon.susz.pl/pl/",
+    "editions": [
+      {
+        "date": "2026-06-27",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "1.9/90/21.1 km; swim in Jezioro Suskie; Susz bills itself as the capital of Polish triathlon",
+    "sources": [
+      "https://triathlon.susz.pl/pl/dla-zawodnika/harmonogram-zawodow-2026",
+      "https://triathlon.susz.pl/media/attachments/2026/01/07/regulamin-susz-triathlon-2026---dystans-redni.pdf"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-swedeman-full",
+    "name": "Swedeman Xtreme Triathlon",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Åre",
+    "country": "SE",
+    "lat": 63.399,
+    "lng": 13.081,
+    "url": "https://www.swextri.com/",
+    "editions": [
+      {
+        "date": "2026-07-04",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-10",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim ends under Tännforsen waterfall (~15 C water); 205 km hilly bike; 42-43 km mostly-trail run over Åreskutan",
+    "sources": [
+      "https://www.swextri.com/s/Event-Manual-Draft-2026-ll85.pdf",
+      "https://www.swextri.com/s/Swedeman-Results-2026.pdf",
+      "https://www.xtriworldtour.com/swedeman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-great-white-north-half",
+    "name": "Great White North Triathlon Half",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Stony Plain",
+    "country": "CA",
+    "lat": 53.5264,
+    "lng": -114.0068,
+    "url": "https://platinumracing.ca/great-white-north1/",
+    "editions": [
+      {
+        "date": "2026-07-05",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "2/90/21.1 km; swim in Hubbles Lake, finish at Heritage Park Pavilion; 35th edition in 2026",
+    "sources": [
+      "https://platinumracing.ca/great-white-north1/",
+      "https://platinumracing.ca/great-white-north1/half/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-outlaw-holkham-half",
+    "name": "Outlaw Holkham Half",
+    "brand": "independent",
+    "series": "Outlaw",
+    "distance": "half",
+    "city": "Holkham",
+    "country": "GB",
+    "lat": 52.953,
+    "lng": 0.803,
+    "url": "https://outlawtriathlon.com/outlaw-holkham/outlaw-half",
+    "editions": [
+      {
+        "date": "2026-07-05",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Shallow lake swim on the Holkham Hall estate, north Norfolk; TT-style rolling start",
+    "sources": [
+      "https://outlaw-assets.s3.eu-west-2.amazonaws.com/race-info/Holkham-2026/Outlaw-Holkham-Half-Race-Guide-2026.pdf",
+      "https://outlawtriathlon.com/outlaw-holkham/weekend-overview"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-altriman-full",
+    "name": "Altriman",
+    "brand": "independent",
+    "distance": "full",
+    "city": "Les Angles",
+    "country": "FR",
+    "lat": 42.586,
+    "lng": 2.107,
+    "url": "https://altriman.fr/altriman-full/",
+    "editions": [
+      {
+        "date": "2026-07-11",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-10",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Pyrenean mountain full: 3.8 km in Lac de Matemale, 193 km bike with ~5,000 m climbing, 42 km run on the Capcir plateau",
+    "sources": [
+      "https://altriman.fr/programme-2026/",
+      "https://altriman.fr/altriman-full/",
+      "https://altriman.fr/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-outlaw-nottingham-full",
+    "name": "Outlaw Original",
+    "brand": "independent",
+    "series": "Outlaw",
+    "distance": "full",
+    "city": "Nottingham",
+    "country": "GB",
+    "lat": 52.9446,
+    "lng": -1.0793,
+    "url": "https://outlawtriathlon.com/outlaw-original/outlaw-full",
+    "editions": [
+      {
+        "date": "2026-07-26",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Regatta Lake at the National Water Sports Centre; flat bike; lap run by the River Trent; from 2027 a half runs alongside",
+    "sources": [
+      "https://cdn.prod.website-files.com/688ce20dbd07239c65f1a79e/6a55037a08cf6e97e5f99fae_Outlaw-Original-Race-Guide-2026%20(3).pdf",
+      "https://outlawtriathlon.com/outlaw-original/weekend-overview",
+      "https://outlawtriathlon.com/events-listing"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-norseman-full",
+    "name": "Norseman Xtreme Triathlon",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Eidfjord",
+    "country": "NO",
+    "lat": 60.4669,
+    "lng": 7.0717,
+    "url": "https://nxtri.com",
+    "editions": [
+      {
+        "date": "2026-08-01",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Ferry-jump fjord swim at Eidfjord, 180 km bike (2,762 m), 42 km run to Gaustatoppen summit; ~250 slots by ballot",
+    "sources": [
+      "https://nxtri.com",
+      "https://www.xtriworldtour.com/events",
+      "https://www.xtriworldtour.com/norseman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-ostseeman-full",
+    "name": "OstseeMan",
+    "brand": "independent",
+    "distance": "full",
+    "city": "Glücksburg",
+    "country": "DE",
+    "lat": 54.837,
+    "lng": 9.546,
+    "url": "https://www.ostseeman.de/",
+    "editions": [
+      {
+        "date": "2026-08-02",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-01",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Sea swim in the Flensburg Fjord at Sandwig beach; lap courses; 2027 entries sold out",
+    "sources": [
+      "https://www.ostseeman.de/",
+      "https://www.ostseeman.de/wettkampf.html",
+      "https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/08-2026/ostseeman-triathlon-gluecksburg"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-ostseeman-half",
+    "name": "OstseeMan Mitteldistanz",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Glücksburg",
+    "country": "DE",
+    "lat": 54.837,
+    "lng": 9.546,
+    "url": "https://www.ostseeman.de/",
+    "editions": [
+      {
+        "date": "2026-08-02",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-01",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "1.9/90/21.1 km; sea swim in the Flensburg Fjord; same day as the long distance; 2027 entries sold out",
+    "sources": [
+      "https://www.ostseeman.de/",
+      "https://www.ostseeman.de/wettkampf.html",
+      "https://www.triathlondeutschland.de/aktive/wettkaempfe/veranstaltungskalender/08-2026/ostseeman-triathlon-gluecksburg"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-extrememan-nagyatad-full",
+    "name": "eXtremeMan Nagyatád",
+    "brand": "independent",
+    "series": "eXtremeMan",
+    "distance": "full",
+    "city": "Nagyatád",
+    "country": "HU",
+    "lat": 46.2297,
+    "lng": 17.3606,
+    "url": "https://www.extrememan.hu/",
+    "editions": [
+      {
+        "date": "2026-08-09",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Hungary's classic long-distance race (37th edition in 2026); swim at Gyékényes lake, finish in Nagyatád",
+    "sources": [
+      "https://www.extrememan.hu/",
+      "https://www.extrememan.hu/filekezelorendszer/dok/kozos/versenyki%C3%ADr%C3%A1sok%202026/Nagyata%CC%81d%20Versenykii%CC%81ra%CC%81s.pdf"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-embrunman-full",
+    "name": "Embrunman",
+    "brand": "independent",
+    "distance": "full",
+    "city": "Embrun",
+    "country": "FR",
+    "lat": 44.555,
+    "lng": 6.487,
+    "url": "https://www.embrunman.com/",
+    "editions": [
+      {
+        "date": "2026-08-15",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Held every 15 August; swim in the Embrun lake, bike over Col d'Izoard (2,360 m); very hilly bike and run",
+    "sources": [
+      "https://www.embrunman.com/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-aberfeldy-half",
+    "name": "Aberfeldy Middle Distance Triathlon",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Kenmore",
+    "country": "GB",
+    "lat": 56.587,
+    "lng": -3.998,
+    "url": "https://www.aberfeldytriathlon.com/aberfeldy-middle-distance-triathlon/",
+    "editions": [
+      {
+        "date": "2026-08-16",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "1.9/90/21 km; swim in Loch Tay from Kenmore; hilly Highland Perthshire bike; Scottish middle-distance championships",
+    "sources": [
+      "https://www.aberfeldytriathlon.com/aberfeldy-middle-distance-triathlon/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-hardman-killarney-full",
+    "name": "Hardman Killarney",
+    "brand": "independent",
+    "distance": "full",
+    "city": "Killarney",
+    "country": "IE",
+    "lat": 52.0443,
+    "lng": -9.5294,
+    "url": "https://hardman.ie/races/hardman-killarney/",
+    "editions": [
+      {
+        "date": "2026-08-29",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-28",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Ireland's only full-distance triathlon: swim in the Lakes of Killarney, bike the Ring of Kerry",
+    "sources": [
+      "https://hardman.ie/hardman-full-distance-triathlon-killarney/",
+      "https://hardman.ie/races/hardman-killarney/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-icon-livigno-full",
+    "name": "ICON Livigno Xtreme Triathlon",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Livigno",
+    "country": "IT",
+    "lat": 46.538,
+    "lng": 10.136,
+    "url": "https://www.iconxtri.com",
+    "editions": [
+      {
+        "date": "2026-09-04",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-03",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Dawn swim in Lago di Livigno, 195 km bike (5,000 m) incl. Stelvio, 42 km run to Carosello 3000 finish",
+    "sources": [
+      "https://www.livigno.eu/en/events/icon",
+      "https://www.xtriworldtour.com/events",
+      "https://www.xtriworldtour.com/icon"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-gerardmer-half",
+    "name": "Triathlon XL de Gérardmer",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Gérardmer",
+    "country": "FR",
+    "lat": 48.0712,
+    "lng": 6.8703,
+    "url": "https://triathlondegerardmer.com/triathlon-xl/",
+    "editions": [
+      {
+        "date": "2026-09-05",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "1.9/90/21 km; swim in Lac de Gérardmer; hilly 3-lap bike in the Vosges; 38th edition in 2026",
+    "sources": [
+      "https://triathlondegerardmer.com/triathlon-xl/",
+      "https://vosgesinfo.fr/gerardmerinfo/2026/09/triathlon-de-gerardmer-pierre-dupuy-et-darleen-pfister-simposent-sur-le-xl/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-janosik-full",
+    "name": "Jánošík Slovak Xtreme Triathlon",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Terchová",
+    "country": "SK",
+    "lat": 49.2587,
+    "lng": 18.9794,
+    "url": "https://svkxtri.com",
+    "editions": [
+      {
+        "date": "2026-09-05",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Midnight swim in the Orava reservoir (Slanica), 185 km bike, 42 km run with 3,200 m in Malá Fatra; 65 slots",
+    "sources": [
+      "https://manual.svkxtri.com/",
+      "https://svkxtri.com",
+      "https://www.xtriworldtour.com/events"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-podersdorf-full",
+    "name": "Austria Triathlon Podersdorf",
+    "brand": "independent",
+    "distance": "full",
+    "city": "Podersdorf am See",
+    "country": "AT",
+    "lat": 47.854,
+    "lng": 16.829,
+    "url": "https://www.austria-triathlon.at/",
+    "editions": [
+      {
+        "date": "2026-09-05",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Classic since 1988; swim in St. Martins Therme lake (Frauenkirchen), closed-road bike laps, run and finish in Podersdorf",
+    "sources": [
+      "https://www.austria-triathlon.at/",
+      "https://www.austria-triathlon.at/distanz/ironman-distanz/",
+      "https://www.tri2b.com/ergebnisse/austria-triathlon-2026-podersdorf-oesterreich-langdistanz/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-podersdorf-half",
+    "name": "Austria Triathlon Podersdorf Half Distance",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Podersdorf am See",
+    "country": "AT",
+    "lat": 47.854,
+    "lng": 16.829,
+    "url": "https://www.austria-triathlon.at/",
+    "editions": [
+      {
+        "date": "2026-09-05",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "1.9/88/21 km; swim in St. Martins Therme lake (Frauenkirchen), flat bike laps, run in Podersdorf; 2026 Austrian champs",
+    "sources": [
+      "https://www.austria-triathlon.at/",
+      "https://www.austria-triathlon.at/distanz/halb-distanz/",
+      "https://www.austria-triathlon.at/39-austria-triathlon-podersdorf-2026-rueckblick/",
+      "https://www.tri2b.com/ergebnisse/austria-triathlon-2026-podersdorf-oesterreich-mitteldistanz/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-castle-malbork-full",
+    "name": "Castle Triathlon Malbork",
+    "brand": "independent",
+    "distance": "full",
+    "city": "Malbork",
+    "country": "PL",
+    "lat": 54.0398,
+    "lng": 19.0273,
+    "url": "https://castletriathlon.com/",
+    "editions": [
+      {
+        "date": "2026-09-06",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-05",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Swim in the Nogat river, flat bike, finish inside Malbork Castle; 2026 edition hosted Polish long-distance champs",
+    "sources": [
+      "https://castletriathlon.com/malbork/regulamin-im/",
+      "https://sts-timing.pl/events/castle-triathlon-malbork-im-bartosza-kubickiego/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-castle-malbork-half",
+    "name": "Castle Triathlon Malbork 1/2",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Malbork",
+    "country": "PL",
+    "lat": 54.0398,
+    "lng": 19.0273,
+    "url": "https://castletriathlon.com/",
+    "editions": [
+      {
+        "date": "2026-09-06",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-05",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Swim in the Nogat river; flat bike on the Żuławy plain; finish inside Malbork Castle",
+    "sources": [
+      "https://castletriathlon.com/malbork/regulamin-12-im/",
+      "https://sts-timing.pl/events/castle-triathlon-malbork-im-bartosza-kubickiego/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-sado-full",
+    "name": "Sado International Triathlon (A-type)",
+    "brand": "independent",
+    "distance": "full",
+    "city": "Sado",
+    "country": "JP",
+    "lat": 38.024,
+    "lng": 138.364,
+    "url": "https://www.scsf.jp/triathlon/",
+    "editions": [
+      {
+        "date": "2026-09-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "A-type 4.0/190/42.2 km: sea swim at Sawata beach, bike around Sado Island; doubles as Japan Long Distance Championship",
+    "sources": [
+      "https://www.scsf.jp/triathlon/race_info.html",
+      "https://www.jtu.or.jp/news/2026/09/08/86355/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-blacklake-full",
+    "name": "Blacklake Xtreme Triathlon Montenegro",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Žabljak",
+    "country": "ME",
+    "lat": 43.146,
+    "lng": 19.092,
+    "url": "https://blackxtri.com",
+    "editions": [
+      {
+        "date": "2026-09-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Black Lake, Durmitor National Park (13-17 C); 182 km bike; run finishes back at Black Lake",
+    "sources": [
+      "https://blackxtri.com/s/BLACKLAKE-Event-manual-2026.pdf",
+      "https://blackxtri.com",
+      "https://www.xtriworldtour.com/events"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-vitruvian-half",
+    "name": "The Vitruvian",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Rutland Water",
+    "country": "GB",
+    "lat": 52.669,
+    "lng": -0.629,
+    "url": "https://www.thevitruviantriathlon.com/",
+    "editions": [
+      {
+        "date": "2026-09-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "1.9/89/21 km from Whitwell on Rutland Water; run turns at Normanton Church",
+    "sources": [
+      "https://www.thevitruviantriathlon.com/",
+      "https://pacesetterevents.niftyentries.com/The-Vitruvian-Triathlon-2026"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-natureman-var-half",
+    "name": "NatureMan Var L",
+    "brand": "independent",
+    "distance": "half",
+    "city": "Les Salles-sur-Verdon",
+    "country": "FR",
+    "lat": 43.776,
+    "lng": 6.209,
+    "url": "https://natureman-var.fr/en/3876-2/",
+    "editions": [
+      {
+        "date": "2026-09-26",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "2/92/20 km; swim in Lac de Sainte-Croix; hilly bike in the Verdon (1,450 m climbing)",
+    "sources": [
+      "https://natureman-var.fr/en/3876-2/",
+      "https://fftri.t2area.com/calendrier/natureman/triathlon-l.html"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-greek-hero-full",
+    "name": "Greek Hero Xtri",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Corfu",
+    "country": "GR",
+    "lat": 39.623,
+    "lng": 19.929,
+    "url": "https://greekheroxtri.com",
+    "editions": [
+      {
+        "date": "2026-10-10",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "3.9 km sea swim from Mon Repos, T1 at the Old Fortress; 176 km bike; 40 km run to Angelokastro",
+    "sources": [
+      "https://greekheroxtri.com",
+      "https://www.xtriworldtour.com/events"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-ican-gandia-full",
+    "name": "ICAN Triathlon Full",
+    "brand": "independent",
+    "distance": "full",
+    "city": "Gandia",
+    "country": "ES",
+    "lat": 38.997,
+    "lng": -0.156,
+    "url": "https://www.icantriathlon.com/",
+    "editions": [
+      {
+        "date": "2026-10-17",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "3.8/182.8/42.2 km: swim in Gandia port, flat bike toward Cullera, run on the beach promenade",
+    "sources": [
+      "https://www.icantriathlon.com/",
+      "https://www.icantriathlon.com/informacion/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-formosa-xtri-full",
+    "name": "Formosa Xtreme Triathlon",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Sun Moon Lake",
+    "country": "TW",
+    "lat": 23.866,
+    "lng": 120.912,
+    "url": "https://www.formosaxtri.com",
+    "editions": [
+      {
+        "date": "2026-11-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "3.8 km swim in Sun Moon Lake, ~180 km bike with 3,600 m+ climbing, 42 km uphill run to Hehuan Main Peak (3,417 m)",
+    "sources": [
+      "https://www.formosaxtri.com",
+      "https://www.xtriworldtour.com/events"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-patagonman-full",
+    "name": "Patagonman Xtreme Triathlon",
+    "brand": "independent",
+    "distance": "full",
+    "city": "Puerto Aysén",
+    "country": "CL",
+    "lat": -45.403,
+    "lng": -72.693,
+    "url": "https://www.patagonman.com/",
+    "editions": [
+      {
+        "date": "2026-12-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Point-to-point: ferry-jump swim in Aysén Fjord, 180 km on Carretera Austral, run to General Carrera Lake; crew required",
+    "sources": [
+      "https://www.patagonman.com/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-fodaxman-full",
+    "name": "Fodaxman Extreme Triathlon",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Urubici",
+    "country": "BR",
+    "lat": -28.015,
+    "lng": -49.592,
+    "url": "https://en.fodaxman.com.br",
+    "editions": [
+      {
+        "date": "2026-12-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Point-to-point: 4 km night swim at São Bento dam (Siderópolis), 176 km via Serra do Rio do Rastro, 39 km run",
+    "sources": [
+      "https://en.fodaxman.com.br/prova",
+      "https://www.xtriworldtour.com/events"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-chibchi-fisha-full",
+    "name": "Chibchi Fisha XTRI",
+    "brand": "independent",
+    "series": "Xtri World Tour",
+    "distance": "full",
+    "city": "Tota",
+    "country": "CO",
+    "lat": 5.5453,
+    "lng": -72.9597,
+    "url": "https://www.xtricolombia.com/",
+    "editions": [
+      {
+        "date": "2027-01-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Inaugural Xtri prospect race; swim shortened to 3.0 km (altitude, cold) in Lake Tota; 185 km bike; 43 km run",
+    "sources": [
+      "https://www.xtricolombia.com/",
+      "https://www.xtricolombia.com/courses",
+      "https://www.xtriworldtour.com/events"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-lakesman-full",
+    "name": "Lakesman Full",
+    "brand": "independent",
+    "distance": "full",
+    "city": "Keswick",
+    "country": "GB",
+    "lat": 54.599,
+    "lng": -3.142,
+    "url": "https://thelakesman.com/",
+    "editions": [
+      {
+        "date": "2027-06-20",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Full distance returns in 2027 after half-only editions in 2025-26; swim in Derwentwater, finish in Keswick",
+    "sources": [
+      "https://thelakesman.com/",
+      "https://thelakesman.com/events/",
+      "https://www.resultsbase.net/event/7285"
+    ],
+    "verifiedAt": "2026-09-25"
+  }
+]

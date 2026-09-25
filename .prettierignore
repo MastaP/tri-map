@@ -1,0 +1,18 @@
+# Only format project source; never touch data, specs or files other agents create.
+*
+!src/
+!src/**
+!tests/
+!tests/unit/
+!tests/unit/**
+!e2e/
+!e2e/**
+!scripts/
+!scripts/**
+!.github/
+!.github/**
+!index.html
+!vite.config.ts
+!playwright.config.ts
+!eslint.config.js
+!README.md

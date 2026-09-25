@@ -1,0 +1,461 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* ----------------------------------------------------------------------------------
+ * Design tokens. Components use the Tailwind names (bg-surface, text-muted, …); the
+ * raw --tm-* variables flip with [data-theme].
+ * ------------------------------------------------------------------------------- */
+:root {
+  --tm-bg: #f3f4f7;
+  --tm-surface: #ffffff;
+  --tm-surface-2: #f1f3f6;
+  --tm-surface-3: #e7eaef;
+  --tm-line: #e2e6ec;
+  --tm-line-strong: #cdd3dc;
+  --tm-fg: #0c1220;
+  --tm-muted: #545e6f;
+  --tm-faint: #626b7c;
+  --tm-ink: #0c1220;
+  --tm-on-ink: #ffffff;
+  --tm-accent: #c4f031;
+  --tm-accent-soft: #eefbc9;
+  --tm-accent-ink: #0c1220;
+  --tm-accent-text: #3f6212;
+  --tm-danger: #b42318;
+  --tm-shadow: 0 1px 2px rgb(12 18 32 / 0.06), 0 4px 16px -4px rgb(12 18 32 / 0.12);
+  --tm-shadow-lg: 0 10px 40px -10px rgb(12 18 32 / 0.35);
+  --tm-marker-ring: #ffffff;
+  --tm-hollow-fill: #ffffff;
+  --tm-map-bg: #fafaf8;
+  --tm-logo-edge: transparent;
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --tm-bg: #080b11;
+  --tm-surface: #0f141d;
+  --tm-surface-2: #161d29;
+  --tm-surface-3: #1f2835;
+  --tm-line: #222b39;
+  --tm-line-strong: #334052;
+  --tm-fg: #e9eef6;
+  --tm-muted: #a2acbc;
+  --tm-faint: #909bae;
+  --tm-ink: #e9eef6;
+  --tm-on-ink: #0a0e15;
+  --tm-accent: #c4f031;
+  --tm-accent-soft: #26330b;
+  --tm-accent-ink: #0a0e15;
+  --tm-accent-text: #c4f031;
+  --tm-danger: #ff8a80;
+  --tm-shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 6px 20px -6px rgb(0 0 0 / 0.6);
+  --tm-shadow-lg: 0 16px 48px -12px rgb(0 0 0 / 0.8);
+  --tm-marker-ring: #f5f7fa;
+  --tm-hollow-fill: #121824;
+  --tm-map-bg: #0e0e0e;
+  --tm-logo-edge: rgb(255 255 255 / 0.14);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--tm-bg);
+  --color-surface: var(--tm-surface);
+  --color-surface-2: var(--tm-surface-2);
+  --color-surface-3: var(--tm-surface-3);
+  --color-line: var(--tm-line);
+  --color-line-strong: var(--tm-line-strong);
+  --color-fg: var(--tm-fg);
+  --color-muted: var(--tm-muted);
+  --color-faint: var(--tm-faint);
+  --color-ink: var(--tm-ink);
+  --color-on-ink: var(--tm-on-ink);
+  --color-accent: var(--tm-accent);
+  --color-accent-soft: var(--tm-accent-soft);
+  --color-accent-ink: var(--tm-accent-ink);
+  --color-accent-text: var(--tm-accent-text);
+  --color-danger: var(--tm-danger);
+  --color-ironman: #d42a1f;
+  --color-challenge: #1d5fd6;
+  --color-t100: #8e3bd0;
+  --color-independent: #f0a30a;
+  --shadow-card: var(--tm-shadow);
+  --shadow-float: var(--tm-shadow-lg);
+  --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Barlow Condensed', 'Arial Narrow', ui-sans-serif, system-ui, sans-serif;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    background: var(--tm-bg);
+    color: var(--tm-fg);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+  }
+  ::selection {
+    background: var(--tm-accent);
+    color: var(--tm-accent-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--tm-fg);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  button:not(:disabled),
+  [role='button'],
+  label[for] {
+    cursor: pointer;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--tm-line-strong) transparent;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ----------------------------------------------------------------------------------
+ * Motion
+ * ------------------------------------------------------------------------------- */
+@keyframes tm-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes tm-slide-up {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}
+@keyframes tm-slide-in {
+  from {
+    transform: translateX(-16px);
+    opacity: 0;
+  }
+}
+@keyframes tm-sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+}
+@keyframes tm-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+@keyframes tm-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.animate-fade-in {
+  animation: tm-fade-in 0.2s ease-out both;
+}
+.animate-slide-up {
+  animation: tm-slide-up 0.28s var(--ease-out-soft) both;
+}
+.animate-slide-in {
+  animation: tm-slide-in 0.24s var(--ease-out-soft) both;
+}
+.animate-sheet-in {
+  animation: tm-sheet-in 0.32s var(--ease-out-soft) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ----------------------------------------------------------------------------------
+ * Map markers (plain DOM, created in src/map/markers.ts)
+ * maplibre positions the root element with `transform`, so all scaling happens on the
+ * inner .tm-pin.
+ * ------------------------------------------------------------------------------- */
+.tm-marker {
+  --tm-pin-scale: 1;
+  position: relative;
+  display: block;
+}
+.tm-pin {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  transform: scale(var(--tm-pin-scale));
+  transition:
+    transform 0.18s var(--ease-out-soft),
+    opacity 0.2s;
+  filter: drop-shadow(0 1px 1.5px rgb(0 0 0 / 0.35)) drop-shadow(0 2px 6px rgb(0 0 0 / 0.18));
+  -webkit-tap-highlight-color: transparent;
+}
+.tm-pin svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.tm-pin:focus-visible {
+  outline: 2px solid var(--tm-fg);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+.tm-marker:hover,
+.tm-marker.is-hovered {
+  --tm-pin-scale: 1.22;
+}
+.tm-marker.is-dimmed .tm-pin {
+  opacity: 0.25;
+}
+.tm-marker.is-selected {
+  visibility: hidden;
+}
+
+/* Small distance tag under single-race markers at closer zoom levels. */
+.tm-tag {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  translate: -50% 3px;
+  padding: 1px 4px 0;
+  border-radius: 4px;
+  background: var(--tm-surface);
+  color: var(--tm-fg);
+  font: 700 10px/13px var(--font-display);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.tm-show-tags .tm-tag {
+  opacity: 1;
+}
+
+/* Hover tooltip */
+.tm-tip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  translate: -50% 4px;
+  min-width: max-content;
+  max-width: 260px;
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: var(--tm-ink);
+  color: var(--tm-on-ink);
+  font: 500 12px/1.35 var(--font-sans);
+  box-shadow: var(--tm-shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.15s,
+    translate 0.15s;
+  z-index: 2;
+}
+.tm-tip strong {
+  display: block;
+  font-weight: 650;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tm-tip span {
+  opacity: 0.75;
+  white-space: nowrap;
+}
+.tm-marker:hover .tm-tip {
+  opacity: 1;
+  translate: -50% 0;
+}
+
+/* Cluster donuts */
+.tm-cluster .tm-pin {
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.3)) drop-shadow(0 3px 8px rgb(0 0 0 / 0.18));
+}
+.tm-cluster:hover {
+  --tm-pin-scale: 1.1;
+}
+.tm-cluster text {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+/* Selected race: bigger glyph with a pulsing halo, always on top. */
+.tm-selection {
+  pointer-events: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+}
+.tm-selection .tm-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 3px solid var(--tm-sel-color, var(--tm-fg));
+  animation: tm-pulse 1.6s ease-out infinite;
+}
+.tm-selection .tm-pin {
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 2px 3px rgb(0 0 0 / 0.4)) drop-shadow(0 6px 14px rgb(0 0 0 / 0.3));
+}
+
+/* Ring shown on the map while a list card is hovered (works inside clusters too). */
+.tm-hover-ring {
+  pointer-events: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 3px solid var(--tm-fg);
+  box-shadow:
+    0 0 0 3px var(--tm-surface),
+    inset 0 0 0 2px var(--tm-surface);
+  animation: tm-fade-in 0.15s ease-out both;
+}
+.tm-hover-ring::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 999px;
+  background: var(--tm-fg);
+  box-shadow: 0 0 0 2px var(--tm-surface);
+}
+
+/* ----------------------------------------------------------------------------------
+ * maplibre chrome
+ * ------------------------------------------------------------------------------- */
+.maplibregl-map {
+  font-family: var(--font-sans);
+}
+.maplibregl-ctrl-attrib {
+  font-size: 11px;
+}
+[data-theme='dark'] .maplibregl-ctrl-attrib,
+[data-theme='dark'] .maplibregl-ctrl-attrib.maplibregl-compact {
+  background: rgb(15 20 29 / 0.8);
+  color: var(--tm-muted);
+}
+[data-theme='dark'] .maplibregl-ctrl-attrib a {
+  color: var(--tm-muted);
+}
+[data-theme='dark'] .maplibregl-ctrl-attrib-button {
+  filter: invert(1);
+}
+.maplibregl-popup-content {
+  padding: 0;
+  border-radius: 14px;
+  background: var(--tm-surface);
+  color: var(--tm-fg);
+  box-shadow: var(--tm-shadow-lg);
+  border: 1px solid var(--tm-line);
+  overflow: hidden;
+}
+.maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
+  border-top-color: var(--tm-surface);
+}
+.maplibregl-popup-anchor-top .maplibregl-popup-tip {
+  border-bottom-color: var(--tm-surface);
+}
+.maplibregl-popup-anchor-left .maplibregl-popup-tip {
+  border-right-color: var(--tm-surface);
+}
+.maplibregl-popup-anchor-right .maplibregl-popup-tip {
+  border-left-color: var(--tm-surface);
+}
+.maplibregl-popup-close-button {
+  font-size: 18px;
+  width: 28px;
+  height: 28px;
+  color: var(--tm-muted);
+  border-radius: 8px;
+}
+.maplibregl-popup-close-button:hover {
+  background: var(--tm-surface-2);
+}
+.tm-popup-list {
+  min-width: 240px;
+  max-width: 300px;
+  font: 500 13px/1.35 var(--font-sans);
+}
+.tm-popup-list h4 {
+  margin: 0;
+  padding: 10px 36px 8px 14px;
+  font: 700 12px/1 var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tm-muted);
+  border-bottom: 1px solid var(--tm-line);
+}
+.tm-popup-list ul {
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+}
+.tm-popup-list button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: inherit;
+  text-align: left;
+  font: inherit;
+}
+.tm-popup-list button:hover,
+.tm-popup-list button:focus-visible {
+  background: var(--tm-surface-2);
+}
+.tm-popup-list .tm-popup-glyph {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+.tm-popup-list .tm-popup-meta {
+  display: block;
+  color: var(--tm-muted);
+  font-size: 12px;
+  font-weight: 450;
+}

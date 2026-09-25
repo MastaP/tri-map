@@ -1,0 +1,98 @@
+[
+  {
+    "id": "ironman-frankfurt-full",
+    "name": "IRONMAN Frankfurt",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "championship": "IRONMAN European Championship",
+    "city": "Frankfurt am Main",
+    "country": "DE",
+    "lat": 50.1106,
+    "lng": 8.6821,
+    "url": "https://www.ironman.com/races/im-frankfurt",
+    "editions": [
+      { "date": "2026-06-28", "status": "confirmed" },
+      { "date": "2027-06-27", "status": "confirmed" }
+    ],
+    "swim": "lake",
+    "notes": "Lake swim in the Langener Waldsee, four-lap run along the Main to the Römerberg finish",
+    "sources": ["https://www.ironman.com/races/im-frankfurt"],
+    "verifiedAt": "2026-09-20"
+  },
+  {
+    "id": "ironman-kailua-kona-full",
+    "name": "IRONMAN World Championship",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "championship": "IRONMAN World Championship",
+    "city": "Kailua-Kona",
+    "country": "US",
+    "lat": 19.6401,
+    "lng": -155.9969,
+    "url": "https://www.ironman.com/races/im-world-championship",
+    "editions": [{ "date": "2026-10-10", "status": "confirmed" }],
+    "swim": "ocean",
+    "notes": "Ocean swim in Kailua Bay; heat and crosswinds on the Queen Kaʻahumanu Highway",
+    "sources": ["https://www.ironman.com/races/im-world-championship"],
+    "verifiedAt": "2026-09-20"
+  },
+  {
+    "id": "ironman-florianopolis-full",
+    "name": "IRONMAN Brasil",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Florianópolis",
+    "country": "BR",
+    "lat": -27.4394,
+    "lng": -48.4916,
+    "url": "https://www.ironman.com/races/im-brasil",
+    "editions": [
+      { "date": "2026-05-31", "status": "confirmed" },
+      { "date": "2027-05-30", "status": "tentative" }
+    ],
+    "swim": "ocean",
+    "notes": "2027 shown as the last Sunday of May pending the official announcement",
+    "sources": ["https://www.ironman.com/races/im-brasil"],
+    "verifiedAt": "2026-09-18"
+  },
+  {
+    "id": "ironman-cozumel-full",
+    "name": "IRONMAN Cozumel",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Cozumel",
+    "country": "MX",
+    "lat": 20.5083,
+    "lng": -86.9458,
+    "url": "https://www.ironman.com/races/im-cozumel",
+    "editions": [{ "date": "2026-11-22", "status": "confirmed" }],
+    "swim": "ocean",
+    "notes": "Point-to-point current-assisted sea swim; flat, windy bike loops around the island",
+    "sources": ["https://www.ironman.com/races/im-cozumel"],
+    "verifiedAt": "2026-09-18"
+  },
+  {
+    "id": "ironman-south-africa-full",
+    "name": "IRONMAN South Africa",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "championship": "IRONMAN African Championship",
+    "city": "Gqeberha",
+    "country": "ZA",
+    "lat": -33.9864,
+    "lng": 25.6708,
+    "url": "https://www.ironman.com/races/im-south-africa",
+    "editions": [
+      { "date": "2026-03-29", "status": "confirmed" },
+      { "date": "2027-03-28", "status": "confirmed" }
+    ],
+    "swim": "ocean",
+    "sources": ["https://www.ironman.com/races/im-south-africa"],
+    "verifiedAt": "2026-09-18"
+  }
+]

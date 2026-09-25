@@ -1,0 +1,1732 @@
+[
+  {
+    "id": "ironman-pucon-half",
+    "name": "IRONMAN 70.3 Pucon",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Pucón",
+    "country": "CL",
+    "lat": -39.2673,
+    "lng": -71.9754,
+    "url": "https://www.ironman.com/races/im703-pucon",
+    "editions": [
+      {
+        "date": "2026-01-11",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-01-10",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake Villarrica below the Villarrica volcano; rolling bike, hilly run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-pucon",
+      "https://labs-v2.competitor.com/results/event/8397aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-san-salvador-half",
+    "name": "IRONMAN 70.3 San Salvador",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "San Salvador",
+    "country": "SV",
+    "lat": 13.6976,
+    "lng": -89.1912,
+    "url": "https://www.ironman.com/races/im703-san-salvador",
+    "editions": [
+      {
+        "date": "2026-02-22",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-02-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake Ilopango, finish in San Salvador's historic centre; hilly bike and run. First held 2026.",
+    "sources": [
+      "https://www.ironman.com/races/im703-san-salvador",
+      "https://labs-v2.competitor.com/results/event/376e9b13-e4d4-440c-a92e-00eeccbcda0d"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-monterrey-half",
+    "name": "IRONMAN 70.3 Monterrey",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Monterrey",
+    "country": "MX",
+    "lat": 25.6718,
+    "lng": -100.3094,
+    "url": "https://www.ironman.com/races/im703-monterrey",
+    "editions": [
+      {
+        "date": "2026-03-01",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Swim in the Santa Lucía river walk at Parque Fundidora, flat urban course, finish at the Macroplaza. 2027 date TBA.",
+    "sources": [
+      "https://www.ironman.com/races/im703-monterrey",
+      "https://labs-v2.competitor.com/results/event/8ca744f9-e161-e311-8ba1-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-curitiba-half",
+    "name": "IRONMAN 70.3 Curitiba",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Curitiba",
+    "country": "BR",
+    "lat": -25.4189,
+    "lng": -49.3054,
+    "url": "https://www.ironman.com/races/im703-curitiba",
+    "editions": [
+      {
+        "date": "2026-03-08",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-03-21",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in the Passaúna Reservoir, finish at Barigui Park; bike rated hilly. First held 2026.",
+    "sources": [
+      "https://www.ironman.com/races/im703-curitiba",
+      "https://labs-v2.competitor.com/results/event/8a20411f-7bfd-4f09-997e-f5ad9ee1aac4"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-punta-del-este-half",
+    "name": "IRONMAN 70.3 Punta del Este",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Punta del Este",
+    "country": "UY",
+    "lat": -34.9455,
+    "lng": -54.9438,
+    "url": "https://www.ironman.com/races/im703-punta-del-este",
+    "editions": [
+      {
+        "date": "2026-03-08",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-03-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim at Playa Mansa (Ovo Beach), bike with repeated climbs at Punta Ballena, flat run along the rambla.",
+    "sources": [
+      "https://www.ironman.com/races/im703-punta-del-este",
+      "https://labs-v2.competitor.com/results/event/1ed3ce8d-47bc-e411-9400-005056951bf1"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-little-elm-half",
+    "name": "IRONMAN 70.3 Dallas-Little Elm",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Little Elm",
+    "country": "US",
+    "lat": 33.161,
+    "lng": -96.9462,
+    "url": "https://www.ironman.com/races/im703-dallas-little-elm",
+    "editions": [
+      {
+        "date": "2026-03-15",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-03-14",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Lewisville Lake swim at Little Elm Park, north of Dallas. First held 2026.",
+    "sources": [
+      "https://www.ironman.com/races/im703-dallas-little-elm",
+      "https://labs-v2.competitor.com/results/event/cd10847f-9798-495e-8dff-1837a20eaf5e",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-san-juan-pr-half",
+    "name": "IRONMAN 70.3 Puerto Rico",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "San Juan",
+    "country": "PR",
+    "lat": 18.466,
+    "lng": -66.0899,
+    "url": "https://www.ironman.com/races/im703-puerto-rico",
+    "editions": [
+      {
+        "date": "2026-03-15",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-03-14",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Condado Lagoon swim, flat bike, hilly run through Old San Juan, finish at Tercer Milenio Park.",
+    "sources": [
+      "https://www.ironman.com/races/im703-puerto-rico",
+      "https://labs-v2.competitor.com/results/event/7b98aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-panama-city-half",
+    "name": "IRONMAN 70.3 Panama",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Panama City",
+    "country": "PA",
+    "lat": 8.9319,
+    "lng": -79.5448,
+    "url": "https://www.ironman.com/races/im703-panama",
+    "editions": [
+      {
+        "date": "2026-03-22",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-02-28",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Ocean swim at Amador, flat course on the Amador Causeway by the Panama Canal entrance. Hot.",
+    "sources": [
+      "https://www.ironman.com/races/im703-panama",
+      "https://labs-v2.competitor.com/results/event/6b98aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-oceanside-half",
+    "name": "IRONMAN 70.3 Oceanside",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Oceanside",
+    "country": "US",
+    "lat": 33.2078,
+    "lng": -117.395,
+    "url": "https://www.ironman.com/races/im703-oceanside",
+    "editions": [
+      {
+        "date": "2026-03-28",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-03",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Harbor swim, hilly bike through Camp Pendleton, finish at Oceanside Pier. Saturday race. IRONMAN Pro Series in 2027.",
+    "sources": [
+      "https://www.ironman.com/races/im703-oceanside",
+      "https://labs-v2.competitor.com/results/event/4798aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-galveston-half",
+    "name": "IRONMAN 70.3 Texas",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Galveston",
+    "country": "US",
+    "lat": 29.2746,
+    "lng": -94.8524,
+    "url": "https://www.ironman.com/races/im703-texas",
+    "editions": [
+      {
+        "date": "2026-03-29",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Sheltered bay swim at Moody Gardens, flat and often windy course on Galveston Island.",
+    "sources": [
+      "https://www.ironman.com/races/im703-texas",
+      "https://labs-v2.competitor.com/results/event/8f98aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-san-juan-half",
+    "name": "IRONMAN 70.3 San Juan",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "San Juan",
+    "country": "AR",
+    "lat": -31.5402,
+    "lng": -68.5376,
+    "url": "https://www.ironman.com/races/im703-san-juan",
+    "editions": [
+      {
+        "date": "2026-03-29",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in the Punta Negra dam reservoir, finish at Plaza del Bicentenario in the city; Andes foothills.",
+    "sources": [
+      "https://www.ironman.com/races/im703-san-juan",
+      "https://labs-v2.competitor.com/results/event/a926121d-f2bf-428b-98d9-8574b4a7befd"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-puerto-varas-half",
+    "name": "IRONMAN 70.3 Puerto Varas",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Puerto Varas",
+    "country": "CL",
+    "lat": -41.3178,
+    "lng": -72.9828,
+    "url": "https://www.ironman.com/races/im703-puerto-varas",
+    "editions": [
+      {
+        "date": "2026-04-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake Llanquihue, rolling bike and run, finish at the Plaza de Armas. First held 2026.",
+    "sources": [
+      "https://www.ironman.com/races/im703-puerto-varas",
+      "https://labs-v2.competitor.com/results/event/6d237b44-865b-4cb3-bf95-e30f21b7c3f8"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-brasilia-half",
+    "name": "IRONMAN 70.3 Brasilia",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Brasília",
+    "country": "BR",
+    "lat": -15.8255,
+    "lng": -47.8715,
+    "url": "https://www.ironman.com/races/im703-brasilia",
+    "editions": [
+      {
+        "date": "2026-04-26",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake Paranoá, flat bike and run from Pontão do Lago Sul.",
+    "sources": [
+      "https://www.ironman.com/races/im703-brasilia",
+      "https://labs-v2.competitor.com/results/event/3f98aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-lima-half",
+    "name": "IRONMAN 70.3 Peru",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Lima",
+    "country": "PE",
+    "lat": -12.1623,
+    "lng": -77.027,
+    "url": "https://www.ironman.com/races/im703-peru",
+    "editions": [
+      {
+        "date": "2026-04-26",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Pacific swim at Playa Agua Dulce in Chorrillos (Lima), flat bike and run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-peru",
+      "https://labs-v2.competitor.com/results/event/12f25db3-5f74-e611-9410-005056951bf1"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-los-cabos-half",
+    "name": "IRONMAN 70.3 Los Cabos",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Los Cabos",
+    "country": "MX",
+    "lat": 23.0621,
+    "lng": -109.6948,
+    "url": "https://www.ironman.com/races/im703-los-cabos",
+    "editions": [
+      {
+        "date": "2026-04-26",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Ocean swim at Palmilla Beach, rolling bike, finish at Plaza Mijares in San José del Cabo.",
+    "sources": [
+      "https://www.ironman.com/races/im703-los-cabos",
+      "https://labs-v2.competitor.com/results/event/a125f36e-a1be-e411-9400-005056951bf1"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-panama-city-beach-half",
+    "name": "IRONMAN 70.3 Gulf Coast",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Panama City Beach",
+    "country": "US",
+    "lat": 30.1883,
+    "lng": -85.8203,
+    "url": "https://www.ironman.com/races/im703-gulf-coast",
+    "editions": [
+      {
+        "date": "2026-05-09",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-08",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Gulf of Mexico swim, flat bike and run. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im703-gulf-coast",
+      "https://labs-v2.competitor.com/results/event/67d2be01-c0a2-e611-9410-005056951bf1",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-cap-cana-half",
+    "name": "IRONMAN 70.3 Cap Cana",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Cap Cana",
+    "country": "DO",
+    "lat": 18.4997,
+    "lng": -68.3781,
+    "url": "https://www.ironman.com/races/im703-cap-cana",
+    "editions": [
+      {
+        "date": "2026-05-17",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Caribbean swim at Juanillo Beach, flat bike and run. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-cap-cana",
+      "https://labs-v2.competitor.com/results/event/e56852ab-06cc-4094-bc96-38d696ee15a6"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-chattanooga-half",
+    "name": "IRONMAN 70.3 Chattanooga",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Chattanooga",
+    "country": "US",
+    "lat": 35.0558,
+    "lng": -85.3159,
+    "url": "https://www.ironman.com/races/im703-chattanooga",
+    "editions": [
+      {
+        "date": "2026-05-17",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-16",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Downstream Tennessee River swim, rolling bike into Georgia, finish at Ross's Landing.",
+    "sources": [
+      "https://www.ironman.com/races/im703-chattanooga",
+      "https://labs-v2.competitor.com/results/event/e2352999-586b-e411-93fa-005056951bf1",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-victoria-half",
+    "name": "IRONMAN 70.3 Victoria",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Victoria",
+    "country": "CA",
+    "lat": 48.5286,
+    "lng": -123.397,
+    "url": "https://www.ironman.com/races/im703-victoria",
+    "editions": [
+      {
+        "date": "2026-05-24",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Elk Lake swim, rolling bike on the Saanich Peninsula, flat run around the lake.",
+    "sources": [
+      "https://www.ironman.com/races/im703-victoria",
+      "https://labs-v2.competitor.com/results/event/4d5414be-32d2-e311-b4c2-005056956277",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-kohala-coast-half",
+    "name": "IRONMAN 70.3 Hawaii",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Kohala Coast",
+    "country": "US",
+    "lat": 19.9513,
+    "lng": -155.8594,
+    "url": "https://www.ironman.com/races/im703-hawaii",
+    "editions": [
+      {
+        "date": "2026-05-30",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-05",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Ocean swim in Pauoa Bay at the Fairmont Orchid, bike on part of the Kona world championship course. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im703-hawaii",
+      "https://labs-v2.competitor.com/results/event/5398aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-barranquilla-half",
+    "name": "IRONMAN 70.3 Barranquilla",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Barranquilla",
+    "country": "CO",
+    "lat": 11.0256,
+    "lng": -74.7993,
+    "url": "https://www.ironman.com/races/im703-barranquilla",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Sea swim at Puerto Mocho beach, finish at the Gran Malecón del Río. Hot. First held 2026; moves to April in 2027.",
+    "sources": [
+      "https://www.ironman.com/races/im703-barranquilla",
+      "https://labs-v2.competitor.com/results/event/8649b910-50d4-4ca5-b907-49900d91a717"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-omaha-half",
+    "name": "IRONMAN 70.3 Omaha",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Omaha",
+    "country": "US",
+    "lat": 41.264,
+    "lng": -95.922,
+    "url": "https://www.ironman.com/races/im703-omaha",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake Cunningham, rolling bike, run across the Bob Kerrey bridge into Iowa. First held 2026.",
+    "sources": [
+      "https://www.ironman.com/races/im703-omaha",
+      "https://labs-v2.competitor.com/results/event/658da0ab-acc3-4eb5-a40b-6ccb8acde758",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-springfield-half",
+    "name": "IRONMAN 70.3 Western Massachusetts",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Springfield",
+    "country": "US",
+    "lat": 42.1001,
+    "lng": -72.5891,
+    "url": "https://www.ironman.com/races/im703-western-massachusetts",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Connecticut River swim, bike rated hilly, finish in downtown Springfield. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-western-massachusetts",
+      "https://labs-v2.competitor.com/results/event/bf860cb8-4efc-49f5-90f3-7e8d8ac13f18",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-boulder-half",
+    "name": "IRONMAN 70.3 Boulder",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Boulder",
+    "country": "US",
+    "lat": 40.0781,
+    "lng": -105.2223,
+    "url": "https://www.ironman.com/races/im703-boulder",
+    "editions": [
+      {
+        "date": "2026-06-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Boulder Reservoir swim at ~1,600 m altitude; bike and run rated hilly. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im703-boulder",
+      "https://labs-v2.competitor.com/results/event/3b98aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-cambridge-md-half",
+    "name": "IRONMAN 70.3 Eagleman",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Cambridge",
+    "country": "US",
+    "lat": 38.5834,
+    "lng": -76.0801,
+    "url": "https://www.ironman.com/races/im703-eagleman",
+    "editions": [
+      {
+        "date": "2026-06-14",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Choptank River swim, flat bike through the Blackwater wildlife refuge; often hot and windy.",
+    "sources": [
+      "https://www.ironman.com/races/im703-eagleman",
+      "https://labs-v2.competitor.com/results/event/d26b290a-86fe-e111-aa75-005056956277",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-rockford-half",
+    "name": "IRONMAN 70.3 Rockford-Illinois",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Rockford",
+    "country": "US",
+    "lat": 42.2676,
+    "lng": -89.0957,
+    "url": "https://www.ironman.com/races/im703-rockford-illinois",
+    "editions": [
+      {
+        "date": "2026-06-14",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Downriver Rock River swim to transition at Davis Park, rolling bike, flat two-lap run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-rockford-illinois",
+      "https://labs-v2.competitor.com/results/event/94699a00-6f45-4a4c-ad00-fdd7d274c95b",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-state-college-half",
+    "name": "IRONMAN 70.3 Pennsylvania Happy Valley",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "State College",
+    "country": "US",
+    "lat": 40.8121,
+    "lng": -77.8559,
+    "url": "https://www.ironman.com/races/im703-pennsylvania",
+    "editions": [
+      {
+        "date": "2026-06-14",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-23",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim at Bald Eagle State Park, finish at Beaver Stadium. 2026 was the North American Championship; Pro Series in 2027.",
+    "sources": [
+      "https://www.ironman.com/races/im703-pennsylvania",
+      "https://labs-v2.competitor.com/results/event/e916842d-32b7-4bce-884f-a8c5876dab16",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-coeur-dalene-half",
+    "name": "IRONMAN 70.3 Coeur d'Alene",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Coeur d'Alene",
+    "country": "US",
+    "lat": 47.6763,
+    "lng": -116.7897,
+    "url": "https://www.ironman.com/races/im703-coeur-dalene",
+    "editions": [
+      {
+        "date": "2026-06-21",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-27",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake Coeur d'Alene from City Beach, hilly bike, finish on Sherman Avenue.",
+    "sources": [
+      "https://www.ironman.com/races/im703-coeur-dalene",
+      "https://labs-v2.competitor.com/results/event/eca2b3cf-881e-e511-9403-005056951bf1",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-mont-tremblant-half",
+    "name": "IRONMAN 70.3 Mont-Tremblant",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Mont-Tremblant",
+    "country": "CA",
+    "lat": 46.2099,
+    "lng": -74.5853,
+    "url": "https://www.ironman.com/races/im703-mont-tremblant",
+    "editions": [
+      {
+        "date": "2026-06-21",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-20",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lac Tremblant, hilly bike, finish in the pedestrian village. IRONMAN Pro Series in 2027.",
+    "sources": [
+      "https://www.ironman.com/races/im703-mont-tremblant",
+      "https://labs-v2.competitor.com/results/event/5397aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-huntsville-on-half",
+    "name": "IRONMAN 70.3 Muskoka",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Huntsville",
+    "country": "CA",
+    "lat": 45.322,
+    "lng": -79.2126,
+    "url": "https://www.ironman.com/races/im703-muskoka",
+    "editions": [
+      {
+        "date": "2026-07-05",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Fairy Lake swim, tough rolling bike, hilly run; transition at the Canada Summit Centre in Huntsville.",
+    "sources": [
+      "https://www.ironman.com/races/im703-muskoka",
+      "https://labs-v2.competitor.com/results/event/6598aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-muncie-half",
+    "name": "IRONMAN 70.3 Muncie",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Muncie",
+    "country": "US",
+    "lat": 40.1237,
+    "lng": -85.2898,
+    "url": "https://www.ironman.com/races/im703-muncie",
+    "editions": [
+      {
+        "date": "2026-07-11",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-10",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Prairie Creek Reservoir swim, flat rural bike, rolling run. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im703-muncie",
+      "https://labs-v2.competitor.com/results/event/6398aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-geneva-ny-half",
+    "name": "IRONMAN 70.3 Musselman",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Geneva",
+    "country": "US",
+    "lat": 42.8697,
+    "lng": -76.9779,
+    "url": "https://www.ironman.com/races/im703-musselman",
+    "editions": [
+      {
+        "date": "2026-07-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Seneca Lake swim at Geneva, rolling bike and run in the Finger Lakes.",
+    "sources": [
+      "https://www.ironman.com/races/im703-musselman",
+      "https://labs-v2.competitor.com/results/event/f8b84893-cabe-e911-a980-000d3a3749bc",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-ruidoso-half",
+    "name": "IRONMAN 70.3 Ruidoso New Mexico",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Ruidoso",
+    "country": "US",
+    "lat": 33.3315,
+    "lng": -105.672,
+    "url": "https://www.ironman.com/races/im703-ruidoso-new-mexico",
+    "editions": [
+      {
+        "date": "2026-07-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "High-altitude race (~2,100 m): Grindstone Lake swim, hilly bike, finish in Ruidoso. First held 2026.",
+    "sources": [
+      "https://www.ironman.com/races/im703-ruidoso-new-mexico",
+      "https://labs-v2.competitor.com/results/event/b833a189-7e1a-4165-80be-5eaf3bf594e2",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-manta-half",
+    "name": "IRONMAN 70.3 Ecuador",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Manta",
+    "country": "EC",
+    "lat": -0.9406,
+    "lng": -80.7298,
+    "url": "https://www.ironman.com/races/im703-ecuador",
+    "editions": [
+      {
+        "date": "2026-07-19",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Pacific swim in Manta, rolling bike, finish at the cruise terminal. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-ecuador",
+      "https://labs-v2.competitor.com/results/event/f53b55a5-16b2-e411-9400-005056951bf1"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-salem-half",
+    "name": "IRONMAN 70.3 Oregon",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Salem",
+    "country": "US",
+    "lat": 44.939,
+    "lng": -123.0438,
+    "url": "https://www.ironman.com/races/im703-oregon",
+    "editions": [
+      {
+        "date": "2026-07-19",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Downstream Willamette River swim, flat bike and run, finish at Riverfront Park in Salem.",
+    "sources": [
+      "https://www.ironman.com/races/im703-oregon",
+      "https://labs-v2.competitor.com/results/event/a2bd7104-f82f-42f2-8943-1265d315a160",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-sandusky-half",
+    "name": "IRONMAN 70.3 Ohio",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Sandusky",
+    "country": "US",
+    "lat": 41.4569,
+    "lng": -82.7126,
+    "url": "https://www.ironman.com/races/im703-ohio",
+    "editions": [
+      {
+        "date": "2026-07-19",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Ferry jump start into Lake Erie, flat bike, run through downtown Sandusky.",
+    "sources": [
+      "https://www.ironman.com/races/im703-ohio",
+      "https://labs-v2.competitor.com/results/event/0c4e3cef-3477-e511-9409-005056951bf1",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-boise-half",
+    "name": "IRONMAN 70.3 Boise",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Boise",
+    "country": "US",
+    "lat": 43.6103,
+    "lng": -116.2067,
+    "url": "https://www.ironman.com/races/im703-boise",
+    "editions": [
+      {
+        "date": "2026-07-25",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-24",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Point-to-point: Lucky Peak Reservoir swim, hilly bike, finish downtown. Hot (average high ~38 °C). Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im703-boise",
+      "https://labs-v2.competitor.com/results/event/3998aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-augusta-me-half",
+    "name": "IRONMAN 70.3 Maine",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Augusta",
+    "country": "US",
+    "lat": 44.3055,
+    "lng": -69.7791,
+    "url": "https://www.ironman.com/races/im703-maine",
+    "editions": [
+      {
+        "date": "2026-07-26",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Kennebec River swim in Augusta, rolling bike and run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-maine",
+      "https://labs-v2.competitor.com/results/event/40494fab-1aa5-e611-9410-005056951bf1",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-cochrane-half",
+    "name": "IRONMAN 70.3 Calgary",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Cochrane",
+    "country": "CA",
+    "lat": 51.1991,
+    "lng": -114.4789,
+    "url": "https://www.ironman.com/races/im703-calgary",
+    "editions": [
+      {
+        "date": "2026-07-26",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Ghost Lake swim, rolling foothills bike, finish at Cochrane Ranche west of Calgary. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-calgary",
+      "https://labs-v2.competitor.com/results/event/4598aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-rio-de-janeiro-half",
+    "name": "IRONMAN 70.3 Rio de Janeiro",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Rio de Janeiro",
+    "country": "BR",
+    "lat": -22.9189,
+    "lng": -43.1701,
+    "url": "https://www.ironman.com/races/im703-rio-de-janeiro",
+    "editions": [
+      {
+        "date": "2026-08-09",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-08",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Ocean swim at Copacabana, flat bike and run, finish at Marina da Glória.",
+    "sources": [
+      "https://www.ironman.com/races/im703-rio-de-janeiro",
+      "https://labs-v2.competitor.com/results/event/a683daa8-c30e-e511-9401-005056951bf1"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-redding-half",
+    "name": "IRONMAN 70.3 Northern California",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Redding",
+    "country": "US",
+    "lat": 40.5924,
+    "lng": -122.3776,
+    "url": "https://www.ironman.com/races/im703-northern-california",
+    "editions": [
+      {
+        "date": "2026-08-16",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-23",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Whiskeytown Lake swim, net-downhill bike, run on the Sacramento River Trail. First held 2026.",
+    "sources": [
+      "https://www.ironman.com/races/im703-northern-california",
+      "https://labs-v2.competitor.com/results/event/f9679425-4c5b-4605-ad8f-0d1db88c8b60",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-madison-half",
+    "name": "IRONMAN 70.3 Wisconsin",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Madison",
+    "country": "US",
+    "lat": 43.0713,
+    "lng": -89.3804,
+    "url": "https://www.ironman.com/races/im703-wisconsin",
+    "editions": [
+      {
+        "date": "2026-09-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Lake Monona swim at Law Park, rolling bike, hilly run in Madison. Saturday race. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-wisconsin",
+      "https://labs-v2.competitor.com/results/event/adaedbb8-6095-e611-9410-005056951bf1",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-santa-cruz-half",
+    "name": "IRONMAN 70.3 Santa Cruz",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Santa Cruz",
+    "country": "US",
+    "lat": 36.9607,
+    "lng": -122.0249,
+    "url": "https://www.ironman.com/races/im703-santa-cruz",
+    "editions": [
+      {
+        "date": "2026-09-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Pacific swim at Main Beach by the wharf, finish at Cowell's Beach. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-santa-cruz",
+      "https://labs-v2.competitor.com/results/event/76fcef91-46b1-e411-9400-005056951bf1",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-cozumel-half",
+    "name": "IRONMAN 70.3 Cozumel",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Cozumel",
+    "country": "MX",
+    "lat": 20.5103,
+    "lng": -86.9496,
+    "url": "https://www.ironman.com/races/im703-cozumel",
+    "editions": [
+      {
+        "date": "2026-09-20",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-26",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Caribbean swim at Chankanaab park, flat island bike, finish in downtown San Miguel. Hot and humid.",
+    "sources": [
+      "https://www.ironman.com/races/im703-cozumel",
+      "https://labs-v2.competitor.com/results/event/4f98aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-frankfort-half",
+    "name": "IRONMAN 70.3 Michigan",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Frankfort",
+    "country": "US",
+    "lat": 44.6316,
+    "lng": -86.2303,
+    "url": "https://www.ironman.com/races/im703-michigan",
+    "editions": [
+      {
+        "date": "2026-09-20",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in sheltered Betsie Bay off Lake Michigan, bike on M-22, run around the bay. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-michigan",
+      "https://labs-v2.competitor.com/results/event/20ac93b1-5db7-e811-a967-000d3a37468c",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-richland-half",
+    "name": "IRONMAN 70.3 Washington Tri-Cities",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Richland",
+    "country": "US",
+    "lat": 46.2634,
+    "lng": -119.2477,
+    "url": "https://www.ironman.com/races/im703-washington-tri-cities",
+    "editions": [
+      {
+        "date": "2026-09-20",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Columbia River swim at Howard Amon Park, finish at Columbia Point Park. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-washington-tri-cities",
+      "https://labs-v2.competitor.com/results/event/cd32ce29-af1d-ea11-a811-000d3a5a1f86",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-sao-paulo-half",
+    "name": "IRONMAN 70.3 São Paulo",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "São Paulo",
+    "country": "BR",
+    "lat": -23.5598,
+    "lng": -46.7172,
+    "url": "https://www.ironman.com/races/im703-sao-paulo",
+    "editions": [
+      {
+        "date": "2026-09-20",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-19",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in the USP Olympic rowing basin (Raia Olímpica), flat bike and run from the university sports centre.",
+    "sources": [
+      "https://www.ironman.com/races/im703-sao-paulo",
+      "https://labs-v2.competitor.com/results/event/2736dce6-7e49-e911-a979-000d3a35f53a"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-jones-beach-half",
+    "name": "IRONMAN 70.3 New York",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Jones Beach",
+    "country": "US",
+    "lat": 40.6004,
+    "lng": -73.5061,
+    "url": "https://www.ironman.com/races/im703-new-york",
+    "editions": [
+      {
+        "date": "2026-09-26",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Sheltered swim in Zach's Bay at Jones Beach State Park, flat bike and run. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im703-new-york",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-augusta-ga-half",
+    "name": "IRONMAN 70.3 Augusta",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Augusta",
+    "country": "US",
+    "lat": 33.4763,
+    "lng": -81.966,
+    "url": "https://www.ironman.com/races/im703-augusta",
+    "editions": [
+      {
+        "date": "2026-09-27",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Downstream Savannah River swim from North Augusta (SC), rolling bike, finish at Augusta Common.",
+    "sources": [
+      "https://www.ironman.com/races/im703-augusta",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-buenos-aires-half",
+    "name": "IRONMAN 70.3 Buenos Aires Palermo",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Buenos Aires",
+    "country": "AR",
+    "lat": -34.5581,
+    "lng": -58.4328,
+    "url": "https://www.ironman.com/races/im703-buenos-aires",
+    "editions": [
+      {
+        "date": "2026-10-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in the Lago de Regatas in Palermo's parks, flat run in the city.",
+    "sources": [
+      "https://www.ironman.com/races/im703-buenos-aires"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-waco-half",
+    "name": "IRONMAN 70.3 Waco",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Waco",
+    "country": "US",
+    "lat": 31.5607,
+    "lng": -97.1283,
+    "url": "https://www.ironman.com/races/im703-waco",
+    "editions": [
+      {
+        "date": "2026-10-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Brazos River swim, flat bike, finish at Indian Spring Park. Often hot (average high ~34 °C).",
+    "sources": [
+      "https://www.ironman.com/races/im703-waco",
+      "https://www.ironman.com/races/im703-waco/schedule"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-encarnacion-half",
+    "name": "IRONMAN 70.3 Encarnacion",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Encarnación",
+    "country": "PY",
+    "lat": -27.337,
+    "lng": -55.873,
+    "url": "https://www.ironman.com/races/im703-encarnacion",
+    "editions": [
+      {
+        "date": "2026-10-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Paraná River swim, finish at Playa San José; bike rated hilly.",
+    "sources": [
+      "https://www.ironman.com/races/im703-encarnacion"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-wilmington-half",
+    "name": "IRONMAN 70.3 North Carolina",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Wilmington",
+    "country": "US",
+    "lat": 34.2359,
+    "lng": -77.9501,
+    "url": "https://www.ironman.com/races/im703-north-carolina",
+    "editions": [
+      {
+        "date": "2026-10-17",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Point-to-point: current-assisted swim at Wrightsville Beach, flat bike, finish in downtown Wilmington. Saturday race.",
+    "sources": [
+      "https://www.ironman.com/races/im703-north-carolina",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-florianopolis-half",
+    "name": "IRONMAN 70.3 Florianopolis",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Florianópolis",
+    "country": "BR",
+    "lat": -27.434,
+    "lng": -48.5145,
+    "url": "https://www.ironman.com/races/im703-florianopolis",
+    "editions": [
+      {
+        "date": "2026-10-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Sea swim at Jurerê Internacional beach on Santa Catarina Island; flat bike and run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-florianopolis",
+      "https://www.ironman.com/races/im703-florianopolis/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-campeche-half",
+    "name": "IRONMAN 70.3 Campeche",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Campeche",
+    "country": "MX",
+    "lat": 19.8446,
+    "lng": -90.5406,
+    "url": "https://www.ironman.com/races/im703-campeche",
+    "editions": [
+      {
+        "date": "2026-11-08",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Gulf of Mexico swim and flat course along the Campeche waterfront. Moved from March (last held Mar 2025) to November.",
+    "sources": [
+      "https://www.ironman.com/races/im703-campeche"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-aracaju-half",
+    "name": "IRONMAN 70.3 Aracaju-Sergipe",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Aracaju",
+    "country": "BR",
+    "lat": -10.9838,
+    "lng": -37.0462,
+    "url": "https://www.ironman.com/races/im703-aracaju-sergipe",
+    "editions": [
+      {
+        "date": "2026-11-29",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Swim at the Vaza-Barris river mouth, flat bike and run, finish at Atalaia Beach.",
+    "sources": [
+      "https://www.ironman.com/races/im703-aracaju-sergipe"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-cartagena-half",
+    "name": "IRONMAN 70.3 Cartagena",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Cartagena",
+    "country": "CO",
+    "lat": 10.4221,
+    "lng": -75.5503,
+    "url": "https://www.ironman.com/races/im703-cartagena",
+    "editions": [
+      {
+        "date": "2026-11-29",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Bay swim from Muelle de la Bodeguita, flat course, finish in the walled old town. Hot and humid.",
+    "sources": [
+      "https://www.ironman.com/races/im703-cartagena"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-valdivia-half",
+    "name": "IRONMAN 70.3 Valdivia",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Valdivia",
+    "country": "CL",
+    "lat": -39.8153,
+    "lng": -73.2492,
+    "url": "https://www.ironman.com/races/im703-valdivia",
+    "editions": [
+      {
+        "date": "2026-11-29",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Calle-Calle River swim, flat course. Same day as the full-distance IRONMAN Valdivia.",
+    "sources": [
+      "https://www.ironman.com/races/im703-valdivia"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-la-quinta-half",
+    "name": "IRONMAN 70.3 La Quinta",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "La Quinta",
+    "country": "US",
+    "lat": 33.6707,
+    "lng": -116.2822,
+    "url": "https://www.ironman.com/races/im703-la-quinta",
+    "editions": [
+      {
+        "date": "2026-12-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Lake Cahuilla swim, flat desert course, finish at SilverRock Park. Formerly IRONMAN 70.3 Indian Wells-La Quinta.",
+    "sources": [
+      "https://www.ironman.com/races/im703-la-quinta",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-veracruz-half",
+    "name": "IRONMAN 70.3 Veracruz",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Veracruz",
+    "country": "MX",
+    "lat": 19.1453,
+    "lng": -96.0979,
+    "url": "https://www.ironman.com/races/im703-veracruz",
+    "editions": [
+      {
+        "date": "2026-12-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Inaugural edition. Swim at Gaviotas Beach in Boca del Río, two-loop bike, run along the Veracruz malecón.",
+    "sources": [
+      "https://www.ironman.com/races/im703-veracruz",
+      "https://www.ironman.com/races/im703-veracruz/directions"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-haines-city-half",
+    "name": "IRONMAN 70.3 Florida",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Haines City",
+    "country": "US",
+    "lat": 28.1037,
+    "lng": -81.627,
+    "url": "https://www.ironman.com/races/im703-florida",
+    "editions": [
+      {
+        "date": "2026-12-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Lake Eva swim, rolling bike and run in central Florida.",
+    "sources": [
+      "https://www.ironman.com/races/im703-florida",
+      "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-chattanooga-world-championship-half",
+    "name": "IRONMAN 70.3 World Championship",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "championship": "IRONMAN 70.3 World Championship",
+    "city": "Chattanooga",
+    "country": "US",
+    "lat": 35.0558,
+    "lng": -85.3159,
+    "url": "https://www.ironman.com/races/im703-world-championship-2027",
+    "editions": [
+      {
+        "date": "2027-08-28",
+        "endDate": "2027-08-29",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Qualification only. Women and men race on separate days (Aug 28-29). Tennessee River swim, hilly bike.",
+    "sources": [
+      "https://www.ironman.com/races/im703-world-championship-2027",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  }
+]

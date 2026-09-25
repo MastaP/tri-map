@@ -1,0 +1,34 @@
+[
+  {
+    "id": "t100-dubai-t100",
+    "name": "T100 Dubai",
+    "brand": "t100",
+    "series": "T100 World Championship Tour",
+    "distance": "t100",
+    "city": "Dubai",
+    "country": "AE",
+    "lat": 25.092,
+    "lng": 55.138,
+    "url": "https://t100triathlon.com/races/dubai",
+    "editions": [{ "date": "2026-11-14", "status": "confirmed" }],
+    "swim": "ocean",
+    "sources": ["https://t100triathlon.com/races/dubai"],
+    "verifiedAt": "2026-09-21"
+  },
+  {
+    "id": "t100-french-riviera-t100",
+    "name": "T100 French Riviera",
+    "brand": "t100",
+    "series": "T100 World Championship Tour",
+    "distance": "t100",
+    "city": "Nice",
+    "country": "FR",
+    "lat": 43.695,
+    "lng": 7.265,
+    "url": "https://t100triathlon.com/races/french-riviera",
+    "editions": [{ "date": "2026-09-27", "status": "confirmed" }],
+    "swim": "ocean",
+    "sources": ["https://t100triathlon.com/races/french-riviera"],
+    "verifiedAt": "2026-09-21"
+  }
+]

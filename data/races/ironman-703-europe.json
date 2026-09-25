@@ -1,0 +1,1159 @@
+[
+  {
+    "id": "ironman-valencia-half",
+    "name": "IRONMAN 70.3 Valencia",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Valencia",
+    "country": "ES",
+    "lat": 39.4558,
+    "lng": -0.3526,
+    "url": "https://www.ironman.com/races/im703-valencia",
+    "editions": [
+      {
+        "date": "2026-04-19",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Beach swim, split transition, finish near the City of Arts and Sciences. 2027 edition is an IRONMAN Pro Series event.",
+    "sources": [
+      "https://www.ironman.com/races/im703-valencia",
+      "https://labs-v2.competitor.com/results/event/51314bcd-4b2f-450e-b1f6-fb0dc6c5f609",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-venice-jesolo-half",
+    "name": "IRONMAN 70.3 Venice-Jesolo",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Jesolo",
+    "country": "IT",
+    "lat": 45.487,
+    "lng": 12.5942,
+    "url": "https://www.ironman.com/races/im703-venice-jesolo",
+    "editions": [
+      {
+        "date": "2026-05-03",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-24",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Adriatic swim at Jesolo Lido, flat bike and run, finish on the beach. The 2027 race is on a Saturday.",
+    "sources": [
+      "https://www.ironman.com/races/im703-venice-jesolo",
+      "https://labs-v2.competitor.com/results/event/9f68d6b4-c2fc-4082-ac82-b096b6890cb3"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-alcudia-mallorca-half",
+    "name": "IRONMAN 70.3 Alcúdia-Mallorca",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Alcúdia",
+    "country": "ES",
+    "lat": 39.8336,
+    "lng": 3.1175,
+    "url": "https://www.ironman.com/races/im703-mallorca",
+    "editions": [
+      {
+        "date": "2026-05-09",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-08",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Saturday race. Swim at Playa de Alcúdia; hilly bike over Coll de Femenia into the Serra de Tramuntana.",
+    "sources": [
+      "https://www.ironman.com/races/im703-mallorca",
+      "https://labs-v2.competitor.com/results/event/5d98aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-aix-en-provence-half",
+    "name": "IRONMAN 70.3 Aix-en-Provence",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Aix-en-Provence",
+    "country": "FR",
+    "lat": 43.5263,
+    "lng": 5.4454,
+    "url": "https://www.ironman.com/races/im703-aix-en-provence",
+    "editions": [
+      {
+        "date": "2026-05-17",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-23",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Lake swim outside town, split transition; hilly bike, three-lap run finishing on the Cours Mirabeau.",
+    "sources": [
+      "https://www.ironman.com/races/im703-aix-en-provence",
+      "https://labs-v2.competitor.com/results/event/6d98aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-kraichgau-half",
+    "name": "IRONMAN 70.3 Kraichgau",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Bad Schönborn",
+    "country": "DE",
+    "lat": 49.2108,
+    "lng": 8.6549,
+    "url": "https://www.ironman.com/races/im703-kraichgau",
+    "editions": [
+      {
+        "date": "2026-05-31",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-23",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in the Hardtsee (Ubstadt-Weiher), run and finish in Bad Schönborn; hilly bike.",
+    "sources": [
+      "https://www.ironman.com/races/im703-kraichgau",
+      "https://labs-v2.competitor.com/results/event/7b9d72b1-f044-e411-93f8-005056951bf1"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-alghero-half",
+    "name": "IRONMAN 70.3 Alghero",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Alghero",
+    "country": "IT",
+    "lat": 40.5718,
+    "lng": 8.3177,
+    "url": "https://www.ironman.com/races/im703-alghero",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Sardinia. Start and finish at San Giovanni beach; rolling bike, flat run. First held in 2026.",
+    "sources": [
+      "https://www.ironman.com/races/im703-alghero",
+      "https://labs-v2.competitor.com/results/event/60d9acc4-116e-4e81-beec-22f3b9b76425"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-bolton-half",
+    "name": "IRONMAN 70.3 Bolton",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Bolton",
+    "country": "GB",
+    "lat": 53.5782,
+    "lng": -2.4308,
+    "url": "https://www.ironman.com/races/im703-bolton",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Split transition: swim at Pennington Flash, T2 in Queens Park, finish in front of Bolton Town Hall.",
+    "sources": [
+      "https://www.ironman.com/races/im703-bolton",
+      "https://labs-v2.competitor.com/results/event/3a228722-c851-4db8-b5af-31254f16d701"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-rapperswil-jona-half",
+    "name": "IRONMAN 70.3 Switzerland",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Rapperswil-Jona",
+    "country": "CH",
+    "lat": 47.2234,
+    "lng": 8.8251,
+    "url": "https://www.ironman.com/races/im703-switzerland",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in the Obersee (Lake Zurich); hilly bike, run through the old town and up the 'stairway to heaven'.",
+    "sources": [
+      "https://www.ironman.com/races/im703-switzerland",
+      "https://labs-v2.competitor.com/results/event/8998aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-warsaw-half",
+    "name": "IRONMAN 70.3 Warsaw",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Warsaw",
+    "country": "PL",
+    "lat": 52.254,
+    "lng": 21.0113,
+    "url": "https://www.ironman.com/races/im703-warsaw",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Zegrze Reservoir, finish at the Multimedia Fountain Park in central Warsaw. Flat. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-warsaw",
+      "https://labs-v2.competitor.com/results/event/b323092a-adef-4ffc-a093-ce89b8aed598"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-elsinore-half",
+    "name": "IRONMAN 70.3 Elsinore",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Elsinore",
+    "country": "DK",
+    "lat": 56.0402,
+    "lng": 12.6111,
+    "url": "https://www.ironman.com/races/im703-elsinore",
+    "editions": [
+      {
+        "date": "2026-06-21",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-27",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Harbour swim beside Kronborg Castle, transition at Grønnehave; rolling bike, flat run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-elsinore",
+      "https://labs-v2.competitor.com/results/event/fec9c75b-55a5-e311-b5f4-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-westfriesland-half",
+    "name": "IRONMAN 70.3 Westfriesland",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Hoorn",
+    "country": "NL",
+    "lat": 52.6392,
+    "lng": 5.0445,
+    "url": "https://www.ironman.com/races/im703-westfriesland",
+    "editions": [
+      {
+        "date": "2026-06-21",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-20",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Hoorn's old harbour, single transition, flat bike and run, finish at the Stadsstrand.",
+    "sources": [
+      "https://www.ironman.com/races/im703-westfriesland",
+      "https://labs-v2.competitor.com/results/event/67d2b761-0eae-e911-a981-000d3a36478d"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-nice-half",
+    "name": "IRONMAN 70.3 Nice",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Nice",
+    "country": "FR",
+    "lat": 43.6951,
+    "lng": 7.2677,
+    "url": "https://www.ironman.com/races/im703-nice",
+    "editions": [
+      {
+        "date": "2026-06-28",
+        "status": "cancelled"
+      },
+      {
+        "date": "2027-09-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "2026 race cancelled by the prefecture (heatwave). From 2027 held in September with IRONMAN France. Hilly bike.",
+    "sources": [
+      "https://www.ironman.com/races/im703-nice",
+      "https://labs-v2.competitor.com/results/event/b40cebab-c4ad-e711-9419-005056951bf1",
+      "https://www.ironman.com/stories/news-updates/record-breaking-start-2026-ironman-and-ironman-703-races-europe-over-7000",
+      "https://france3-regions.franceinfo.fr/provence-alpes-cote-d-azur/alpes-maritimes/nice/l-ironman-de-nice-annule-en-raison-de-la-canicule-annonce-la-prefecture-des-alpes-maritimes-3376123.html"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-jonkoping-half",
+    "name": "IRONMAN 70.3 Jönköping",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Jönköping",
+    "country": "SE",
+    "lat": 57.7805,
+    "lng": 14.1811,
+    "url": "https://www.ironman.com/races/im703-jonkoping",
+    "editions": [
+      {
+        "date": "2026-07-05",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake Munksjön, transition at Östra torget in central Jönköping. 2027 edition is an IRONMAN Pro Series event.",
+    "sources": [
+      "https://www.ironman.com/races/im703-jonkoping",
+      "https://labs-v2.competitor.com/results/event/7f88d2cc-ea65-e511-9409-005056951bf1",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman",
+      "https://www.ironman.com/races/im703-jonkoping/course"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-les-sables-dolonne-half",
+    "name": "IRONMAN 70.3 Les Sables d'Olonne-Vendée",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Les Sables-d'Olonne",
+    "country": "FR",
+    "lat": 46.5033,
+    "lng": -1.7882,
+    "url": "https://www.ironman.com/races/im703-les-sables-dolonne",
+    "editions": [
+      {
+        "date": "2026-07-05",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim in the Vendée Globe channel; flat bike. Paused in 2027 (full-distance race held instead), returns in 2028.",
+    "sources": [
+      "https://www.ironman.com/races/im703-les-sables-dolonne",
+      "https://labs-v2.competitor.com/results/event/aa97b7b2-e4b1-e811-a96c-000d3a364086",
+      "https://www.ironman.com/stories/news-updates/ironman-confirm-key-updates-2026-ironman-and-ironman-703-race-schedule-france"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-luxembourg-half",
+    "name": "IRONMAN 70.3 Luxembourg",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Remich",
+    "country": "LU",
+    "lat": 49.5442,
+    "lng": 6.3676,
+    "url": "https://www.ironman.com/races/im703-luxembourg",
+    "editions": [
+      {
+        "date": "2026-07-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Swim in the Moselle at Remich; rolling bike, flat run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-luxembourg",
+      "https://labs-v2.competitor.com/results/event/39ac281d-1ed9-e211-af98-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-swansea-half",
+    "name": "IRONMAN 70.3 Swansea",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Swansea",
+    "country": "GB",
+    "lat": 51.6186,
+    "lng": -3.9351,
+    "url": "https://www.ironman.com/races/im703-swansea",
+    "editions": [
+      {
+        "date": "2026-07-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Harbour swim, single transition at East Burrows car park; hilly bike, flat run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-swansea",
+      "https://labs-v2.competitor.com/results/event/7f9774c3-b171-4a38-a2ee-afb15573054a"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-vitoria-gasteiz-half",
+    "name": "IRONMAN 70.3 Vitoria-Gasteiz",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Vitoria-Gasteiz",
+    "country": "ES",
+    "lat": 42.8464,
+    "lng": -2.6703,
+    "url": "https://www.ironman.com/races/im703-vitoria",
+    "editions": [
+      {
+        "date": "2026-07-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Ullibarri-Gamboa reservoir outside the city (T1 there), T2 and finish in central Vitoria. Same day as the full IRONMAN.",
+    "sources": [
+      "https://www.ironman.com/races/im703-vitoria",
+      "https://labs-v2.competitor.com/results/event/d621d081-f372-4ff6-aa43-5891e267845c",
+      "https://www.ironman.com/stories/news-updates/ironman-adds-two-new-races-europe-2026-season"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-gdynia-half",
+    "name": "IRONMAN 70.3 Gdynia",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Gdynia",
+    "country": "PL",
+    "lat": 54.5161,
+    "lng": 18.5486,
+    "url": "https://www.ironman.com/races/im703-gdynia",
+    "editions": [
+      {
+        "date": "2026-07-19",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim in the Gulf of Gdańsk off City Beach, rolling bike into Kashubia, seafront run. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-gdynia",
+      "https://labs-v2.competitor.com/results/event/e1339090-3e7a-e411-93fc-005056951bf1"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-krakow-half",
+    "name": "IRONMAN 70.3 Krakow",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Kraków",
+    "country": "PL",
+    "lat": 50.0615,
+    "lng": 19.9371,
+    "url": "https://www.ironman.com/races/im703-krakow",
+    "editions": [
+      {
+        "date": "2026-08-02",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Zakrzówek reservoir, finish on the Old Town Market Square. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-krakow",
+      "https://labs-v2.competitor.com/results/event/2c2982fc-2c97-459d-b2ef-e77b92eecd4f"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-duisburg-half",
+    "name": "IRONMAN 70.3 Duisburg",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Duisburg",
+    "country": "DE",
+    "lat": 51.4039,
+    "lng": 6.7869,
+    "url": "https://www.ironman.com/races/im703-duisburg",
+    "editions": [
+      {
+        "date": "2026-08-16",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-29",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Lake swim, event venue at Sportpark Duisburg; flat bike, rolling run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-duisburg",
+      "https://labs-v2.competitor.com/results/event/9ee9bf47-e2f0-e911-a812-000d3a5a1cf8"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-hradec-kralove-half",
+    "name": "IRONMAN 70.3 Hradec Králové",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Hradec Králové",
+    "country": "CZ",
+    "lat": 50.2123,
+    "lng": 15.8247,
+    "url": "https://www.ironman.com/races/im703-hradec-kralove",
+    "editions": [
+      {
+        "date": "2026-08-16",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Swim in the Elbe (Labe) in the city centre, finish on Masaryk Square. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-hradec-kralove",
+      "https://labs-v2.competitor.com/results/event/87f1af8b-ceaf-4f25-a975-16e17e4f6de4"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-leipzig-half",
+    "name": "IRONMAN 70.3 Leipzig",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Leipzig",
+    "country": "DE",
+    "lat": 51.3429,
+    "lng": 12.3547,
+    "url": "https://www.ironman.com/races/im703-leipzig",
+    "editions": [
+      {
+        "date": "2026-08-23",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-08",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Cospudener See, finish at the Quarterback Immobilien Arena. First held 2026; 2027 edition is a Pro Series event.",
+    "sources": [
+      "https://www.ironman.com/races/im703-leipzig",
+      "https://labs-v2.competitor.com/results/event/915b8a0c-c158-405a-be06-c552fc629a9f",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-tallinn-half",
+    "name": "IRONMAN 70.3 Tallinn",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Tallinn",
+    "country": "EE",
+    "lat": 59.426,
+    "lng": 24.6474,
+    "url": "https://www.ironman.com/races/im703-tallinn",
+    "editions": [
+      {
+        "date": "2026-08-23",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-08",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake Raku, T2 and finish at Unibet Arena; flat bike and run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-tallinn",
+      "https://labs-v2.competitor.com/results/event/f3f8d4fc-0e48-420a-a50e-6e749b5ce83b"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-vichy-half",
+    "name": "IRONMAN 70.3 Vichy",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Vichy",
+    "country": "FR",
+    "lat": 46.1278,
+    "lng": 3.4267,
+    "url": "https://www.ironman.com/races/im703-vichy",
+    "editions": [
+      {
+        "date": "2026-08-23",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-22",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Swim in the Lac d'Allier; hilly bike, flat run. Held the same day as IRONMAN Vichy.",
+    "sources": [
+      "https://www.ironman.com/races/im703-vichy",
+      "https://labs-v2.competitor.com/results/event/4db33a98-76a5-e411-9400-005056951bf1",
+      "https://www.ironman.com/stories/news-updates/ironman-adds-two-new-races-europe-2026-season"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-poznan-half",
+    "name": "IRONMAN 70.3 Poznan",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Poznań",
+    "country": "PL",
+    "lat": 52.3977,
+    "lng": 16.8581,
+    "url": "https://www.ironman.com/races/im703-poznan",
+    "editions": [
+      {
+        "date": "2026-08-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake Kierskie, T2 and finish on the pitch of Enea Stadium; flat. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-poznan",
+      "https://labs-v2.competitor.com/results/event/5a9a5b9c-f4ff-4dd5-9b1d-11b3379c427f",
+      "https://www.ironman.com/races/im703-poznan/course",
+      "https://eneastadion.pl/wydarzenie/enea-ironman-70-3-poznan-30-sierpnia-2026/"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-zell-am-see-kaprun-half",
+    "name": "IRONMAN 70.3 Zell am See-Kaprun",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Zell am See",
+    "country": "AT",
+    "lat": 47.3107,
+    "lng": 12.7977,
+    "url": "https://www.ironman.com/races/im703-zell-am-see",
+    "editions": [
+      {
+        "date": "2026-08-30",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-29",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Lake Zell from Schüttdorf, transition at Alois Latini Stadium; hilly bike, flat run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-zell-am-see",
+      "https://labs-v2.competitor.com/results/event/9d98aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-baku-half",
+    "name": "IRONMAN 70.3 Baku",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Baku",
+    "country": "AZ",
+    "lat": 40.3735,
+    "lng": 49.8505,
+    "url": "https://www.ironman.com/races/im703-baku",
+    "editions": [
+      {
+        "date": "2026-09-05",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Saturday race with a midday start. Caspian Sea swim, finish near Government House. First held 2026; 2027 date TBA.",
+    "sources": [
+      "https://www.ironman.com/races/im703-baku",
+      "https://labs-v2.competitor.com/results/event/ba996145-f3ab-47db-9edf-88c17ca8968c",
+      "https://www.ironman.com/stories/news-updates/baku-capital-city-azerbaijan-will-host-first-edition-alufar-ironman-703-baku"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-knokke-heist-half",
+    "name": "IRONMAN 70.3 Knokke-Heist",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Knokke-Heist",
+    "country": "BE",
+    "lat": 51.3487,
+    "lng": 3.2766,
+    "url": "https://www.ironman.com/races/im703-knokke-heist",
+    "editions": [
+      {
+        "date": "2026-09-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Canal swim in the Damse Vaart, beach run. Discontinued after 2026; replaced by the full-distance IRONMAN Knokke-Heist.",
+    "sources": [
+      "https://www.ironman.com/races/im703-knokke-heist",
+      "https://labs-v2.competitor.com/results/event/9a8052e4-602f-4269-943f-5a40a28a9969"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-nice-world-championship-half",
+    "name": "IRONMAN 70.3 World Championship",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "championship": "IRONMAN 70.3 World Championship",
+    "city": "Nice",
+    "country": "FR",
+    "lat": 43.6951,
+    "lng": 7.2677,
+    "url": "https://www.ironman.com/races/im703-world-championship-2026",
+    "editions": [
+      {
+        "date": "2026-09-12",
+        "status": "confirmed",
+        "endDate": "2026-09-13"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Women raced 12 Sep, men 13 Sep. Hilly bike, finish on the Promenade des Anglais. 2027 edition is in Chattanooga, USA.",
+    "sources": [
+      "https://www.ironman.com/races/im703-world-championship-2026",
+      "https://labs-v2.competitor.com/results/event/9798aa20-f278-e111-b16a-005056956277"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-belgrade-half",
+    "name": "IRONMAN 70.3 Belgrade",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Belgrade",
+    "country": "RS",
+    "lat": 44.7827,
+    "lng": 20.3864,
+    "url": "https://www.ironman.com/races/im703-belgrade",
+    "editions": [
+      {
+        "date": "2026-09-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Swim in Sava Lake (Ada Ciganlija); flat bike and run through the city. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-belgrade",
+      "https://labs-v2.competitor.com/results/event/41e1ec53-e777-473b-a015-2c64c1f56442"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-erkner-half",
+    "name": "IRONMAN 70.3 Erkner",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Erkner",
+    "country": "DE",
+    "lat": 52.4259,
+    "lng": 13.7447,
+    "url": "https://www.ironman.com/races/im703-erkner",
+    "editions": [
+      {
+        "date": "2026-09-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Lake swim, single transition at the sports centre in Erkner near Berlin; flat bike and run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-erkner",
+      "https://labs-v2.competitor.com/results/event/25bc1a07-6985-434a-86ab-f7c867230491"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-emilia-romagna-half",
+    "name": "IRONMAN 70.3 Emilia Romagna",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Cervia",
+    "country": "IT",
+    "lat": 44.2635,
+    "lng": 12.3477,
+    "url": "https://www.ironman.com/races/im703-emilia-romagna",
+    "editions": [
+      {
+        "date": "2026-09-20",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-19",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Adriatic swim at Cervia; rolling bike, flat run. Held the day after IRONMAN Italy Emilia-Romagna.",
+    "sources": [
+      "https://www.ironman.com/races/im703-emilia-romagna",
+      "https://labs-v2.competitor.com/results/event/b3a04d8c-172a-e911-a972-000d3a36478d"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-weymouth-half",
+    "name": "IRONMAN 70.3 Weymouth",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Weymouth",
+    "country": "GB",
+    "lat": 50.6144,
+    "lng": -2.4576,
+    "url": "https://www.ironman.com/races/im703-weymouth",
+    "editions": [
+      {
+        "date": "2026-09-20",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Sea swim off Weymouth beach, T2 at Lodmoor Country Park; rolling bike, flat run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-weymouth",
+      "https://labs-v2.competitor.com/results/event/9da9ce3f-1c7f-e511-9409-005056951bf1"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-versailles-half",
+    "name": "IRONMAN 70.3 Versailles",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Versailles",
+    "country": "FR",
+    "lat": 48.8038,
+    "lng": 2.1246,
+    "url": "https://www.ironman.com/races/im703-versailles",
+    "editions": [
+      {
+        "date": "2026-10-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "First edition, postponed from 12 Jul 2026 over heat. Swim in the Grand Canal, finish on Avenue de Paris facing the Château.",
+    "sources": [
+      "https://www.ironman.com/races/im703-versailles",
+      "https://www.versailles.fr/2145/sports/reporte-ironman-703-versailles.htm"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-cascais-half",
+    "name": "IRONMAN 70.3 Portugal-Cascais",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Cascais",
+    "country": "PT",
+    "lat": 38.6937,
+    "lng": -9.4191,
+    "url": "https://www.ironman.com/races/im703-cascais",
+    "editions": [
+      {
+        "date": "2026-10-17",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Saturday race, same day as IRONMAN Portugal-Cascais. Swim in Cascais bay; bike via Guincho and Sintra. 2027 date TBA.",
+    "sources": [
+      "https://www.ironman.com/races/im703-cascais",
+      "https://labs-v2.competitor.com/results/event/86f0cd79-3580-e611-9410-005056951bf1"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-malaga-half",
+    "name": "IRONMAN 70.3 Málaga",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Málaga",
+    "country": "ES",
+    "lat": 36.7176,
+    "lng": -4.4197,
+    "url": "https://www.ironman.com/races/im703-malaga",
+    "editions": [
+      {
+        "date": "2026-10-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "First edition, replaces Marbella. Harbour swim, transition on Paseo de los Curas, flat coastal bike, finish on Calle Larios.",
+    "sources": [
+      "https://www.ironman.com/races/im703-malaga",
+      "https://www.ironman.com/stories/news-updates/ironman-703-malaga-announced-new-race-2026-season"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-porec-half",
+    "name": "IRONMAN 70.3 Poreč",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Poreč",
+    "country": "HR",
+    "lat": 45.1964,
+    "lng": 13.5892,
+    "url": "https://www.ironman.com/races/im703-croatia",
+    "editions": [
+      {
+        "date": "2026-10-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Adriatic swim at Plava Laguna, finish at Zelena Laguna resort; rolling bike and run. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-croatia",
+      "https://labs-v2.competitor.com/results/event/dec32902-8a8c-4707-ad87-fa27be294d7a"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-costa-navarino-half",
+    "name": "IRONMAN 70.3 Costa Navarino",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Pylos",
+    "country": "GR",
+    "lat": 36.9403,
+    "lng": 21.7113,
+    "url": "https://www.ironman.com/races/im703-greece",
+    "editions": [
+      {
+        "date": "2026-10-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Swim and beachfront finish at W Costa Navarino, Peloponnese; rolling bike, flat run. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-greece",
+      "https://labs-v2.competitor.com/results/event/372808eb-839a-4a2d-bf7c-d090eca0714f"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-belek-half",
+    "name": "IRONMAN 70.3 Türkiye",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Belek",
+    "country": "TR",
+    "lat": 36.8744,
+    "lng": 31.0003,
+    "url": "https://www.ironman.com/races/im703-turkey",
+    "editions": [
+      {
+        "date": "2026-11-01",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "Mediterranean swim, finish at The Land of Legends in Belek; flat bike and run. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/im703-turkey",
+      "https://labs-v2.competitor.com/results/event/3a513a94-c15e-e411-93fa-005056951bf1"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-vilamoura-algarve-half",
+    "name": "IRONMAN 70.3 Vilamoura-Algarve",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Vilamoura",
+    "country": "PT",
+    "lat": 37.0767,
+    "lng": -8.1214,
+    "url": "https://www.ironman.com/races/im703-vilamoura-algarve",
+    "editions": [
+      {
+        "date": "2027-04-03",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "New race, first edition 2027. Saturday race. Harbour-protected sea swim at Vilamoura Marina, hilly bike, flat run.",
+    "sources": [
+      "https://www.ironman.com/races/im703-vilamoura-algarve",
+      "https://www.ironman.com/stories/news-updates/ironman-announces-new-race-portugal-ironman-703-vilamoura-algarve-take-place"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-st-poelten-half",
+    "name": "IRONMAN 70.3 St. Pölten",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "St. Pölten",
+    "country": "AT",
+    "lat": 48.2051,
+    "lng": 15.6229,
+    "url": "https://www.ironman.com/races/im703-st-poelten",
+    "editions": [
+      {
+        "date": "2027-05-23",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Returns to the IRONMAN calendar in 2027 (held 2007-2019). 2027 course maps not yet published.",
+    "sources": [
+      "https://www.ironman.com/races/im703-st-poelten",
+      "https://www.ironman.com/stories/news-updates/ironman-returns-st-polten-austria-2027"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-tours-half",
+    "name": "IRONMAN 70.3 Tours Métropole - Loire Valley",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Tours",
+    "country": "FR",
+    "lat": 47.3774,
+    "lng": 0.719,
+    "url": "https://www.ironman.com/races/im703-tours",
+    "editions": [
+      {
+        "date": "2027-06-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "notes": "Back as a 70.3 in 2027 (run as a full IRONMAN in 2026). Flat course. 2027 edition is an IRONMAN Pro Series event.",
+    "sources": [
+      "https://www.ironman.com/races/im703-tours",
+      "https://labs-v2.competitor.com/results/event/c795d5c4-a4ef-40cb-846e-9889cdb6ef12",
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  }
+]

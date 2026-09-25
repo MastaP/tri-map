@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ironman-cascais-half",
+    "name": "IRONMAN 70.3 Cascais",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Cascais",
+    "country": "PT",
+    "lat": 38.6964,
+    "lng": -9.4209,
+    "url": "https://www.ironman.com/races/im703-portugal-cascais",
+    "editions": [{ "date": "2026-10-18", "status": "confirmed" }],
+    "swim": "ocean",
+    "sources": ["https://www.ironman.com/races/im703-portugal-cascais"],
+    "verifiedAt": "2026-09-19"
+  }
+]
