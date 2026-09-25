@@ -5,11 +5,27 @@ import { fixtureFiles, makeRecord, TODAY } from './helpers.ts';
 const file = (name: string, races: unknown) => ({ name, text: JSON.stringify(races) });
 
 describe('validateRaceFiles', () => {
-  it('passes the fixture data with only the expected estimated-date warning', () => {
+  it('passes the fixture data with only the expected estimated-date and course warnings', () => {
     const result = validateRaceFiles(fixtureFiles(), TODAY);
     expect(result.errorCount).toBe(0);
-    expect(result.races).toHaveLength(16);
-    expect(result.issues.map((i) => i.id)).toEqual(['challenge-roth-full']);
+    expect(result.races).toHaveLength(18);
+    // The replaced Challenge Wanaka and the one-off 70.3 World Championship have no next
+    // date on purpose (continuedAs / recurring: false), so they raise no warning.
+    expect(result.issues.filter((i) => /estimated/.test(i.message)).map((i) => i.id)).toEqual(['challenge-roth-full']);
+    // Listed races without a bike or run profile are hidden by a course filter: flagged.
+    expect(
+      result.issues
+        .filter((i) => /course profile/.test(i.message))
+        .map((i) => `${i.id}: ${i.message.split(':')[0]}`)
+        .sort(),
+    ).toEqual([
+      'ironman-bahrain-half: no bike or run course profile',
+      'ironman-da-nang-half: no bike course profile',
+      'ironman-south-africa-full: no run course profile',
+      't100-dubai-t100: no bike or run course profile',
+    ]);
+    expect(result.issues).toHaveLength(5);
+    expect(summarize(result.races).missingCourse).toBe(4);
   });
 
   it('reports invalid JSON and non-array files', () => {
@@ -86,7 +102,7 @@ describe('validateRaceFiles', () => {
     expect(text).toMatch(/ironman-sydney-half: series should be "IRONMAN 70.3"/);
     expect(text).toMatch(/ironman-testville-full: verifiedAt 2024-01-01 is more than a year old/);
     expect(text).toMatch(
-      /ironman-testville-full: no edition on\/after 2026-09-25; next date is estimated as 2027-02-28/,
+      /ironman-testville-full: no edition on\/after 2026-09-25; next date is estimated as 2027-03-07/,
     );
     expect(text).toMatch(/ironman-testville-2-full: name should not contain a year/);
     expect(text).toMatch(/ironman-testville-2-full: possible duplicate of ironman-testville-full/);
@@ -97,15 +113,16 @@ describe('summarize', () => {
   it('counts by brand, distance and region and races without a confirmed date', () => {
     const { races } = validateRaceFiles(fixtureFiles(), TODAY);
     const s = summarize(races);
-    expect(s.total).toBe(16);
-    expect(s.byBrandDistance.ironman).toEqual({ full: 5, half: 3, t100: 0 });
+    expect(s.total).toBe(18);
+    expect(s.byBrandDistance.ironman).toEqual({ full: 5, half: 4, t100: 0 });
+    expect(s.byBrandDistance.t100).toEqual({ full: 0, half: 0, t100: 3 });
     expect(s.byRegionDistance.europe.full).toBe(5);
     expect(s.byBrandRegion.challenge.oceania).toBe(1);
     expect(s).toMatchObject({
       estimated: 1,
       tentative: 3,
-      noDate: 0,
-      noUpcomingConfirmed: 4,
+      noDate: 2,
+      noUpcomingConfirmed: 6,
       latestVerifiedAt: '2026-09-21',
     });
   });

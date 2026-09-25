@@ -1,12 +1,14 @@
 /**
- * Pure parsing/derivation of race data, shared by the browser loader and the tests.
+ * Parsing and validation of raw race files (zod), used by the tests and the data tools.
+ * The browser gets records that were validated at build time (see vite.config.ts) and
+ * only runs ./derive.ts.
  */
-import { normalizeText } from '../lib/search.ts';
 import type { ISODate } from '../lib/dates.ts';
-import { computeNextEdition } from './nextEdition.ts';
-import { getCountry } from './regions.ts';
+import { deriveRace, linkSuccessors, UnknownCountryError } from './derive.ts';
 import { formatIssuePath, RaceFileSchema, type RaceRecord } from './schema.ts';
 import type { Race } from './types.ts';
+
+export { deriveRace, deriveRaces, linkSuccessors } from './derive.ts';
 
 export class RaceDataError extends Error {
   readonly problems: string[];
@@ -19,21 +21,6 @@ export class RaceDataError extends Error {
     this.name = 'RaceDataError';
     this.problems = problems;
   }
-}
-
-export function deriveRace(record: RaceRecord, today: ISODate): Race {
-  const country = getCountry(record.country);
-  if (!country) throw new RaceDataError([`${record.id}: unknown country ${record.country}`]);
-  return {
-    ...record,
-    region: country.region,
-    countryName: country.name,
-    flag: country.flag,
-    nextEdition: computeNextEdition(record.editions, today, {
-      recurring: record.recurring !== false && record.continuedAs === undefined,
-    }),
-    searchText: normalizeText([record.name, record.city, country.name, record.series ?? ''].join(' ')),
-  };
 }
 
 /**
@@ -80,5 +67,10 @@ export function parseRaceFiles(files: Record<string, unknown>, today: ISODate): 
   }
 
   if (problems.length) throw new RaceDataError(problems);
-  return records.map((r) => deriveRace(r, today));
+  try {
+    return linkSuccessors(records.map((r) => deriveRace(r, today)));
+  } catch (e) {
+    if (e instanceof UnknownCountryError) throw new RaceDataError([e.message]);
+    throw e;
+  }
 }

@@ -22,7 +22,7 @@ export function Header({ freshness, raceCount, themePref, onThemeChange, compact
       </a>
       {!compact && (
         <p className="hidden truncate border-l border-line pl-3 text-sm text-muted xl:block">
-          Full, half &amp; T100 triathlons worldwide, on one map
+          Find a full, half or T100 triathlon you can enter, worldwide
         </p>
       )}
       <div className="ml-auto flex items-center gap-2 sm:gap-3">
@@ -31,10 +31,7 @@ export function Header({ freshness, raceCount, themePref, onThemeChange, compact
             className="hidden items-center gap-2 text-xs text-muted md:flex"
             title={`${raceCount} races in the database`}
           >
-            <span className="relative flex size-2">
-              <span className="absolute inset-0 rounded-full bg-accent opacity-60 motion-safe:animate-ping" />
-              <span className="relative size-2 rounded-full bg-accent ring-1 ring-black/10" />
-            </span>
+            <span className="size-2 rounded-full bg-accent ring-1 ring-black/10" aria-hidden="true" />
             <span>
               <span className="tabular font-semibold text-fg">{raceCount}</span> races · Race data checked {freshness}
             </span>
@@ -45,14 +42,14 @@ export function Header({ freshness, raceCount, themePref, onThemeChange, compact
             href={REPO_URL}
             target="_blank"
             rel="noreferrer"
-            className="grid size-8 place-items-center rounded-full text-muted transition-colors hover:bg-surface-2 hover:text-fg"
+            className="grid size-8 place-items-center rounded-full text-muted transition-colors hover:bg-surface-2 hover:text-fg max-sm:hidden"
             aria-label="TriMap on GitHub"
             title="Source code on GitHub"
           >
             <GitHubIcon className="size-[18px]" />
           </a>
         )}
-        <ThemeToggle pref={themePref} onChange={onThemeChange} />
+        <ThemeToggle pref={themePref} onChange={onThemeChange} compact={compact} />
       </div>
     </header>
   );

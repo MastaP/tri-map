@@ -3,8 +3,10 @@
  * selection halo). Kept out of React: maplibre owns their positioning.
  */
 import { BRAND_IDS, BRANDS, brandGlyphSvg, DISTANCES, glyphPixelSize, type BrandId } from '../data/brands.ts';
+import type { NextEdition } from '../data/nextEdition.ts';
 import type { Race } from '../data/types.ts';
 import { formatDate, formatMonthShort } from '../lib/dates.ts';
+import { ENTRY_BADGE } from '../lib/raceText.ts';
 
 export const MARKER_CORE_PX = 26;
 
@@ -24,19 +26,31 @@ function el<K extends keyof HTMLElementTagNameMap>(tag: K, className?: string, t
   return e;
 }
 
-export function raceWhen(race: Race): string {
-  const next = race.nextEdition;
+/** The date shown for a race's edition (the one matching the date filter, if any). */
+export function raceWhen(next: NextEdition | null): string {
   if (!next) return 'No upcoming date';
   if (next.estimated) return `≈ ${formatMonthShort(next.date)} · date TBA`;
   return `${formatDate(next.date)}${next.status === 'tentative' ? ' (TBC)' : ''}`;
 }
 
+/** "Qualifier only" / "Ballot", or null for open entry. */
+export function entryLabel(race: Race): string | null {
+  return race.entry === 'open' ? null : ENTRY_BADGE[race.entry];
+}
+
+/** What a race marker shows; a marker whose signature changed is rebuilt. */
+export function markerSignature(edition: NextEdition | null): string {
+  return edition ? `${edition.date}|${edition.estimated ? 'e' : edition.status}` : 'none';
+}
+
 export function raceMarkerElement(
   race: Race,
+  edition: NextEdition | null,
   handlers: { onClick: (id: string) => void; onHover: (id: string | null) => void },
 ): HTMLElement {
   const root = el('div', 'tm-marker');
   root.dataset.id = race.id;
+  root.dataset.sig = markerSignature(edition);
   root.style.zIndex = '2';
   const halo = race.distance === 'full';
   const px = glyphPixelSize(MARKER_CORE_PX, halo);
@@ -45,19 +59,34 @@ export function raceMarkerElement(
   btn.tabIndex = -1; // the results list is the keyboard path
   btn.style.width = `${px}px`;
   btn.style.height = `${px}px`;
+  const entry = entryLabel(race);
   btn.setAttribute(
     'aria-label',
-    `${race.name}, ${BRANDS[race.brand].label}, ${DISTANCES[race.distance].long}, ${raceWhen(race)}`,
+    [race.name, BRANDS[race.brand].label, DISTANCES[race.distance].long, entry, raceWhen(edition)]
+      .filter(Boolean)
+      .join(', '),
   );
   btn.innerHTML = brandGlyphSvg(race.brand, {
-    hollow: !!race.nextEdition?.estimated,
+    hollow: !!edition?.estimated,
     halo,
     ring: 'var(--tm-marker-ring)',
   });
-  const tag = el('span', 'tm-tag', `${DISTANCES[race.distance].total} km`);
+  // Same words and look as the distance badge on the cards: FULL / HALF / T100.
+  const tag = el('span', `tm-tag tm-tag-${race.distance}`, DISTANCES[race.distance].label);
+  tag.setAttribute('aria-hidden', 'true');
   const tip = el('span', 'tm-tip');
-  tip.append(el('strong', undefined, race.name), el('span', undefined, `${raceWhen(race)} · ${race.city}`));
+  tip.setAttribute('aria-hidden', 'true');
+  const title = el('strong', undefined, race.name);
+  tip.append(title, el('span', undefined, `${raceWhen(edition)} · ${race.city}`));
+  if (entry) tip.append(el('em', `tm-tip-entry tm-tip-entry-${race.entry}`, entry));
   root.append(btn, tag, tip);
+  // Qualifier-only / ballot races carry a small lock / ticket pip, as on the cards.
+  if (race.entry !== 'open') {
+    const pip = el('span', `tm-entry-pip tm-entry-pip-${race.entry}`);
+    pip.setAttribute('aria-hidden', 'true');
+    pip.innerHTML = race.entry === 'qualification' ? LOCK_SVG : TICKET_SVG;
+    btn.append(pip);
+  }
 
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -74,11 +103,37 @@ export function raceMarkerElement(
   return root;
 }
 
-function clusterSize(n: number): number {
-  if (n < 10) return 40;
-  if (n < 50) return 48;
-  if (n < 100) return 54;
-  return 60;
+const LOCK_SVG =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
+const TICKET_SVG =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v8a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2Z"/><path d="M13 6v12"/></svg>';
+
+/** Donut diameter: small enough that neighbouring clusters rarely touch. */
+export function clusterSize(n: number): number {
+  if (n < 10) return 32;
+  if (n < 50) return 38;
+  if (n < 100) return 44;
+  return 50;
+}
+
+/** Clusters this small are drawn as a fan of their brand glyphs instead of a donut. */
+export const FAN_MAX = 3;
+const FAN_GLYPH_PX = 22;
+const FAN_OFFSETS: Record<number, ReadonlyArray<readonly [number, number]>> = {
+  2: [
+    [-6, 0],
+    [6, 0],
+  ],
+  3: [
+    [-7, 3],
+    [7, 3],
+    [0, -5],
+  ],
+};
+
+/** The brands of a cluster's races, one entry per race, in legend order. */
+export function clusterBrands(p: ClusterProps): BrandId[] {
+  return BRAND_IDS.flatMap((b) => Array.from({ length: p[b] }, () => b));
 }
 
 /** SVG donut: one arc per brand proportional to its share, total in the middle. */
@@ -89,7 +144,8 @@ export function donutSvg(p: ClusterProps): string {
   const r = c - w / 2 - 2;
   const C = 2 * Math.PI * r;
   const parts = BRAND_IDS.filter((b) => p[b] > 0);
-  const gap = parts.length > 1 ? 1.6 : 0;
+  // A clear gap between arcs keeps neighbouring brand colours apart for colour-blind viewers.
+  const gap = parts.length > 1 ? 3 : 0;
   let offset = 0;
   const arcs = parts
     .map((b) => {
@@ -116,18 +172,43 @@ export function clusterBreakdown(p: ClusterProps): string {
     .join(' · ');
 }
 
+/** A few races close together: their own brand glyphs, slightly fanned out. */
+function fanHtml(p: ClusterProps): { html: string; size: number } {
+  const brands = clusterBrands(p);
+  const offsets = FAN_OFFSETS[brands.length] ?? FAN_OFFSETS[2]!;
+  const size = FAN_GLYPH_PX + 16;
+  const html = brands
+    .map((b, i) => {
+      const [dx, dy] = offsets[i] ?? [0, 0];
+      const left = size / 2 - FAN_GLYPH_PX / 2 + dx;
+      const top = size / 2 - FAN_GLYPH_PX / 2 + dy;
+      return `<span class="tm-fan-glyph" style="left:${left}px;top:${top}px;width:${FAN_GLYPH_PX}px;height:${FAN_GLYPH_PX}px">${brandGlyphSvg(b, { ring: 'var(--tm-marker-ring)' })}</span>`;
+    })
+    .join('');
+  return { html, size };
+}
+
 export function clusterElement(p: ClusterProps, onClick: () => void): HTMLElement {
-  const root = el('div', 'tm-marker tm-cluster');
+  const fan = p.point_count <= FAN_MAX;
+  const root = el('div', `tm-marker tm-cluster${fan ? ' tm-fan' : ''}`);
   root.style.zIndex = '1';
-  const size = clusterSize(p.point_count);
   const btn = el('button', 'tm-pin');
   btn.type = 'button';
   btn.tabIndex = -1;
-  btn.style.width = `${size}px`;
-  btn.style.height = `${size}px`;
   btn.setAttribute('aria-label', `${p.point_count} races: ${clusterBreakdown(p)}. Click to zoom in.`);
-  btn.innerHTML = donutSvg(p);
+  if (fan) {
+    const { html, size } = fanHtml(p);
+    btn.style.width = `${size}px`;
+    btn.style.height = `${size}px`;
+    btn.innerHTML = html;
+  } else {
+    const size = clusterSize(p.point_count);
+    btn.style.width = `${size}px`;
+    btn.style.height = `${size}px`;
+    btn.innerHTML = donutSvg(p);
+  }
   const tip = el('span', 'tm-tip');
+  tip.setAttribute('aria-hidden', 'true');
   tip.append(el('strong', undefined, `${p.point_count} races`), el('span', undefined, clusterBreakdown(p)));
   root.append(btn, tip);
   btn.addEventListener('click', (e) => {
@@ -142,27 +223,49 @@ export function clusterElement(p: ClusterProps, onClick: () => void): HTMLElemen
 export function selectionElement(): HTMLElement {
   const root = el('div', 'tm-marker tm-selection');
   root.style.zIndex = '30';
+  root.setAttribute('aria-hidden', 'true');
   root.append(el('span', 'tm-pulse'), el('span', 'tm-pin'));
   return root;
 }
 
-export function updateSelectionElement(root: HTMLElement, race: Race): void {
+export function updateSelectionElement(root: HTMLElement, race: Race, edition: NextEdition | null): void {
   const pin = root.querySelector<HTMLElement>('.tm-pin')!;
+  const halo = race.distance === 'full';
   pin.innerHTML = brandGlyphSvg(race.brand, {
-    hollow: !!race.nextEdition?.estimated,
+    hollow: !edition || edition.estimated,
+    ring: 'var(--tm-marker-ring)',
+    halo,
+  });
+  pin.classList.toggle('tm-pin-halo', halo);
+  root.style.setProperty('--tm-sel-color', BRANDS[race.brand].color);
+}
+
+/**
+ * Shown while a list card is hovered and its race sits inside a cluster: the race's own
+ * glyph pops up above its location, on a short pointer, leaving the cluster count readable.
+ */
+export function hoverPopElement(): HTMLElement {
+  const root = el('div', 'tm-hover-pop');
+  root.style.zIndex = '25';
+  root.setAttribute('aria-hidden', 'true');
+  root.append(el('span', 'tm-hover-pop-glyph'), el('span', 'tm-hover-pop-stem'), el('span', 'tm-hover-pop-dot'));
+  return root;
+}
+
+export function updateHoverPopElement(root: HTMLElement, race: Race, edition: NextEdition | null): void {
+  root.querySelector<HTMLElement>('.tm-hover-pop-glyph')!.innerHTML = brandGlyphSvg(race.brand, {
+    hollow: !edition || edition.estimated,
     ring: 'var(--tm-marker-ring)',
   });
   root.style.setProperty('--tm-sel-color', BRANDS[race.brand].color);
 }
 
-export function hoverRingElement(): HTMLElement {
-  const root = el('div', 'tm-hover-ring');
-  root.style.zIndex = '25';
-  return root;
-}
-
 /** Popup content listing races that share one spot (e.g. a full + half on one venue). */
-export function clusterPopupContent(races: Race[], onPick: (id: string) => void): HTMLElement {
+export function clusterPopupContent(
+  races: Race[],
+  editionOf: (r: Race) => NextEdition | null,
+  onPick: (id: string) => void,
+): HTMLElement {
   const root = el('div', 'tm-popup-list');
   root.append(el('h4', undefined, `${races.length} races at this venue`));
   const ul = el('ul');
@@ -172,14 +275,14 @@ export function clusterPopupContent(races: Race[], onPick: (id: string) => void)
     b.type = 'button';
     const glyph = el('span', 'tm-popup-glyph');
     glyph.innerHTML = brandGlyphSvg(r.brand as BrandId, {
-      hollow: !!r.nextEdition?.estimated,
+      hollow: !!editionOf(r)?.estimated,
       ring: 'var(--tm-surface)',
     });
     const text = el('span');
-    text.append(
-      document.createTextNode(`${r.name} · ${DISTANCES[r.distance].label}`),
-      el('span', 'tm-popup-meta', raceWhen(r)),
-    );
+    const entry = entryLabel(r);
+    const meta = el('span', 'tm-popup-meta', raceWhen(editionOf(r)));
+    if (entry) meta.append(' ', el('em', `tm-popup-entry tm-popup-entry-${r.entry}`, entry));
+    text.append(document.createTextNode(`${r.name} · ${DISTANCES[r.distance].label}`), meta);
     b.append(glyph, text);
     b.addEventListener('click', () => onPick(r.id));
     li.append(b);

@@ -7,6 +7,9 @@ export type Theme = 'light' | 'dark';
 
 const KEY = 'trimap.theme';
 
+/** Browser chrome colour: the header surface of each theme. */
+export const THEME_COLOR: Record<Theme, string> = { light: '#ffffff', dark: '#0f141d' };
+
 function readPref(): ThemePref {
   const v = readStorage(KEY);
   return v === 'light' || v === 'dark' ? v : 'system';
@@ -21,6 +24,7 @@ export function useTheme() {
     const root = document.documentElement;
     root.dataset.theme = theme;
     root.style.colorScheme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', THEME_COLOR[theme]);
   }, [theme]);
 
   const setPref = useCallback((p: ThemePref) => {

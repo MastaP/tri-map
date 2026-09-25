@@ -56,8 +56,10 @@ export const BRANDS: Record<BrandId, BrandStyle> = {
   t100: {
     id: 't100',
     label: 'T100',
-    description: 'T100 Triathlon World Tour',
-    color: '#8E3BD0',
+    description: 'T100 World Championship Tour and T100 Challenger',
+    // Teal, not violet: violet and the Challenge blue look alike with red-green colour
+    // blindness (ΔE2000 3.5 simulated); teal stays ≥ 14 apart from every other brand.
+    color: '#0D9488',
     ink: '#FFFFFF',
     shape: 'hexagon',
     monogram: 'T',
@@ -89,8 +91,14 @@ export const SHAPE_PATHS: Record<BrandShape, string> = {
 
 export interface DistanceStyle {
   id: DistanceId;
+  /** Short name for filter tiles ("Full"). */
   label: string;
+  /** Spoken/long name ("Full distance"), used in aria labels and tooltips. */
   long: string;
+  /** Text of the compact distance badge on cards: what an age-grouper calls the race. */
+  badge: string;
+  /** Text of the larger badge in the race detail. */
+  badgeLong: string;
   swim: number;
   bike: number;
   run: number;
@@ -99,9 +107,40 @@ export interface DistanceStyle {
 }
 
 export const DISTANCES: Record<DistanceId, DistanceStyle> = {
-  full: { id: 'full', label: 'Full', long: 'Full distance', swim: 3.8, bike: 180, run: 42.2, total: 226 },
-  half: { id: 'half', label: 'Half', long: 'Half distance', swim: 1.9, bike: 90, run: 21.1, total: 113 },
-  t100: { id: 't100', label: 'T100', long: 'T100 distance', swim: 2, bike: 80, run: 18, total: 100 },
+  full: {
+    id: 'full',
+    label: 'Full',
+    long: 'Full distance',
+    badge: 'Full',
+    badgeLong: 'Full distance',
+    swim: 3.8,
+    bike: 180,
+    run: 42.2,
+    total: 226,
+  },
+  half: {
+    id: 'half',
+    label: 'Half',
+    long: 'Half distance',
+    badge: 'Half',
+    badgeLong: 'Half distance',
+    swim: 1.9,
+    bike: 90,
+    run: 21.1,
+    total: 113,
+  },
+  // "T100" alone means little to most age-groupers; say how far it is.
+  t100: {
+    id: 't100',
+    label: 'T100',
+    long: 'T100 distance',
+    badge: 'T100 · 100 km',
+    badgeLong: 'T100 · 100 km',
+    swim: 2,
+    bike: 80,
+    run: 18,
+    total: 100,
+  },
 };
 
 export function isBrandId(value: string): value is BrandId {
@@ -138,8 +177,12 @@ const escapeXml = (s: string) =>
 export function brandGlyphSvg(brand: BrandId, opts: GlyphOptions = {}): string {
   const b = BRANDS[brand];
   const ring = opts.ring ?? '#FFFFFF';
-  const fill = opts.hollow ? 'var(--tm-hollow-fill, #FFFFFF)' : b.color;
-  const ink = opts.hollow ? b.color : b.ink;
+  // Hollow (estimated date): a pale fill with the brand-coloured monogram; the dark theme
+  // tints the fill with the brand colour and lightens the monogram (see index.css).
+  const fill = opts.hollow
+    ? `color-mix(in srgb, ${b.color} var(--tm-hollow-mix, 0%), var(--tm-hollow-fill, #FFFFFF))`
+    : b.color;
+  const ink = opts.hollow ? `var(--tm-hollow-ink, ${b.color})` : b.ink;
   const shape = SHAPE_PATHS[b.shape];
   const parts: string[] = [];
   const pad = opts.halo ? 4 : 1.5;
@@ -151,7 +194,7 @@ export function brandGlyphSvg(brand: BrandId, opts: GlyphOptions = {}): string {
     );
   }
   if (opts.hollow) {
-    parts.push(`<path d="${shape}" style="fill:${ring};stroke:${ring};stroke-width:3;stroke-linejoin:round"/>`);
+    parts.push(`<path d="${shape}" style="fill:${ring};stroke:${ring};stroke-width:4.2;stroke-linejoin:round"/>`);
     parts.push(
       `<path d="${shape}" style="fill:${fill};stroke:${b.color};stroke-width:2.2;stroke-dasharray:3.2 2.4;stroke-linejoin:round"/>`,
     );

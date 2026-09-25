@@ -21,7 +21,9 @@
       }
     ],
     "swim": "lake",
-    "notes": "Swim in Lake Taupō, lakeside run. Saturday race. 2027 edition is an IRONMAN Pro Series event.",
+    "bike": "rolling",
+    "run": "flat",
+    "notes": "Swim in Lake Taupō, lakeside run. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im-new-zealand",
       "https://labs-v2.competitor.com/results/event/cd98aa20-f278-e111-b16a-005056956277",
@@ -51,6 +53,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Formerly IRONMAN Taiwan. Island race; bike crosses the Penghu Great Bridge.",
     "sources": [
       "https://www.ironman.com/races/im-penghu",
@@ -81,6 +85,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "rolling",
     "notes": "Lake Woodlands swim, closed-road bike, finish at Waterway Square. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im-texas",
@@ -111,6 +117,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Beach swim and single transition at East Sea (Bien Dong) Park. Full distance first held 2026.",
     "sources": [
       "https://www.ironman.com/races/im-vietnam",
@@ -140,6 +148,8 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
+    "run": "rolling",
     "notes": "Downriver point-to-point swim in the St. Johns River, downtown run. First held 2026.",
     "sources": [
       "https://www.ironman.com/races/im-jacksonville",
@@ -170,6 +180,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "rolling",
     "notes": "Very hilly, often windy bike across volcanic terrain; swim at Playa Grande. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im-lanzarote",
@@ -201,6 +213,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Sea swim at Jurerê beach on Santa Catarina Island; flat, fast run.",
     "sources": [
       "https://www.ironman.com/races/im-brazil",
@@ -230,11 +244,40 @@
       }
     ],
     "swim": "lake",
-    "notes": "Swim in the Alster from Jungfernstieg, run along the Alster, finish at Rathausmarkt. Hosted the women's European Championship in 2026.",
+    "bike": "flat",
+    "run": "rolling",
+    "notes": "Swim in the Alster from Jungfernstieg, run along the Alster, finish at Rathausmarkt.",
     "sources": [
       "https://www.ironman.com/races/im-hamburg",
       "https://labs-v2.competitor.com/results/event/0ed71b3d-6974-e611-9410-005056951bf1",
       "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-subic-bay-full",
+    "name": "IRONMAN Subic Bay Philippines",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Subic Bay",
+    "country": "PH",
+    "lat": 14.8297,
+    "lng": 120.2986,
+    "url": "https://www.ironman.com/races/im-philippines/results",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      }
+    ],
+    "notes": "IRONMAN Philippines was held at Subic Bay through June 2026; it moves to Davao City from 2027.",
+    "recurring": false,
+    "continuedAs": "ironman-davao-full",
+    "sources": [
+      "https://www.ironman.com/races/im-philippines/results",
+      "https://labs-v2.competitor.com/results/event/d4969272-cc61-e711-9418-005056951bf1",
+      "https://www.ironman.com/races/im-philippines"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -261,6 +304,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim at Palm Cove, bike on the Captain Cook Highway, finish on the Cairns Esplanade. Split transitions.",
     "sources": [
       "https://www.ironman.com/races/im-cairns",
@@ -290,7 +335,9 @@
       }
     ],
     "swim": "lake",
-    "notes": "Swim in the Wörthersee, hilly Carinthian bike, flat run along the lake and through Klagenfurt.",
+    "bike": "rolling",
+    "run": "flat",
+    "notes": "Swim in the Wörthersee, bike through Carinthia, run along the lake and through Klagenfurt.",
     "sources": [
       "https://www.ironman.com/races/im-austria",
       "https://labs-v2.competitor.com/results/event/e6b03b63-dbb0-e111-80ae-005056956277"
@@ -315,7 +362,10 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Cher river swim, indoor transition and finish at the Parc des Expositions. 70.3 only in 2027; full distance returns 2028 (date TBA).",
+    "recurring": false,
     "sources": [
       "https://www.ironman.com/races/im-tours",
       "https://labs-v2.competitor.com/results/event/22bf0d47-a1a2-46dd-8a09-a24bec7b5dcb",
@@ -347,6 +397,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Swim in the Langener Waldsee, finish at the Römer. 2026 race shortened (125 km bike, half-marathon run) due to extreme heat.",
     "sources": [
       "https://www.ironman.com/races/im-frankfurt",
@@ -378,6 +430,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "2026 race cancelled 2 days out by prefecture order (heatwave). Hilly bike into the Alpes-Maritimes. 2027 moved to September.",
     "sources": [
       "https://www.ironman.com/races/im-france",
@@ -409,6 +463,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "Swim in Lake Thun, hilly bike with Alpine views, flat run.",
     "sources": [
       "https://www.ironman.com/races/im-switzerland",
@@ -439,6 +495,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in the Ullíbarri-Gamboa reservoir (Landa); T2 and finish in the city centre.",
     "sources": [
       "https://www.ironman.com/races/im-vitoria",
@@ -469,6 +527,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "rolling",
     "notes": "Mirror Lake swim, hilly Adirondack bike, finish at the Olympic Speed Skating Oval.",
     "sources": [
       "https://www.ironman.com/races/im-lake-placid",
@@ -499,6 +559,8 @@
       }
     ],
     "swim": "river",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Ottawa River swim from Britannia Park, closed-road bike, flat downtown run to the finish at Major's Hill Park.",
     "sources": [
       "https://www.ironman.com/races/im-canada-ottawa",
@@ -529,6 +591,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Sea swim in the Kalmar Strait; bike crosses the Öland Bridge. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im-kalmar",
@@ -558,6 +622,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Sea swim at Amager Strandpark, rolling bike through North Zealand, city-centre run to the finish at Christiansborg Palace.",
     "sources": [
       "https://www.ironman.com/races/im-copenhagen",
@@ -588,6 +654,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "hilly",
     "notes": "Waterloo Lake swim and single transition in Roundhay Park; hilly bike and run.",
     "sources": [
       "https://www.ironman.com/races/im-leeds",
@@ -617,6 +685,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in Lake Raku; T2 and finish at Unibet Arena; 4-lap run along Tallinn Bay. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im-tallinn",
@@ -646,6 +716,8 @@
       }
     ],
     "swim": "river",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "Full distance returned in 2026 (last held 2023). Allier river swim (Lac d'Allier), hilly bike, finish at the Centre Omnisports.",
     "sources": [
       "https://www.ironman.com/races/im-vichy",
@@ -677,7 +749,9 @@
       }
     ],
     "swim": "lake",
-    "notes": "Lake Monona swim, transition via the Monona Terrace Helix, hilly bike, finish at the State Capitol.",
+    "bike": "rolling",
+    "run": "hilly",
+    "notes": "Lake Monona swim, transition via the Monona Terrace Helix, finish at the State Capitol.",
     "sources": [
       "https://www.ironman.com/races/im-wisconsin",
       "https://labs-v2.competitor.com/results/event/e598aa20-f278-e111-b16a-005056956277"
@@ -702,6 +776,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in Hakodate Bay (T1 Hokuto), bike on the Hakodate-Esashi expressway, finish in Kikonai. 2027 date TBA.",
     "sources": [
       "https://www.ironman.com/races/im-south-hokkaido",
@@ -731,6 +807,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "hilly",
     "notes": "Sea swim from North Beach, Tenby; hilly bike and run through Pembrokeshire.",
     "sources": [
       "https://www.ironman.com/races/im-wales",
@@ -760,6 +838,8 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Choptank River swim, flat bike through the Blackwater wildlife refuge. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im-maryland",
@@ -789,6 +869,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Adriatic sea swim, mostly flat bike and run in Cervia. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im-emilia-romagna",
@@ -815,6 +897,8 @@
       }
     ],
     "swim": "river",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Downstream swim in the Tennessee River; transition and finish at Ross's Landing; rolling bike, run through downtown.",
     "sources": [
       "https://www.ironman.com/races/im-chattanooga",
@@ -841,6 +925,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Mediterranean sea swim in Calella, flat coastal bike and run, about 55 km north of Barcelona.",
     "sources": [
       "https://www.ironman.com/races/im-barcelona",
@@ -866,6 +952,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "hilly",
     "notes": "Swim in Guman reservoir (Jirisan Lake Park), mostly flat bike, run along the Seosicheon stream to Gurye Public Stadium.",
     "sources": [
       "https://www.ironman.com/races/im-gurye",
@@ -897,11 +985,15 @@
       }
     ],
     "swim": "ocean",
-    "notes": "Qualification only. From 2026 women and men race on the same day in Kona. Hot, windy Queen K bike.",
+    "bike": "rolling",
+    "run": "rolling",
+    "entry": "qualification",
+    "notes": "Age-group qualifying slot required. Single race day for all athletes from 2026. Hot, windy Queen K bike.",
     "sources": [
       "https://www.ironman.com/races/im-world-championship-kona",
       "https://labs-v2.competitor.com/results/event/e798aa20-f278-e111-b16a-005056956277",
-      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
+      "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman",
+      "https://www.ironman.com/races/im-world-championship-kona/qualifying-events-2027"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -923,6 +1015,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Swim in Cascais Bay, rolling bike and run. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im-cascais",
@@ -952,6 +1046,8 @@
       }
     ],
     "swim": "river",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Hastings River swim with a weir crossing. Moved from May to October from 2026. Hosts Oceania TriClub Championship.",
     "sources": [
       "https://www.ironman.com/races/im-australia",
@@ -978,6 +1074,8 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Downriver swim from the American River into the Sacramento River, flat bike, run finishing on Capitol Mall.",
     "sources": [
       "https://www.ironman.com/races/im-california",
@@ -1004,6 +1102,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "First edition Nov 2026. Swim in the Punta Negra Dam reservoir, one-lap bike, run through downtown San Juan.",
     "sources": [
       "https://www.ironman.com/races/im-san-juan",
@@ -1029,6 +1129,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Gulf of Mexico swim from Russell-Fields Pier, flat bike and run, finish at Aaron Bessant Park. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im-florida",
@@ -1059,6 +1161,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "Hot, humid island race: swim at Pantai Kok, hilly bike, flat run to the finish at Pantai Cenang. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im-malaysia",
@@ -1087,6 +1191,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Warm Caribbean swim, flat island bike, finish at the City Hall plaza in San Miguel.",
     "sources": [
       "https://www.ironman.com/races/im-cozumel",
@@ -1112,6 +1218,8 @@
       }
     ],
     "swim": "river",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "First full-distance edition Nov 2026 (formerly 70.3). Point-to-point river swim, wetsuits mandatory.",
     "sources": [
       "https://www.ironman.com/races/im-valdivia",
@@ -1137,6 +1245,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "First full-distance IRONMAN in Oman. Sea swim and finish at Qurum Beach, bike out to Barka and back. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im-oman",
@@ -1167,6 +1277,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim alongside the Busselton Jetty, flat and fast bike and run.",
     "sources": [
       "https://www.ironman.com/races/im-western-australia",
@@ -1194,6 +1306,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "rolling",
     "notes": "New home of IRONMAN South Africa from 2027 (held in Nelson Mandela Bay through Apr 2026). Swim at Santos Beach.",
     "sources": [
       "https://www.ironman.com/races/im-mossel-bay"
@@ -1218,6 +1332,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "rolling",
     "notes": "First Davao edition 2027; IRONMAN Philippines was held in Subic Bay through June 2026.",
     "sources": [
       "https://www.ironman.com/races/im-philippines"
@@ -1242,10 +1358,14 @@
       }
     ],
     "swim": "ocean",
-    "notes": "Alternates yearly with the 70.3: no full distance in 2026. Swim through the Vendée Globe channel.",
+    "bike": "rolling",
+    "run": "flat",
+    "notes": "Alternates yearly with the 70.3 (70.3 in 2026 and 2028). Swim through the Vendée Globe channel.",
+    "recurring": false,
     "sources": [
       "https://www.ironman.com/races/im-les-sables-dolonne",
-      "https://www.ironman.com/stories/news-updates/ironman-confirm-key-updates-2026-ironman-and-ironman-703-race-schedule-france"
+      "https://www.ironman.com/stories/news-updates/ironman-confirm-key-updates-2026-ironman-and-ironman-703-race-schedule-france",
+      "https://www.ironman.com/races/im703-les-sables-dolonne"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -1267,6 +1387,8 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
+    "run": "flat",
     "notes": "First edition 2027, replaces IRONMAN 70.3 Knokke-Heist. Canal swim at Sluis (NL); run along the beach.",
     "sources": [
       "https://www.ironman.com/races/im-knokke-heist"

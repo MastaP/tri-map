@@ -16,5 +16,6 @@ export function useMediaQuery(query: string): boolean {
   );
 }
 
-export const DESKTOP_QUERY = '(min-width: 1024px)';
+/** Side-by-side list and map from tablet width up. */
+export const DESKTOP_QUERY = '(min-width: 768px)';
 export const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';

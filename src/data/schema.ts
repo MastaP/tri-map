@@ -5,21 +5,19 @@
  */
 import { z } from 'zod';
 import { BRAND_IDS, DISTANCE_IDS } from './brands.ts';
+import { EDITION_STATUSES, ENTRY_TYPES, SWIM_TYPES, TERRAINS } from './constants.ts';
 import { isKnownCountry } from './regions.ts';
 
-export const EDITION_STATUSES = ['confirmed', 'tentative', 'cancelled'] as const;
-export type EditionStatus = (typeof EDITION_STATUSES)[number];
-
-export const SWIM_TYPES = ['ocean', 'lake', 'river'] as const;
-export type SwimType = (typeof SWIM_TYPES)[number];
-
-/** Bike/run course profile, from IRONMAN's own Flat/Rolling/Hilly scale plus "mountainous". */
-export const TERRAINS = ['flat', 'rolling', 'hilly', 'mountainous'] as const;
-export type Terrain = (typeof TERRAINS)[number];
-
-/** How an age-grouper gets a start: open sign-up, qualification only, or ballot/application. */
-export const ENTRY_TYPES = ['open', 'qualification', 'ballot'] as const;
-export type EntryType = (typeof ENTRY_TYPES)[number];
+export {
+  EDITION_STATUSES,
+  ENTRY_TYPES,
+  SWIM_TYPES,
+  TERRAINS,
+  type EditionStatus,
+  type EntryType,
+  type SwimType,
+  type Terrain,
+} from './constants.ts';
 
 const ISO_DATE = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
 

@@ -31,4 +31,16 @@ for (const theme of ['light', 'dark'] as const) {
     await waitForMap(page);
     await audit(page);
   });
+
+  test(`no serious axe violations with course, entry and nearest active (${theme})`, async ({ page }) => {
+    await openApp(page, '/?bike=flat,rolling&run=flat&open=1&sort=near', { theme });
+    await waitForMap(page);
+    await audit(page);
+  });
+
+  test(`no serious axe violations in a replaced race's detail (${theme})`, async ({ page }) => {
+    await openApp(page, '/?race=challenge-wanaka-half', { theme });
+    await waitForMap(page);
+    await audit(page);
+  });
 }

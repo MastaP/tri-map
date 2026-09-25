@@ -30,10 +30,11 @@ export function Sheet({ open, onClose, title, children, footer, headerExtra }: P
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
-      className="animate-sheet-in fixed inset-x-0 top-auto bottom-0 m-0 h-[88dvh] max-h-none w-full max-w-none overflow-hidden rounded-t-3xl border-t border-line bg-surface p-0 text-fg shadow-float backdrop:bg-black/45 backdrop:backdrop-blur-[2px]"
+      className="animate-sheet-in fixed inset-x-0 top-auto bottom-0 m-0 max-h-[88dvh] w-full max-w-none overflow-hidden rounded-t-3xl border-t border-line bg-surface p-0 text-fg shadow-float backdrop:bg-black/45 backdrop:backdrop-blur-[2px]"
     >
       {open && (
-        <div className="flex h-full flex-col">
+        // Sized to its content, up to 88% of the screen (then the middle scrolls).
+        <div className="flex max-h-[88dvh] flex-col">
           <div className="flex h-14 shrink-0 items-center gap-2 border-b border-line px-4">
             <h2 id={titleId} className="font-display text-xl font-bold tracking-wide uppercase">
               {title}
@@ -44,13 +45,15 @@ export function Sheet({ open, onClose, title, children, footer, headerExtra }: P
                 type="button"
                 onClick={onClose}
                 aria-label="Close"
-                className="grid size-9 place-items-center rounded-full text-muted hover:bg-surface-2 hover:text-fg"
+                className="grid size-9 place-items-center rounded-full text-muted hover:bg-surface-2 hover:text-fg pointer-coarse:size-11"
               >
                 <X className="size-5" />
               </button>
             </div>
           </div>
-          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4">{children}</div>
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4" data-testid="sheet-body">
+            {children}
+          </div>
           {footer && (
             <div className="shrink-0 border-t border-line p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
               {footer}

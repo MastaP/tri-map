@@ -12,3 +12,9 @@ interface ImportMeta {
 
 /** GitHub repository URL resolved at build time (env, GitHub Actions or git remote). */
 declare const __REPO_URL__: string;
+
+/** Race records from data/races (or the fixtures), validated at build time. */
+declare module 'virtual:trimap-races' {
+  const records: import('./data/schema.ts').RaceRecord[];
+  export default records;
+}

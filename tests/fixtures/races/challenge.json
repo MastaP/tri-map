@@ -12,6 +12,8 @@
     "url": "https://www.challenge-roth.com",
     "editions": [{ "date": "2026-07-05", "status": "confirmed" }],
     "swim": "river",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in the Main-Danube Canal at Hilpoltstein; the Solarer Berg climb on the bike",
     "sources": ["https://www.challenge-roth.com"],
     "verifiedAt": "2026-09-17"
@@ -32,6 +34,8 @@
       { "date": "2027-09-11", "status": "confirmed" }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "sources": ["https://www.challenge-almere.com"],
     "verifiedAt": "2026-09-17"
   },
@@ -51,6 +55,8 @@
       { "date": "2027-09-11", "status": "confirmed" }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "sources": ["https://www.challenge-almere.com"],
     "verifiedAt": "2026-09-17"
   },
@@ -65,8 +71,12 @@
     "lat": -44.697,
     "lng": 169.134,
     "url": "https://www.challenge-wanaka.com",
-    "editions": [{ "date": "2027-02-20", "status": "confirmed" }],
+    "editions": [{ "date": "2026-02-21", "status": "confirmed" }],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
+    "notes": "Last held as a Challenge race in 2026; from 2027 it is T100 Wanaka in the T100 Challenger series",
+    "continuedAs": "t100-wanaka-t100",
     "sources": ["https://www.challenge-wanaka.com"],
     "verifiedAt": "2026-09-17"
   }

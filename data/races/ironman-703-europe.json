@@ -21,6 +21,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Beach swim, split transition, finish near the City of Arts and Sciences. 2027 edition is an IRONMAN Pro Series event.",
     "sources": [
       "https://www.ironman.com/races/im703-valencia",
@@ -51,6 +53,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Adriatic swim at Jesolo Lido, flat bike and run, finish on the beach. The 2027 race is on a Saturday.",
     "sources": [
       "https://www.ironman.com/races/im703-venice-jesolo",
@@ -80,6 +84,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "Saturday race. Swim at Playa de Alcúdia; hilly bike over Coll de Femenia into the Serra de Tramuntana.",
     "sources": [
       "https://www.ironman.com/races/im703-mallorca",
@@ -109,6 +115,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "rolling",
     "notes": "Lake swim outside town, split transition; hilly bike, three-lap run finishing on the Cours Mirabeau.",
     "sources": [
       "https://www.ironman.com/races/im703-aix-en-provence",
@@ -138,6 +146,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "rolling",
     "notes": "Swim in the Hardtsee (Ubstadt-Weiher), run and finish in Bad Schönborn; hilly bike.",
     "sources": [
       "https://www.ironman.com/races/im703-kraichgau",
@@ -167,6 +177,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Sardinia. Start and finish at San Giovanni beach; rolling bike, flat run. First held in 2026.",
     "sources": [
       "https://www.ironman.com/races/im703-alghero",
@@ -196,6 +208,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Split transition: swim at Pennington Flash, T2 in Queens Park, finish in front of Bolton Town Hall.",
     "sources": [
       "https://www.ironman.com/races/im703-bolton",
@@ -225,6 +239,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "rolling",
     "notes": "Swim in the Obersee (Lake Zurich); hilly bike, run through the old town and up the 'stairway to heaven'.",
     "sources": [
       "https://www.ironman.com/races/im703-switzerland",
@@ -250,6 +266,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in Zegrze Reservoir, finish at the Multimedia Fountain Park in central Warsaw. Flat. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-warsaw",
@@ -279,6 +297,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Harbour swim beside Kronborg Castle, transition at Grønnehave; rolling bike, flat run.",
     "sources": [
       "https://www.ironman.com/races/im703-elsinore",
@@ -308,6 +328,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in Hoorn's old harbour, single transition, flat bike and run, finish at the Stadsstrand.",
     "sources": [
       "https://www.ironman.com/races/im703-westfriesland",
@@ -337,7 +359,9 @@
       }
     ],
     "swim": "ocean",
-    "notes": "2026 race cancelled by the prefecture (heatwave). From 2027 held in September with IRONMAN France. Hilly bike.",
+    "bike": "hilly",
+    "run": "flat",
+    "notes": "Open-entry race, separate from the 2026 70.3 World Championship in Nice. 2026 edition cancelled (heatwave); from 2027 held in September.",
     "sources": [
       "https://www.ironman.com/races/im703-nice",
       "https://labs-v2.competitor.com/results/event/b40cebab-c4ad-e711-9419-005056951bf1",
@@ -368,6 +392,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in Lake Munksjön, transition at Östra torget in central Jönköping. 2027 edition is an IRONMAN Pro Series event.",
     "sources": [
       "https://www.ironman.com/races/im703-jonkoping",
@@ -395,7 +421,10 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "rolling",
     "notes": "Swim in the Vendée Globe channel; flat bike. Paused in 2027 (full-distance race held instead), returns in 2028.",
+    "recurring": false,
     "sources": [
       "https://www.ironman.com/races/im703-les-sables-dolonne",
       "https://labs-v2.competitor.com/results/event/aa97b7b2-e4b1-e811-a96c-000d3a364086",
@@ -425,6 +454,8 @@
       }
     ],
     "swim": "river",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in the Moselle at Remich; rolling bike, flat run.",
     "sources": [
       "https://www.ironman.com/races/im703-luxembourg",
@@ -454,6 +485,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "Harbour swim, single transition at East Burrows car park; hilly bike, flat run.",
     "sources": [
       "https://www.ironman.com/races/im703-swansea",
@@ -483,6 +516,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in Ullibarri-Gamboa reservoir outside the city (T1 there), T2 and finish in central Vitoria. Same day as the full IRONMAN.",
     "sources": [
       "https://www.ironman.com/races/im703-vitoria",
@@ -509,6 +544,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Swim in the Gulf of Gdańsk off City Beach, rolling bike into Kashubia, seafront run. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-gdynia",
@@ -534,6 +571,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in Zakrzówek reservoir, finish on the Old Town Market Square. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-krakow",
@@ -563,6 +602,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "rolling",
     "notes": "Lake swim, event venue at Sportpark Duisburg; flat bike, rolling run.",
     "sources": [
       "https://www.ironman.com/races/im703-duisburg",
@@ -588,6 +629,8 @@
       }
     ],
     "swim": "river",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in the Elbe (Labe) in the city centre, finish on Masaryk Square. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-hradec-kralove",
@@ -617,6 +660,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in Cospudener See, finish at the Quarterback Immobilien Arena. First held 2026; 2027 edition is a Pro Series event.",
     "sources": [
       "https://www.ironman.com/races/im703-leipzig",
@@ -647,6 +692,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in Lake Raku, T2 and finish at Unibet Arena; flat bike and run.",
     "sources": [
       "https://www.ironman.com/races/im703-tallinn",
@@ -676,6 +723,8 @@
       }
     ],
     "swim": "river",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "Swim in the Lac d'Allier; hilly bike, flat run. Held the same day as IRONMAN Vichy.",
     "sources": [
       "https://www.ironman.com/races/im703-vichy",
@@ -702,6 +751,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in Lake Kierskie, T2 and finish on the pitch of Enea Stadium; flat. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-poznan",
@@ -733,6 +784,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "Swim in Lake Zell from Schüttdorf, transition at Alois Latini Stadium; hilly bike, flat run.",
     "sources": [
       "https://www.ironman.com/races/im703-zell-am-see",
@@ -758,6 +811,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Saturday race with a midday start. Caspian Sea swim, finish near Government House. First held 2026; 2027 date TBA.",
     "sources": [
       "https://www.ironman.com/races/im703-baku",
@@ -784,7 +839,11 @@
       }
     ],
     "swim": "river",
-    "notes": "Canal swim in the Damse Vaart, beach run. Discontinued after 2026; replaced by the full-distance IRONMAN Knokke-Heist.",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Canal swim in the Damse Vaart, beach run. Held 2023-2026 and will not return; replaced by the full-distance IRONMAN Knokke-Heist.",
+    "recurring": false,
+    "continuedAs": "ironman-knokke-heist-full",
     "sources": [
       "https://www.ironman.com/races/im703-knokke-heist",
       "https://labs-v2.competitor.com/results/event/9a8052e4-602f-4269-943f-5a40a28a9969"
@@ -811,10 +870,15 @@
       }
     ],
     "swim": "ocean",
-    "notes": "Women raced 12 Sep, men 13 Sep. Hilly bike, finish on the Promenade des Anglais. 2027 edition is in Chattanooga, USA.",
+    "bike": "hilly",
+    "run": "flat",
+    "entry": "qualification",
+    "notes": "Qualifier-only, one-off host; not the open IRONMAN 70.3 Nice. Age-group women raced 12 Sep, men 13 Sep. 2027 host: Chattanooga.",
+    "recurring": false,
     "sources": [
       "https://www.ironman.com/races/im703-world-championship-2026",
-      "https://labs-v2.competitor.com/results/event/9798aa20-f278-e111-b16a-005056956277"
+      "https://labs-v2.competitor.com/results/event/9798aa20-f278-e111-b16a-005056956277",
+      "https://www.ironman.com/races/im703-world-championship-2026/schedule"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -836,6 +900,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in Sava Lake (Ada Ciganlija); flat bike and run through the city. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-belgrade",
@@ -865,6 +931,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Lake swim, single transition at the sports centre in Erkner near Berlin; flat bike and run.",
     "sources": [
       "https://www.ironman.com/races/im703-erkner",
@@ -894,6 +962,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Adriatic swim at Cervia; rolling bike, flat run. Held the day after IRONMAN Italy Emilia-Romagna.",
     "sources": [
       "https://www.ironman.com/races/im703-emilia-romagna",
@@ -923,6 +993,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Sea swim off Weymouth beach, T2 at Lodmoor Country Park; rolling bike, flat run.",
     "sources": [
       "https://www.ironman.com/races/im703-weymouth",
@@ -948,6 +1020,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "First edition, postponed from 12 Jul 2026 over heat. Swim in the Grand Canal, finish on Avenue de Paris facing the Château.",
     "sources": [
       "https://www.ironman.com/races/im703-versailles",
@@ -973,6 +1047,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Saturday race, same day as IRONMAN Portugal-Cascais. Swim in Cascais bay; bike via Guincho and Sintra. 2027 date TBA.",
     "sources": [
       "https://www.ironman.com/races/im703-cascais",
@@ -998,6 +1074,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "First edition, replaces Marbella. Harbour swim, transition on Paseo de los Curas, flat coastal bike, finish on Calle Larios.",
     "sources": [
       "https://www.ironman.com/races/im703-malaga",
@@ -1023,6 +1101,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Adriatic swim at Plava Laguna, finish at Zelena Laguna resort; rolling bike and run. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-croatia",
@@ -1048,6 +1128,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim and beachfront finish at W Costa Navarino, Peloponnese; rolling bike, flat run. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-greece",
@@ -1073,6 +1155,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Mediterranean swim, finish at The Land of Legends in Belek; flat bike and run. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-turkey",
@@ -1098,6 +1182,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "New race, first edition 2027. Saturday race. Harbour-protected sea swim at Vilamoura Marina, hilly bike, flat run.",
     "sources": [
       "https://www.ironman.com/races/im703-vilamoura-algarve",
@@ -1123,6 +1209,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Returns to the IRONMAN calendar in 2027 (held 2007-2019). 2027 course maps not yet published.",
     "sources": [
       "https://www.ironman.com/races/im703-st-poelten",
@@ -1148,6 +1236,8 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Back as a 70.3 in 2027 (run as a full IRONMAN in 2026). Flat course. 2027 edition is an IRONMAN Pro Series event.",
     "sources": [
       "https://www.ironman.com/races/im703-tours",

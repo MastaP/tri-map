@@ -46,3 +46,31 @@ export function pointsBounds(points: ReadonlyArray<{ lng: number; lat: number }>
   if (wrapSpan < plainSpan - 30 && wrapSpan < 200) return [west, south, east, north];
   return [min, south, max, north];
 }
+
+export interface LngLat {
+  lng: number;
+  lat: number;
+}
+
+const EARTH_RADIUS_KM = 6371;
+
+/** Great-circle distance in km (haversine). */
+export function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const toRad = (d: number) => (d * Math.PI) / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+  return 2 * EARTH_RADIUS_KM * Math.asin(Math.min(1, Math.sqrt(a)));
+}
+
+/** Longitude folded into [-180, 180) (map centres can sit on a world copy). */
+export function wrapLng(lng: number): number {
+  return ((((lng + 180) % 360) + 360) % 360) - 180;
+}
+
+/** A map camera: centre and zoom. */
+export interface MapViewState {
+  lng: number;
+  lat: number;
+  zoom: number;
+}

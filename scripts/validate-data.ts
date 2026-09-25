@@ -111,9 +111,17 @@ table(
 console.log(
   `\n${bold(String(s.total))} valid races in ${files.length} files. ` +
     `${s.noUpcomingConfirmed} without an upcoming confirmed date ` +
-    dim(`(${s.estimated} estimated, ${s.tentative} tentative, ${s.noDate} no date)`) +
+    dim(
+      `(${s.estimated} estimated, ${s.tentative} tentative, ${s.noDate} with no future edition, which the site does not list)`,
+    ) +
     (s.latestVerifiedAt ? dim(`; latest verifiedAt ${s.latestVerifiedAt}`) : ''),
 );
+if (s.missingCourse) {
+  console.log(
+    yellow(`${s.missingCourse} listed races have no bike or run course profile`) +
+      dim(' (a course filter hides them; add "bike" / "run" as data/README.md describes)'),
+  );
+}
 
 if (result.errorCount) {
   console.log(red(bold(`\n✖ ${result.errorCount} error(s), ${result.warningCount} warning(s)`)));

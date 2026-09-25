@@ -5,8 +5,9 @@
  */
 import type { ISODate } from '../lib/dates.ts';
 import { daysBetween } from '../lib/dates.ts';
+import { haversineKm } from '../lib/geo.ts';
 import { BRAND_IDS, DISTANCE_IDS, type BrandId, type DistanceId } from './brands.ts';
-import { deriveRace } from './parse.ts';
+import { deriveRace } from './derive.ts';
 import { getCountry, isInRegionBox, REGION_IDS, REGIONS, type RegionId } from './regions.ts';
 import { formatIssuePath, RaceSchema, type RaceRecord } from './schema.ts';
 import type { Race } from './types.ts';
@@ -68,15 +69,6 @@ function decimals(n: number): number {
   if (s.includes('e')) return 10;
   const dot = s.indexOf('.');
   return dot === -1 ? 0 : s.length - dot - 1;
-}
-
-export function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
-  const R = 6371;
-  const toRad = (d: number) => (d * Math.PI) / 180;
-  const dLat = toRad(lat2 - lat1);
-  const dLng = toRad(lng2 - lng1);
-  const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
-  return 2 * R * Math.asin(Math.min(1, Math.sqrt(a)));
 }
 
 export function validateRaceFiles(files: readonly SourceFile[], today: ISODate): ValidationResult {
@@ -174,6 +166,17 @@ export function validateRaceFiles(files: readonly SourceFile[], today: ISODate):
       } else if (race.nextEdition.estimated) {
         push('warning', file, `no edition on/after ${today}; next date is estimated as ${race.nextEdition.date}`, id);
       }
+      if (race.nextEdition) {
+        const missing = (['bike', 'run'] as const).filter((d) => rec[d] === undefined);
+        if (missing.length) {
+          push(
+            'warning',
+            file,
+            `no ${missing.join(' or ')} course profile: a course filter hides this race (see "bike / run" in data/README.md)`,
+            id,
+          );
+        }
+      }
       races.push({ ...race, file });
     });
   }
@@ -214,6 +217,8 @@ export interface DataSummary {
   noDate: number;
   /** Races without an upcoming *confirmed* date (estimated, tentative or none). */
   noUpcomingConfirmed: number;
+  /** Listed races without a bike or run course profile (a course filter hides them). */
+  missingCourse: number;
   latestVerifiedAt: string | null;
 }
 
@@ -234,7 +239,9 @@ export function summarize(races: readonly Race[]): DataSummary {
   let tentative = 0;
   let noDate = 0;
   let latest: string | null = null;
+  let missingCourse = 0;
   for (const r of races) {
+    if (r.nextEdition && (!r.bike || !r.run)) missingCourse++;
     byBrandDistance[r.brand][r.distance]++;
     byRegionDistance[r.region][r.distance]++;
     byBrandRegion[r.brand][r.region]++;
@@ -252,6 +259,7 @@ export function summarize(races: readonly Race[]): DataSummary {
     tentative,
     noDate,
     noUpcomingConfirmed: estimated + tentative + noDate,
+    missingCourse,
     latestVerifiedAt: latest,
   };
 }

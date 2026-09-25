@@ -35,6 +35,7 @@
       { "date": "2027-05-09", "status": "confirmed" }
     ],
     "swim": "ocean",
+    "run": "flat",
     "sources": ["https://www.ironman.com/races/im703-vietnam"],
     "verifiedAt": "2026-09-19"
   }

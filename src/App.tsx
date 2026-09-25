@@ -10,44 +10,74 @@ import {
   useState,
   type ReactNode,
 } from 'react';
+import { ActiveFilters } from './components/ActiveFilters.tsx';
+import { DetailSheet } from './components/DetailSheet.tsx';
+import { sheetHeight, type SheetSnap } from './components/sheetSnap.ts';
 import { EmptyState } from './components/EmptyState.tsx';
-import { FilterPanel } from './components/FilterPanel.tsx';
+import { FilterPanel, QuickFilters } from './components/FilterPanel.tsx';
 import { Footer } from './components/Footer.tsx';
 import { Header } from './components/Header.tsx';
+import { MapBoundary } from './components/MapBoundary.tsx';
 import { RaceDetail } from './components/RaceDetail.tsx';
 import { ResultsList } from './components/ResultsList.tsx';
+import { ResultsNotes } from './components/ResultsNotes.tsx';
 import { ResultsToolbar } from './components/ResultsToolbar.tsx';
 import { SearchBox } from './components/SearchBox.tsx';
 import { Sheet } from './components/Sheet.tsx';
 import { Toast } from './components/Toast.tsx';
 import { BRAND_IDS, type BrandId } from './data/brands.ts';
 import { loadRaces } from './data/loadRaces.ts';
+import { useGeolocation } from './hooks/useGeolocation.ts';
 import { DESKTOP_QUERY, useMediaQuery } from './hooks/useMediaQuery.ts';
 import { useShortlist } from './hooks/useShortlist.ts';
 import { useToast } from './hooks/useToast.ts';
 import { useTheme } from './hooks/useTheme.ts';
+import { useToday } from './hooks/useToday.ts';
+import { copyText } from './lib/clipboard.ts';
 import { cn } from './lib/cn.ts';
-import { formatMonthShort, localToday } from './lib/dates.ts';
+import { formatDate, formatMonthShort } from './lib/dates.ts';
+import { whenIdle } from './lib/idle.ts';
 import {
   activeDimensions,
+  clampTimeToToday,
   clearAll,
   clearDimension,
   facetCounts,
   filterRaces,
+  isListed,
+  missingCourseRaces,
   monthHistogram,
+  shownEditions,
   sortRaces,
   suggestRelaxations,
   toggleValue,
   type Dimension,
   type Filters,
+  type SortKey,
 } from './lib/filters.ts';
-import type { Bounds } from './lib/geo.ts';
+import type { Bounds, LngLat, MapViewState } from './lib/geo.ts';
+import { viewerRegion } from './lib/homeRegion.ts';
+import { distancesFrom, type Origin } from './lib/nearest.ts';
 import { readStorage, writeStorage } from './lib/storage.ts';
 import { parseUrlState, serializeUrlState } from './lib/urlState.ts';
+import { importMapView, importMapViewOrReload } from './map/loadMap.ts';
 
-const MapView = lazy(() => import('./map/MapView.tsx'));
+const MapView = lazy(importMapViewOrReload);
 
-const FILTERS_COLLAPSED_KEY = 'trimap.filtersCollapsed';
+/** Desktop: whether the full filter panel is open ('1'); closed by default. */
+const MORE_FILTERS_KEY = 'trimap.moreFilters';
+const DEFAULT_TITLE = 'TriMap · Find a full, half or T100 triathlon to enter';
+/** Filters that live behind the desktop "Filters" button (distance and dates stay in view). */
+const PANEL_DIMENSIONS: readonly Dimension[] = [
+  'region',
+  'brand',
+  'bike',
+  'run',
+  'entry',
+  'estimated',
+  'area',
+  'shortlist',
+];
 
 function MapPlaceholder() {
   return (
@@ -57,8 +87,16 @@ function MapPlaceholder() {
   );
 }
 
-function urlFor(filters: Filters, raceId: string | null): string {
-  const qs = serializeUrlState({ filters, raceId });
+function LiveCount({ count }: { count: number }) {
+  return (
+    <p className="sr-only" aria-live="polite" aria-atomic="true">
+      {count} {count === 1 ? 'race' : 'races'}
+    </p>
+  );
+}
+
+function urlFor(filters: Filters, raceId: string | null, view: MapViewState | null): string {
+  const qs = serializeUrlState({ filters, raceId, view });
   return `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
 }
 
@@ -69,25 +107,46 @@ function isTypingTarget(t: EventTarget | null): boolean {
   return t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName);
 }
 
+function useDebounced<T>(value: T, ms: number): T {
+  const [out, setOut] = useState(value);
+  useEffect(() => {
+    const t = window.setTimeout(() => setOut(value), ms);
+    return () => window.clearTimeout(t);
+  }, [value, ms]);
+  return out;
+}
+
 export function App() {
-  const [today] = useState(localToday);
+  const today = useToday();
   const races = useMemo(() => loadRaces(today), [today]);
+  // Every race, including ones without a next edition, so deep links keep working.
   const raceById = useMemo(() => new Map(races.map((r) => [r.id, r])), [races]);
+  const listedCount = useMemo(() => races.filter(isListed).length, [races]);
   const { pref, theme, setPref } = useTheme();
   const isDesktop = useMediaQuery(DESKTOP_QUERY);
   const { shortlist, toggle: toggleStar } = useShortlist();
   const toast = useToast();
 
-  const [initial] = useState(() => parseUrlState(window.location.search));
+  const [initial] = useState(() => {
+    const state = parseUrlState(window.location.search);
+    // A date range from an old link: past months hold no races any more.
+    const { time, expired } = clampTimeToToday(state.filters.time, today);
+    return { ...state, filters: { ...state.filters, time }, expired };
+  });
   const [filters, setFilters] = useState<Filters>(initial.filters);
   // A ?race= id that is not (or no longer) in the data is dropped with a notice.
   const [missingRace] = useState(() => !!initial.raceId && !raceById.has(initial.raceId));
   const [selectedId, setSelectedId] = useState<string | null>(() => (missingRace ? null : initial.raceId));
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [bounds, setBounds] = useState<Bounds | null>(null);
+  const [mapView, setMapView] = useState<MapViewState | null>(initial.view ?? null);
+  const [mapFailed, setMapFailed] = useState(false);
+  const geo = useGeolocation();
   const [mobileView, setMobileView] = useState<'list' | 'map'>('list');
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const [filtersCollapsed, setFiltersCollapsed] = useState(() => readStorage(FILTERS_COLLAPSED_KEY) === '1');
+  const [moreOpen, setMoreOpen] = useState(() => readStorage(MORE_FILTERS_KEY) === '1');
+  const [detailSnap, setDetailSnap] = useState<SheetSnap>('full');
+  const [missingOpen, setMissingOpen] = useState(false);
 
   const searchRef = useRef<HTMLInputElement>(null);
   const listScrollRef = useRef<HTMLDivElement>(null);
@@ -95,27 +154,59 @@ export function App() {
   const returnFocusTo = useRef<HTMLElement | null>(null);
 
   const selectedRace = selectedId ? (raceById.get(selectedId) ?? null) : null;
+  // Other races to enter at the same venue. A predecessor/successor pair is linked
+  // explicitly instead ("Continues as" / "Formerly"), so it is not repeated here.
   const siblings = useMemo(
     () =>
       selectedRace
         ? races.filter(
             (r) =>
               r.id !== selectedRace.id &&
+              isListed(r) &&
+              r.continuedAs !== selectedRace.id &&
+              selectedRace.continuedAs !== r.id &&
               Math.abs(r.lat - selectedRace.lat) < 0.01 &&
               Math.abs(r.lng - selectedRace.lng) < 0.01,
           )
         : [],
     [races, selectedRace],
   );
+  const successor = selectedRace?.continuedAs ? (raceById.get(selectedRace.continuedAs) ?? null) : null;
+  const predecessors = useMemo(
+    () => (selectedRace ? selectedRace.formerly.flatMap((id) => raceById.get(id) ?? []) : []),
+    [selectedRace, raceById],
+  );
 
   // ---- derived data -------------------------------------------------------------
   const ctx = useMemo(() => ({ today, bounds, shortlist }), [today, bounds, shortlist]);
-  const results = useMemo(() => sortRaces(filterRaces(races, filters, ctx), filters.sort), [races, filters, ctx]);
+  // "Nearest": the viewer's location once they allowed it, else the map centre.
+  const origin = useMemo<Origin | null>(() => {
+    if (filters.sort !== 'near') return null;
+    if (geo.position) return { ...geo.position, source: 'location' };
+    return mapView && !mapFailed ? { lng: mapView.lng, lat: mapView.lat, source: 'map' } : null;
+  }, [filters.sort, geo.position, mapView, mapFailed]);
+  const filtered = useMemo(() => filterRaces(races, filters, ctx), [races, filters, ctx]);
+  const shown = useMemo(() => shownEditions(filtered, filters, today), [filtered, filters, today]);
+  const results = useMemo(
+    () => sortRaces(filtered, filters.sort, origin, shown),
+    [filtered, filters.sort, origin, shown],
+  );
+  const distances = useMemo(() => (origin ? distancesFrom(results, origin) : null), [results, origin]);
+  const missingCourse = useMemo(() => {
+    const list = missingCourseRaces(races, filters, ctx);
+    return sortRaces(list, 'date', null, shownEditions(list, filters, today));
+  }, [races, filters, ctx, today]);
+  // Editions to show: the results' and, for the "Course not listed yet" group, those races'.
+  const listShown = useMemo(
+    () => new Map([...shownEditions(missingCourse, filters, today), ...shown]),
+    [missingCourse, filters, today, shown],
+  );
   // The map shows every filter except "in map area" (and must not re-cluster on pan).
   const mapRaces = useMemo(
     () => filterRaces(races, filters, { today, bounds: null, shortlist }, ['area']),
     [races, filters, today, shortlist],
   );
+  const mapEditions = useMemo(() => shownEditions(mapRaces, filters, today), [mapRaces, filters, today]);
   const facets = useMemo(() => facetCounts(races, filters, ctx), [races, filters, ctx]);
   const buckets = useMemo(() => monthHistogram(races, filters, ctx), [races, filters, ctx]);
   const anyTimeCount = useMemo(() => filterRaces(races, filters, ctx, ['time']).length, [races, filters, ctx]);
@@ -125,19 +216,35 @@ export function App() {
   );
   const active = activeDimensions(filters);
   const activeCount = active.filter((d) => d !== 'q').length;
+  const panelCount = active.filter((d) => PANEL_DIMENSIONS.includes(d)).length;
   const freshness = useMemo(() => {
     const latest = races.reduce<string | null>((m, r) => (!m || r.verifiedAt > m ? r.verifiedAt : m), null);
     return latest ? formatMonthShort(latest) : null;
   }, [races]);
-  const shortlistCount = useMemo(() => races.filter((r) => shortlist.has(r.id)).length, [races, shortlist]);
+  // Starred races that can still be listed (a starred race that was replaced is not).
+  const shortlistCount = useMemo(
+    () => races.filter((r) => isListed(r) && shortlist.has(r.id)).length,
+    [races, shortlist],
+  );
+  const starredHidden = filters.shortlistOnly ? Math.max(0, shortlistCount - results.length) : 0;
+  // "Half" alone hides the T100 (100 km) races, many of them former Challenge halves.
+  const t100Alongside = useMemo(
+    () =>
+      filters.distances.length === 1 && filters.distances[0] === 'half'
+        ? filterRaces(races, { ...filters, distances: ['t100'] }, ctx).length
+        : 0,
+    [races, filters, ctx],
+  );
 
   // ---- actions -------------------------------------------------------------------
   const updateFilters = useCallback((update: (f: Filters) => Filters) => setFilters(update), []);
 
   const selectedIdRef = useRef(selectedId);
+  const mobileViewRef = useRef(mobileView);
   useLayoutEffect(() => {
     selectedIdRef.current = selectedId;
-  }, [selectedId]);
+    mobileViewRef.current = mobileView;
+  }, [selectedId, mobileView]);
 
   const selectRace = useCallback((id: string) => {
     if (selectedIdRef.current === null) {
@@ -145,6 +252,8 @@ export function App() {
       historyMode.current = 'push';
       const el = document.activeElement;
       returnFocusTo.current = el instanceof HTMLElement && el !== document.body ? el : null;
+      // Mobile: from the list the sheet opens tall; from the map it peeks so the pin stays in view.
+      setDetailSnap(mobileViewRef.current === 'map' ? 'peek' : 'full');
     }
     selectedIdRef.current = id;
     setSelectedId(id);
@@ -171,10 +280,48 @@ export function App() {
 
   const relax = useCallback((d: Dimension) => setFilters((f) => clearDimension(f, d)), []);
   const clearFilters = useCallback(() => setFilters((f) => clearAll(f)), []);
+  const clearCourse = useCallback(() => setFilters((f) => ({ ...f, bike: [], run: [] })), []);
+  const showAllStarred = useCallback(() => setFilters((f) => ({ ...clearAll(f), shortlistOnly: true })), []);
+  const includeT100 = useCallback(() => setFilters((f) => ({ ...f, distances: ['half', 't100'] })), []);
+  const showMissingCourse = useCallback(() => {
+    setMissingOpen(true);
+    requestAnimationFrame(() =>
+      document.getElementById('missing-course')?.scrollIntoView({ block: 'start', behavior: 'smooth' }),
+    );
+  }, []);
+
+  const requestLocation = geo.request;
+  const geoStatus = geo.status;
+  const setSort = useCallback(
+    (sort: SortKey) => {
+      setFilters((f) => ({ ...f, sort }));
+      // Location is only asked for when the viewer picks "Nearest" themselves.
+      if (sort === 'near' && geoStatus === 'idle') requestLocation();
+    },
+    [geoStatus, requestLocation],
+  );
+
+  const onViewChange = useCallback((b: Bounds, view: MapViewState) => {
+    setBounds(b);
+    setMapView(view);
+  }, []);
+  const onMapUnavailable = useCallback(() => {
+    setMapFailed(true);
+    setBounds(null);
+    // Without a map there is no area to filter by: drop the filter rather than claim it.
+    setFilters((f) => (f.inMapArea ? { ...f, inMapArea: false } : f));
+  }, []);
+
+  const showToast = toast.show;
+  const shareSearch = useCallback(async () => {
+    const url = new URL(urlFor(filters, null, mapView), window.location.href).toString();
+    showToast((await copyText(url)) ? 'Link to this search copied' : 'Could not copy the link');
+  }, [filters, mapView, showToast]);
 
   // ---- URL + history -------------------------------------------------------------
+  const urlView = filters.inMapArea ? mapView : null;
   useEffect(() => {
-    const url = urlFor(filters, selectedId);
+    const url = urlFor(filters, selectedId, urlView);
     if (url === currentUrl()) return;
     if (historyMode.current === 'push') {
       historyMode.current = 'replace';
@@ -183,7 +330,7 @@ export function App() {
     }
     const t = window.setTimeout(() => window.history.replaceState(window.history.state, '', url), 250);
     return () => window.clearTimeout(t);
-  }, [filters, selectedId]);
+  }, [filters, selectedId, urlView]);
 
   useEffect(() => {
     const onPop = () => {
@@ -195,10 +342,21 @@ export function App() {
     return () => window.removeEventListener('popstate', onPop);
   }, []);
 
-  const showToast = toast.show;
   useEffect(() => {
     if (missingRace) showToast('That race is not listed any more');
-  }, [missingRace, showToast]);
+    else if (initial.expired) showToast('That date range has passed: showing all dates');
+  }, [missingRace, initial.expired, showToast]);
+
+  // Tab title names the open race (history entries and bookmarks too).
+  useEffect(() => {
+    if (!selectedRace) {
+      document.title = DEFAULT_TITLE;
+      return;
+    }
+    const next = selectedRace.nextEdition;
+    const when = next ? (next.estimated ? `≈ ${formatMonthShort(next.date)}` : formatDate(next.date)) : null;
+    document.title = [selectedRace.name, when, 'TriMap'].filter(Boolean).join(' · ');
+  }, [selectedRace]);
 
   // Return focus to where the user was when the detail closes.
   const prevSelected = useRef(selectedId);
@@ -240,84 +398,162 @@ export function App() {
 
   const setQuery = useCallback((q: string) => setFilters((f) => ({ ...f, q })), []);
 
-  const toggleCollapsed = () => {
-    setFiltersCollapsed((c) => {
-      writeStorage(FILTERS_COLLAPSED_KEY, c ? null : '1');
-      return !c;
+  const toggleMore = () => {
+    setMoreOpen((open) => {
+      writeStorage(MORE_FILTERS_KEY, open ? null : '1');
+      return !open;
     });
   };
 
-  const fitKey = `${filters.regions.join(',')}|${filters.shortlistOnly}`;
+  // ---- map: when to load it, where to look -------------------------------------------
+  // Phones start on the list: the map (maplibre, worker, tiles) loads when it is needed.
+  const needMap = isDesktop || mobileView === 'map' || filters.inMapArea || (filters.sort === 'near' && !geo.position);
+  const [mapMounted, setMapMounted] = useState(needMap);
+  if (needMap && !mapMounted) setMapMounted(true);
+  useEffect(() => {
+    if (isDesktop || mapMounted) return;
+    // Fetch the map code once the list and fonts are done, so "Map" opens quickly.
+    let cancelIdle = () => {};
+    let cancelled = false;
+    void document.fonts?.ready.then(() => {
+      if (cancelled) return;
+      cancelIdle = whenIdle(() => void importMapView().catch(() => {}), 4000);
+    });
+    return () => {
+      cancelled = true;
+      cancelIdle();
+    };
+  }, [isDesktop, mapMounted]);
 
-  const list: ReactNode = results.length ? (
-    <ResultsList
-      races={results}
-      sort={filters.sort}
-      today={today}
-      selectedId={selectedId}
-      hoveredId={hoveredId}
-      shortlist={shortlist}
-      onSelect={selectRace}
-      onHover={setHoveredId}
-      onToggleStar={toggleStar}
-    />
-  ) : (
-    <EmptyState
-      filters={filters}
-      suggestions={suggestions}
-      onRelax={relax}
-      onClearAll={clearFilters}
-      noData={races.length === 0}
-    />
+  const qFit = useDebounced(filters.q.trim(), 450);
+  const fitKey = `${filters.regions.join(',')}|${filters.shortlistOnly}|${qFit}`;
+  // "Nearest" from the viewer's location: show them and the closest races.
+  const nearFocus = useMemo(() => {
+    if (filters.sort !== 'near' || !geo.position) return null;
+    const pos = geo.position;
+    const points: LngLat[] = [pos, ...sortRaces(mapRaces, 'near', pos).slice(0, 5)];
+    return { key: `${pos.lat.toFixed(3)},${pos.lng.toFixed(3)}`, points };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- refocus only when the position arrives
+  }, [filters.sort, geo.position]);
+  // A phone-sized map opens on the viewer's region (from the time zone) instead of a clipped world.
+  const [homePoints] = useState<LngLat[] | null>(() => {
+    if (initial.filters.regions.length || initial.raceId) return null;
+    const region = viewerRegion();
+    const pts = region ? races.filter((r) => isListed(r) && r.region === region) : [];
+    return pts.length >= 3 ? pts : null;
+  });
+
+  const mobileSheetInset = !isDesktop && selectedRace ? sheetHeight(detailSnap) : 0;
+
+  // ---- pieces ----------------------------------------------------------------------
+  const list: ReactNode = (
+    <>
+      {results.length ? null : (
+        <EmptyState
+          filters={filters}
+          suggestions={suggestions}
+          onRelax={relax}
+          onClearAll={clearFilters}
+          noData={listedCount === 0}
+          missingCourse={missingCourse.length}
+        />
+      )}
+      {(results.length > 0 || missingCourse.length > 0) && (
+        <ResultsList
+          races={results}
+          shown={listShown}
+          sort={filters.sort}
+          today={today}
+          selectedId={selectedId}
+          hoveredId={hoveredId}
+          shortlist={shortlist}
+          onSelect={selectRace}
+          onHover={setHoveredId}
+          onToggleStar={toggleStar}
+          distances={distances}
+          foldSoon={filters.sort === 'date' && !filters.q.trim() && !filters.shortlistOnly}
+          showCourse={filters.shortlistOnly}
+          missingCourse={missingCourse}
+          missingOpen={missingOpen}
+          onMissingOpenChange={setMissingOpen}
+        />
+      )}
+    </>
   );
 
   const toolbar = (
-    <ResultsToolbar
-      count={results.length}
-      total={races.length}
-      sort={filters.sort}
-      onSort={(sort) => setFilters((f) => ({ ...f, sort }))}
-      canClear={active.length > 0}
-      onClear={clearFilters}
-    />
-  );
-
-  const filterPanel = (
-    <FilterPanel
-      filters={filters}
-      onChange={updateFilters}
-      facets={facets}
-      buckets={buckets}
-      anyTimeCount={anyTimeCount}
-      today={today}
-      shortlistCount={shortlistCount}
-      mapAvailable={bounds !== null}
-    />
-  );
-
-  const mobileSheetInset = !isDesktop && selectedRace ? Math.round(window.innerHeight * 0.72) : 0;
-
-  const map = (
-    <Suspense fallback={<MapPlaceholder />}>
-      <MapView
-        races={mapRaces}
-        theme={theme}
-        selectedRace={selectedRace}
-        hoveredId={hoveredId}
-        brandFilter={filters.brands}
-        brandCounts={facets.brand}
-        onToggleBrand={toggleBrand}
-        onSelect={selectRace}
-        onHover={setHoveredId}
-        onBoundsChange={setBounds}
-        fitKey={fitKey}
-        bottomInset={mobileSheetInset}
-        compactLegend={!isDesktop}
+    <>
+      <h2 className="sr-only" id="results-title">
+        Results
+      </h2>
+      <ResultsToolbar
+        count={results.length}
+        total={listedCount}
+        sort={filters.sort}
+        onSort={setSort}
+        canClear={active.length > 0}
+        onClear={clearFilters}
+        onShare={shareSearch}
+        live={isDesktop || !filtersOpen}
       />
-    </Suspense>
+      <ResultsNotes
+        nearest={filters.sort === 'near' ? { origin, geo: geoStatus, mapAvailable: !mapFailed } : null}
+        missingCourse={results.length ? missingCourse.length : 0}
+        onUseLocation={requestLocation}
+        onShowMissingCourse={showMissingCourse}
+        onClearCourse={clearCourse}
+        starredHidden={starredHidden}
+        onShowAllStarred={showAllStarred}
+        t100Alongside={t100Alongside}
+        onIncludeT100={includeT100}
+      />
+    </>
   );
 
-  const detail = (variant: 'panel' | 'sheet') =>
+  const panelProps = {
+    filters,
+    onChange: updateFilters,
+    facets,
+    buckets,
+    anyTimeCount,
+    today,
+    shortlistCount,
+    mapAvailable: !mapFailed,
+    missingCourse: missingCourse.length,
+  };
+
+  const map = mapMounted ? (
+    <MapBoundary onError={onMapUnavailable} onShowList={isDesktop ? undefined : () => setMobileView('list')}>
+      <Suspense fallback={<MapPlaceholder />}>
+        <MapView
+          races={mapRaces}
+          editions={mapEditions}
+          theme={theme}
+          selectedRace={selectedRace}
+          hoveredId={hoveredId}
+          brandFilter={filters.brands}
+          brandCounts={facets.brand}
+          onToggleBrand={toggleBrand}
+          onSelect={selectRace}
+          onHover={setHoveredId}
+          onViewChange={onViewChange}
+          fitKey={fitKey}
+          focus={nearFocus}
+          initialView={initial.view ?? null}
+          homePoints={homePoints}
+          bottomInset={mobileSheetInset}
+          hideControls={!isDesktop && !!selectedRace}
+          showCenterMark={filters.sort === 'near' && origin?.source === 'map'}
+          onUnavailable={onMapUnavailable}
+          legendAt={isDesktop ? 'bottom-left' : 'top-left'}
+        />
+      </Suspense>
+    </MapBoundary>
+  ) : (
+    <MapPlaceholder />
+  );
+
+  const detail = (variant: 'panel' | 'sheet', handle?: ReactNode) =>
     selectedRace && (
       <RaceDetail
         race={selectedRace}
@@ -328,47 +564,78 @@ export function App() {
         onToast={toast.show}
         variant={variant}
         siblings={siblings}
+        successor={successor}
+        predecessors={predecessors}
         onSelect={selectRace}
+        handle={handle}
       />
     );
+
+  const skipLink = (
+    <a
+      href="#results-title"
+      className="sr-only z-[70] rounded-lg bg-ink px-3 py-2 text-sm font-semibold text-on-ink focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+      onClick={(e) => {
+        e.preventDefault();
+        setMobileView('list');
+        requestAnimationFrame(() => {
+          const target = listScrollRef.current?.querySelector<HTMLElement>('li[data-race-id] h4 button');
+          (target ?? document.getElementById('results-title'))?.focus();
+        });
+      }}
+    >
+      Skip to results
+    </a>
+  );
+  const heading = <h1 className="sr-only">TriMap: full, half and T100 triathlons you can enter</h1>;
 
   if (isDesktop) {
     return (
       <div className="flex h-dvh flex-col">
-        <Header freshness={freshness} raceCount={races.length} themePref={pref} onThemeChange={setPref} />
+        {skipLink}
+        <Header freshness={freshness} raceCount={listedCount} themePref={pref} onThemeChange={setPref} />
         <div className="flex min-h-0 flex-1">
-          <aside
-            aria-label="Search and results"
-            className="relative flex w-[420px] shrink-0 flex-col border-r border-line bg-surface xl:w-[448px]"
-          >
+          <main className="relative flex w-[360px] shrink-0 flex-col border-r border-line bg-surface lg:w-[420px] xl:w-[448px]">
+            {heading}
             <div ref={listScrollRef} className="min-h-0 flex-1 overflow-y-auto" inert={!!selectedRace}>
-              <div className="flex gap-2 px-4 pt-4 pb-1.5">
-                <SearchBox value={filters.q} onChange={setQuery} inputRef={searchRef} className="min-w-0 flex-1" />
-                <button
-                  type="button"
-                  onClick={toggleCollapsed}
-                  aria-expanded={!filtersCollapsed}
-                  aria-controls="filter-panel"
-                  title={filtersCollapsed ? 'Show filters' : 'Hide filters'}
-                  className={cn(
-                    'relative inline-flex h-11 shrink-0 items-center gap-1.5 rounded-xl border px-3 text-[13px] font-semibold transition-colors',
-                    filtersCollapsed
-                      ? 'border-line bg-surface-2 text-fg hover:border-line-strong'
-                      : 'border-line bg-surface text-muted hover:text-fg',
-                  )}
-                >
-                  <SlidersHorizontal className="size-4" />
-                  {activeCount > 0 && (
-                    <span className="tabular grid size-5 place-items-center rounded-full bg-ink text-[11px] text-on-ink">
-                      {activeCount}
-                    </span>
-                  )}
-                  <ChevronDown className={cn('size-4 transition-transform', !filtersCollapsed && 'rotate-180')} />
-                  <span className="sr-only">{filtersCollapsed ? 'Show filters' : 'Hide filters'}</span>
-                </button>
-              </div>
-              <div id="filter-panel" hidden={filtersCollapsed} className="px-4">
-                {filterPanel}
+              <div className="px-4">
+                <div role="search" className="flex gap-2 pt-4 pb-2">
+                  <SearchBox value={filters.q} onChange={setQuery} inputRef={searchRef} className="min-w-0 flex-1" />
+                  <button
+                    type="button"
+                    onClick={toggleMore}
+                    aria-expanded={moreOpen}
+                    aria-controls="filter-panel"
+                    aria-label={`Filters${panelCount ? `, ${panelCount} active` : ''}`}
+                    className={cn(
+                      'relative inline-flex h-11 shrink-0 items-center gap-1.5 rounded-xl border px-3 text-[13px] font-semibold transition-colors',
+                      moreOpen || panelCount
+                        ? 'border-line-strong bg-surface-2 text-fg'
+                        : 'border-line bg-surface text-fg hover:border-line-strong',
+                    )}
+                  >
+                    <SlidersHorizontal className="size-4" aria-hidden="true" />
+                    Filters
+                    {panelCount > 0 && (
+                      <span
+                        className="tabular grid size-5 place-items-center rounded-full bg-ink text-[11px] text-on-ink"
+                        aria-hidden="true"
+                      >
+                        {panelCount}
+                      </span>
+                    )}
+                    <ChevronDown
+                      className={cn('size-4 text-muted transition-transform max-lg:hidden', moreOpen && 'rotate-180')}
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+                <h2 className="sr-only">Filters</h2>
+                <QuickFilters filters={filters} onChange={updateFilters} facets={facets} today={today} />
+                {!moreOpen && <ActiveFilters filters={filters} active={active} onClear={relax} />}
+                <div id="filter-panel" hidden={!moreOpen} className="border-t border-line">
+                  {moreOpen && <FilterPanel {...panelProps} variant="more" />}
+                </div>
               </div>
               {toolbar}
               {list}
@@ -384,18 +651,22 @@ export function App() {
                 {detail('panel')}
               </div>
             )}
-          </aside>
-          <main className="relative min-w-0 flex-1">{map}</main>
+          </main>
+          <section aria-label="Race map" className="relative min-w-0 flex-1">
+            {map}
+          </section>
         </div>
         <Toast message={toast.message} />
       </div>
     );
   }
 
+  const sheetFull = !!selectedRace && detailSnap === 'full';
   return (
     <div className="flex h-dvh flex-col">
-      <Header compact freshness={freshness} raceCount={races.length} themePref={pref} onThemeChange={setPref} />
-      <div className="z-20 flex gap-2 border-b border-line bg-surface px-3 py-2">
+      {skipLink}
+      <Header compact freshness={freshness} raceCount={listedCount} themePref={pref} onThemeChange={setPref} />
+      <div role="search" className="z-20 flex gap-2 border-b border-line bg-surface px-3 py-2" inert={sheetFull}>
         <SearchBox
           value={filters.q}
           onChange={setQuery}
@@ -423,15 +694,8 @@ export function App() {
       </div>
 
       <main className="relative min-h-0 flex-1">
-        <div className="absolute inset-0">{map}</div>
-        {mobileView === 'list' && (
-          <div ref={listScrollRef} className="absolute inset-0 z-10 overflow-y-auto bg-surface" inert={!!selectedRace}>
-            {toolbar}
-            {list}
-            <Footer freshness={freshness} />
-            <div className="h-24" aria-hidden="true" />
-          </div>
-        )}
+        {heading}
+        {/* Before the list in the tab order; shown floating at the bottom. */}
         {!selectedRace && (
           <button
             type="button"
@@ -440,14 +704,28 @@ export function App() {
           >
             {mobileView === 'list' ? (
               <>
-                <MapIcon className="size-[18px]" /> Map
+                <MapIcon className="size-[18px]" aria-hidden="true" /> Map
               </>
             ) : (
               <>
-                <List className="size-[18px]" /> List <span className="tabular opacity-70">{results.length}</span>
+                <List className="size-[18px]" aria-hidden="true" /> List{' '}
+                <span className="tabular opacity-70">{results.length}</span>
               </>
             )}
           </button>
+        )}
+        <section aria-label="Race map" className="absolute inset-0" inert={mobileView === 'list' || sheetFull}>
+          {map}
+        </section>
+        {mobileView === 'list' ? (
+          <div ref={listScrollRef} className="absolute inset-0 z-10 overflow-y-auto bg-surface" inert={!!selectedRace}>
+            {toolbar}
+            {list}
+            <Footer freshness={freshness} />
+            <div className="h-24" aria-hidden="true" />
+          </div>
+        ) : (
+          !filtersOpen && <LiveCount count={results.length} />
         )}
       </main>
 
@@ -467,27 +745,25 @@ export function App() {
           )
         }
         footer={
-          <button
-            type="button"
-            onClick={() => setFiltersOpen(false)}
-            className="h-12 w-full rounded-2xl bg-ink text-[15px] font-semibold text-on-ink active:scale-[0.99]"
-          >
-            Show {results.length} {results.length === 1 ? 'race' : 'races'}
-          </button>
+          <>
+            <LiveCount count={results.length} />
+            <button
+              type="button"
+              onClick={() => setFiltersOpen(false)}
+              className="h-12 w-full rounded-2xl bg-ink text-[15px] font-semibold text-on-ink active:scale-[0.99]"
+            >
+              Show {results.length} {results.length === 1 ? 'race' : 'races'}
+            </button>
+          </>
         }
       >
-        {filterPanel}
+        <FilterPanel {...panelProps} variant="sheet" />
       </Sheet>
 
       {selectedRace && (
-        <div
-          role="dialog"
-          aria-modal="false"
-          aria-label={selectedRace.name}
-          className="animate-sheet-in fixed inset-x-0 bottom-0 z-40 h-[72dvh] overflow-hidden rounded-t-3xl border-t border-line shadow-float"
-        >
-          {detail('sheet')}
-        </div>
+        <DetailSheet label={selectedRace.name} snap={detailSnap} onSnapChange={setDetailSnap} onClose={closeRace}>
+          {(handle) => detail('sheet', handle)}
+        </DetailSheet>
       )}
       <Toast message={toast.message} />
     </div>

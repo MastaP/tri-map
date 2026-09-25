@@ -8,7 +8,30 @@ const OPTIONS: { value: ThemePref; label: string; Icon: typeof Sun }[] = [
   { value: 'dark', label: 'Dark theme', Icon: Moon },
 ];
 
-export function ThemeToggle({ pref, onChange }: { pref: ThemePref; onChange: (p: ThemePref) => void }) {
+interface Props {
+  pref: ThemePref;
+  onChange: (p: ThemePref) => void;
+  /** One button that cycles system → light → dark (phones, where header space is short). */
+  compact?: boolean;
+}
+
+export function ThemeToggle({ pref, onChange, compact }: Props) {
+  if (compact) {
+    const i = OPTIONS.findIndex((o) => o.value === pref);
+    const current = OPTIONS[i]!;
+    const next = OPTIONS[(i + 1) % OPTIONS.length]!;
+    return (
+      <button
+        type="button"
+        onClick={() => onChange(next.value)}
+        aria-label={`${current.label}. Switch to ${next.label.toLowerCase()}`}
+        title={`${current.label} (tap for ${next.label.toLowerCase()})`}
+        className="grid size-10 place-items-center rounded-full text-muted transition-colors hover:bg-surface-2 hover:text-fg"
+      >
+        <current.Icon className="size-[18px]" strokeWidth={2.2} />
+      </button>
+    );
+  }
   return (
     <div
       role="group"
@@ -25,7 +48,9 @@ export function ThemeToggle({ pref, onChange }: { pref: ThemePref; onChange: (p:
           onClick={() => onChange(value)}
           className={cn(
             'grid size-7 place-items-center rounded-full transition-colors',
-            pref === value ? 'bg-surface text-fg shadow-card' : 'text-faint hover:text-fg',
+            pref === value
+              ? 'bg-surface text-fg shadow-card ring-1 ring-line-strong ring-inset dark:bg-surface-3 dark:ring-fg/45'
+              : 'text-faint hover:text-fg',
           )}
         >
           <Icon className="size-3.5" strokeWidth={2.2} />

@@ -1,4 +1,4 @@
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Lock } from 'lucide-react';
 import { BRAND_IDS, BRANDS, brandGlyphSvg, type BrandId } from '../data/brands.ts';
 import { cn } from '../lib/cn.ts';
 
@@ -38,7 +38,7 @@ export function Legend({ brandFilter, counts, onToggle, open, onOpenChange, clas
     <div
       className={cn(
         'absolute z-10 overflow-hidden rounded-2xl border border-line bg-surface/95 text-[13px] shadow-card backdrop-blur',
-        open ? 'w-52' : 'w-auto',
+        open ? 'w-64' : 'w-auto',
         className,
       )}
     >
@@ -86,20 +86,29 @@ export function Legend({ brandFilter, counts, onToggle, open, onOpenChange, clas
               );
             })}
           </div>
-          <div className="mt-1.5 grid grid-cols-3 gap-1 border-t border-line px-0.5 pt-2 text-center text-[10.5px] leading-tight text-muted">
-            <p className="flex flex-col items-center gap-0.5">
-              <Glyph brand="ironman" halo size={24} />
-              Outer ring = full
+          <div className="mt-1.5 grid grid-cols-2 gap-x-1 gap-y-2 border-t border-line px-1 pt-2 text-[11px] leading-tight text-muted">
+            <p className="flex items-center gap-1.5">
+              <Glyph brand="ironman" halo size={22} />
+              Ring: full distance
             </p>
-            <p className="flex flex-col items-center gap-0.5">
-              <Glyph brand="challenge" hollow size={24} />
-              Dashed = date estimated
+            <p className="flex items-center gap-1.5">
+              <Glyph brand="challenge" hollow size={22} />
+              Dashed: date estimated
             </p>
-            <p className="flex flex-col items-center gap-0.5">
-              <span className="grid size-6 place-items-center">
+            <p className="flex items-center gap-1.5">
+              <span className="relative inline-block size-[22px] shrink-0">
+                <Glyph brand="ironman" size={22} />
+                <span className="absolute -top-1 -right-1 grid size-3.5 place-items-center rounded-full bg-rose-100 text-rose-900 ring-[1.5px] ring-surface">
+                  <Lock className="size-2" strokeWidth={3} />
+                </span>
+              </span>
+              Qualifier / ballot
+            </p>
+            <p className="flex items-center gap-1.5">
+              <span className="grid size-[22px] shrink-0 place-items-center">
                 <span className="size-[18px] rounded-full border-[4px] border-t-ironman border-r-challenge border-b-t100 border-l-independent" />
               </span>
-              Donut = brand mix
+              Donut: brand mix
             </p>
           </div>
         </div>

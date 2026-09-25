@@ -21,6 +21,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "hilly",
     "notes": "Swim in Lake Villarrica below the Villarrica volcano; rolling bike, hilly run.",
     "sources": [
       "https://www.ironman.com/races/im703-pucon",
@@ -50,6 +52,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "hilly",
     "notes": "Swim in Lake Ilopango, finish in San Salvador's historic centre; hilly bike and run. First held 2026.",
     "sources": [
       "https://www.ironman.com/races/im703-san-salvador",
@@ -75,6 +79,8 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in the Santa Lucía river walk at Parque Fundidora, flat urban course, finish at the Macroplaza. 2027 date TBA.",
     "sources": [
       "https://www.ironman.com/races/im703-monterrey",
@@ -104,6 +110,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "Swim in the Passaúna Reservoir, finish at Barigui Park; bike rated hilly. First held 2026.",
     "sources": [
       "https://www.ironman.com/races/im703-curitiba",
@@ -133,6 +141,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "Swim at Playa Mansa (Ovo Beach), bike with repeated climbs at Punta Ballena, flat run along the rambla.",
     "sources": [
       "https://www.ironman.com/races/im703-punta-del-este",
@@ -162,6 +172,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Lewisville Lake swim at Little Elm Park, north of Dallas. First held 2026.",
     "sources": [
       "https://www.ironman.com/races/im703-dallas-little-elm",
@@ -192,6 +204,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "hilly",
     "notes": "Condado Lagoon swim, flat bike, hilly run through Old San Juan, finish at Tercer Milenio Park.",
     "sources": [
       "https://www.ironman.com/races/im703-puerto-rico",
@@ -221,6 +235,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Ocean swim at Amador, flat course on the Amador Causeway by the Panama Canal entrance. Hot.",
     "sources": [
       "https://www.ironman.com/races/im703-panama",
@@ -250,6 +266,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "rolling",
     "notes": "Harbor swim, hilly bike through Camp Pendleton, finish at Oceanside Pier. Saturday race. IRONMAN Pro Series in 2027.",
     "sources": [
       "https://www.ironman.com/races/im703-oceanside",
@@ -281,6 +299,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Sheltered bay swim at Moody Gardens, flat and often windy course on Galveston Island.",
     "sources": [
       "https://www.ironman.com/races/im703-texas",
@@ -311,6 +331,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in the Punta Negra dam reservoir, finish at Plaza del Bicentenario in the city; Andes foothills.",
     "sources": [
       "https://www.ironman.com/races/im703-san-juan",
@@ -340,6 +362,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Swim in Lake Llanquihue, rolling bike and run, finish at the Plaza de Armas. First held 2026.",
     "sources": [
       "https://www.ironman.com/races/im703-puerto-varas",
@@ -369,6 +393,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in Lake Paranoá, flat bike and run from Pontão do Lago Sul.",
     "sources": [
       "https://www.ironman.com/races/im703-brasilia",
@@ -398,6 +424,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Pacific swim at Playa Agua Dulce in Chorrillos (Lima), flat bike and run.",
     "sources": [
       "https://www.ironman.com/races/im703-peru",
@@ -427,6 +455,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Ocean swim at Palmilla Beach, rolling bike, finish at Plaza Mijares in San José del Cabo.",
     "sources": [
       "https://www.ironman.com/races/im703-los-cabos",
@@ -456,6 +486,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Gulf of Mexico swim, flat bike and run. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im703-gulf-coast",
@@ -482,6 +514,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Caribbean swim at Juanillo Beach, flat bike and run. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-cap-cana",
@@ -511,7 +545,9 @@
       }
     ],
     "swim": "river",
-    "notes": "Downstream Tennessee River swim, rolling bike into Georgia, finish at Ross's Landing.",
+    "bike": "rolling",
+    "run": "rolling",
+    "notes": "Open-entry May race, separate from the Aug 2027 70.3 World Championship. Downstream Tennessee River swim, finish at Ross's Landing.",
     "sources": [
       "https://www.ironman.com/races/im703-chattanooga",
       "https://labs-v2.competitor.com/results/event/e2352999-586b-e411-93fa-005056951bf1",
@@ -541,6 +577,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Elk Lake swim, rolling bike on the Saanich Peninsula, flat run around the lake.",
     "sources": [
       "https://www.ironman.com/races/im703-victoria",
@@ -571,6 +609,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Ocean swim in Pauoa Bay at the Fairmont Orchid, bike on part of the Kona world championship course. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im703-hawaii",
@@ -601,6 +641,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Sea swim at Puerto Mocho beach, finish at the Gran Malecón del Río. Hot. First held 2026; moves to April in 2027.",
     "sources": [
       "https://www.ironman.com/races/im703-barranquilla",
@@ -630,6 +672,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Swim in Lake Cunningham, rolling bike, run across the Bob Kerrey bridge into Iowa. First held 2026.",
     "sources": [
       "https://www.ironman.com/races/im703-omaha",
@@ -656,7 +700,10 @@
       }
     ],
     "swim": "river",
-    "notes": "Connecticut River swim, bike rated hilly, finish in downtown Springfield. 2027 date not yet announced.",
+    "bike": "hilly",
+    "run": "rolling",
+    "notes": "Connecticut River swim, bike rated hilly, finish in downtown Springfield. IRONMAN has paused the race; no 2027 edition.",
+    "recurring": false,
     "sources": [
       "https://www.ironman.com/races/im703-western-massachusetts",
       "https://labs-v2.competitor.com/results/event/bf860cb8-4efc-49f5-90f3-7e8d8ac13f18",
@@ -686,6 +733,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "hilly",
     "notes": "Boulder Reservoir swim at ~1,600 m altitude; bike and run rated hilly. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im703-boulder",
@@ -716,6 +765,8 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Choptank River swim, flat bike through the Blackwater wildlife refuge; often hot and windy.",
     "sources": [
       "https://www.ironman.com/races/im703-eagleman",
@@ -746,6 +797,8 @@
       }
     ],
     "swim": "river",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Downriver Rock River swim to transition at Davis Park, rolling bike, flat two-lap run.",
     "sources": [
       "https://www.ironman.com/races/im703-rockford-illinois",
@@ -776,6 +829,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Swim at Bald Eagle State Park, finish at Beaver Stadium. 2026 was the North American Championship; Pro Series in 2027.",
     "sources": [
       "https://www.ironman.com/races/im703-pennsylvania",
@@ -807,6 +862,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "rolling",
     "notes": "Swim in Lake Coeur d'Alene from City Beach, hilly bike, finish on Sherman Avenue.",
     "sources": [
       "https://www.ironman.com/races/im703-coeur-dalene",
@@ -837,6 +894,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "rolling",
     "notes": "Swim in Lac Tremblant, hilly bike, finish in the pedestrian village. IRONMAN Pro Series in 2027.",
     "sources": [
       "https://www.ironman.com/races/im703-mont-tremblant",
@@ -868,6 +927,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "hilly",
     "notes": "Fairy Lake swim, tough rolling bike, hilly run; transition at the Canada Summit Centre in Huntsville.",
     "sources": [
       "https://www.ironman.com/races/im703-muskoka",
@@ -898,6 +959,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "rolling",
     "notes": "Prairie Creek Reservoir swim, flat rural bike, rolling run. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im703-muncie",
@@ -928,6 +991,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Seneca Lake swim at Geneva, rolling bike and run in the Finger Lakes.",
     "sources": [
       "https://www.ironman.com/races/im703-musselman",
@@ -958,6 +1023,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "rolling",
     "notes": "High-altitude race (~2,100 m): Grindstone Lake swim, hilly bike, finish in Ruidoso. First held 2026.",
     "sources": [
       "https://www.ironman.com/races/im703-ruidoso-new-mexico",
@@ -984,6 +1051,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Pacific swim in Manta, rolling bike, finish at the cruise terminal. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-ecuador",
@@ -1013,6 +1082,8 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Downstream Willamette River swim, flat bike and run, finish at Riverfront Park in Salem.",
     "sources": [
       "https://www.ironman.com/races/im703-oregon",
@@ -1043,6 +1114,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "rolling",
     "notes": "Ferry jump start into Lake Erie, flat bike, run through downtown Sandusky.",
     "sources": [
       "https://www.ironman.com/races/im703-ohio",
@@ -1073,6 +1146,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "Point-to-point: Lucky Peak Reservoir swim, hilly bike, finish downtown. Hot (average high ~38 °C). Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im703-boise",
@@ -1103,6 +1178,8 @@
       }
     ],
     "swim": "river",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Kennebec River swim in Augusta, rolling bike and run.",
     "sources": [
       "https://www.ironman.com/races/im703-maine",
@@ -1129,6 +1206,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Ghost Lake swim, rolling foothills bike, finish at Cochrane Ranche west of Calgary. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-calgary",
@@ -1159,6 +1238,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Ocean swim at Copacabana, flat bike and run, finish at Marina da Glória.",
     "sources": [
       "https://www.ironman.com/races/im703-rio-de-janeiro",
@@ -1188,6 +1269,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Whiskeytown Lake swim, net-downhill bike, run on the Sacramento River Trail. First held 2026.",
     "sources": [
       "https://www.ironman.com/races/im703-northern-california",
@@ -1214,6 +1297,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "hilly",
     "notes": "Lake Monona swim at Law Park, rolling bike, hilly run in Madison. Saturday race. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-wisconsin",
@@ -1240,6 +1325,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "rolling",
     "notes": "Pacific swim at Main Beach by the wharf, finish at Cowell's Beach. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-santa-cruz",
@@ -1270,6 +1357,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Caribbean swim at Chankanaab park, flat island bike, finish in downtown San Miguel. Hot and humid.",
     "sources": [
       "https://www.ironman.com/races/im703-cozumel",
@@ -1295,6 +1384,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Swim in sheltered Betsie Bay off Lake Michigan, bike on M-22, run around the bay. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-michigan",
@@ -1321,6 +1412,8 @@
       }
     ],
     "swim": "river",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Columbia River swim at Howard Amon Park, finish at Columbia Point Park. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-washington-tri-cities",
@@ -1351,6 +1444,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in the USP Olympic rowing basin (Raia Olímpica), flat bike and run from the university sports centre.",
     "sources": [
       "https://www.ironman.com/races/im703-sao-paulo",
@@ -1376,6 +1471,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Sheltered swim in Zach's Bay at Jones Beach State Park, flat bike and run. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im703-new-york",
@@ -1401,6 +1498,8 @@
       }
     ],
     "swim": "river",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Downstream Savannah River swim from North Augusta (SC), rolling bike, finish at Augusta Common.",
     "sources": [
       "https://www.ironman.com/races/im703-augusta",
@@ -1426,6 +1525,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in the Lago de Regatas in Palermo's parks, flat run in the city.",
     "sources": [
       "https://www.ironman.com/races/im703-buenos-aires"
@@ -1450,6 +1551,8 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
+    "run": "rolling",
     "notes": "Brazos River swim, flat bike, finish at Indian Spring Park. Often hot (average high ~34 °C).",
     "sources": [
       "https://www.ironman.com/races/im703-waco",
@@ -1475,6 +1578,8 @@
       }
     ],
     "swim": "river",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "Paraná River swim, finish at Playa San José; bike rated hilly.",
     "sources": [
       "https://www.ironman.com/races/im703-encarnacion"
@@ -1499,6 +1604,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "rolling",
     "notes": "Point-to-point: current-assisted swim at Wrightsville Beach, flat bike, finish in downtown Wilmington. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im703-north-carolina",
@@ -1524,7 +1631,9 @@
       }
     ],
     "swim": "ocean",
-    "notes": "Sea swim at Jurerê Internacional beach on Santa Catarina Island; flat bike and run.",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "IRONMAN's October race at Jurerê Internacional (sea swim); Challenge Florianópolis (April/November) is a separate event.",
     "sources": [
       "https://www.ironman.com/races/im703-florianopolis",
       "https://www.ironman.com/races/im703-florianopolis/directions"
@@ -1549,6 +1658,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Gulf of Mexico swim and flat course along the Campeche waterfront. Moved from March (last held Mar 2025) to November.",
     "sources": [
       "https://www.ironman.com/races/im703-campeche"
@@ -1573,6 +1684,8 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim at the Vaza-Barris river mouth, flat bike and run, finish at Atalaia Beach.",
     "sources": [
       "https://www.ironman.com/races/im703-aracaju-sergipe"
@@ -1597,6 +1710,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Bay swim from Muelle de la Bodeguita, flat course, finish in the walled old town. Hot and humid.",
     "sources": [
       "https://www.ironman.com/races/im703-cartagena"
@@ -1621,6 +1736,8 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Calle-Calle River swim, flat course. Same day as the full-distance IRONMAN Valdivia.",
     "sources": [
       "https://www.ironman.com/races/im703-valdivia"
@@ -1645,6 +1762,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Lake Cahuilla swim, flat desert course, finish at SilverRock Park. Formerly IRONMAN 70.3 Indian Wells-La Quinta.",
     "sources": [
       "https://www.ironman.com/races/im703-la-quinta",
@@ -1670,6 +1789,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Inaugural edition. Swim at Gaviotas Beach in Boca del Río, two-loop bike, run along the Veracruz malecón.",
     "sources": [
       "https://www.ironman.com/races/im703-veracruz",
@@ -1695,6 +1816,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Lake Eva swim, rolling bike and run in central Florida.",
     "sources": [
       "https://www.ironman.com/races/im703-florida",
@@ -1722,7 +1845,11 @@
       }
     ],
     "swim": "river",
-    "notes": "Qualification only. Women and men race on separate days (Aug 28-29). Tennessee River swim, hilly bike.",
+    "bike": "hilly",
+    "run": "rolling",
+    "entry": "qualification",
+    "notes": "Qualifier-only, one-off host; not the open May IRONMAN 70.3 Chattanooga. Women and men race on separate days (28-29 Aug).",
+    "recurring": false,
     "sources": [
       "https://www.ironman.com/races/im703-world-championship-2027",
       "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"

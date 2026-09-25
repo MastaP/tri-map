@@ -22,7 +22,9 @@
       }
     ],
     "swim": "ocean",
-    "notes": "Swim off Qurum Beach; IRONMAN Pro Series race in 2027.",
+    "bike": "rolling",
+    "run": "flat",
+    "notes": "Swim off Qurum Beach.",
     "sources": [
       "https://www.ironman.com/races/im703-oman",
       "https://labs-v2.competitor.com/results/event/d56de758-0895-e811-9421-005056951bf1",
@@ -48,6 +50,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim, transition and finish at Port City Colombo; flat bike on a closed coastal highway.",
     "sources": [
       "https://www.ironman.com/races/im703-colombo",
@@ -78,6 +82,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Saturday race; swim in Lake Taupo, transition at Kaimanawa Reserve.",
     "sources": [
       "https://www.ironman.com/races/im703-new-zealand",
@@ -108,11 +114,14 @@
       }
     ],
     "swim": "river",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Venue at Tianmu Qintai facing Macao; swim in the Tianmu River.",
     "sources": [
       "https://www.ironman.com/races/im703-hengqin",
       "https://labs-v2.competitor.com/results/event/dd91f93e-fba6-43c1-b0f5-a8eb9d630a11",
-      "https://www.ironman.com/races/im703-hengqin/schedule"
+      "https://www.ironman.com/races/im703-hengqin/schedule",
+      "https://www.ironman.com/races/im703-hengqin/course"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -138,6 +147,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in Talomo Bay; flat coastal-road bike. 2027 race shares race day with full-distance IRONMAN Philippines.",
     "sources": [
       "https://www.ironman.com/races/im703-davao-philippines",
@@ -168,7 +179,9 @@
       }
     ],
     "swim": "ocean",
-    "notes": "Swim in Corio Bay off Eastern Beach; IRONMAN Pro Series race in 2027.",
+    "bike": "rolling",
+    "run": "rolling",
+    "notes": "Swim in Corio Bay off Eastern Beach.",
     "sources": [
       "https://www.ironman.com/races/im703-geelong",
       "https://labs-v2.competitor.com/results/event/3bff5ad1-f53b-e311-9ec7-005056956277",
@@ -198,6 +211,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Held at the Sydney International Regatta Centre; moved from September to May in 2026.",
     "sources": [
       "https://www.ironman.com/races/im703-western-sydney",
@@ -228,6 +243,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim start and finish at East Sea Park on the Da Nang beachfront; flat course.",
     "sources": [
       "https://www.ironman.com/races/im703-danang",
@@ -254,6 +271,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Lake swim and run at Bright Tian Yuan, Chongming Island; flat course. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-shanghai-chongming",
@@ -285,6 +304,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "rolling",
     "notes": "Swim and T1 at uShaka Beach; T2 and finish at Suncoast on the Durban beachfront promenade.",
     "sources": [
       "https://www.ironman.com/races/im703-durban",
@@ -312,6 +333,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "Hilly bike on the SCTEX expressway; T2 and finish at SBECC. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-subic-bay-philippines",
@@ -342,6 +365,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "rolling",
     "notes": "Swim starts at Palm Cove; finish on the Cairns Esplanade. Shares race day with IRONMAN Cairns in 2027.",
     "sources": [
       "https://www.ironman.com/races/im703-cairns",
@@ -368,6 +393,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "hilly",
     "notes": "Venue at Goseong Dinosaur Expo Park (Danghangpo); run has a 7% hill. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-goseong",
@@ -398,6 +425,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Swim and transition at The Westin Desaru Coast; rolling bike and run.",
     "sources": [
       "https://www.ironman.com/races/im703-desaru-coast",
@@ -424,6 +453,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim at Mactan Newtown Beach; bike crosses the CCLEX bridge to Cebu City. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-cebu-philippines",
@@ -450,6 +481,8 @@
       }
     ],
     "swim": "river",
+    "bike": "flat",
+    "run": "flat",
     "notes": "First edition 2026. Altitude ~2,000 m; point-to-point swim in the Xi'er River. 2027 date not yet announced.",
     "sources": [
       "https://www.ironman.com/races/im703-dali",
@@ -481,6 +514,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Ocean swim off Mooloolaba Beach; transition on Parkyn Parade.",
     "sources": [
       "https://www.ironman.com/races/im703-sunshine-coast",
@@ -507,6 +542,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Friday race. Moved from Sahl Hasheesh; Red Sea swim in Naama Bay.",
     "sources": [
       "https://www.ironman.com/races/im703-sharm-el-sheikh",
@@ -536,6 +573,8 @@
       }
     ],
     "swim": "river",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Oceania TriClub Championship; moved from May to October in 2026. Swim in the Hastings River.",
     "sources": [
       "https://www.ironman.com/races/im703-port-macquarie",
@@ -562,6 +601,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Saturday race based at Hawana Salalah.",
     "sources": [
       "https://www.ironman.com/races/im703-dhofar",
@@ -587,6 +628,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "Swim in Agadir bay; single-loop bike inland and along the Taghazout coast; finish at Place Al Wahda.",
     "sources": [
       "https://www.ironman.com/races/im703-agadir",
@@ -613,7 +656,9 @@
       }
     ],
     "swim": "ocean",
-    "notes": "Swim off Miramar Beach, Panaji; organiser rates bike and run as hilly.",
+    "bike": "hilly",
+    "run": "hilly",
+    "notes": "Swim off Miramar Beach, Panaji.",
     "sources": [
       "https://www.ironman.com/races/im703-goa",
       "https://www.ironman.com/races/im703-goa/schedule"
@@ -638,6 +683,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in Kenting Little Bay; transition at Howard Beach Resort; coastal bike on Highway 26.",
     "sources": [
       "https://www.ironman.com/races/im703-kenting",
@@ -667,6 +714,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in Port Phillip Bay off St Kilda Beach; transition and finish at Catani Gardens.",
     "sources": [
       "https://www.ironman.com/races/im703-melbourne",
@@ -693,6 +742,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim, transition and finish at the Waterfront beach square by Phu Quoc Marina; bike along the southern coast.",
     "sources": [
       "https://www.ironman.com/races/im703-phu-quoc",
@@ -723,6 +774,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "flat",
     "notes": "Saturday race. Non-wetsuit swim, 2026 T1 at Holiday Villa, Pantai Tengah; hilly one-loop bike; finish at Pelangi Beach, Cenang.",
     "sources": [
       "https://www.ironman.com/races/im703-langkawi",
@@ -750,6 +803,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "rolling",
     "notes": "African TriClub Championship; swim at De Bakke Beach, Santos Bay; hilly bike.",
     "sources": [
       "https://www.ironman.com/races/im703-mossel-bay",
@@ -775,6 +830,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim off Busselton Foreshore in Geographe Bay; transition at Signal Park; flat bike and run.",
     "sources": [
       "https://www.ironman.com/races/im703-western-australia",
@@ -800,6 +857,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Friday race at Reef Island, Manama; bike passes the Bahrain International Circuit.",
     "sources": [
       "https://www.ironman.com/races/im703-bahrain",
@@ -827,6 +886,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "rolling",
     "notes": "Returns in 2027 after no 2025-26 edition; swim and finish at Hobie Beach on the 2018 70.3 Worlds course.",
     "sources": [
       "https://www.ironman.com/races/im703-nelson-mandela-bay",
@@ -852,6 +913,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "notes": "First edition 2027. Swim at Sadiri Beach (Fort Ilocandia); finish inside the Marcos Stadium in Laoag City.",
     "sources": [
       "https://www.ironman.com/races/im703-laoag",
@@ -878,6 +941,8 @@
       }
     ],
     "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
     "notes": "First edition 2027 (Saturday). Swim at Old Doha Port; flat bike toward Lusail and Simaisma.",
     "sources": [
       "https://www.ironman.com/races/im703-doha",

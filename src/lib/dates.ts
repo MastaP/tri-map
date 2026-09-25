@@ -33,6 +33,24 @@ export function daysBetween(a: ISODate, b: ISODate): number {
   return Math.round((toUTC(b).getTime() - toUTC(a).getTime()) / DAY_MS);
 }
 
+/**
+ * The same weekday in the same week of the same month, in another year: the 1st Sunday
+ * of March 2026 (2026-03-01) → the 1st Sunday of March 2027 (2027-03-07). Races are
+ * usually scheduled that way ("first weekend of March"), and unlike adding 52 weeks it
+ * never drifts into the previous month. A 5th weekday that a month does not have
+ * becomes the last one.
+ */
+export function sameWeekdayInYear(base: ISODate, year: number): ISODate {
+  const b = toUTC(base);
+  const month = b.getUTCMonth();
+  const nth = Math.ceil(b.getUTCDate() / 7); // 1…5
+  const firstWeekday = new Date(Date.UTC(year, month, 1)).getUTCDay();
+  let day = 1 + ((b.getUTCDay() - firstWeekday + 7) % 7) + (nth - 1) * 7;
+  const daysInMonth = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+  while (day > daysInMonth) day -= 7;
+  return fromUTC(new Date(Date.UTC(year, month, day)));
+}
+
 export function monthKeyOf(iso: ISODate): MonthKey {
   return iso.slice(0, 7);
 }
@@ -131,7 +149,10 @@ export function dayOfMonth(iso: ISODate): number {
   return Number(iso.slice(8, 10));
 }
 
-/** Human countdown from `today` to `date`: "today", "tomorrow", "in 5 weeks", … */
+/**
+ * Human countdown from `today` to `date`: "today", "tomorrow", "in 5 days", "in 23 weeks",
+ * "in 14 months". Weeks up to a year out, because training plans are counted in weeks.
+ */
 export function countdown(today: ISODate, date: ISODate): string {
   const days = daysBetween(today, date);
   if (days < -1) return `${-days} days ago`;
@@ -139,7 +160,7 @@ export function countdown(today: ISODate, date: ISODate): string {
   if (days === 0) return 'today';
   if (days === 1) return 'tomorrow';
   if (days < 14) return `in ${days} days`;
-  if (days < 61) return `in ${Math.round(days / 7)} weeks`;
+  if (days < 365) return `in ${Math.round(days / 7)} weeks`;
   const months = Math.round(days / 30.44);
   if (months < 18) return `in ${months} months`;
   const years = Math.round((days / 365.25) * 2) / 2;

@@ -9,13 +9,7 @@ interface Props {
   placeholder?: string;
 }
 
-export function SearchBox({
-  value,
-  onChange,
-  inputRef,
-  className,
-  placeholder = 'Search race, city or country',
-}: Props) {
+export function SearchBox({ value, onChange, inputRef, className, placeholder = 'Race, city or country' }: Props) {
   return (
     <div className={`group relative ${className ?? ''}`}>
       <Search

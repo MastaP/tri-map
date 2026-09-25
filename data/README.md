@@ -93,7 +93,9 @@ age-group race:
 ### When the app should not guess the next edition
 
 By default, if a race has no edition on or after today, the app estimates the next one
-(last edition + 52 weeks) and labels it as an estimate. That is wrong for some races,
+(same month, weekday and week of the month as the last edition, e.g. the first Sunday of
+March) and labels it as an estimate; it also projects next year's edition that way for
+season-planning searches. That is wrong for some races,
 so the record must say so:
 
 - `"continuedAs": "<id>"`: the race will not be held again in this form, and another

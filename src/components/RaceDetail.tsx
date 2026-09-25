@@ -1,27 +1,42 @@
 import {
+  ArrowRight,
   Bike,
   CalendarPlus,
   ChevronLeft,
   ExternalLink,
   Footprints,
+  History,
   Link as LinkIcon,
   MapPin,
+  Navigation,
   Star,
   Waves,
   X,
 } from 'lucide-react';
 import { useEffect, useRef, type ReactNode } from 'react';
-import { correctionUrl } from '../config.ts';
+import { correctionUrl, RACE_PAGES } from '../config.ts';
 import { BRANDS, DISTANCES } from '../data/brands.ts';
 import { REGIONS } from '../data/regions.ts';
 import type { Race } from '../data/types.ts';
 import { cn } from '../lib/cn.ts';
 import { formatDate, formatDateRange, formatLongDate, formatMonthLong, type ISODate } from '../lib/dates.ts';
+import { copyText } from '../lib/clipboard.ts';
 import { buildIcs, icsFileName } from '../lib/ics.ts';
-import { countdownTo, raceLink } from '../lib/raceText.ts';
+import {
+  countdownTo,
+  ENTRY_EXPLAINER,
+  firstYear,
+  raceLink,
+  seriesLabel,
+  shortRaceName,
+  sourceLabels,
+  SWIM_LABEL,
+  SWIM_LONG,
+  TERRAIN_LABEL,
+} from '../lib/raceText.ts';
 import { BrandGlyph } from './BrandGlyph.tsx';
 import { Flag } from './Flag.tsx';
-import { ChampionshipBadge, DistanceBadge } from './RaceBits.tsx';
+import { ChampionshipBadge, DistanceBadge, EntryBadge, TerrainGlyph } from './RaceBits.tsx';
 
 interface Props {
   race: Race;
@@ -34,27 +49,13 @@ interface Props {
   variant: 'panel' | 'sheet';
   /** Other races at the same venue (e.g. the half on the same weekend). */
   siblings: Race[];
+  /** The race that replaces this one (`continuedAs`), if it is in the data. */
+  successor: Race | null;
+  /** Races this one replaces ("Formerly …"). */
+  predecessors: Race[];
   onSelect: (id: string) => void;
-}
-
-const SWIM_LABEL = { ocean: 'Open water (sea)', lake: 'Lake', river: 'River / canal' } as const;
-
-async function copyText(text: string): Promise<boolean> {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.setAttribute('readonly', '');
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.append(ta);
-    ta.select();
-    const ok = document.execCommand('copy');
-    ta.remove();
-    return ok;
-  }
+  /** Replaces the close button row's left side on the mobile sheet (the drag handle). */
+  handle?: ReactNode;
 }
 
 function IconButton({
@@ -75,7 +76,7 @@ function IconButton({
       aria-label={label}
       title={label}
       aria-pressed={pressed}
-      className="grid size-9 place-items-center rounded-full text-muted transition-colors hover:bg-surface-2 hover:text-fg active:scale-95"
+      className="relative grid size-9 place-items-center rounded-full text-muted transition-colors before:absolute before:-inset-1 hover:bg-surface-2 hover:text-fg active:scale-95 pointer-coarse:size-11"
     >
       {children}
     </button>
@@ -91,13 +92,43 @@ export function RaceDetail({
   onToast,
   variant,
   siblings,
+  successor,
+  predecessors,
   onSelect,
+  handle,
 }: Props) {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const next = race.nextEdition;
   const d = DISTANCES[race.distance];
   const correction = correctionUrl(race);
+  const lastHeld = race.editions.findLast((e) => e.status !== 'cancelled' && (e.endDate ?? e.date) < today);
+  const successorYear = successor ? firstYear(successor) : null;
+
+  const successorLink = successor && (
+    <button
+      type="button"
+      onClick={() => onSelect(successor.id)}
+      className="group flex w-full items-center gap-3 rounded-xl border border-line-strong bg-surface px-3 py-2.5 text-left transition-colors hover:border-fg/40 hover:bg-surface-3"
+    >
+      <span className="grid size-8 shrink-0 place-items-center rounded-full bg-ink text-on-ink" aria-hidden="true">
+        <ArrowRight className="size-4" />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block text-[14px] leading-snug">
+          Continues as <span className="font-semibold">{successor.name}</span>
+          {successorYear && <> from {successorYear}</>}
+        </span>
+        <span className="mt-0.5 block truncate text-[12px] text-muted">
+          {successor.series ?? BRANDS[successor.brand].label} · {DISTANCES[successor.distance].badge}
+        </span>
+      </span>
+      <ChevronLeft
+        className="size-4 shrink-0 rotate-180 text-muted transition-transform group-hover:translate-x-0.5"
+        aria-hidden="true"
+      />
+    </button>
+  );
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: 0 });
@@ -106,7 +137,7 @@ export function RaceDetail({
 
   const downloadIcs = () => {
     if (!next || next.estimated) return;
-    const ics = buildIcs(race, next, new Date(), raceLink(race.id));
+    const ics = buildIcs(race, next, new Date(), raceLink(race.id, window.location.href, { page: RACE_PAGES }));
     const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
     const a = document.createElement('a');
     a.href = url;
@@ -119,7 +150,11 @@ export function RaceDetail({
   };
 
   const copyLink = async () => {
-    onToast((await copyText(raceLink(race.id))) ? 'Link copied' : 'Could not copy the link');
+    onToast(
+      (await copyText(raceLink(race.id, window.location.href, { page: RACE_PAGES })))
+        ? 'Link copied'
+        : 'Could not copy the link',
+    );
   };
 
   return (
@@ -137,15 +172,15 @@ export function RaceDetail({
             </kbd>
           </button>
         ) : (
-          <span className="mx-auto h-1.5 w-10 rounded-full bg-line-strong" aria-hidden="true" />
+          handle
         )}
-        <div className={cn('flex items-center', variant === 'panel' && 'ml-auto')}>
+        <div className="ml-auto flex items-center">
           <IconButton
             label={starred ? 'Remove from shortlist' : 'Add to shortlist'}
             onClick={() => onToggleStar(race.id)}
             pressed={starred}
           >
-            <Star className={cn('size-[18px]', starred && 'fill-current text-independent')} />
+            <Star className={cn('size-[18px]', starred && 'fill-current text-amber-600 dark:text-amber-400')} />
           </IconButton>
           <IconButton label="Copy link to this race" onClick={copyLink}>
             <LinkIcon className="size-[18px]" />
@@ -161,8 +196,8 @@ export function RaceDetail({
       <div ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
         <div key={race.id} className="animate-slide-in px-5 pt-5 pb-8">
           <div className="flex items-center gap-2 text-[12px] font-semibold tracking-[0.08em] text-muted uppercase">
-            <BrandGlyph brand={race.brand} size={26} hollow={next?.estimated} />
-            <span>{race.series ?? BRANDS[race.brand].label}</span>
+            <BrandGlyph brand={race.brand} size={26} hollow={!next || next.estimated} />
+            <span>{seriesLabel(race, BRANDS[race.brand].label)}</span>
           </div>
           <h2
             id="race-detail-title"
@@ -174,7 +209,8 @@ export function RaceDetail({
           </h2>
           <div className="mt-3 flex flex-wrap items-center gap-1.5">
             <DistanceBadge distance={race.distance} long />
-            {race.championship && <ChampionshipBadge title={race.championship} />}
+            <EntryBadge entry={race.entry} />
+            <ChampionshipBadge race={race} short={false} />
           </div>
           <p className="mt-3 flex items-center gap-1.5 text-[15px] text-muted">
             <Flag code={race.country} className="h-3.5 w-[19px]" />
@@ -183,12 +219,42 @@ export function RaceDetail({
             </span>
             <span className="text-faint">· {REGIONS[race.region].label}</span>
           </p>
+          {predecessors.length > 0 && (
+            <p className="mt-1.5 flex flex-wrap items-center gap-x-1.5 text-[13px] text-muted">
+              <History className="size-3.5 shrink-0" aria-hidden="true" />
+              <span aria-hidden="true">Formerly</span>
+              {predecessors.map((p, i) => (
+                <span key={p.id}>
+                  <button
+                    type="button"
+                    onClick={() => onSelect(p.id)}
+                    aria-label={`Formerly ${p.name}`}
+                    className="rounded font-semibold text-fg underline decoration-line-strong underline-offset-2 hover:decoration-fg"
+                  >
+                    {p.name}
+                  </button>
+                  {i < predecessors.length - 1 && ','}
+                </span>
+              ))}
+            </p>
+          )}
 
           {/* Next edition */}
           <section aria-label="Next race" className="mt-5 rounded-2xl border border-line bg-surface-2 p-4">
             <p className="text-[11px] font-semibold tracking-[0.12em] text-muted uppercase">Next race</p>
             {!next ? (
-              <p className="mt-1 font-display text-2xl font-bold uppercase">No upcoming edition</p>
+              <>
+                <p className="mt-1 font-display text-[26px] leading-tight font-bold uppercase">
+                  No future edition announced
+                </p>
+                <p className="mt-1 text-sm text-muted">
+                  {lastHeld ? `Last held ${formatDate(lastHeld.date)}. ` : 'Every listed edition was cancelled. '}
+                  {successor
+                    ? 'The race carries on under a new name:'
+                    : 'Check the official website for news of a future edition.'}
+                </p>
+                {successor && <div className="mt-3">{successorLink}</div>}
+              </>
             ) : next.estimated ? (
               <>
                 <p className="mt-1 font-display text-[28px] leading-tight font-bold text-muted">
@@ -235,6 +301,8 @@ export function RaceDetail({
             </div>
           </section>
 
+          {next && successor && <div className="mt-3">{successorLink}</div>}
+
           {siblings.length > 0 && (
             <section aria-labelledby="same-venue-title" className="mt-3">
               <h3 id="same-venue-title" className="sr-only">
@@ -248,16 +316,27 @@ export function RaceDetail({
                       onClick={() => onSelect(s.id)}
                       className="group flex w-full items-center gap-2.5 rounded-xl border border-dashed border-line-strong px-3 py-2 text-left text-sm transition-colors hover:border-solid hover:bg-surface-2"
                     >
-                      <span className="text-[11px] font-semibold tracking-wide text-muted uppercase">Also here</span>
-                      <DistanceBadge distance={s.distance} />
-                      <span className="min-w-0 flex-1 truncate font-medium">
-                        {s.nextEdition
-                          ? s.nextEdition.estimated
-                            ? `≈ ${formatMonthLong(s.nextEdition.date)}`
-                            : formatDate(s.nextEdition.date)
-                          : s.name}
+                      <span className="flex min-w-0 flex-1 flex-col gap-1">
+                        <span className="flex min-w-0 items-center gap-1.5">
+                          <span className="text-[11px] font-semibold tracking-wide text-muted uppercase">
+                            Also here
+                          </span>
+                          <DistanceBadge distance={s.distance} />
+                          <EntryBadge entry={s.entry} />
+                        </span>
+                        <span className="min-w-0 font-medium text-pretty">
+                          {shortRaceName(s, race)}
+                          <span className="font-normal text-muted">
+                            {' · '}
+                            {s.nextEdition
+                              ? s.nextEdition.estimated
+                                ? `≈ ${formatMonthLong(s.nextEdition.date)}`
+                                : formatDate(s.nextEdition.date)
+                              : 'no upcoming date'}
+                          </span>
+                        </span>
                       </span>
-                      <ChevronLeft className="size-4 rotate-180 text-muted transition-transform group-hover:translate-x-0.5" />
+                      <ChevronLeft className="size-4 shrink-0 rotate-180 text-muted transition-transform group-hover:translate-x-0.5" />
                     </button>
                   </li>
                 ))}
@@ -265,23 +344,63 @@ export function RaceDetail({
             </section>
           )}
 
-          {/* Distance */}
-          <section aria-label="Distance" className="mt-5">
+          {/* Course: distances plus swim type and bike / run profiles */}
+          <section aria-labelledby="course-title" className="mt-5">
+            <h3 id="course-title" className="sr-only">
+              Course details
+            </h3>
             <div className="grid grid-cols-3 overflow-hidden rounded-2xl border border-line">
               {(
                 [
-                  ['Swim', d.swim, Waves],
-                  ['Bike', d.bike, Bike],
-                  ['Run', d.run, Footprints],
+                  {
+                    label: 'Swim',
+                    km: d.swim,
+                    Icon: Waves,
+                    detail: race.swim ? SWIM_LABEL[race.swim] : null,
+                    title: race.swim ? SWIM_LONG[race.swim] : undefined,
+                    terrain: undefined,
+                    what: 'Swim type',
+                  },
+                  {
+                    label: 'Bike',
+                    km: d.bike,
+                    Icon: Bike,
+                    detail: race.bike ? TERRAIN_LABEL[race.bike] : null,
+                    title: race.bike ? `${TERRAIN_LABEL[race.bike]} bike course` : undefined,
+                    terrain: race.bike,
+                    what: 'Bike course',
+                  },
+                  {
+                    label: 'Run',
+                    km: d.run,
+                    Icon: Footprints,
+                    detail: race.run ? TERRAIN_LABEL[race.run] : null,
+                    title: race.run ? `${TERRAIN_LABEL[race.run]} run course` : undefined,
+                    terrain: race.run,
+                    what: 'Run course',
+                  },
                 ] as const
-              ).map(([label, km, Icon], i) => (
-                <div key={label} className={cn('px-3 py-3', i > 0 && 'border-l border-line')}>
-                  <Icon className="size-4 text-muted" aria-hidden="true" />
-                  <p className="tabular mt-1.5 font-display text-[24px] leading-none font-bold">
-                    {km}
-                    <span className="ml-0.5 text-[13px] font-semibold text-muted">km</span>
+              ).map(({ label, km, Icon, detail, title, terrain, what }, i) => (
+                <div key={label} className={cn('flex min-w-0 flex-col', i > 0 && 'border-l border-line')}>
+                  <div className="px-3 pt-3 pb-2.5">
+                    <Icon className="size-4 text-muted" aria-hidden="true" />
+                    <p className="tabular mt-1.5 font-display text-[24px] leading-none font-bold">
+                      {km}
+                      <span className="ml-0.5 text-[13px] font-bold text-muted">km</span>
+                    </p>
+                    <p className="mt-0.5 text-[12px] text-muted">{label}</p>
+                  </div>
+                  <p
+                    className={cn(
+                      'mt-auto flex min-h-9 items-center gap-1.5 border-t border-line bg-surface-2/60 px-3 py-2 text-[12.5px] leading-tight',
+                      detail ? 'font-semibold text-fg' : 'text-faint',
+                    )}
+                    title={title}
+                  >
+                    <span className="sr-only">{what}: </span>
+                    {terrain && <TerrainGlyph terrain={terrain} />}
+                    <span className="min-w-0">{detail ?? 'Not listed yet'}</span>
                   </p>
-                  <p className="mt-0.5 text-[12px] text-muted">{label}</p>
                 </div>
               ))}
             </div>
@@ -292,24 +411,43 @@ export function RaceDetail({
 
           {/* Facts */}
           <dl className="mt-5 divide-y divide-line rounded-2xl border border-line text-sm">
-            {race.swim && (
+            <div className="flex gap-3 px-4 py-3">
+              <dt className="w-20 shrink-0 text-muted">Entry</dt>
+              <dd className="text-pretty">
+                {next
+                  ? ENTRY_EXPLAINER[race.entry]
+                  : successor
+                    ? `No longer held in this form: see ${successor.name}.`
+                    : 'No future edition to enter.'}
+              </dd>
+            </div>
+            {race.series && race.series !== seriesLabel(race, BRANDS[race.brand].label) && (
               <div className="flex gap-3 px-4 py-3">
-                <dt className="w-20 shrink-0 text-muted">Swim</dt>
-                <dd>{SWIM_LABEL[race.swim]}</dd>
+                <dt className="w-20 shrink-0 text-muted">Series</dt>
+                <dd className="text-pretty">{race.series}</dd>
               </div>
             )}
             <div className="flex gap-3 px-4 py-3">
               <dt className="w-20 shrink-0 text-muted">Venue</dt>
               <dd className="min-w-0">
-                {race.city}, {race.countryName}
-                <a
-                  href={`https://www.openstreetmap.org/?mlat=${race.lat}&mlon=${race.lng}#map=13/${race.lat}/${race.lng}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-0.5 flex items-center gap-1 text-[12px] text-muted underline-offset-2 hover:text-fg hover:underline"
-                >
-                  <MapPin className="size-3" /> {race.lat.toFixed(3)}, {race.lng.toFixed(3)}
-                </a>
+                <span className="flex flex-wrap gap-x-3 gap-y-1">
+                  <a
+                    href={`https://www.openstreetmap.org/?mlat=${race.lat}&mlon=${race.lng}#map=13/${race.lat}/${race.lng}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 font-medium underline decoration-line-strong underline-offset-2 hover:decoration-fg"
+                  >
+                    <MapPin className="size-3.5" aria-hidden="true" /> Open in maps
+                  </a>
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${race.lat},${race.lng}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 font-medium underline decoration-line-strong underline-offset-2 hover:decoration-fg"
+                  >
+                    <Navigation className="size-3.5" aria-hidden="true" /> Directions
+                  </a>
+                </span>
               </dd>
             </div>
             {race.notes && (
@@ -324,7 +462,7 @@ export function RaceDetail({
           <section aria-labelledby="editions-title" className="mt-5">
             <h3
               id="editions-title"
-              className="font-display text-[13px] font-semibold tracking-[0.1em] text-muted uppercase"
+              className="font-display text-[13px] font-bold tracking-[0.1em] text-muted uppercase"
             >
               Known editions
             </h3>
@@ -375,11 +513,11 @@ export function RaceDetail({
           <div className="mt-6 space-y-1 text-[12px] text-faint">
             <p>
               Sources:{' '}
-              {race.sources.map((s, i) => (
-                <span key={s}>
+              {sourceLabels(race.sources).map(({ url, label }, i) => (
+                <span key={url}>
                   {i > 0 && ', '}
-                  <a href={s} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-fg">
-                    {new URL(s).hostname.replace(/^www\./, '')}
+                  <a href={url} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-fg">
+                    {label}
                   </a>
                 </span>
               ))}

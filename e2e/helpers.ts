@@ -15,3 +15,21 @@ export async function waitForMap(page: Page) {
   await expect(page.locator('.maplibregl-canvas')).toBeVisible({ timeout: 20_000 });
   await page.waitForFunction(() => document.querySelectorAll('.tm-marker').length > 0, undefined, { timeout: 20_000 });
 }
+
+/** The result count in the toolbar ("16 races", "1 race of 16"). */
+export async function expectResults(page: Page, n: number) {
+  await expect(page.getByTestId('result-count')).toHaveText(new RegExp(`^${n} races?\\b`));
+}
+
+/** Desktop: open the full filter panel behind the "Filters" button. */
+export async function openFilterPanel(page: Page) {
+  const toggle = page.getByRole('button', { name: /^Filters/ });
+  if ((await toggle.getAttribute('aria-expanded')) !== 'true') await toggle.click();
+  await expect(page.locator('#filter-panel')).toBeVisible();
+}
+
+/** Unfold the "Next 3 weeks" group at the top of the date-sorted list, if there is one. */
+export async function expandSoon(page: Page) {
+  const fold = page.getByRole('button', { name: /^Next 3 weeks/ });
+  if ((await fold.count()) && (await fold.getAttribute('aria-expanded')) !== 'true') await fold.click();
+}

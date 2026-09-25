@@ -27,9 +27,21 @@
   --tm-shadow-lg: 0 10px 40px -10px rgb(12 18 32 / 0.35);
   --tm-marker-ring: #ffffff;
   --tm-hollow-fill: #ffffff;
+  --tm-hollow-mix: 0%;
   --tm-map-bg: #fafaf8;
   --tm-logo-edge: transparent;
+  /* Entry badge inside the map tooltip, which uses the inverted (ink) surface. */
+  --tm-tip-entry-bg: rgb(251 113 133 / 0.24);
+  --tm-tip-entry-fg: #fecdd3;
+  /* Height of the sticky results toolbar; month headers stick right below it. */
+  --tm-toolbar-h: 48px;
   color-scheme: light;
+}
+
+@media (pointer: coarse) {
+  :root {
+    --tm-toolbar-h: 56px;
+  }
 }
 
 [data-theme='dark'] {
@@ -52,9 +64,15 @@
   --tm-shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 6px 20px -6px rgb(0 0 0 / 0.6);
   --tm-shadow-lg: 0 16px 48px -12px rgb(0 0 0 / 0.8);
   --tm-marker-ring: #f5f7fa;
+  /* Estimated-date glyphs: brand-tinted fill and a light monogram, so they stay visible
+     on the near-black basemap. */
   --tm-hollow-fill: #121824;
+  --tm-hollow-mix: 42%;
+  --tm-hollow-ink: #f5f7fa;
   --tm-map-bg: #0e0e0e;
   --tm-logo-edge: rgb(255 255 255 / 0.14);
+  --tm-tip-entry-bg: #ffe4e6;
+  --tm-tip-entry-fg: #881337;
   color-scheme: dark;
 }
 
@@ -77,7 +95,7 @@
   --color-danger: var(--tm-danger);
   --color-ironman: #d42a1f;
   --color-challenge: #1d5fd6;
-  --color-t100: #8e3bd0;
+  --color-t100: #0d9488;
   --color-independent: #f0a30a;
   --shadow-card: var(--tm-shadow);
   --shadow-float: var(--tm-shadow-lg);
@@ -239,11 +257,13 @@
 .tm-marker.is-dimmed .tm-pin {
   opacity: 0.25;
 }
-.tm-marker.is-selected {
+.tm-marker.is-selected,
+.tm-marker.is-covered {
   visibility: hidden;
 }
 
-/* Small distance tag under single-race markers at closer zoom levels. */
+/* Distance tag under single-race markers at closer zoom levels: the same words and
+   colours as the distance badge on the cards (FULL ink, HALF grey, T100 outlined). */
 .tm-tag {
   position: absolute;
   left: 50%;
@@ -251,18 +271,60 @@
   translate: -50% 3px;
   padding: 1px 4px 0;
   border-radius: 4px;
-  background: var(--tm-surface);
+  background: var(--tm-surface-3);
   color: var(--tm-fg);
   font: 700 10px/13px var(--font-display);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   white-space: nowrap;
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
   opacity: 0;
   transition: opacity 0.2s;
   pointer-events: none;
 }
+.tm-tag-full {
+  background: var(--tm-ink);
+  color: var(--tm-on-ink);
+}
+.tm-tag-t100 {
+  background: var(--tm-surface);
+  box-shadow:
+    inset 0 0 0 1px var(--tm-line-strong),
+    0 1px 3px rgb(0 0 0 / 0.25);
+}
 .tm-show-tags .tm-tag {
   opacity: 1;
+}
+
+/* Lock / ticket pip on qualifier-only and ballot races. */
+.tm-entry-pip {
+  position: absolute;
+  right: -4px;
+  top: -4px;
+  display: grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #ffe4e6;
+  color: #881337;
+  box-shadow: 0 0 0 1.5px var(--tm-marker-ring);
+}
+.tm-entry-pip svg {
+  width: 9px;
+  height: 9px;
+}
+
+/* Bigger invisible hit area for touch. */
+@media (pointer: coarse) {
+  .tm-pin::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+  }
+}
+.tm-pin {
+  position: relative;
 }
 
 /* Hover tooltip */
@@ -297,9 +359,30 @@
   opacity: 0.75;
   white-space: nowrap;
 }
+.tm-tip .tm-tip-entry {
+  display: block;
+  width: fit-content;
+  margin-top: 4px;
+  padding: 0 6px;
+  border-radius: 5px;
+  background: var(--tm-tip-entry-bg);
+  color: var(--tm-tip-entry-fg);
+  font: 600 11px/17px var(--font-sans);
+  font-style: normal;
+  white-space: nowrap;
+}
 .tm-marker:hover .tm-tip {
   opacity: 1;
   translate: -50% 0;
+}
+
+/* Cluster fans (2–3 races): their brand glyphs, slightly overlapping. */
+.tm-fan-glyph {
+  position: absolute;
+  display: block;
+}
+.tm-fan .tm-pin {
+  filter: drop-shadow(0 1px 1.5px rgb(0 0 0 / 0.35));
 }
 
 /* Cluster donuts */
@@ -334,31 +417,88 @@
   height: 40px;
   filter: drop-shadow(0 2px 3px rgb(0 0 0 / 0.4)) drop-shadow(0 6px 14px rgb(0 0 0 / 0.3));
 }
+/* Full distance: the glyph keeps its outer ring, so it needs a little more room. */
+.tm-selection .tm-pin.tm-pin-halo {
+  width: 46px;
+  height: 46px;
+}
 
-/* Ring shown on the map while a list card is hovered (works inside clusters too). */
-.tm-hover-ring {
+/* While a list card is hovered and its race is inside a cluster: the race's glyph pops up
+   above its location on a short stem, so the cluster count below stays readable. */
+.tm-hover-pop {
   pointer-events: none;
   position: relative;
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  border: 3px solid var(--tm-fg);
-  box-shadow:
-    0 0 0 3px var(--tm-surface),
-    inset 0 0 0 2px var(--tm-surface);
-  animation: tm-fade-in 0.15s ease-out both;
+  width: 12px;
+  height: 12px;
 }
-.tm-hover-ring::after {
-  content: '';
+.tm-hover-pop-dot {
+  position: absolute;
+  inset: 2px;
+  border-radius: 999px;
+  background: var(--tm-sel-color, var(--tm-fg));
+  box-shadow: 0 0 0 2px var(--tm-marker-ring);
+}
+.tm-hover-pop-stem {
+  position: absolute;
+  left: 5px;
+  bottom: 6px;
+  width: 2px;
+  height: 30px;
+  background: var(--tm-fg);
+  box-shadow: 0 0 0 1px var(--tm-marker-ring);
+}
+.tm-hover-pop-glyph {
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  width: 34px;
+  height: 34px;
+  translate: -50% 0;
+  filter: drop-shadow(0 2px 3px rgb(0 0 0 / 0.4)) drop-shadow(0 4px 10px rgb(0 0 0 / 0.25));
+  animation: tm-pop-in 0.18s var(--ease-out-soft) both;
+}
+.tm-hover-pop-glyph svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+@keyframes tm-pop-in {
+  from {
+    translate: -50% 8px;
+    opacity: 0;
+  }
+}
+
+/* Where "Nearest" measures from when the viewer's location is not shared. */
+.tm-center-mark {
+  pointer-events: none;
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 8px;
-  height: 8px;
-  margin: -4px 0 0 -4px;
-  border-radius: 999px;
+  width: 22px;
+  height: 22px;
+  translate: -50% -50%;
+}
+.tm-center-mark::before,
+.tm-center-mark::after {
+  content: '';
+  position: absolute;
   background: var(--tm-fg);
-  box-shadow: 0 0 0 2px var(--tm-surface);
+  box-shadow: 0 0 0 1.5px var(--tm-surface);
+  border-radius: 2px;
+}
+.tm-center-mark::before {
+  left: 10px;
+  top: 0;
+  width: 2px;
+  height: 22px;
+}
+.tm-center-mark::after {
+  top: 10px;
+  left: 0;
+  width: 22px;
+  height: 2px;
 }
 
 /* ----------------------------------------------------------------------------------
@@ -380,6 +520,10 @@
 }
 [data-theme='dark'] .maplibregl-ctrl-attrib-button {
   filter: invert(1);
+}
+/* Popups above every marker (a hovered marker's tooltip must not cover them). */
+.maplibregl-popup {
+  z-index: 40;
 }
 .maplibregl-popup-content {
   padding: 0;
@@ -458,4 +602,20 @@
   color: var(--tm-muted);
   font-size: 12px;
   font-weight: 450;
+}
+/* Same rose badge as the cards' "Qualifier only" / "Ballot". */
+.tm-popup-list .tm-popup-entry {
+  display: inline-block;
+  margin-left: 2px;
+  padding: 0 5px;
+  border-radius: 5px;
+  background: #ffe4e6;
+  color: #881337;
+  font: 600 11px/17px var(--font-sans);
+  font-style: normal;
+  white-space: nowrap;
+}
+[data-theme='dark'] .tm-popup-list .tm-popup-entry {
+  background: rgb(251 113 133 / 0.15);
+  color: #fecdd3;
 }

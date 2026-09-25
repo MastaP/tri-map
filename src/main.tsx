@@ -1,5 +1,4 @@
 import '@fontsource-variable/inter/wght.css';
-import '@fontsource/barlow-condensed/600.css';
 import '@fontsource/barlow-condensed/700.css';
 import '@fontsource/barlow-condensed/700-italic.css';
 import './index.css';

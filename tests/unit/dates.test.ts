@@ -9,6 +9,7 @@ import {
   formatMonthShort,
   localToday,
   monthRange,
+  sameWeekdayInYear,
 } from '../../src/lib/dates.ts';
 
 describe('dates', () => {
@@ -38,7 +39,11 @@ describe('dates', () => {
     expect(countdown(t, '2026-09-26')).toBe('tomorrow');
     expect(countdown(t, '2026-09-30')).toBe('in 5 days');
     expect(countdown(t, '2026-10-30')).toBe('in 5 weeks');
-    expect(countdown(t, '2027-06-27')).toBe('in 9 months');
+    // Weeks up to a year out: training plans are counted in weeks.
+    expect(countdown(t, '2027-06-27')).toBe('in 39 weeks');
+    expect(countdown(t, '2027-09-24')).toBe('in 52 weeks');
+    expect(countdown(t, '2027-09-25')).toBe('in 12 months');
+    expect(countdown(t, '2028-01-25')).toBe('in 16 months');
     expect(countdown(t, '2028-09-25')).toBe('in 2 years');
   });
 });
@@ -50,5 +55,19 @@ describe('month names', () => {
     expect(formatMonthShort('2026-09-25')).toBe('Sep 2026');
     expect(formatMonthLong('2026-09')).toBe('September 2026');
     expect(monthAbbrev('2027-01')).toBe('Jan');
+  });
+});
+
+describe('sameWeekdayInYear', () => {
+  it('keeps the month, the weekday and the week of the month', () => {
+    expect(sameWeekdayInYear('2026-03-01', 2027)).toBe('2027-03-07'); // 1st Sunday of March
+    expect(sameWeekdayInYear('2026-06-28', 2027)).toBe('2027-06-27'); // 4th Sunday of June
+    expect(sameWeekdayInYear('2026-10-10', 2027)).toBe('2027-10-09'); // 2nd Saturday of October
+    expect(sameWeekdayInYear('2026-12-06', 2028)).toBe('2028-12-03'); // 1st Sunday of December
+  });
+
+  it('uses the last weekday when the month has no 5th one', () => {
+    expect(sameWeekdayInYear('2026-08-30', 2027)).toBe('2027-08-29'); // 5th Sunday exists
+    expect(sameWeekdayInYear('2026-05-31', 2028)).toBe('2028-05-28'); // no 5th Sunday in May 2028
   });
 });

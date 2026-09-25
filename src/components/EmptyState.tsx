@@ -7,6 +7,9 @@ const LABELS: Record<Dimension, (f: Filters) => string> = {
   brand: () => 'Any brand',
   region: () => 'Any region',
   time: () => 'Any time',
+  entry: () => 'Include qualifier-only and ballot races',
+  bike: () => 'Any bike course',
+  run: () => 'Any run course',
   estimated: () => 'Include estimated dates',
   area: () => 'Search the whole map, not just the visible area',
   shortlist: () => 'All races, not just your shortlist',
@@ -18,9 +21,11 @@ interface Props {
   onRelax: (d: Dimension) => void;
   onClearAll: () => void;
   noData: boolean;
+  /** Races hidden only because their course profile is unknown. */
+  missingCourse?: number;
 }
 
-export function EmptyState({ filters, suggestions, onRelax, onClearAll, noData }: Props) {
+export function EmptyState({ filters, suggestions, onRelax, onClearAll, noData, missingCourse = 0 }: Props) {
   if (noData)
     return (
       <div className="px-6 py-16 text-center">
@@ -36,11 +41,17 @@ export function EmptyState({ filters, suggestions, onRelax, onClearAll, noData }
       <p className="mt-4 font-display text-xl font-bold tracking-wide uppercase">No races match</p>
       <p className="mx-auto mt-1 max-w-72 text-sm text-muted">
         {suggestions.length
-          ? 'Loosen one filter to bring races back:'
+          ? 'Loosen one filter to find your next race:'
           : filters.shortlistOnly
-            ? 'Your shortlist is empty. Star races to add them.'
-            : 'Try a different search or fewer filters.'}
+            ? 'Your shortlist is empty. Star the races you are weighing up to compare them here.'
+            : 'Try a different search, a wider date range or fewer filters.'}
       </p>
+      {missingCourse > 0 && (
+        <p className="mx-auto mt-2 max-w-72 text-[13px] text-faint">
+          {missingCourse} {missingCourse === 1 ? 'race was' : 'races were'} left out because their course profile is not
+          in our data yet.
+        </p>
+      )}
       {suggestions.length > 0 && (
         <ul className="mx-auto mt-4 flex max-w-80 flex-col gap-2">
           {suggestions.slice(0, 3).map((s) => (

@@ -1,18 +1,22 @@
 import { expect, test } from '@playwright/test';
-import { openApp, waitForMap } from './helpers';
+import { expandSoon, expectResults, openApp, openFilterPanel, waitForMap } from './helpers';
 
 const cards = (page: import('@playwright/test').Page) => page.locator('li[data-race-id]');
-const sidebar = (page: import('@playwright/test').Page) =>
-  page.getByRole('complementary', { name: 'Search and results' });
-const resultCount = (page: import('@playwright/test').Page) =>
-  page.locator('[aria-live="polite"][aria-atomic="true"]').first();
+const sidebar = (page: import('@playwright/test').Page) => page.getByRole('main');
 
 test.describe('TriMap smoke', () => {
   test('loads and renders the list before/independently of the map', async ({ page }) => {
     await openApp(page);
-    await expect(page.getByRole('heading', { name: 'September 2026' })).toBeVisible();
+    await expectResults(page, 16);
+    // Races in the next three weeks (T100 French Riviera, Kona) start folded away.
+    const soon = page.getByRole('button', { name: /^Next 3 weeks/ });
+    await expect(soon).toHaveAttribute('aria-expanded', 'false');
+    await expect(soon).toContainText('2');
+    await expect(page.getByRole('heading', { name: 'October 2026' })).toBeVisible();
+    await expect(cards(page)).toHaveCount(14);
+    await soon.click();
     await expect(cards(page)).toHaveCount(16);
-    await expect(resultCount(page)).toContainText('16 races');
+    await expect(cards(page).first()).toHaveAttribute('data-race-id', 't100-french-riviera-t100');
     // Freshness from the newest verifiedAt in the fixtures.
     await expect(page.getByText('Race data checked Sep 2026').first()).toBeVisible();
   });
@@ -55,16 +59,23 @@ test.describe('TriMap smoke', () => {
 
   test('filters reduce results and are mirrored to the URL', async ({ page }) => {
     await openApp(page);
+    // Distance and dates are always in view; the rest sits behind "Filters".
+    await expect(page.locator('#filter-panel')).toBeHidden();
+    await openFilterPanel(page);
     await page
       .getByRole('group', { name: 'Region' })
       .getByRole('button', { name: /Oceania/ })
       .click();
     await expect(cards(page)).toHaveCount(1);
-    await expect(cards(page).first()).toContainText('Challenge Wanaka');
+    await expect(cards(page).first()).toContainText('T100 Wanaka');
     await expect(page).toHaveURL(/region=oceania/);
 
-    await page.getByRole('button', { name: 'Clear filters' }).click();
-    await expect(cards(page)).toHaveCount(16);
+    // With the panel closed, the region filter stays visible as a removable chip.
+    await page.getByRole('button', { name: /^Filters/ }).click();
+    await expect(page.locator('#filter-panel')).toBeHidden();
+    await page.getByRole('button', { name: 'Oceania: remove filter' }).click();
+    await expectResults(page, 16);
+    await expect(page).not.toHaveURL(/region=/);
 
     // Accent-insensitive search; "/" focuses the search box.
     await page.keyboard.press('/');
@@ -75,29 +86,48 @@ test.describe('TriMap smoke', () => {
 
     await page.getByRole('button', { name: 'Clear search' }).click();
     await page.getByRole('button', { name: /^Full distance/ }).click();
-    await expect(cards(page)).toHaveCount(9);
-    await page.getByRole('switch', { name: /Estimated dates/ }).click();
-    await expect(cards(page)).toHaveCount(8); // Challenge Roth only has an estimated date
+    await expectResults(page, 9);
+    await openFilterPanel(page);
+    await page.getByRole('switch', { name: /Announced dates only/ }).click();
+    await expectResults(page, 8); // Challenge Roth only has an estimated date
     await expect(page).toHaveURL(/dist=full.*est=0/);
   });
 
   test('time presets and the empty state', async ({ page }) => {
     await openApp(page, '/?when=3m');
-    await expect(cards(page)).toHaveCount(5);
+    await expectResults(page, 5);
+    await expect(page.getByRole('button', { name: /^3 months/ })).toHaveAttribute('aria-pressed', 'true');
+    await openFilterPanel(page);
     await page
       .getByRole('group', { name: 'Region' })
       .getByRole('button', { name: /Oceania/ })
       .click();
     await expect(page.getByText('No races match')).toBeVisible();
-    await page
-      .getByRole('button', { name: /Any time/ })
-      .last()
-      .click();
-    await expect(cards(page)).toHaveCount(1);
+    await page.getByRole('button', { name: /^Any time/ }).click();
+    await expectResults(page, 1);
+    await expect(page.getByRole('button', { name: /^3 months/ })).toHaveAttribute('aria-pressed', 'false');
+  });
+
+  test("a year search finds races whose next edition is earlier, shown with that year's date", async ({ page }) => {
+    // Kona's next edition is Oct 2026; its 2027 edition is only estimated.
+    await openApp(page, '/?from=2027-10&to=2027-12');
+    await expectResults(page, 5);
+    const kona = cards(page).filter({ hasText: 'IRONMAN World Championship' });
+    await expect(kona).toContainText('≈ Oct 2027');
+    await expect(kona.getByTestId('also-next')).toHaveText('(next: Oct 2026)');
+    await expect(page.getByRole('heading', { name: 'October 2027' })).toBeVisible();
+  });
+
+  test('a date range from an old link is dropped with a notice', async ({ page }) => {
+    await openApp(page, '/?from=2026-06&to=2026-08');
+    await expect(page.getByText('That date range has passed')).toBeVisible();
+    await expectResults(page, 16);
+    await expect(page).not.toHaveURL(/from=/);
   });
 
   test('selecting a race opens the detail; Esc and Back close it', async ({ page }) => {
     await openApp(page);
+    await expandSoon(page);
     await sidebar(page)
       .getByRole('button', { name: /^T100 French Riviera/ })
       .click();
@@ -153,27 +183,42 @@ test.describe('TriMap smoke', () => {
     expect(download.suggestedFilename()).toBe('ironman-cozumel-full-2026-11-22.ics');
   });
 
-  test('shortlist persists across reloads', async ({ page }) => {
+  test('shortlist persists across reloads and compares courses', async ({ page }) => {
     await openApp(page);
     await page.getByRole('button', { name: 'Add IRONMAN Cozumel to shortlist' }).click();
+    await page.getByRole('button', { name: 'Add Challenge Roth to shortlist' }).click();
     await page.reload();
+    await openFilterPanel(page);
     await page.getByRole('switch', { name: /Shortlist/ }).click();
+    await expect(cards(page)).toHaveCount(2);
+    // Shortlisted cards spell out swim, bike and run for comparing.
+    await expect(cards(page).filter({ hasText: 'IRONMAN Cozumel' }).getByTestId('course-line')).toHaveText(
+      /Sea.*Flat.*Flat/,
+    );
+    // Other filters that hide starred races are called out.
+    await page.getByRole('button', { name: /^Full distance/ }).click();
+    await page.getByRole('switch', { name: /Announced dates only/ }).click();
     await expect(cards(page)).toHaveCount(1);
-    await expect(cards(page).first()).toContainText('IRONMAN Cozumel');
+    await expect(page.getByTestId('starred-hidden-note')).toHaveText('1 starred race is hidden by your other filters.');
+    await page.getByRole('button', { name: 'Show all starred' }).click();
+    await expect(cards(page)).toHaveCount(2);
+    await expect(page).toHaveURL(/\?star=1$/);
   });
 
   test('mobile: list/map toggle and filter sheet', async ({ browser }) => {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
     const page = await context.newPage();
     await openApp(page);
-    await expect(cards(page)).toHaveCount(16);
+    await expectResults(page, 16);
+    // The map is not loaded until it is needed.
+    await expect(page.locator('.maplibregl-canvas')).toHaveCount(0);
     await page.getByRole('button', { name: /^Filters/ }).click();
     const sheet = page.getByRole('dialog', { name: 'Filters' });
     await expect(sheet).toBeVisible();
     await sheet.getByRole('button', { name: /T100 distance/ }).click();
-    await sheet.getByRole('button', { name: /Show 2 races/ }).click();
+    await sheet.getByRole('button', { name: /Show 3 races/ }).click();
     await expect(sheet).toBeHidden();
-    await expect(cards(page)).toHaveCount(2);
+    await expectResults(page, 3);
     await page.getByRole('button', { name: /^Map$/ }).click();
     await waitForMap(page);
     await expect(page.getByRole('button', { name: /List/ })).toBeVisible();

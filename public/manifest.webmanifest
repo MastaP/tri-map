@@ -1,0 +1,15 @@
+{
+  "name": "TriMap: find a full, half or T100 triathlon to enter",
+  "short_name": "TriMap",
+  "description": "Every IRONMAN, 70.3, Challenge, T100 and notable independent full and half triathlon age-groupers can enter, on one map.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f4f7",
+  "theme_color": "#ffffff",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

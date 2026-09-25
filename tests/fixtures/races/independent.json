@@ -14,6 +14,8 @@
       { "date": "2027-08-15", "status": "confirmed" }
     ],
     "swim": "lake",
+    "bike": "mountainous",
+    "run": "hilly",
     "notes": "Swim in Lake Serre-Ponçon, Col d'Izoard on the bike; held every 15 August",
     "sources": ["https://www.embrunman.com"],
     "verifiedAt": "2026-09-16"
@@ -34,6 +36,9 @@
       { "date": "2027-07-31", "status": "tentative" }
     ],
     "swim": "ocean",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "entry": "ballot",
     "notes": "Jump from a car ferry into the Hardangerfjord; mountain finish on Gaustatoppen",
     "sources": ["https://nxtri.com"],
     "verifiedAt": "2026-09-16"

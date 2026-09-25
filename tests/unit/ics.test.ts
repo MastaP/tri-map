@@ -19,7 +19,8 @@ describe('ics', () => {
     expect(lines).toContain('DTSTART;VALUE=DATE:20270627');
     expect(lines).toContain('DTEND;VALUE=DATE:20270628');
     expect(lines).toContain('DTSTAMP:20260925T102030Z');
-    expect(lines).toContain('UID:ironman-frankfurt-full-2027-06-27@trimap');
+    expect(lines).toContain('UID:ironman-frankfurt-full-2027@trimap');
+    expect(lines).toContain('SEQUENCE:23106030'); // seconds since 2026-01-01
     expect(lines).toContain('SUMMARY:IRONMAN Frankfurt (Full distance)');
     expect(lines).toContain('LOCATION:Frankfurt am Main\\, Germany');
     expect(lines).toContain('STATUS:CONFIRMED');
@@ -41,6 +42,21 @@ describe('ics', () => {
     for (const p of parts) expect(new TextEncoder().encode(p).length).toBeLessThanOrEqual(75);
     expect(parts.slice(1).every((p) => p.startsWith(' '))).toBe(true);
     expect(parts.map((p, i) => (i ? p.slice(1) : p)).join('')).toBe(`DESCRIPTION:${'ü'.repeat(60)}`);
+  });
+
+  it('keeps the UID when a date moves, and bumps SEQUENCE on a later download', () => {
+    const tentative = buildIcs(race, { date: '2027-06-27', status: 'tentative' }, now);
+    const confirmed = buildIcs(race, { date: '2027-06-28', status: 'confirmed' }, new Date('2026-10-01T00:00:00Z'));
+    const uid = (ics: string) => ics.split('\r\n').find((l) => l.startsWith('UID:'));
+    const seq = (ics: string) =>
+      Number(
+        ics
+          .split('\r\n')
+          .find((l) => l.startsWith('SEQUENCE:'))!
+          .slice(9),
+      );
+    expect(uid(confirmed)).toBe(uid(tentative));
+    expect(seq(confirmed)).toBeGreaterThan(seq(tentative));
   });
 
   it('names the file after the race and date', () => {

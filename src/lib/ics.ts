@@ -48,6 +48,19 @@ export interface IcsEdition {
   status: 'confirmed' | 'tentative';
 }
 
+/**
+ * Stable per race and season, so re-adding a race after its date moved (a TBC date that
+ * got confirmed a day later) updates the calendar event instead of adding a second one.
+ */
+export function icsUid(raceId: string, date: ISODate): string {
+  return `${raceId}-${date.slice(0, 4)}@trimap`;
+}
+
+/** Increases with every download, so calendars treat a re-import as the newer version. */
+export function icsSequence(now: Date): number {
+  return Math.max(0, Math.floor((now.getTime() - Date.UTC(2026, 0, 1)) / 1000));
+}
+
 export function buildIcs(race: Race, edition: IcsEdition, now: Date = new Date(), pageUrl?: string): string {
   const d = DISTANCES[race.distance];
   const end = addDays(edition.endDate ?? edition.date, 1); // DTEND is exclusive for all-day events
@@ -68,7 +81,8 @@ export function buildIcs(race: Race, edition: IcsEdition, now: Date = new Date()
     'CALSCALE:GREGORIAN',
     'METHOD:PUBLISH',
     'BEGIN:VEVENT',
-    `UID:${race.id}-${edition.date}@trimap`,
+    `UID:${icsUid(race.id, edition.date)}`,
+    `SEQUENCE:${icsSequence(now)}`,
     `DTSTAMP:${stamp(now)}`,
     `DTSTART;VALUE=DATE:${compactDate(edition.date)}`,
     `DTEND;VALUE=DATE:${compactDate(end)}`,

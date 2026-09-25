@@ -1,24 +1,35 @@
-import { CircleDashed, Crosshair, Star } from 'lucide-react';
+import { CalendarCheck, Crosshair, Star, Ticket } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { BRAND_IDS, BRANDS, DISTANCE_IDS, DISTANCES } from '../data/brands.ts';
+import { TERRAINS } from '../data/constants.ts';
 import { REGION_IDS, REGIONS } from '../data/regions.ts';
 import { cn } from '../lib/cn.ts';
 import type { ISODate } from '../lib/dates.ts';
-import { toggleValue, type FacetCounts, type Filters, type MonthBucket } from '../lib/filters.ts';
+import { toggleExact, toggleValue, type FacetCounts, type Filters, type MonthBucket } from '../lib/filters.ts';
 import { BrandGlyph } from './BrandGlyph.tsx';
 import { Chip, ToggleChip } from './Chip.tsx';
-import { TimeFilter } from './TimeFilter.tsx';
+import { CourseFilter } from './CourseFilter.tsx';
+import { MonthHistogram, TimePresets } from './TimeFilter.tsx';
+
+type OnChange = (update: (f: Filters) => Filters) => void;
 
 interface Props {
   filters: Filters;
-  onChange: (update: (f: Filters) => Filters) => void;
+  onChange: OnChange;
   facets: FacetCounts;
   buckets: MonthBucket[];
   anyTimeCount: number;
   today: ISODate;
   shortlistCount: number;
-  /** "Only in map area" needs a map that has reported its viewport. */
+  /** false when the map could not load: "In map area" is then unavailable. */
   mapAvailable: boolean;
+  /** Races an active course filter hides only because their course profile is unknown. */
+  missingCourse: number;
+  /**
+   * "sheet": every filter (mobile). "more": the filters behind "Filters" on desktop;
+   * distance and the date presets sit above it in QuickFilters.
+   */
+  variant: 'sheet' | 'more';
 }
 
 export function SectionTitle({ id, children, aside }: { id: string; children: ReactNode; aside?: ReactNode }) {
@@ -37,6 +48,72 @@ const tile =
 const tileOn = 'border-ink bg-ink text-on-ink';
 const tileOff = 'border-line bg-surface hover:border-line-strong hover:bg-surface-2';
 
+/** Full / Half / T100 tiles with their swim · bike · run km. */
+export function DistanceTiles({
+  filters,
+  onChange,
+  counts,
+  labelledBy,
+  label,
+}: {
+  filters: Filters;
+  onChange: OnChange;
+  counts: FacetCounts['distance'];
+  labelledBy?: string;
+  label?: string;
+}) {
+  return (
+    <div role="group" aria-labelledby={labelledBy} aria-label={label} className="grid grid-cols-3 gap-1.5">
+      {DISTANCE_IDS.map((d) => {
+        const info = DISTANCES[d];
+        const pressed = filters.distances.includes(d);
+        return (
+          <button
+            key={d}
+            type="button"
+            aria-pressed={pressed}
+            aria-label={`${info.long} (${info.swim} / ${info.bike} / ${info.run} km), ${counts[d]} races`}
+            onClick={() => onChange((f) => ({ ...f, distances: toggleValue(f.distances, d, DISTANCE_IDS) }))}
+            className={cn(tile, pressed ? tileOn : tileOff)}
+          >
+            <span className="flex w-full items-baseline justify-between gap-1">
+              <span className="font-display text-[16px] leading-tight font-bold tracking-wide uppercase">
+                {info.label}
+              </span>
+              <span className={cn('tabular text-[11px] font-semibold', pressed ? 'text-on-ink/65' : 'text-faint')}>
+                {counts[d]}
+              </span>
+            </span>
+            <span
+              className={cn(
+                'tabular text-[11px] leading-tight whitespace-nowrap',
+                pressed ? 'text-on-ink/75' : 'text-muted',
+              )}
+            >
+              {info.swim} · {info.bike} · {info.run}
+            </span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+/** Desktop: the two filters age-groupers set first, always in view above the results. */
+export function QuickFilters({
+  filters,
+  onChange,
+  facets,
+  today,
+}: Pick<Props, 'filters' | 'onChange' | 'facets' | 'today'>) {
+  return (
+    <div className="space-y-2 pt-1 pb-3">
+      <DistanceTiles filters={filters} onChange={onChange} counts={facets.distance} label="Distance" />
+      <TimePresets time={filters.time} today={today} onChange={(time) => onChange((f) => ({ ...f, time }))} />
+    </div>
+  );
+}
+
 export function FilterPanel({
   filters,
   onChange,
@@ -46,47 +123,101 @@ export function FilterPanel({
   today,
   shortlistCount,
   mapAvailable,
+  missingCourse,
+  variant,
 }: Props) {
+  const sheet = variant === 'sheet';
+  const setTime = (time: Filters['time']) => onChange((f) => ({ ...f, time }));
   return (
     <div className="divide-y divide-line">
-      <section aria-labelledby="f-distance" className="py-2.5">
-        <SectionTitle id="f-distance">Distance</SectionTitle>
-        <div role="group" aria-labelledby="f-distance" className="grid grid-cols-3 gap-1.5">
-          {DISTANCE_IDS.map((d) => {
-            const info = DISTANCES[d];
-            const pressed = filters.distances.includes(d);
-            return (
-              <button
-                key={d}
-                type="button"
-                aria-pressed={pressed}
-                aria-label={`${info.long} (${info.swim} / ${info.bike} / ${info.run} km), ${facets.distance[d]} races`}
-                onClick={() => onChange((f) => ({ ...f, distances: toggleValue(f.distances, d, DISTANCE_IDS) }))}
-                className={cn(tile, pressed ? tileOn : tileOff)}
-              >
-                <span className="flex w-full items-baseline justify-between gap-1">
-                  <span className="font-display text-[16px] leading-tight font-bold tracking-wide uppercase">
-                    {info.label}
-                  </span>
-                  <span className={cn('tabular text-[11px] font-semibold', pressed ? 'text-on-ink/65' : 'text-faint')}>
-                    {facets.distance[d]}
-                  </span>
-                </span>
-                <span
-                  className={cn(
-                    'tabular text-[11px] leading-tight whitespace-nowrap',
-                    pressed ? 'text-on-ink/75' : 'text-muted',
-                  )}
-                >
-                  {info.swim} · {info.bike} · {info.run}
-                </span>
-              </button>
-            );
-          })}
+      {sheet && (
+        <section aria-labelledby="f-distance" className="py-3">
+          <SectionTitle id="f-distance">Distance</SectionTitle>
+          <DistanceTiles filters={filters} onChange={onChange} counts={facets.distance} labelledBy="f-distance" />
+        </section>
+      )}
+
+      <section aria-labelledby="f-when" className="py-3">
+        <MonthHistogram
+          titleId="f-when"
+          buckets={buckets}
+          anyTimeCount={anyTimeCount}
+          time={filters.time}
+          today={today}
+          showEstimated={filters.showEstimated}
+          onChange={setTime}
+        />
+        {sheet && <TimePresets time={filters.time} today={today} onChange={setTime} className="mt-3" />}
+      </section>
+
+      <section aria-labelledby="f-region" className="py-3">
+        <SectionTitle id="f-region">Region</SectionTitle>
+        <div role="group" aria-labelledby="f-region" className="flex flex-wrap gap-1.5">
+          {REGION_IDS.map((r) => (
+            <Chip
+              key={r}
+              pressed={filters.regions.includes(r)}
+              count={facets.region[r]}
+              onClick={() => onChange((f) => ({ ...f, regions: toggleValue(f.regions, r, REGION_IDS) }))}
+            >
+              {REGIONS[r].label}
+            </Chip>
+          ))}
         </div>
       </section>
 
-      <section aria-labelledby="f-brand" className="py-2.5">
+      <section aria-labelledby="f-course" className="py-3">
+        <CourseFilter
+          titleId="f-course"
+          bike={filters.bike}
+          run={filters.run}
+          counts={facets}
+          missing={missingCourse}
+          onToggle={(dim, t) => onChange((f) => ({ ...f, [dim]: toggleExact(f[dim], t, TERRAINS) }))}
+        />
+      </section>
+
+      <section aria-labelledby="f-options" className="py-3">
+        <SectionTitle id="f-options">Entry and dates</SectionTitle>
+        <div className="flex flex-wrap gap-1.5">
+          <ToggleChip
+            checked={filters.openOnly}
+            onChange={(v) => onChange((f) => ({ ...f, openOnly: v }))}
+            title="Hide races that need a qualifying slot or a ballot place"
+            icon={<Ticket className="size-3" />}
+          >
+            Open entry only
+          </ToggleChip>
+          <ToggleChip
+            checked={!filters.showEstimated}
+            onChange={(v) => onChange((f) => ({ ...f, showEstimated: !v }))}
+            title="Hide races whose next date is only estimated from the last edition"
+            icon={<CalendarCheck className="size-3" />}
+          >
+            Announced dates only
+          </ToggleChip>
+          <ToggleChip
+            checked={filters.inMapArea}
+            onChange={(v) => onChange((f) => ({ ...f, inMapArea: v }))}
+            title={mapAvailable ? 'Only list races inside the visible map area' : 'The map is not available'}
+            icon={<Crosshair className="size-3" />}
+            disabled={!mapAvailable && !filters.inMapArea}
+          >
+            In map area
+          </ToggleChip>
+          <ToggleChip
+            checked={filters.shortlistOnly}
+            onChange={(v) => onChange((f) => ({ ...f, shortlistOnly: v }))}
+            title="Only show races you starred"
+            icon={<Star className="size-3" />}
+          >
+            Shortlist
+            <span className="tabular text-[11px] font-semibold text-faint">{shortlistCount}</span>
+          </ToggleChip>
+        </div>
+      </section>
+
+      <section aria-labelledby="f-brand" className="py-3">
         <SectionTitle id="f-brand">Brand</SectionTitle>
         <div role="group" aria-labelledby="f-brand" className="grid grid-cols-2 gap-1.5 min-[420px]:grid-cols-4">
           {BRAND_IDS.map((b) => {
@@ -113,62 +244,6 @@ export function FilterPanel({
           })}
         </div>
       </section>
-
-      <section aria-labelledby="f-region" className="py-2.5">
-        <SectionTitle id="f-region">Region</SectionTitle>
-        <div role="group" aria-labelledby="f-region" className="flex flex-wrap gap-1.5">
-          {REGION_IDS.map((r) => (
-            <Chip
-              key={r}
-              pressed={filters.regions.includes(r)}
-              count={facets.region[r]}
-              onClick={() => onChange((f) => ({ ...f, regions: toggleValue(f.regions, r, REGION_IDS) }))}
-            >
-              {REGIONS[r].label}
-            </Chip>
-          ))}
-        </div>
-      </section>
-
-      <section aria-labelledby="f-when" className="py-2.5">
-        <TimeFilter
-          titleId="f-when"
-          buckets={buckets}
-          anyTimeCount={anyTimeCount}
-          time={filters.time}
-          today={today}
-          showEstimated={filters.showEstimated}
-          onChange={(time) => onChange((f) => ({ ...f, time }))}
-        />
-      </section>
-
-      <div className="flex flex-wrap gap-1.5 py-2.5">
-        <ToggleChip
-          checked={filters.showEstimated}
-          onChange={(v) => onChange((f) => ({ ...f, showEstimated: v }))}
-          title="Include races whose next date is not announced yet (estimated from the last edition)"
-          icon={<CircleDashed className="size-3" />}
-        >
-          Estimated dates
-        </ToggleChip>
-        <ToggleChip
-          checked={filters.inMapArea}
-          onChange={(v) => onChange((f) => ({ ...f, inMapArea: v }))}
-          title={mapAvailable ? 'Only list races inside the visible map area' : 'Applies once the map has loaded'}
-          icon={<Crosshair className="size-3" />}
-        >
-          In map area
-        </ToggleChip>
-        <ToggleChip
-          checked={filters.shortlistOnly}
-          onChange={(v) => onChange((f) => ({ ...f, shortlistOnly: v }))}
-          title="Only show races you starred"
-          icon={<Star className="size-3" />}
-        >
-          Shortlist
-          <span className="tabular text-[11px] font-semibold text-faint">{shortlistCount}</span>
-        </ToggleChip>
-      </div>
     </div>
   );
 }

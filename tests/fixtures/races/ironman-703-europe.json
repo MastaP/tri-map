@@ -12,7 +12,31 @@
     "url": "https://www.ironman.com/races/im703-portugal-cascais",
     "editions": [{ "date": "2026-10-18", "status": "confirmed" }],
     "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
     "sources": ["https://www.ironman.com/races/im703-portugal-cascais"],
+    "verifiedAt": "2026-09-19"
+  },
+  {
+    "id": "ironman-nice-world-championship-half",
+    "name": "IRONMAN 70.3 World Championship",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "championship": "IRONMAN 70.3 World Championship",
+    "city": "Nice",
+    "country": "FR",
+    "lat": 43.6959,
+    "lng": 7.2716,
+    "url": "https://www.ironman.com/races/im703-world-championship",
+    "editions": [{ "date": "2026-09-13", "status": "confirmed" }],
+    "swim": "ocean",
+    "bike": "hilly",
+    "run": "flat",
+    "entry": "qualification",
+    "notes": "The host city rotates every year; the next host is a separate race once announced",
+    "recurring": false,
+    "sources": ["https://www.ironman.com/races/im703-world-championship"],
     "verifiedAt": "2026-09-19"
   }
 ]

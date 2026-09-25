@@ -45,7 +45,9 @@
       }
     ],
     "swim": "lake",
-    "notes": "Cold swim in Lake Jindabyne, 187 km bike to Perisher, 44 km run in Kosciuszko NP; 2027 date TBC by organiser",
+    "bike": "mountainous",
+    "run": "hilly",
+    "notes": "Cold swim in Lake Jindabyne, 187 km bike to Perisher (3,851 m), 44 km run (818 m) in Kosciuszko NP; 2027 date TBC",
     "sources": [
       "https://www.eliteenergy.com.au/australian-alpine-ascent-returns-in-2026-with-xtri-world-tour-partnership/",
       "https://www.xtriworldtour.com/aaa"
@@ -69,11 +71,14 @@
       }
     ],
     "swim": "lake",
-    "notes": "Historic California race; 1.2 mi / 56 mi / 13.1 mi with hilly bike and run; 2027 date not yet announced",
+    "bike": "hilly",
+    "run": "hilly",
+    "notes": "Historic California race; 1.2 mi / 56 mi (1,126 m climbing) / 13.1 mi (315 m) hilly bike and run; 2027 date not yet announced",
     "sources": [
       "https://www.wildflowerexperience.com/festival/schedule/",
       "https://www.wildflowerexperience.com/",
-      "https://www.wildflowerexperience.com/race/distances/"
+      "https://www.wildflowerexperience.com/race/distances/",
+      "https://www.wildflowerexperience.com/race/distances/long-course/"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -99,7 +104,9 @@
       }
     ],
     "swim": "lake",
-    "notes": "Organiser: 3.5 km night swim in Phewa Lake, 165 km bike, 43 km off-road run to 4,000 m; finish at Lwang (Xtri lists 3.8/176/42.4)",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "notes": "Short of full: 3.5 km night swim in Phewa Lake, 165 km bike, 43 km off-road run to 4,000 m (Xtri lists 3.8/176/42.4)",
     "sources": [
       "https://himalxtri.com",
       "https://himalxtri.com/race-info-1",
@@ -128,10 +135,13 @@
       }
     ],
     "swim": "lake",
-    "notes": "1.9/90/21 km in Lac d'Hourtin-Carcans; flat course; raced the day before the XXL full",
+    "bike": "flat",
+    "run": "rolling",
+    "notes": "1.9/90/21 km in Lac d'Hourtin-Carcans (Maubuisson); flat bike (194 m), run 91 m; raced the day before the XXL full",
     "sources": [
       "https://fftri.t2area.com/calendrier/frenchman-hourtin/triathlon-l/2026.html",
-      "https://www.frenchmantriathlon.com/frenchman-hourtin/"
+      "https://www.frenchmantriathlon.com/frenchman-hourtin/",
+      "https://www.frenchmantriathlon.com/epreuve/sichel-sport-triathlon-l/"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -156,10 +166,13 @@
       }
     ],
     "swim": "lake",
-    "notes": "Swim in Lac d'Hourtin-Carcans; flat, fast course through Médoc pine forest; part of a multi-day festival",
+    "bike": "flat",
+    "run": "rolling",
+    "notes": "Swim in Lac d'Hourtin-Carcans (Maubuisson); 2-lap bike through Médoc pine forest (390 m); 4-lap run (182 m)",
     "sources": [
       "https://fftri.t2area.com/calendrier/frenchman-hourtin/triathlon-xxl/2026.html",
-      "https://www.frenchmantriathlon.com/frenchman-hourtin/"
+      "https://www.frenchmantriathlon.com/frenchman-hourtin/",
+      "https://www.frenchmantriathlon.com/epreuve/ha-frenchman-triathlon-xxl/"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -213,6 +226,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Swim in Lake 32, Cotswold Water Park; flat, fast course",
     "sources": [
       "https://www.113events.com/cotswold-113/"
@@ -241,11 +256,15 @@
       }
     ],
     "swim": "ocean",
-    "notes": "Non-standard: 3.4 km cold sea-loch swim, 202 km bike, 41 km mountain run in Torridon; jellyfish and cold water",
+    "bike": "hilly",
+    "run": "mountainous",
+    "entry": "ballot",
+    "notes": "Non-standard: 3.4 km cold sea-loch swim, 200 km bike (2,200 m), 42 km run over two Munros (1,600 m+) in Torridon",
     "sources": [
       "https://celtman.squarespace.com/s/Race-Manual-2026.pdf",
       "https://cxtri.com",
-      "https://www.xtriworldtour.com/events"
+      "https://www.xtriworldtour.com/events",
+      "https://www.xtriworldtour.com/celtman"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -328,7 +347,8 @@
       }
     ],
     "swim": "lake",
-    "notes": "Swim in Long Pond; 54-mile rolling bike; hosted the 2026 USA Triathlon Long Course National Championships",
+    "bike": "rolling",
+    "notes": "Swim in Long Pond; 54-mile rolling bike (436 m); hosted the 2026 USA Triathlon Long Course National Championships",
     "sources": [
       "https://www.outsiderendurance.com/patriot-half",
       "https://www.usatriathlon.org/articles/press-releases/champions-crowned-at-2026-usa-triathlon-long-course-national-championships-in-east-freetown-massachusetts"
@@ -356,11 +376,15 @@
       }
     ],
     "swim": "river",
-    "notes": "Point-to-point Graz to Dachstein: 3.8 km Mur river swim (start Thondorf), 186 km bike, 44 km run to the Dachstein valley station",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "notes": "Point-to-point Graz to Dachstein: 3.8 km Mur river swim, 186 km bike (3,900 m), 44 km run (1,900 m) to the Dachstein",
     "sources": [
       "https://www.triathlon-austria.at/de/sport/eventdbshow-austria-extreme-triathlon-20.06.2026",
       "https://www.autxtri.com/en/news",
-      "https://www.steiermark.com/en/Region-Graz/Vacation-planning/Events/Austria-eXtreme-Triathlon-Start_ed_79165802"
+      "https://www.steiermark.com/en/Region-Graz/Vacation-planning/Events/Austria-eXtreme-Triathlon-Start_ed_79165802",
+      "https://www.autxtri.com/en/anmeldung",
+      "https://www.autxtri.com/en/_files/ugd/b1be3c_f1b851789db941b0b4e595a097b34cb7.pdf"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -415,11 +439,17 @@
       }
     ],
     "swim": "lake",
-    "notes": "Point-to-point from Lago Maggiore over three Alpine passes to Kleine Scheidegg; 3.8/181/42 km, 5,100 m climbing",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "entry": "ballot",
+    "notes": "Point-to-point from Lago Maggiore over three Alpine passes to Kleine Scheidegg; 3.8/181/42 km, 5,575 m climbing",
     "sources": [
       "https://suixtri.com/en/news/",
       "https://suixtri.com",
-      "https://www.xtriworldtour.com/events"
+      "https://www.xtriworldtour.com/events",
+      "https://suixtri.com/en/swissman-2027-registration/",
+      "https://suixtri.com/en/swissman-race-course/",
+      "https://www.xtriworldtour.com/swissman"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -497,7 +527,10 @@
       }
     ],
     "swim": "lake",
-    "notes": "Swim ends under Tännforsen waterfall (~15 C water); 205 km hilly bike; 42-43 km mostly-trail run over Åreskutan",
+    "bike": "hilly",
+    "run": "mountainous",
+    "entry": "ballot",
+    "notes": "Longer 205 km bike (2,000-2,400 m); swim ends under Tännforsen waterfall (~15 C); 43 km trail run over Åreskutan",
     "sources": [
       "https://www.swextri.com/s/Event-Manual-Draft-2026-ll85.pdf",
       "https://www.swextri.com/s/Swedeman-Results-2026.pdf",
@@ -519,13 +552,18 @@
       {
         "date": "2026-07-05",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-07-04",
+        "status": "confirmed"
       }
     ],
     "swim": "lake",
     "notes": "2/90/21.1 km; swim in Hubbles Lake, finish at Heritage Park Pavilion; 35th edition in 2026",
     "sources": [
       "https://platinumracing.ca/great-white-north1/",
-      "https://platinumracing.ca/great-white-north1/half/"
+      "https://platinumracing.ca/great-white-north1/half/",
+      "https://platinumracing.ca/"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -579,7 +617,9 @@
       }
     ],
     "swim": "lake",
-    "notes": "Pyrenean mountain full: 3.8 km in Lac de Matemale, 193 km bike with ~5,000 m climbing, 42 km run on the Capcir plateau",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "notes": "Pyrenean mountain full: 3.8 km in Lac de Matemale, 193 km bike (4,940 m), 42 km run (1,252 m) on the Capcir plateau",
     "sources": [
       "https://altriman.fr/programme-2026/",
       "https://altriman.fr/altriman-full/",
@@ -609,11 +649,41 @@
       }
     ],
     "swim": "lake",
-    "notes": "Swim in Regatta Lake at the National Water Sports Centre; flat bike; lap run by the River Trent; from 2027 a half runs alongside",
+    "notes": "Swim in Regatta Lake at the National Water Sports Centre; flat bike; lap run by the River Trent; Outlaw Middle runs alongside",
     "sources": [
       "https://cdn.prod.website-files.com/688ce20dbd07239c65f1a79e/6a55037a08cf6e97e5f99fae_Outlaw-Original-Race-Guide-2026%20(3).pdf",
       "https://outlawtriathlon.com/outlaw-original/weekend-overview",
       "https://outlawtriathlon.com/events-listing"
+    ],
+    "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "independent-outlaw-middle-nottingham-half",
+    "name": "Outlaw Middle",
+    "brand": "independent",
+    "series": "Outlaw",
+    "distance": "half",
+    "city": "Nottingham",
+    "country": "GB",
+    "lat": 52.9446,
+    "lng": -1.0793,
+    "url": "https://outlawtriathlon.com/outlaw-original/outlaw-middle",
+    "editions": [
+      {
+        "date": "2026-07-26",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "notes": "Launched 2026; raced alongside Outlaw Original in July at the National Water Sports Centre; separate from the May Outlaw Half",
+    "sources": [
+      "https://outlawtriathlon.com/outlaw-original/outlaw-middle",
+      "https://outlawtriathlon.com/news/outlaw-triathlon-launches-brand-new-outlaw-middle",
+      "https://cdn.prod.website-files.com/688ce20dbd07239c65f1a79e/6a55037a08cf6e97e5f99fae_Outlaw-Original-Race-Guide-2026%20(3).pdf"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -639,11 +709,16 @@
       }
     ],
     "swim": "ocean",
-    "notes": "Ferry-jump fjord swim at Eidfjord, 180 km bike (2,762 m), 42 km run to Gaustatoppen summit; ~250 slots by ballot",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "entry": "ballot",
+    "notes": "Ferry-jump fjord swim at Eidfjord, 180 km bike (3,000 m+), 42 km run (1,800 m) to Gaustatoppen summit; ~250 slots by ballot",
     "sources": [
       "https://nxtri.com",
       "https://www.xtriworldtour.com/events",
-      "https://www.xtriworldtour.com/norseman"
+      "https://www.xtriworldtour.com/norseman",
+      "https://www.nxtri.com/faq",
+      "https://www.nxtri.com/about-norseman"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -744,12 +819,19 @@
       {
         "date": "2026-08-15",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-08-15",
+        "status": "tentative"
       }
     ],
     "swim": "lake",
-    "notes": "Held every 15 August; swim in the Embrun lake, bike over Col d'Izoard (2,360 m); very hilly bike and run",
+    "bike": "mountainous",
+    "run": "rolling",
+    "notes": "Held every 15 August (2027 date assumed); Embrun lake swim; 185 km bike (5,000 m) over Col d'Izoard (2,360 m); 3-lap run (400 m)",
     "sources": [
-      "https://www.embrunman.com/"
+      "https://www.embrunman.com/",
+      "https://www.embrunman.com/longue-distance/"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -826,11 +908,16 @@
       }
     ],
     "swim": "lake",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "entry": "ballot",
     "notes": "Dawn swim in Lago di Livigno, 195 km bike (5,000 m) incl. Stelvio, 42 km run to Carosello 3000 finish",
     "sources": [
       "https://www.livigno.eu/en/events/icon",
       "https://www.xtriworldtour.com/events",
-      "https://www.xtriworldtour.com/icon"
+      "https://www.xtriworldtour.com/icon",
+      "https://www.iconxtri.com/courses/",
+      "https://www.iconxtri.com/wp-content/uploads/Race-guide-ICON_2025_eng_10-25.pdf"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -855,7 +942,9 @@
       }
     ],
     "swim": "lake",
-    "notes": "1.9/90/21 km; swim in Lac de Gérardmer; hilly 3-lap bike in the Vosges; 38th edition in 2026",
+    "bike": "mountainous",
+    "run": "hilly",
+    "notes": "Swim in Lac de Gérardmer; 3-lap closed-road bike in the Vosges (1,890 m); 3-lap run round the lake (240 m); 38th edition in 2026",
     "sources": [
       "https://triathlondegerardmer.com/triathlon-xl/",
       "https://vosgesinfo.fr/gerardmerinfo/2026/09/triathlon-de-gerardmer-pierre-dupuy-et-darleen-pfister-simposent-sur-le-xl/"
@@ -884,11 +973,14 @@
       }
     ],
     "swim": "lake",
-    "notes": "Midnight swim in the Orava reservoir (Slanica), 185 km bike, 42 km run with 3,200 m in Malá Fatra; 65 slots",
+    "bike": "hilly",
+    "run": "mountainous",
+    "notes": "Midnight swim in the Orava reservoir, 180 km bike (2,250 m), 42 km trail run (2,700 m) in Malá Fatra; 100 slots",
     "sources": [
       "https://manual.svkxtri.com/",
       "https://svkxtri.com",
-      "https://www.xtriworldtour.com/events"
+      "https://www.xtriworldtour.com/events",
+      "https://svkxtri.com/rules/"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -913,11 +1005,14 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "Classic since 1988; swim in St. Martins Therme lake (Frauenkirchen), closed-road bike laps, run and finish in Podersdorf",
     "sources": [
       "https://www.austria-triathlon.at/",
       "https://www.austria-triathlon.at/distanz/ironman-distanz/",
-      "https://www.tri2b.com/ergebnisse/austria-triathlon-2026-podersdorf-oesterreich-langdistanz/"
+      "https://www.tri2b.com/ergebnisse/austria-triathlon-2026-podersdorf-oesterreich-langdistanz/",
+      "https://www.austria-triathlon.at/distanz/halb-distanz/"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -942,6 +1037,8 @@
       }
     ],
     "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
     "notes": "1.9/88/21 km; swim in St. Martins Therme lake (Frauenkirchen), flat bike laps, run in Podersdorf; 2026 Austrian champs",
     "sources": [
       "https://www.austria-triathlon.at/",
@@ -1024,10 +1121,12 @@
       }
     ],
     "swim": "ocean",
+    "entry": "ballot",
     "notes": "A-type 4.0/190/42.2 km: sea swim at Sawata beach, bike around Sado Island; doubles as Japan Long Distance Championship",
     "sources": [
       "https://www.scsf.jp/triathlon/race_info.html",
-      "https://www.jtu.or.jp/news/2026/09/08/86355/"
+      "https://www.jtu.or.jp/news/2026/09/08/86355/",
+      "https://www.scsf.jp/triathlon/"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -1053,7 +1152,9 @@
       }
     ],
     "swim": "lake",
-    "notes": "Swim in Black Lake, Durmitor National Park (13-17 C); 182 km bike; run finishes back at Black Lake",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "notes": "Swim in Black Lake, Durmitor National Park (13-17 C); 182 km bike (3,200 m+); 42 km run (1,700 m) back to Black Lake",
     "sources": [
       "https://blackxtri.com/s/BLACKLAKE-Event-manual-2026.pdf",
       "https://blackxtri.com",
@@ -1106,10 +1207,13 @@
       }
     ],
     "swim": "lake",
-    "notes": "2/92/20 km; swim in Lac de Sainte-Croix; hilly bike in the Verdon (1,450 m climbing)",
+    "bike": "hilly",
+    "run": "hilly",
+    "notes": "2/92/19.5 km: swim in Lac de Sainte-Croix; Verdon bike (1,450 m climbing); lakeside run (250 m)",
     "sources": [
       "https://natureman-var.fr/en/3876-2/",
-      "https://fftri.t2area.com/calendrier/natureman/triathlon-l.html"
+      "https://fftri.t2area.com/calendrier/natureman/triathlon-l.html",
+      "https://natureman-var.fr/en/3886-2/"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -1131,7 +1235,9 @@
       }
     ],
     "swim": "ocean",
-    "notes": "3.9 km sea swim from Mon Repos, T1 at the Old Fortress; 176 km bike; 40 km run to Angelokastro",
+    "bike": "hilly",
+    "run": "mountainous",
+    "notes": "3.9 km sea swim from Mon Repos; 176 km bike round Corfu (2,400 m); 40 km run (1,500 m) to Angelokastro",
     "sources": [
       "https://greekheroxtri.com",
       "https://www.xtriworldtour.com/events"
@@ -1180,7 +1286,9 @@
       }
     ],
     "swim": "lake",
-    "notes": "3.8 km swim in Sun Moon Lake, ~180 km bike with 3,600 m+ climbing, 42 km uphill run to Hehuan Main Peak (3,417 m)",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "notes": "Organiser total 242 km, bike ~196 km (Xtri lists 3.8/180/43.4); Sun Moon Lake swim; run to Hehuan Main Peak (3,417 m)",
     "sources": [
       "https://www.formosaxtri.com",
       "https://www.xtriworldtour.com/events"
@@ -1204,9 +1312,13 @@
       }
     ],
     "swim": "ocean",
-    "notes": "Point-to-point: ferry-jump swim in Aysén Fjord, 180 km on Carretera Austral, run to General Carrera Lake; crew required",
+    "bike": "hilly",
+    "entry": "ballot",
+    "notes": "Point-to-point: ferry-jump swim in Aysén Fjord, 177 km bike (~2,500 m) on Carretera Austral, 43 km run to General Carrera Lake",
     "sources": [
-      "https://www.patagonman.com/"
+      "https://www.patagonman.com/",
+      "https://www.patagonman.com/enrollment",
+      "https://www.patagonman.com/_files/ugd/f06813_be8e6d7e781546a5ac63d06bda2c8a2c.pdf"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -1228,10 +1340,13 @@
       }
     ],
     "swim": "lake",
-    "notes": "Point-to-point: 4 km night swim at São Bento dam (Siderópolis), 176 km via Serra do Rio do Rastro, 39 km run",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "notes": "Point-to-point: 4 km night swim at São Bento dam, 176 km bike (3,850 m) via Serra do Rio do Rastro, 39 km run (1,250 m)",
     "sources": [
       "https://en.fodaxman.com.br/prova",
-      "https://www.xtriworldtour.com/events"
+      "https://www.xtriworldtour.com/events",
+      "https://en.fodaxman.com.br"
     ],
     "verifiedAt": "2026-09-25"
   },
@@ -1253,7 +1368,9 @@
       }
     ],
     "swim": "lake",
-    "notes": "Inaugural Xtri prospect race; swim shortened to 3.0 km (altitude, cold) in Lake Tota; 185 km bike; 43 km run",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "notes": "Inaugural Xtri prospect race; swim shortened to 3.0 km (altitude, cold) in Lake Tota; 185 km bike (3,200 m); 43 km run (2,000 m)",
     "sources": [
       "https://www.xtricolombia.com/",
       "https://www.xtricolombia.com/courses",

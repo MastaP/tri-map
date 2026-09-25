@@ -28,7 +28,28 @@
     "url": "https://t100triathlon.com/races/french-riviera",
     "editions": [{ "date": "2026-09-27", "status": "confirmed" }],
     "swim": "ocean",
+    "bike": "hilly",
+    "run": "flat",
     "sources": ["https://t100triathlon.com/races/french-riviera"],
+    "verifiedAt": "2026-09-21"
+  },
+  {
+    "id": "t100-wanaka-t100",
+    "name": "T100 Wanaka",
+    "brand": "t100",
+    "series": "T100 Challenger",
+    "distance": "t100",
+    "city": "Wānaka",
+    "country": "NZ",
+    "lat": -44.697,
+    "lng": 169.134,
+    "url": "https://t100triathlon.com/races/wanaka",
+    "editions": [{ "date": "2027-02-20", "status": "confirmed" }],
+    "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
+    "notes": "Formerly Challenge Wanaka; same organiser and venue",
+    "sources": ["https://t100triathlon.com/races/wanaka"],
     "verifiedAt": "2026-09-21"
   }
 ]
