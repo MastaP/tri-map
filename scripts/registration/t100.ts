@@ -393,7 +393,11 @@ export async function refreshT100({
     }
     const slug = `${prefix}-${next.date.slice(0, 4)}`;
     /** No status now: keep the previous entry if it is about this edition. */
-    const keep = (outcome: 'failed' | 'unknown', detail: string, organiserError?: string): T100RaceResult => {
+    const keep = (
+      outcome: 'failed' | 'unusable' | 'unknown',
+      detail: string,
+      organiserError?: string,
+    ): T100RaceResult => {
       const old = previous?.races[raceId];
       const base = { raceId, slug, outcome, detail, ...(organiserError ? { organiserError } : {}) };
       return old?.editionDate && editionMatches(old.editionDate, next)
@@ -431,7 +435,8 @@ export async function refreshT100({
       reading = { error: `unexpected response (${(e as Error).message})` };
     }
     if ('error' in reading) {
-      results.push({ raceId, slug, outcome: 'unusable', detail: reading.error });
+      // Like a failed request: an unreadable answer must not erase a still-valid status.
+      results.push(keep('unusable', reading.error));
       continue;
     }
 

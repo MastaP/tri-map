@@ -413,6 +413,23 @@ describe('refreshT100', () => {
     expect(Object.keys(r.file!.races)).toEqual(['t100-dubai-t100']);
   });
 
+  it('keeps the previous status for the same edition when the platform answer has an unknown shape', async () => {
+    const r = await run(
+      served(
+        {
+          'dubai-t100-2026': ok('{"status":"OPEN","competitions":{"a":1}}'),
+          'london-t100-2027': platformOk('london-t100-2027'),
+          'qatar-t100-2026': platformOk('qatar-t100-2026'),
+        },
+        organiserOk(ALL),
+      ),
+    );
+    expect(r.ok).toBe(true);
+    expect(r.results[0]).toMatchObject({ raceId: 't100-dubai-t100', outcome: 'unusable', carriedOver: true });
+    expect(r.file!.races['t100-dubai-t100']).toMatchObject({ status: 'open', method: 'organiser' });
+    expect(r.file!.races['t100-dubai-t100']?.checkedAt).toBe('2026-09-20T05:00:00.000Z');
+  });
+
   it('refuses to write when most platform requests fail or nothing could be read', async () => {
     const down = await run(
       served({
