@@ -1,0 +1,102 @@
+{
+  "_about": "What t100triathlon.com's entry-status endpoint (/wp-json/njuko/v1/competition-price?competition_id=…&edition_id=…) answered for each saved edition's age-group 100 km race on 2026-09-26: the ids it was asked with (from the entry platform) and its answer as is. london-t100-2025 has no saved platform response, so only its status and message are known.",
+  "dubai-t100-2026": {
+    "competition_id": "6901e9f1bc296c8e29e1d54d",
+    "edition_id": "6901e9f1bc296c8e29e1d549",
+    "answer": {
+      "status": "live",
+      "value": 2348,
+      "price_tier": "Last Chance",
+      "is_final_tier": true,
+      "final_tier_value": null,
+      "button_text": "REGISTER NOW",
+      "registration_url": "https://in.registrations.protriathletes.org/dubai-t100-2026",
+      "button_target": "_blank",
+      "suppress_price": false,
+      "edition_name": "Dubai T100 2026",
+      "competition_name": "Triathlon - 100km - Individual"
+    }
+  },
+  "gold-coast-t100-2027": {
+    "competition_id": "69ba8b6355c8af2ff65e6d25",
+    "edition_id": "69ba8b6355c8af2ff65e6cec",
+    "answer": {
+      "status": "live",
+      "value": 734,
+      "price_tier": "General Sale",
+      "is_final_tier": false,
+      "final_tier_value": 774,
+      "button_text": "REGISTER NOW",
+      "registration_url": "https://in.registrations.protriathletes.org/gold-coast-t100-2027",
+      "button_target": "_blank",
+      "suppress_price": false,
+      "edition_name": "Gold Coast T100 2027",
+      "competition_name": "Triathlon - 100km - Individual"
+    }
+  },
+  "london-t100-2025": {
+    "answer": {
+      "status": "wait_list",
+      "message": "SOLD OUT – JOIN WAIT LIST"
+    }
+  },
+  "london-t100-2026": {
+    "competition_id": "685e98ec774223ed09805895",
+    "edition_id": "685e98ec774223ed0980588f",
+    "answer": {
+      "status": "sold_out",
+      "message": "ENTRIES SOLD OUT"
+    }
+  },
+  "london-t100-2027": {
+    "competition_id": "6a608bdc19bef6bd5f15a545",
+    "edition_id": "6a608bdc19bef6bd5f15a533",
+    "answer": {
+      "status": "upcoming",
+      "message": "ENTRIES OPENING SOON",
+      "button_text": "GET PRIORITY ACCESS",
+      "registration_url": "#register-interest",
+      "button_target": "_self"
+    }
+  },
+  "marbella-t100-2027": {
+    "competition_id": "6a048a455d566ec9190570aa",
+    "edition_id": "6a048a455d566ec9190570a5",
+    "answer": {
+      "status": "upcoming",
+      "message": "ENTRIES OPENING SOON",
+      "button_text": "GET PRIORITY ACCESS",
+      "registration_url": "#register-interest",
+      "button_target": "_self"
+    }
+  },
+  "qatar-t100-2026": {
+    "competition_id": "6932cce8cf338b7c760a76fc",
+    "edition_id": "6932cce8cf338b7c760a76f7",
+    "answer": {
+      "status": "live",
+      "value": 518,
+      "price_tier": "Late",
+      "is_final_tier": false,
+      "final_tier_value": 558,
+      "button_text": "REGISTER NOW",
+      "registration_url": "https://in.registrations.protriathletes.org/qatar-t100-2026",
+      "button_target": "_blank",
+      "suppress_price": false,
+      "edition_name": "Qatar T100 2026",
+      "competition_name": "Triathlon - 100km - Individual"
+    }
+  },
+  "saudi-arabia-t100-2026": {
+    "competition_id": "6aa2bce64ac8fdb7cd4768fc",
+    "edition_id": "6a906020c24efb216396b339",
+    "answer": {
+      "status": "upcoming",
+      "message": "ENTRIES OPENING SOON",
+      "button_text": "GET PRIORITY ACCESS",
+      "registration_url": "#register-interest",
+      "button_target": "_self",
+      "reason": "dates_inverted"
+    }
+  }
+}

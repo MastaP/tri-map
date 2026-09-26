@@ -45,6 +45,13 @@ regenerates every image in `docs/screenshots` from the small fixture set in
 - **Can I just sign up?** Races that need a qualifying slot carry a "Qualifier only"
   badge, lottery/application races a "Ballot" badge (on cards, in the detail and in the
   map tooltip). **Open entry only** hides both.
+- **Can I still enter?** IRONMAN, IRONMAN 70.3 and T100 World Tour races show whether
+  their next edition is sold out ("Sold out", "Waitlist"), partly sold out ("General entry
+  sold out": charity or travel-package places may remain), closed or not open yet ("Opens
+  soon"), always with the date it was checked ("as of 26 Sep"); the detail explains it in
+  a Registration row. **Hide sold out** (`hidesold=1`) drops sold-out and closed races. A
+  status older than 30 days, about another edition, or "Opens soon" past its opening date
+  is not shown; races from other organisers have none.
 - **Course profile.** Bike and run courses are rated Flat / Rolling / Hilly /
   Mountainous and shown with a small elevation silhouette and the word. The **Course**
   filter picks profiles per discipline; races without course data are left out while
@@ -111,6 +118,9 @@ npm run dev:fixtures    # same, with the 19-race fixture set (tests/fixtures/rac
 | `npm run build:fixtures`                | Build with fixture data into `dist-fixtures/` (used by e2e)                        |
 | `npm run preview`                       | Serve `dist/` locally                                                              |
 | `npm run validate:data`                 | Validate `data/races/*.json` and print a summary; `-- --fixtures` for the fixtures |
+| `npm run refresh:ironman`               | Refresh the IRONMAN registration status (by hand, see below)                       |
+| `npm run refresh:t100`                  | Refresh the T100 registration status (CI does it before every deploy)              |
+| `npm run refresh:registration`          | Both refreshes, IRONMAN then T100 (by hand; never in CI)                           |
 | `npm test`                              | Unit tests (Vitest)                                                                |
 | `npm run test:e2e`                      | Playwright smoke + accessibility tests against a fixture build                     |
 | `npm run screenshots`                   | Regenerate `docs/screenshots/*.png`                                                |
@@ -168,16 +178,63 @@ the app not to guess a next edition for one-off or replaced races.
 Countries and regions are defined in `src/data/regions.ts`; add a country there if the
 validator reports an unknown code.
 
+### Registration status
+
+Whether a race is sold out lives in `data/registration/` (format, and how each status is
+read, in [`data/README.md`](data/README.md#registration-status)). The files are
+generated; do not edit them by hand.
+
+- **IRONMAN: refresh by hand.** ironman.com answers a normal connection but blocks
+  GitHub-hosted runners, so CI cannot read it (the script refuses to run in GitHub
+  Actions). Every week or two (a status older than 30 days is no longer shown), run
+
+  ```bash
+  npm run refresh:registration     # both IRONMAN and T100; -- --dry-run to only print the summary
+  git add data/registration/ && git commit -m "Refresh registration status" && git push
+  ```
+
+  (`npm run refresh:ironman` alone does only IRONMAN.) It reads the race finder, one
+  request every 2 s with a `TriMap/1.0` User-Agent, and matches each race card to
+  `data/races` by the race's `url`. For each card tagged "Flex90 Eligible" (entries
+  opened less than 90 days ago, which says nothing about places left) it reads the race's
+  registration page and takes what its visible general-entry card shows: a price (open),
+  or "SOLD OUT" (general entry sold out, or sold out when no charity or special entries
+  remain); an unclear page gives no status. For a race with an announced next edition
+  but no card, it reads the race page's status tag. After "too many requests" it waits
+  as long as the site asks (within limits) and, if still refused, requests no more race
+  or registration pages. It prints the counts per status, what each page check found,
+  the cards with no race in the data and the IRONMAN races with no status. It writes
+  nothing, and exits with an error, on an HTTP error or block page in the finder, or when
+  fewer than half of the listed IRONMAN races get a status, so a broken run never
+  replaces good data.
+
+- **T100 World Tour: automatic.** The deploy workflow runs `npm run refresh:t100` before
+  every build (daily), for the races in `data/registration/t100-sources.json`: the PTO
+  entry platform gives the next edition and its age-group 100 km race, and
+  t100triathlon.com its status. When t100triathlon.com cannot be read (Cloudflare may turn
+  away GitHub-hosted runners), only the platform's explicit signals count (not published
+  yet, closed, waiting list); a race on sale keeps its previous status for the same
+  edition, which stops showing 30 days after it was read. The step is bounded (no new
+  request after 3 minutes, a capped wait after "too many requests", a 5-minute step
+  timeout) and can never fail the deploy: if it fails, the build uses the committed
+  `t100.json`. CI does not commit what it fetched, so the committed file is only that
+  fallback; run `npm run refresh:registration` (or `refresh:t100`) locally and commit
+  now and then to keep it useful. Add a new World Tour stop to `t100-sources.json` (its
+  entry-platform slug without the year). T100 Challenger events enter on Active.com and
+  have no status.
+
 ## Deploying to GitHub Pages
 
 1. Push this repository to GitHub.
 2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
-3. Push to `main`. `.github/workflows/deploy.yml` runs `npm ci`, `validate:data`,
-   `typecheck`, `test`, `build`, and deploys `dist/` with `actions/deploy-pages`.
+3. Push to `main`. `.github/workflows/deploy.yml` runs `npm ci`, `refresh:t100`,
+   `validate:data`, `typecheck`, `test`, `build`, and deploys `dist/` with
+   `actions/deploy-pages`.
 
-The workflow also runs every Monday at 05:00 UTC. The per-race share pages
-(`race/<id>/`) and their "next date" text are written at build time, so the weekly
-rebuild keeps them current between pushes. GitHub pauses scheduled workflows in a
+The workflow also runs every day at 05:00 UTC. It refreshes the T100 registration status
+before building (see "Registration status" above), and the per-race share pages
+(`race/<id>/`) and their "next date" text are written at build time, so the daily
+rebuild keeps both current between pushes. GitHub pauses scheduled workflows in a
 repository with no activity for 60 days; re-enable it under **Actions** if that happens.
 
 The build uses `base: './'`, so it works under any Pages sub-path
@@ -203,7 +260,10 @@ deploying.
 - Data is read and validated with zod at build time (the `virtual:trimap-races`
   module in `vite.config.ts`), so the browser gets validated records and no schema
   library, and is enriched at runtime with region, country and the upcoming editions
-  (`src/data/derive.ts`, `src/data/nextEdition.ts`).
+  (`src/data/derive.ts`, `src/data/nextEdition.ts`). The registration status files come
+  the same way (`virtual:trimap-registration`) and are attached to each race's next
+  edition when fresh (`src/data/registration.ts`); the refresh scripts live in
+  `scripts/registration/`.
 - The build also writes `race/<id>/index.html` for every race (share previews, see
   `scripts/racePages.ts`) and injects absolute `og:image` / `og:url` / canonical tags
   when the site URL is known (`VITE_SITE_URL`, else the GitHub Pages URL of the repo).
@@ -218,7 +278,7 @@ src/
   lib/         filters, URL state, dates, geo, .ics, search
   components/  header, filters, time histogram, results list, race detail, sheets
   map/         MapView (lazy), marker builders, legend
-scripts/       validate-data.ts, racePages.ts (per-race share pages)
+scripts/       validate-data.ts, racePages.ts (per-race share pages), refresh-{ironman,t100,registration}.ts (registration status)
 tests/         unit tests + fixture races
 e2e/           Playwright smoke, accessibility and screenshot specs
 ```

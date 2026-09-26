@@ -16,6 +16,7 @@ describe('URL state', () => {
       regions: ['europe', 'asia'],
       time: { kind: 'range', from: '2026-10', to: '2027-03' },
       openOnly: true,
+      hideSoldOut: true,
       bike: ['flat', 'rolling'],
       run: ['hilly'],
       showEstimated: true,
@@ -26,7 +27,7 @@ describe('URL state', () => {
     const bounds = [4.1, 51.9, 6.3, 52.8] as const;
     const qs = serializeUrlState({ filters, raceId: 'challenge-roth-full', bounds });
     expect(qs).toBe(
-      'q=roth+%C3%BCber&dist=full,half&brand=challenge&region=europe,asia&from=2026-10&to=2027-03&open=1&bike=flat,rolling&run=hilly&est=1&area=1&bbox=4.1,51.9,6.3,52.8&star=1&sort=near&race=challenge-roth-full',
+      'q=roth+%C3%BCber&dist=full,half&brand=challenge&region=europe,asia&from=2026-10&to=2027-03&open=1&hidesold=1&bike=flat,rolling&run=hilly&est=1&area=1&bbox=4.1,51.9,6.3,52.8&star=1&sort=near&race=challenge-roth-full',
     );
     expect(parseUrlState(`?${qs}`)).toEqual({ filters, raceId: 'challenge-roth-full', bounds, view: null });
     expect(parseUrlState('sort=name').filters.sort).toBe('name');
@@ -41,6 +42,8 @@ describe('URL state', () => {
     ]);
     expect(parseUrlState('run=steep,FLAT').filters.run).toEqual(['flat']);
     expect(parseUrlState('open=yes&sort=closest').filters).toMatchObject({ openOnly: false, sort: 'date' });
+    expect(parseUrlState('hidesold=yes').filters.hideSoldOut).toBe(false);
+    expect(parseUrlState('hidesold=1').filters.hideSoldOut).toBe(true);
   });
 
   it('round-trips presets and single months', () => {

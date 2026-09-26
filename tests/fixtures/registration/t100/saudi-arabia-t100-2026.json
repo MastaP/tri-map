@@ -1,0 +1,242 @@
+{
+  "_id": "6a906020c24efb216396b339",
+  "status": "DRAFT",
+  "openDate": null,
+  "startDate": "2026-11-26T21:00:00.000Z",
+  "timezone": "Arab Standard Time",
+  "isArchived": false,
+  "url": "saudi-arabia-t100-2026",
+  "name": [
+    {
+      "language": "en",
+      "translation": "Saudi Arabia T100 2026"
+    }
+  ],
+  "updated_at": "2026-09-15T13:46:07.910Z",
+  "competitions": [
+    {
+      "_id": "6aa2bce64ac8fdb7cd4768fc",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - 100km - Individual"
+        }
+      ],
+      "reportName": "Triathlon - 100km - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "170",
+      "waitingListMode": false,
+      "startDate": "2026-11-28T09:00:00.000Z",
+      "startDateRegistrations": "2026-11-26T09:00:00.000Z",
+      "endDateRegistrations": "2026-11-19T09:00:00.000Z",
+      "registrationsModificationLimit": "2026-11-19T09:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "updated_at": "2026-09-25T13:48:44.138Z",
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6aa2bb04248a4d52972ef2a3",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - 100km - Team Relay"
+        }
+      ],
+      "reportName": "Triathlon - 100km - Team Relay",
+      "competitionType": "TEAM",
+      "placeLimit": true,
+      "place": "30",
+      "waitingListMode": false,
+      "startDate": "2026-11-28T09:00:00.000Z",
+      "startDateRegistrations": "2026-11-26T09:00:00.000Z",
+      "endDateRegistrations": "2026-11-26T09:00:00.000Z",
+      "registrationsModificationLimit": "2026-11-19T09:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "updated_at": "2026-09-25T13:48:54.270Z",
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6a906022fe3c3840e3affdea",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Sprint - Individual"
+        }
+      ],
+      "reportName": "Triathlon - Sprint - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "540",
+      "waitingListMode": false,
+      "startDate": "2026-11-28T06:00:00.000Z",
+      "startDateRegistrations": "2026-11-27T06:00:00.000Z",
+      "endDateRegistrations": "2026-11-27T20:59:00.000Z",
+      "registrationsModificationLimit": "2026-11-20T20:59:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "updated_at": "2026-09-25T13:49:04.766Z",
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6aa2bc505384be1e6366bdf3",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Sprint - Team Relay"
+        }
+      ],
+      "reportName": "Triathlon - Sprint - Team Relay",
+      "competitionType": "TEAM",
+      "placeLimit": true,
+      "place": "50",
+      "waitingListMode": false,
+      "startDate": "2026-11-28T09:00:00.000Z",
+      "startDateRegistrations": "2026-11-26T09:00:00.000Z",
+      "endDateRegistrations": "2026-11-19T09:00:00.000Z",
+      "registrationsModificationLimit": "2026-11-19T09:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "updated_at": "2026-09-25T13:49:17.181Z",
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6a906022fe3c3840e3affdec",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Youth Sprint - Individual"
+        }
+      ],
+      "reportName": "Triathlon - Youth Sprint - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": false,
+      "place": null,
+      "waitingListMode": false,
+      "startDate": "2026-11-27T06:00:00.000Z",
+      "startDateRegistrations": "2026-11-27T06:00:00.000Z",
+      "endDateRegistrations": "2026-11-27T20:59:00.000Z",
+      "registrationsModificationLimit": "2026-11-20T20:59:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "updated_at": "2026-09-10T14:22:16.608Z",
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6aa2be5ba2fbb845085622b4",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Run - 5km - Individual"
+        }
+      ],
+      "reportName": "Run - 5km - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "3000",
+      "waitingListMode": false,
+      "startDate": "2026-11-27T09:00:00.000Z",
+      "startDateRegistrations": "2026-11-26T09:00:00.000Z",
+      "endDateRegistrations": "2026-11-19T09:00:00.000Z",
+      "registrationsModificationLimit": "2026-11-19T09:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "updated_at": "2026-09-25T13:49:33.701Z",
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6aa2c06b029c05881e4a2995",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Run - 1km - Individual"
+        }
+      ],
+      "reportName": "Run - 1km - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "2000",
+      "waitingListMode": false,
+      "startDate": "2026-11-27T09:00:00.000Z",
+      "startDateRegistrations": "2026-11-26T09:00:00.000Z",
+      "endDateRegistrations": "2026-11-19T09:00:00.000Z",
+      "registrationsModificationLimit": "2026-11-19T09:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "updated_at": "2026-09-25T13:25:16.447Z",
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    }
+  ]
+}

@@ -3,11 +3,12 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-  # Weekly rebuild (Mondays 05:00 UTC): the per-race share pages (race/<id>/) and their
-  # "next date" text are generated at build time, so without a push they would go stale
-  # as races are held. Scheduled runs use the default branch.
+  # Daily rebuild (05:00 UTC): each deploy bundles a fresh T100 registration status (see
+  # the refresh step below), and the per-race share pages (race/<id>/) and their "next
+  # date" text are generated at build time, so without a push they would go stale as races
+  # are held. Scheduled runs use the default branch.
   schedule:
-    - cron: '0 5 * * 1'
+    - cron: '0 5 * * *'
   workflow_dispatch:
 
 permissions:
@@ -32,6 +33,19 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      # T100 registration status (t100triathlon.com, else the PTO entry platform's explicit
+      # signals), so each deploy bundles a fresh one. It can never fail or hold up the
+      # deploy: a failed refresh only warns, the script stops making requests after 3
+      # minutes and caps its waiting after "too many requests", the step is cut off after 5
+      # minutes, and in every such case the build goes on with the committed
+      # data/registration/t100.json (the app hides a status older than 30 days). The
+      # IRONMAN status is refreshed by hand (`npm run refresh:ironman`): ironman.com blocks
+      # GitHub-hosted runners, and the script refuses to run in GitHub Actions.
+      - name: Refresh T100 registration status
+        timeout-minutes: 5
+        continue-on-error: true
+        run: npm run refresh:t100 || echo "::warning::T100 registration refresh failed; building with the committed data/registration/t100.json"
 
       # Main data gate: schema, unique ids, coordinates, URLs. Fails on any error.
       - run: npm run validate:data

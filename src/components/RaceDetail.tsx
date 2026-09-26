@@ -18,6 +18,7 @@ import { correctionUrl, RACE_PAGES } from '../config.ts';
 import { BRANDS, DISTANCES, formatKm } from '../data/brands.ts';
 import { isNearStandard, raceLegs } from '../data/course.ts';
 import { REGIONS } from '../data/regions.ts';
+import { checkedDay, REGISTRATION_METHOD_INFO } from '../data/registration.ts';
 import type { Race } from '../data/types.ts';
 import { cn } from '../lib/cn.ts';
 import { formatDate, formatDateRange, formatLongDate, formatMonthLong, type ISODate } from '../lib/dates.ts';
@@ -25,10 +26,13 @@ import { copyText } from '../lib/clipboard.ts';
 import { buildIcs, icsFileName } from '../lib/ics.ts';
 import { TOUCH_INLINE } from '../lib/touch.ts';
 import {
+  asOfText,
   countdownTo,
   ENTRY_EXPLAINER,
   firstYear,
   raceLink,
+  REGISTRATION_EXPLAINER,
+  REGISTRATION_WORDS,
   seriesLabel,
   shortRaceName,
   sourceLabels,
@@ -38,7 +42,14 @@ import {
 } from '../lib/raceText.ts';
 import { BrandGlyph } from './BrandGlyph.tsx';
 import { Flag } from './Flag.tsx';
-import { ChampionshipBadge, DistanceBadge, EntryBadge, NonStandardBadge, TerrainGlyph } from './RaceBits.tsx';
+import {
+  ChampionshipBadge,
+  DistanceBadge,
+  EntryBadge,
+  NonStandardBadge,
+  RegistrationBadge,
+  TerrainGlyph,
+} from './RaceBits.tsx';
 
 interface Props {
   race: Race;
@@ -113,6 +124,8 @@ export function RaceDetail({
   const correction = correctionUrl(race);
   const lastHeld = race.editions.findLast((e) => e.status !== 'cancelled' && (e.endDate ?? e.date) < today);
   const successorYear = successor ? firstYear(successor) : null;
+  // The registration status is about the next edition, which is the one this page shows.
+  const registration = next ? race.registration : undefined;
 
   const successorLink = successor && (
     <button
@@ -219,6 +232,7 @@ export function RaceDetail({
           <div className="mt-3 flex flex-wrap items-center gap-1.5">
             <DistanceBadge distance={race.distance} course={race.course} long />
             <EntryBadge entry={race.entry} />
+            <RegistrationBadge registration={registration} today={today} />
             <NonStandardBadge race={race} />
             <ChampionshipBadge race={race} short={false} />
           </div>
@@ -453,7 +467,7 @@ export function RaceDetail({
           {/* Facts */}
           <dl className="mt-5 divide-y divide-line rounded-2xl border border-line text-sm">
             <div className="flex gap-3 px-4 py-3">
-              <dt className="w-20 shrink-0 text-muted">Entry</dt>
+              <dt className="w-24 shrink-0 text-muted">Entry</dt>
               <dd className="text-pretty">
                 {next
                   ? ENTRY_EXPLAINER[race.entry]
@@ -462,14 +476,47 @@ export function RaceDetail({
                     : 'No future edition to enter.'}
               </dd>
             </div>
+            {registration && (
+              <div className="flex gap-3 px-4 py-3" data-testid="registration-row">
+                <dt className="w-24 shrink-0 text-muted">Registration</dt>
+                <dd className="min-w-0 text-pretty">
+                  <p>
+                    <span className="font-semibold">{REGISTRATION_WORDS[registration.status]}</span>
+                    {registration.opens && registration.opens >= today && (
+                      <> · opens {formatDate(registration.opens)}</>
+                    )}
+                    <span className="text-muted">
+                      {' '}
+                      ·{' '}
+                      <span className="whitespace-nowrap">
+                        {asOfText(registration.checkedAt, today, { year: true })}
+                      </span>
+                    </span>
+                  </p>
+                  <p className="mt-0.5 text-muted">
+                    {REGISTRATION_EXPLAINER[registration.status]}
+                    {next?.estimated && ` About the ${next.date.slice(0, 4)} edition.`}
+                  </p>
+                  <a
+                    href={registration.url ?? race.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-2 inline-flex h-8 items-center gap-1.5 rounded-lg border border-line-strong px-2.5 text-[13px] font-semibold whitespace-nowrap transition-colors hover:bg-surface-2 pointer-coarse:h-11"
+                  >
+                    {registration.url && registration.url !== race.url ? 'Official entry page' : 'Official website'}
+                    <ExternalLink className="size-3.5" aria-hidden="true" />
+                  </a>
+                </dd>
+              </div>
+            )}
             {race.series && race.series !== seriesLabel(race, BRANDS[race.brand].label) && (
               <div className="flex gap-3 px-4 py-3">
-                <dt className="w-20 shrink-0 text-muted">Series</dt>
+                <dt className="w-24 shrink-0 text-muted">Series</dt>
                 <dd className="text-pretty">{race.series}</dd>
               </div>
             )}
             <div className="flex gap-3 px-4 py-3">
-              <dt className="w-20 shrink-0 text-muted">Venue</dt>
+              <dt className="w-24 shrink-0 text-muted">Venue</dt>
               <dd className="min-w-0">
                 <span className="flex flex-wrap gap-x-3 gap-y-1">
                   <a
@@ -493,7 +540,7 @@ export function RaceDetail({
             </div>
             {race.notes && (
               <div className="flex gap-3 px-4 py-3">
-                <dt className="w-20 shrink-0 text-muted">Notes</dt>
+                <dt className="w-24 shrink-0 text-muted">Notes</dt>
                 <dd className="text-pretty">{race.notes}</dd>
               </div>
             )}
@@ -569,6 +616,12 @@ export function RaceDetail({
               ))}
             </p>
             <p>Dates verified {formatDate(race.verifiedAt)}. Always confirm on the official website.</p>
+            {registration && (
+              <p data-testid="registration-source">
+                Registration status: “{registration.label}” on {REGISTRATION_METHOD_INFO[registration.method].where},
+                checked {formatDate(checkedDay(registration.checkedAt))}.
+              </p>
+            )}
             {correction && (
               <p>
                 <a

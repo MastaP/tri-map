@@ -7,7 +7,8 @@ import { defineConfig, loadEnv, type Plugin } from 'vite';
 import { localToday } from './src/lib/dates.ts';
 import { RaceFileSchema } from './src/data/schema.ts';
 import { validateRaceFiles } from './src/data/validate.ts';
-import { dataDirFor, readRaceFiles } from './scripts/raceFiles.ts';
+import { validateRegistrationFiles } from './src/data/validateRegistration.ts';
+import { dataDirFor, readRaceFiles, readRegistrationFiles, registrationDirFor } from './scripts/raceFiles.ts';
 import { racePageHtml } from './scripts/racePages.ts';
 
 /**
@@ -70,6 +71,42 @@ function raceDataModule(source: string | undefined): Plugin {
       const records = files.flatMap((f) => RaceFileSchema.parse(JSON.parse(f.text)));
       // JSON.parse of a string literal is faster to evaluate than a large object literal.
       return `export default JSON.parse(${JSON.stringify(JSON.stringify(records))});`;
+    },
+  };
+}
+
+/**
+ * `virtual:trimap-registration`: the registration status files (data/registration, or the
+ * fixtures' tests/fixtures/registration), validated here against the race data. Invalid
+ * files fail the build like invalid race data; a missing file just means no status.
+ */
+function registrationModule(source: string | undefined): Plugin {
+  const id = 'virtual:trimap-registration';
+  const resolved = `\0${id}`;
+  return {
+    name: 'trimap:registration',
+    resolveId(request) {
+      return request === id ? resolved : undefined;
+    },
+    load(request) {
+      if (request !== resolved) return undefined;
+      const dir = registrationDirFor(source);
+      const files = readRegistrationFiles(dir);
+      for (const f of files) this.addWatchFile(resolve(dir, f.name));
+      this.addWatchFile(dataDirFor(source));
+      const today = localToday();
+      const races = validateRaceFiles(readRaceFiles(dataDirFor(source)), today).races;
+      const result = validateRegistrationFiles(files, races, today);
+      if (result.errorCount) {
+        const lines = result.issues
+          .filter((i) => i.level === 'error')
+          .slice(0, 30)
+          .map((i) => `  ${i.file}${i.id ? ` [${i.id}]` : ''}: ${i.message}`);
+        this.error(
+          `Invalid registration data in ${relative(process.cwd(), dir)}:\n${lines.join('\n')}\nRun \`npm run validate:data\` for the full report.`,
+        );
+      }
+      return `export default JSON.parse(${JSON.stringify(JSON.stringify(result.data))});`;
     },
   };
 }
@@ -165,7 +202,14 @@ export default defineConfig(({ mode }) => {
     define: {
       __REPO_URL__: JSON.stringify(repoUrl),
     },
-    plugins: [react(), tailwindcss(), raceDataGuard(source), raceDataModule(source), sitePages(source, siteUrl)],
+    plugins: [
+      react(),
+      tailwindcss(),
+      raceDataGuard(source),
+      raceDataModule(source),
+      registrationModule(source),
+      sitePages(source, siteUrl),
+    ],
     worker: { format: 'es' },
     build: {
       target: 'es2022',

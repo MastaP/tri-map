@@ -1,0 +1,64 @@
+{
+  "source": "https://front-api.registrations.protriathletes.org/edition/url/",
+  "checkedAt": "2026-09-25T23:39:11.504Z",
+  "races": {
+    "t100-dubai-t100": {
+      "status": "open",
+      "label": "REGISTER NOW · Triathlon - 100km - Individual",
+      "method": "organiser",
+      "editionDate": "2026-11-16",
+      "url": "https://in.registrations.protriathletes.org/dubai-t100-2026"
+    },
+    "t100-gold-coast-t100": {
+      "status": "open",
+      "label": "REGISTER NOW · Triathlon - 100km - Individual",
+      "method": "organiser",
+      "editionDate": "2027-03-21",
+      "url": "https://in.registrations.protriathletes.org/gold-coast-t100-2027"
+    },
+    "t100-london-t100": {
+      "status": "opening-soon",
+      "label": "ENTRIES OPENING SOON · Triathlon - 100km - Individual",
+      "method": "organiser",
+      "editionDate": "2027-08-22",
+      "url": "https://in.registrations.protriathletes.org/london-t100-2027",
+      "opens": "2026-10-05"
+    },
+    "t100-marbella-t100": {
+      "status": "opening-soon",
+      "label": "ENTRIES OPENING SOON · Triathlon - 100km - Individual",
+      "method": "organiser",
+      "editionDate": "2027-09-26",
+      "url": "https://in.registrations.protriathletes.org/marbella-t100-2027",
+      "opens": "2026-10-07"
+    },
+    "t100-qatar-t100": {
+      "status": "open",
+      "label": "REGISTER NOW · Triathlon - 100km - Individual",
+      "method": "organiser",
+      "editionDate": "2026-12-13",
+      "url": "https://in.registrations.protriathletes.org/qatar-t100-2026"
+    },
+    "t100-saudi-arabia-t100": {
+      "status": "opening-soon",
+      "label": "ENTRIES OPENING SOON · Triathlon - 100km - Individual",
+      "method": "organiser",
+      "editionDate": "2026-11-28",
+      "url": "https://in.registrations.protriathletes.org/saudi-arabia-t100-2026"
+    },
+    "t100-singapore-t100": {
+      "status": "open",
+      "label": "REGISTER NOW · Triathlon - 100km - Individual",
+      "method": "organiser",
+      "editionDate": "2027-04-11",
+      "url": "https://in.registrations.protriathletes.org/singapore-t100-2027"
+    },
+    "t100-vancouver-t100": {
+      "status": "open",
+      "label": "REGISTER NOW · Triathlon - 100km - Individual",
+      "method": "organiser",
+      "editionDate": "2027-08-15",
+      "url": "https://in.registrations.protriathletes.org/vancouver-t100-2027"
+    }
+  }
+}

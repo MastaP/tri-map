@@ -1,0 +1,509 @@
+{
+  "status": "OPEN",
+  "openDate": null,
+  "startDate": "2025-08-09T23:00:00.000Z",
+  "timezone": "GMT Standard Time",
+  "isArchived": true,
+  "url": "london-t100-2025",
+  "name": [
+    {
+      "language": "en",
+      "translation": "London T100 2025"
+    }
+  ],
+  "updated_at": "2025-11-13T16:15:29.047Z",
+  "competitions": [
+    {
+      "name": [
+        {
+          "language": "en",
+          "translation": "City AM Triathlon Team Challenge"
+        }
+      ],
+      "reportName": "City AM Triathlon Team Challenge",
+      "competitionType": "TEAM",
+      "placeLimit": true,
+      "place": "58",
+      "waitingListMode": false,
+      "startDate": "2025-08-09T09:00:00.000Z",
+      "startDateRegistrations": "2025-06-09T09:00:00.000Z",
+      "endDateRegistrations": "2025-08-06T10:59:00.000Z",
+      "registrationsModificationLimit": "2025-08-10T22:59:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 299,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 155,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    },
+    {
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - 100km - Individual"
+        }
+      ],
+      "reportName": "Triathlon - 100km - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "1584",
+      "waitingListMode": true,
+      "startDate": "2025-08-10T08:00:00.000Z",
+      "startDateRegistrations": "2025-01-14T11:00:00.000Z",
+      "endDateRegistrations": "2025-07-22T21:29:00.000Z",
+      "registrationsModificationLimit": "2025-08-06T22:59:00.000Z",
+      "hideOnFront": true,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "updated_at": "2026-01-19T13:41:16.527Z",
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": 0,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 400,
+          "value": 264,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 300,
+          "value": 360,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 390,
+          "enabled": 0,
+          "end": "2025-09-26T23:00:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 458,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 1000,
+          "value": 244,
+          "enabled": 1,
+          "end": "2024-08-14T22:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 600,
+          "value": 420,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 120,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 288,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    },
+    {
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Olympic - Individual"
+        }
+      ],
+      "reportName": "Triathlon - Olympic - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "1961",
+      "waitingListMode": false,
+      "startDate": "2025-08-10T09:00:00.000Z",
+      "startDateRegistrations": "2025-01-14T11:00:00.000Z",
+      "endDateRegistrations": "2025-08-10T10:59:00.000Z",
+      "registrationsModificationLimit": "2025-08-10T22:59:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "updated_at": "2026-01-19T13:49:04.217Z",
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": 1500,
+          "value": 139,
+          "enabled": 1,
+          "end": "2024-08-14T22:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 500,
+          "value": 185,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 500,
+          "value": 195,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 100,
+          "value": 205,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 350,
+          "value": 149,
+          "enabled": 1,
+          "end": "2025-01-13T00:00:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 50,
+          "value": 165,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 215,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 148,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    },
+    {
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Olympic - Team Relay "
+        }
+      ],
+      "reportName": "Triathlon - Olympic - Team Relay ",
+      "competitionType": "TEAM",
+      "placeLimit": true,
+      "place": "98",
+      "waitingListMode": false,
+      "startDate": "2025-08-10T09:00:00.000Z",
+      "startDateRegistrations": "2025-03-18T10:00:00.000Z",
+      "endDateRegistrations": "2025-07-21T10:59:00.000Z",
+      "registrationsModificationLimit": "2025-08-07T22:59:00.000Z",
+      "hideOnFront": true,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 130,
+          "value": 189,
+          "enabled": 1,
+          "end": "2024-08-14T22:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 117,
+          "value": 199,
+          "enabled": 1,
+          "end": "2025-01-13T00:00:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 50,
+          "value": 234,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 70,
+          "value": 248,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 50,
+          "value": 258,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 40,
+          "value": 189,
+          "enabled": 0,
+          "end": "2026-02-22T00:00:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 274,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    },
+    {
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Sprint - Individual "
+        }
+      ],
+      "reportName": "Triathlon - Sprint - Individual ",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "1159",
+      "waitingListMode": false,
+      "startDate": "2025-08-09T09:00:00.000Z",
+      "startDateRegistrations": "2025-01-14T11:00:00.000Z",
+      "endDateRegistrations": "2025-07-22T20:59:00.000Z",
+      "registrationsModificationLimit": "2025-08-10T22:59:00.000Z",
+      "hideOnFront": true,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 750,
+          "value": 94,
+          "enabled": 1,
+          "end": "2024-08-14T22:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 200,
+          "value": 109,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 200,
+          "value": 118,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 148,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 200,
+          "value": 128,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 350,
+          "value": 108,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 86,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    },
+    {
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Sprint - Team Relay "
+        }
+      ],
+      "reportName": "Triathlon - Sprint - Team Relay ",
+      "competitionType": "TEAM",
+      "placeLimit": true,
+      "place": "100",
+      "waitingListMode": false,
+      "startDate": "2025-08-09T09:00:00.000Z",
+      "startDateRegistrations": "2025-01-22T11:00:00.000Z",
+      "endDateRegistrations": "2025-07-21T10:59:00.000Z",
+      "registrationsModificationLimit": "2025-08-07T22:59:00.000Z",
+      "hideOnFront": true,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": 0,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 65,
+          "value": 155,
+          "enabled": 1,
+          "end": "2024-08-14T22:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 40,
+          "value": 155,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 40,
+          "value": 174,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 184,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 50,
+          "value": 164,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 124,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    },
+    {
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Super Sprint - Individual"
+        }
+      ],
+      "reportName": "Triathlon - Super Sprint - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "267",
+      "waitingListMode": false,
+      "startDate": "2025-08-09T09:00:00.000Z",
+      "startDateRegistrations": "2025-05-07T09:00:00.000Z",
+      "endDateRegistrations": "2025-09-20T14:59:00.000Z",
+      "registrationsModificationLimit": "2025-08-10T22:59:00.000Z",
+      "hideOnFront": true,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 90,
+          "value": 78,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 40,
+          "value": 88,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 98,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    }
+  ]
+}

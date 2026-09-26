@@ -2,6 +2,7 @@ import type { RegionId } from './regions.ts';
 import type { EntryType } from './constants.ts';
 import type { RaceRecord } from './schema.ts';
 import type { NextEdition } from './nextEdition.ts';
+import type { RaceRegistration } from './registration.ts';
 
 /** A race record plus fields derived at load time. */
 export interface Race extends RaceRecord {
@@ -26,4 +27,9 @@ export interface Race extends RaceRecord {
   formerly: string[];
   /** Normalized text used by the free-text search (name, city, country, series, former names). */
   searchText: string;
+  /**
+   * Whether an age-grouper can still enter the next edition (IRONMAN and T100 World Tour
+   * races only), when a recent status is known for that edition (see ./registration.ts).
+   */
+  registration?: RaceRegistration;
 }

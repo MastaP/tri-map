@@ -32,6 +32,7 @@ import {
   clusterPopupContent,
   FAN_MAX,
   hoverPopElement,
+  markerRegistration,
   markerSignature,
   raceMarkerElement,
   selectionElement,
@@ -355,7 +356,11 @@ function MapCanvas(props: MapViewProps & { onCrash: () => void }) {
           // Rebuilt when what it shows changed (a date filter picked another edition, or
           // the day rolled over and the next edition moved on).
           const race = raceByIdRef.current.get(key.slice(2));
-          if (race && existing.getElement().dataset.sig !== markerSignature(editionOf(race))) {
+          const edition = race ? editionOf(race) : null;
+          if (
+            race &&
+            existing.getElement().dataset.sig !== markerSignature(edition, markerRegistration(race, edition))
+          ) {
             existing.remove();
             markers.delete(key);
           }

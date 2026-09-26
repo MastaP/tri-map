@@ -10,6 +10,7 @@ const HIDDEN_DIMENSIONS: readonly Dimension[] = [
   'bike',
   'run',
   'entry',
+  'soldout',
   'estimated',
   'area',
   'shortlist',
@@ -29,6 +30,8 @@ function describe(d: Dimension, f: Filters): string {
       return `Run: ${list(f.run.map((t) => TERRAIN_LABEL[t].toLowerCase()))}`;
     case 'entry':
       return 'Open entry only';
+    case 'soldout':
+      return 'Hide sold out';
     case 'estimated':
       return 'Estimated dates';
     case 'area':

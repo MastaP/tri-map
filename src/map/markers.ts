@@ -5,9 +5,10 @@
 import { BRAND_IDS, BRANDS, brandGlyphSvg, DISTANCES, glyphPixelSize, type BrandId } from '../data/brands.ts';
 import { isNearStandard, legsText, raceLegs } from '../data/course.ts';
 import type { NextEdition } from '../data/nextEdition.ts';
+import { shownRegistration, type RaceRegistration } from '../data/registration.ts';
 import type { Race } from '../data/types.ts';
-import { formatDate, formatMonthShort } from '../lib/dates.ts';
-import { ENTRY_BADGE } from '../lib/raceText.ts';
+import { formatDate, formatMonthShort, localToday, type ISODate } from '../lib/dates.ts';
+import { asOfText, ENTRY_BADGE, REGISTRATION_BADGE, registrationSummary } from '../lib/raceText.ts';
 
 export const MARKER_CORE_PX = 26;
 
@@ -44,9 +45,22 @@ export function nonStandardLabel(race: Race): string | null {
   return isNearStandard(race) ? `Non-standard distance: ${legsText(raceLegs(race))}` : null;
 }
 
+/** The registration status a marker shows for `edition` (none for open entry). */
+export function markerRegistration(race: Race, edition: NextEdition | null): RaceRegistration | undefined {
+  const reg = shownRegistration(race, edition);
+  return reg && reg.status !== 'open' ? reg : undefined;
+}
+
+/** "Sold out · as of 26 Sep" for the map tooltip and the venue popup. */
+export function registrationLabel(reg: RaceRegistration, today: ISODate = localToday()): string {
+  if (reg.status === 'open') return '';
+  return `${REGISTRATION_BADGE[reg.status]} · ${asOfText(reg.checkedAt, today)}`;
+}
+
 /** What a race marker shows; a marker whose signature changed is rebuilt. */
-export function markerSignature(edition: NextEdition | null): string {
-  return edition ? `${edition.date}|${edition.estimated ? 'e' : edition.status}` : 'none';
+export function markerSignature(edition: NextEdition | null, registration?: RaceRegistration): string {
+  const base = edition ? `${edition.date}|${edition.estimated ? 'e' : edition.status}` : 'none';
+  return registration ? `${base}|${registration.status}|${registration.checkedAt}` : base;
 }
 
 export function raceMarkerElement(
@@ -55,8 +69,9 @@ export function raceMarkerElement(
   handlers: { onClick: (id: string) => void; onHover: (id: string | null) => void },
 ): HTMLElement {
   const root = el('div', 'tm-marker');
+  const reg = markerRegistration(race, edition);
   root.dataset.id = race.id;
-  root.dataset.sig = markerSignature(edition);
+  root.dataset.sig = markerSignature(edition, reg);
   root.style.zIndex = '2';
   const halo = race.distance === 'full';
   const px = glyphPixelSize(MARKER_CORE_PX, halo);
@@ -69,7 +84,15 @@ export function raceMarkerElement(
   const course = nonStandardLabel(race);
   btn.setAttribute(
     'aria-label',
-    [race.name, BRANDS[race.brand].label, DISTANCES[race.distance].long, course, entry, raceWhen(edition)]
+    [
+      race.name,
+      BRANDS[race.brand].label,
+      DISTANCES[race.distance].long,
+      course,
+      entry,
+      reg && registrationSummary(reg, localToday()),
+      raceWhen(edition),
+    ]
       .filter(Boolean)
       .join(', '),
   );
@@ -86,6 +109,7 @@ export function raceMarkerElement(
   const title = el('strong', undefined, race.name);
   tip.append(title, el('span', undefined, `${raceWhen(edition)} · ${race.city}`));
   if (entry) tip.append(el('em', `tm-tip-entry tm-tip-entry-${race.entry}`, entry));
+  if (reg) tip.append(el('em', `tm-tip-reg tm-tip-reg-${reg.status}`, registrationLabel(reg)));
   if (course) tip.append(el('em', 'tm-tip-course', course));
   root.append(btn, tag, tip);
   // Qualifier-only / ballot races carry a small lock / ticket pip, as on the cards.
@@ -290,6 +314,8 @@ export function clusterPopupContent(
     const entry = entryLabel(r);
     const meta = el('span', 'tm-popup-meta', raceWhen(editionOf(r)));
     if (entry) meta.append(' ', el('em', `tm-popup-entry tm-popup-entry-${r.entry}`, entry));
+    const reg = markerRegistration(r, editionOf(r));
+    if (reg) meta.append(' ', el('em', `tm-popup-reg tm-popup-reg-${reg.status}`, registrationLabel(reg)));
     const course = nonStandardLabel(r);
     if (course) meta.append(el('span', 'tm-popup-course', course));
     text.append(document.createTextNode(`${r.name} · ${DISTANCES[r.distance].label}`), meta);

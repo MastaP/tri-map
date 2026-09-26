@@ -1,0 +1,442 @@
+{
+  "_id": "6932cce8cf338b7c760a76f7",
+  "status": "OPEN",
+  "openDate": null,
+  "startDate": "2026-12-13T21:00:00.000Z",
+  "timezone": "Arab Standard Time",
+  "isArchived": false,
+  "url": "qatar-t100-2026",
+  "name": [
+    {
+      "language": "en",
+      "translation": "Qatar T100 2026"
+    },
+    {
+      "language": "ar",
+      "translation": "Qatar T100 2026"
+    }
+  ],
+  "updated_at": "2026-09-17T18:53:45.128Z",
+  "competitions": [
+    {
+      "_id": "6932cce8cf338b7c760a76fc",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - 100km - Individual"
+        },
+        {
+          "language": "ar",
+          "translation": "Triathlon - 100km - Individual"
+        }
+      ],
+      "reportName": "Triathlon - 100km - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "947",
+      "waitingListMode": false,
+      "startDate": "2026-12-13T06:00:00.000Z",
+      "startDateRegistrations": "2025-09-18T06:00:00.000Z",
+      "endDateRegistrations": "2026-12-14T06:00:00.000Z",
+      "registrationsModificationLimit": "2026-12-07T05:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": true,
+      "updated_at": "2026-06-24T16:38:43.120Z",
+      "prices": [
+        {
+          "reservedCount": 44,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 90,
+          "participantLimit": 200,
+          "value": 388,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 173,
+          "participantLimit": 400,
+          "value": 418,
+          "enabled": 1,
+          "end": "2026-05-27T09:00:00.000Z"
+        },
+        {
+          "reservedCount": 23,
+          "participantLimit": 400,
+          "value": 448,
+          "enabled": 1,
+          "end": "2026-06-06T04:00:00.000Z"
+        },
+        {
+          "reservedCount": 116,
+          "participantLimit": 400,
+          "value": 478,
+          "enabled": 1,
+          "end": "2026-08-13T20:59:00.000Z"
+        },
+        {
+          "reservedCount": 90,
+          "participantLimit": 100,
+          "value": 518,
+          "enabled": 1,
+          "end": "2026-10-13T20:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 558,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6a0710c3602e2018a5b51866",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - 100km - Team Relay"
+        },
+        {
+          "language": "ar",
+          "translation": "Triathlon - 100km - Team Relay"
+        }
+      ],
+      "reportName": "Triathlon - 100km - Team Relay",
+      "competitionType": "TEAM",
+      "placeLimit": true,
+      "place": "100",
+      "waitingListMode": false,
+      "startDate": "2026-12-13T09:00:00.000Z",
+      "startDateRegistrations": "2026-06-03T06:00:00.000Z",
+      "endDateRegistrations": "2026-12-13T09:00:00.000Z",
+      "registrationsModificationLimit": "2026-12-13T09:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": true,
+      "updated_at": "2026-05-21T15:15:46.629Z",
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 4,
+          "participantLimit": 25,
+          "value": 538,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 6,
+          "participantLimit": 50,
+          "value": 574,
+          "enabled": 1,
+          "end": "2026-10-13T20:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 25,
+          "value": 624,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 668,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6932cce8cf338b7c760a76fb",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Sprint - Individual"
+        },
+        {
+          "language": "ar",
+          "translation": "Triathlon - Sprint - Individual"
+        }
+      ],
+      "reportName": "Triathlon - Sprint - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "947",
+      "waitingListMode": false,
+      "startDate": "2026-12-13T06:00:00.000Z",
+      "startDateRegistrations": "2026-02-08T20:59:00.000Z",
+      "endDateRegistrations": "2026-12-14T06:00:00.000Z",
+      "registrationsModificationLimit": "2026-12-14T06:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": true,
+      "updated_at": "2026-06-24T16:39:31.897Z",
+      "prices": [
+        {
+          "reservedCount": 5,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 200,
+          "participantLimit": 200,
+          "value": 108,
+          "enabled": 1,
+          "end": "2026-06-06T04:00:00.000Z"
+        },
+        {
+          "reservedCount": 253,
+          "participantLimit": 250,
+          "value": 128,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 65,
+          "participantLimit": 200,
+          "value": 148,
+          "enabled": 1,
+          "end": "2026-08-13T20:59:00.000Z"
+        },
+        {
+          "reservedCount": 73,
+          "participantLimit": 70,
+          "value": 158,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 36,
+          "participantLimit": null,
+          "value": 224,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6a0f198a11394011d9d4f713",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Sprint - Team Relay"
+        },
+        {
+          "language": "ar",
+          "translation": "Triathlon - Sprint - Team Relay"
+        }
+      ],
+      "reportName": "Triathlon - Sprint - Team Relay",
+      "competitionType": "TEAM",
+      "placeLimit": true,
+      "place": "100",
+      "waitingListMode": false,
+      "startDate": "2026-12-11T09:00:00.000Z",
+      "startDateRegistrations": "2026-06-03T06:00:00.000Z",
+      "endDateRegistrations": "2026-12-13T09:00:00.000Z",
+      "registrationsModificationLimit": "2026-12-13T09:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": true,
+      "updated_at": "2026-05-21T15:08:24.801Z",
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 5,
+          "participantLimit": 25,
+          "value": 154,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 8,
+          "participantLimit": 50,
+          "value": 178,
+          "enabled": 1,
+          "end": "2026-10-13T20:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 194,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6932cce8cf338b7c760a76fd",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - 100km - Age-Group World Championships 2026"
+        },
+        {
+          "language": "ar",
+          "translation": "Triathlon - 100KM - Age-Group World Championships 2025"
+        }
+      ],
+      "reportName": "Triathlon - 100km - Age-Group World Championships 2026",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "500",
+      "waitingListMode": false,
+      "startDate": "2026-12-13T06:00:00.000Z",
+      "startDateRegistrations": "2025-12-01T06:00:00.000Z",
+      "endDateRegistrations": "2025-12-03T06:00:00.000Z",
+      "registrationsModificationLimit": "2026-12-14T06:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "updated_at": "2026-06-24T16:33:20.337Z",
+      "prices": [
+        {
+          "reservedCount": 38,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 200,
+          "participantLimit": null,
+          "value": 595,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6aac36a2001a4c00c283f13f",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Qatar KickOff Run 1k"
+        },
+        {
+          "language": "ar",
+          "translation": "Qatar KickOff Run 1k"
+        }
+      ],
+      "reportName": "Run - 1km - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "1176",
+      "waitingListMode": false,
+      "startDate": "2026-12-10T09:00:00.000Z",
+      "startDateRegistrations": "2026-09-29T21:01:00.000Z",
+      "endDateRegistrations": "2026-12-04T20:59:00.000Z",
+      "registrationsModificationLimit": "2026-12-05T09:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "updated_at": "2026-09-23T11:32:59.891Z",
+      "prices": [
+        {
+          "reservedCount": 1,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 350,
+          "value": 14,
+          "enabled": 1,
+          "end": "2026-09-29T20:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 550,
+          "value": 18,
+          "enabled": 1,
+          "end": "2026-10-21T20:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 24,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6aac37398052b2b2dee54b17",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Qatar KickOff Run 5k"
+        },
+        {
+          "language": "ar",
+          "translation": "Qatar KickOff Run 5k"
+        }
+      ],
+      "reportName": "Run - 5km - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "3529",
+      "waitingListMode": false,
+      "startDate": "2026-12-10T09:00:00.000Z",
+      "startDateRegistrations": "2026-09-29T21:01:00.000Z",
+      "endDateRegistrations": "2026-12-04T20:59:00.000Z",
+      "registrationsModificationLimit": "2026-12-05T09:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "updated_at": "2026-09-23T11:33:21.294Z",
+      "prices": [
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 1000,
+          "value": 24,
+          "enabled": 1,
+          "end": "2026-09-29T20:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 2000,
+          "value": 28,
+          "enabled": 1,
+          "end": "2026-10-21T20:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 34,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,334 @@
+{
+  "_id": "6901e9f1bc296c8e29e1d549",
+  "status": "OPEN",
+  "openDate": null,
+  "startDate": "2026-11-14T20:00:00.000Z",
+  "timezone": "Arabian Standard Time",
+  "isArchived": false,
+  "url": "dubai-t100-2026",
+  "name": [
+    {
+      "language": "en",
+      "translation": "Dubai T100 2026"
+    }
+  ],
+  "updated_at": "2026-08-18T08:48:04.431Z",
+  "competitions": [
+    {
+      "_id": "6901e9f1bc296c8e29e1d54d",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - 100km - Individual"
+        }
+      ],
+      "reportName": "Triathlon - 100km - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "895",
+      "waitingListMode": false,
+      "startDate": "2026-11-16T05:00:00.000Z",
+      "startDateRegistrations": "2025-11-14T02:00:00.000Z",
+      "endDateRegistrations": "2026-11-09T04:16:00.000Z",
+      "registrationsModificationLimit": "2026-11-09T19:59:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": true,
+      "updated_at": "2026-09-23T11:22:33.124Z",
+      "prices": [
+        {
+          "reservedCount": 200,
+          "participantLimit": null,
+          "value": 1634,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 172,
+          "participantLimit": 400,
+          "value": 1734,
+          "enabled": 1,
+          "end": "2026-05-21T05:00:00.000Z"
+        },
+        {
+          "reservedCount": 99,
+          "participantLimit": 200,
+          "value": 1888,
+          "enabled": 1,
+          "end": "2026-06-22T05:00:00.000Z"
+        },
+        {
+          "reservedCount": 76,
+          "participantLimit": 300,
+          "value": 2041,
+          "enabled": 1,
+          "end": "2026-07-15T05:00:00.000Z"
+        },
+        {
+          "reservedCount": 152,
+          "participantLimit": 250,
+          "value": 2194,
+          "enabled": 1,
+          "end": "2026-09-14T19:59:00.000Z"
+        },
+        {
+          "reservedCount": 44,
+          "participantLimit": null,
+          "value": 2348,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 132,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6901e9f1bc296c8e29e1d54e",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Olympic - Individual"
+        }
+      ],
+      "reportName": "Triathlon - Olympic - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "684",
+      "waitingListMode": false,
+      "startDate": "2026-11-14T09:00:00.000Z",
+      "startDateRegistrations": "2025-08-08T03:30:00.000Z",
+      "endDateRegistrations": "2026-11-29T08:05:00.000Z",
+      "registrationsModificationLimit": "2026-11-09T09:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": true,
+      "updated_at": "2026-09-23T11:22:47.606Z",
+      "prices": [
+        {
+          "reservedCount": 10,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 253,
+          "value": 460,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 126,
+          "participantLimit": 200,
+          "value": 694,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 109,
+          "participantLimit": 350,
+          "value": 848,
+          "enabled": 1,
+          "end": "2026-05-21T05:00:00.000Z"
+        },
+        {
+          "reservedCount": 50,
+          "participantLimit": 50,
+          "value": 968,
+          "enabled": 1,
+          "end": "2026-06-22T05:00:00.000Z"
+        },
+        {
+          "reservedCount": 101,
+          "participantLimit": 100,
+          "value": 1024,
+          "enabled": 1,
+          "end": "2026-07-15T05:00:00.000Z"
+        },
+        {
+          "reservedCount": 101,
+          "participantLimit": 100,
+          "value": 1074,
+          "enabled": 1,
+          "end": "2026-09-15T05:00:00.000Z"
+        },
+        {
+          "reservedCount": 100,
+          "participantLimit": null,
+          "value": 1124,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6a841b933d360d15a7deaea2",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Olympic - Team Relay"
+        }
+      ],
+      "reportName": "Triathlon - Olympic - Team Relay",
+      "competitionType": "TEAM",
+      "placeLimit": true,
+      "place": "100",
+      "waitingListMode": false,
+      "startDate": "2026-11-14T05:00:00.000Z",
+      "startDateRegistrations": "2026-08-19T05:00:00.000Z",
+      "endDateRegistrations": "2026-11-07T19:59:00.000Z",
+      "registrationsModificationLimit": "2026-11-07T19:59:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": true,
+      "updated_at": "2026-09-23T11:23:19.901Z",
+      "prices": [
+        {
+          "reservedCount": 1,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 4,
+          "participantLimit": 50,
+          "value": 1175,
+          "enabled": 1,
+          "end": "2026-09-14T19:59:00.000Z"
+        },
+        {
+          "reservedCount": 1,
+          "participantLimit": 50,
+          "value": 1224,
+          "enabled": 1,
+          "end": "2026-11-12T19:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 1328,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6a070f0953d3668ecc57893a",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Sprint - Individual"
+        }
+      ],
+      "reportName": "Triathlon - Sprint - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "895",
+      "waitingListMode": false,
+      "startDate": "2026-11-14T09:00:00.000Z",
+      "startDateRegistrations": "2026-06-03T05:00:00.000Z",
+      "endDateRegistrations": "2026-11-21T09:00:00.000Z",
+      "registrationsModificationLimit": "2026-11-14T09:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": true,
+      "updated_at": "2026-09-23T11:24:56.040Z",
+      "prices": [
+        {
+          "reservedCount": 28,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 200,
+          "participantLimit": null,
+          "value": 574,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 318,
+          "participantLimit": 450,
+          "value": 624,
+          "enabled": 1,
+          "end": "2026-09-14T19:59:00.000Z"
+        },
+        {
+          "reservedCount": 54,
+          "participantLimit": 239,
+          "value": 674,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 764,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "6a841c442d59120c98dcfbea",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Sprint - Team Relay"
+        }
+      ],
+      "reportName": "Triathlon - Sprint - Team Relay",
+      "competitionType": "TEAM",
+      "placeLimit": true,
+      "place": "50",
+      "waitingListMode": false,
+      "startDate": "2026-11-14T05:00:00.000Z",
+      "startDateRegistrations": "2026-08-19T05:00:00.000Z",
+      "endDateRegistrations": "2026-11-07T19:59:00.000Z",
+      "registrationsModificationLimit": "2026-11-07T19:59:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": true,
+      "updated_at": "2026-09-23T11:25:15.146Z",
+      "prices": [
+        {
+          "reservedCount": 1,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 3,
+          "participantLimit": 50,
+          "value": 764,
+          "enabled": 1,
+          "end": "2026-09-14T19:59:00.000Z"
+        },
+        {
+          "reservedCount": 3,
+          "participantLimit": 25,
+          "value": 818,
+          "enabled": 1,
+          "end": "2026-11-12T19:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 918,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    }
+  ]
+}

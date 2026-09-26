@@ -1,3 +1,4 @@
+import { afterAll, beforeAll } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseRaceFiles } from '../../src/data/parse.ts';
@@ -38,4 +39,34 @@ export function makeRecord(overrides: Partial<RaceRecord> = {}): RaceRecord {
     verifiedAt: '2026-09-20',
     ...overrides,
   };
+}
+
+export const REGISTRATION_FIXTURE_DIR = join(import.meta.dirname, '..', 'fixtures', 'registration');
+
+/** The registration status files the fixture build bundles (tests/fixtures/registration/*.json). */
+export function fixtureRegistrationFiles(): SourceFile[] {
+  return readdirSync(REGISTRATION_FIXTURE_DIR)
+    .filter((f) => f.endsWith('.json'))
+    .map((name) => ({ name, text: readFileSync(join(REGISTRATION_FIXTURE_DIR, name), 'utf8') }));
+}
+
+/** A saved registration source sample (tests/fixtures/registration/<path>). */
+export function registrationSample(path: string): string {
+  return readFileSync(join(REGISTRATION_FIXTURE_DIR, path), 'utf8');
+}
+
+/**
+ * Run a test file in a fixed time zone: registration check dates are shown as the local
+ * calendar day, so their expected days depend on it. Restored after the file.
+ */
+export function inTimeZone(tz: string) {
+  let before: string | undefined;
+  beforeAll(() => {
+    before = process.env.TZ;
+    process.env.TZ = tz;
+  });
+  afterAll(() => {
+    if (before === undefined) delete process.env.TZ;
+    else process.env.TZ = before;
+  });
 }

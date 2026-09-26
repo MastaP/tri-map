@@ -1,16 +1,35 @@
-import { Bike, Footprints, Lock, Ruler, Ticket, Trophy, Waves } from 'lucide-react';
+import {
+  Ban,
+  Bike,
+  CircleSlash2,
+  DoorClosed,
+  Footprints,
+  Hourglass,
+  ListOrdered,
+  Lock,
+  Ruler,
+  Ticket,
+  Trophy,
+  Waves,
+  type LucideIcon,
+} from 'lucide-react';
 import { DISTANCES, type DistanceId } from '../data/brands.ts';
 import { isNearStandard, legsLong, nonStandardTitle, raceLegs } from '../data/course.ts';
 import type { Course } from '../data/schema.ts';
 import type { EntryType, Terrain } from '../data/constants.ts';
 import type { NextEdition } from '../data/nextEdition.ts';
+import type { RaceRegistration, RegistrationStatus } from '../data/registration.ts';
 import type { Race } from '../data/types.ts';
 import { cn } from '../lib/cn.ts';
-import { dayOfMonth, monthAbbrev, weekdayShort } from '../lib/dates.ts';
+import { dayOfMonth, monthAbbrev, weekdayShort, type ISODate } from '../lib/dates.ts';
 import {
+  asOfText,
   ENTRY_BADGE,
   ENTRY_EXPLAINER,
   isQualifierChampionship,
+  REGISTRATION_BADGE,
+  REGISTRATION_EXPLAINER,
+  registrationSummary,
   shortChampionship,
   SWIM_LABEL,
   TERRAIN_LABEL,
@@ -106,6 +125,65 @@ export function EntryBadge({ entry, className }: { entry: EntryType; className?:
     >
       <Icon className="size-3 shrink-0" strokeWidth={2.4} aria-hidden="true" />
       {ENTRY_BADGE[entry]}
+    </span>
+  );
+}
+
+type ShownStatus = Exclude<RegistrationStatus, 'open'>;
+
+/** Orange: you cannot enter (outlined when some places may remain); violet: not open yet. */
+const REGISTRATION_STYLE: Record<ShownStatus, string> = {
+  'sold-out': 'bg-orange-100 text-orange-900 dark:bg-orange-400/15 dark:text-orange-200',
+  waitlist: 'bg-orange-100 text-orange-900 dark:bg-orange-400/15 dark:text-orange-200',
+  closed: 'bg-orange-100 text-orange-900 dark:bg-orange-400/15 dark:text-orange-200',
+  'general-sold-out': 'text-orange-800 ring-1 ring-orange-300 ring-inset dark:text-orange-200 dark:ring-orange-300/40',
+  'opening-soon': 'bg-violet-100 text-violet-900 dark:bg-violet-400/15 dark:text-violet-200',
+};
+
+const REGISTRATION_ICON: Record<ShownStatus, LucideIcon> = {
+  'sold-out': Ban,
+  waitlist: ListOrdered,
+  closed: DoorClosed,
+  'general-sold-out': CircleSlash2,
+  'opening-soon': Hourglass,
+};
+
+/**
+ * Registration status of the shown (next) edition: "Sold out", "General entry sold out",
+ * "Waitlist", "Registration closed" or "Opens soon", with the date it was checked. Open
+ * entry has no badge.
+ */
+export function RegistrationBadge({
+  registration,
+  today,
+  asOf = true,
+  className,
+}: {
+  registration: RaceRegistration | undefined;
+  today: ISODate;
+  /** Show "as of 26 Sep" in the badge (the title always has it). */
+  asOf?: boolean;
+  className?: string;
+}) {
+  if (!registration || registration.status === 'open') return null;
+  const status = registration.status;
+  const Icon = REGISTRATION_ICON[status];
+  return (
+    <span
+      className={cn(
+        'inline-flex h-5 shrink-0 items-center gap-1 rounded-md px-1.5 text-[11px] font-semibold whitespace-nowrap',
+        REGISTRATION_STYLE[status],
+        className,
+      )}
+      title={`${registrationSummary(registration, today)}. ${REGISTRATION_EXPLAINER[status]}`}
+      data-testid="registration-badge"
+      data-status={status}
+    >
+      <Icon className="size-3 shrink-0" strokeWidth={2.4} aria-hidden="true" />
+      {REGISTRATION_BADGE[status]}
+      {/* A real space for the accessible text; the flex gap does the spacing. */}
+      {asOf && ' '}
+      {asOf && <span className="font-normal">· {asOfText(registration.checkedAt, today)}</span>}
     </span>
   );
 }

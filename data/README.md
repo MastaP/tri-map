@@ -140,3 +140,97 @@ the Americas (negative) and of `lat` in the southern hemisphere (negative).
     The app shows these numbers and tags the race "Non-standard distance".
   - Anything with a leg more than 25% off the standard is out of scope; the
     validator rejects a `course` like that.
+
+## Registration status
+
+Whether an age-grouper can still enter a race's next edition. It lives in
+`data/registration/`, **generated** by the refresh scripts (do not edit the status files
+by hand), for the organisers whose entry status can be read:
+
+| File | Source | Refreshed by |
+|---|---|---|
+| `ironman.json` | ironman.com: the race finder (`https://www.ironman.com/races?page=0…`), each race card's status tag; for a card tagged "Flex90 Eligible", the race's registration page (`…/races/<slug>/register`); for a race with an announced next edition but no card, the race page | `npm run refresh:ironman` (or `refresh:registration`), **by hand only** (ironman.com blocks GitHub-hosted runners; the script refuses to run in GitHub Actions), then commit and push |
+| `t100.json` | The PTO entry platform (`https://front-api.registrations.protriathletes.org/edition/url/<slug>`) for the next edition and its age-group 100 km race, and t100triathlon.com (`https://t100triathlon.com/wp-json/njuko/v1/competition-price?competition_id=<id>&edition_id=<id>`) for its status | `npm run refresh:t100` (or `refresh:registration`), **daily in CI** before each deploy (the committed file is the fallback) |
+| `t100-sources.json` | Hand-written: T100 race id → the platform's event slug **without the year**, e.g. `"t100-london-t100": "london-t100"`; the refresh asks for `<slug>-<year of the next edition>` (`london-t100-2027`) | Edit when a T100 World Tour stop is added |
+
+Races from other organisers (Challenge Family, T100 Challenger events, which enter on
+Active.com, independent races) have no status.
+
+```jsonc
+{
+  "source": "https://www.ironman.com/races",     // required: the page or API read, https
+  "checkedAt": "2026-09-26T05:12:03.000Z",       // required: ISO 8601 UTC timestamp of the refresh
+  "races": {                                      // required: race id → status
+    "ironman-nice-half": {
+      "status": "general-sold-out",               // required, see below
+      "label": "General entry: SOLD OUT · Sold Out | Special Entries Available", // required: the source's own wording
+      "method": "register-page",                  // required: how the status was read, see below
+      "editionDate": "2027-09-12",                // the edition the status is about: YYYY-MM-DD, or YYYY when only the year is known
+      "url": "https://www.ironman.com/races/im703-nice/register", // optional: where to enter or check, https
+      "opens": "2026-10-05",                      // optional: when entries open (YYYY-MM-DD), for "opening-soon"
+      "checkedAt": "2026-09-20T05:00:00.000Z"     // optional: when this refresh could not read the race, the date of the kept status
+    }
+  }
+}
+```
+
+`status` is one of:
+
+- `"open"`: entries are open.
+- `"opening-soon"`: entries are not open yet.
+- `"sold-out"`: no entries left.
+- `"general-sold-out"`: general entry is sold out; charity, special or travel-package
+  places remain (IRONMAN "General Registration Sold Out", or a registration page that
+  shows them).
+- `"waitlist"`: sold out, with a waitlist to join.
+- `"closed"`: entries are no longer taken (also IRONMAN "Race Weekend").
+
+`method` says how the status was read (`ironman.json` uses the first three, `t100.json`
+the last two):
+
+- `"finder"`: the race card's tag in the ironman.com race finder ("Registration Now
+  Open", "Registration Sold Out", "General Registration Sold Out", "Registration Opening
+  Soon", "Registration Closed", "Race Weekend"…).
+- `"register-page"`: the race's ironman.com registration page, read for every card tagged
+  **"Flex90 Eligible"**. That tag only says entries opened less than 90 days ago (when
+  IRONMAN's Flex90 benefits apply); general entry may be sold out already. Only the
+  **visible** part of the page counts (these pages carry hidden sections for other
+  states, such as a stale "OPENING SOON"): the general-entry card shows a price → `open`;
+  "SOLD OUT" while a visible banner says special entries are available, or a visible
+  IRONMAN Foundation / charity / package / bundle entry has a price → `general-sold-out`;
+  "SOLD OUT" otherwise → `sold-out`. Anything unclear (no visible general-entry card,
+  "OPENING SOON", a price in one currency and "SOLD OUT" in another, a page dated for
+  another edition than the card, a page that could not be loaded) → **no status**; it
+  never falls back to the card's "open".
+- `"race-page"`: the status tag and date in the race page's header, read for a race with
+  an announced (not estimated) next edition that has no card in the finder (IRONMAN
+  Wisconsin 2027). Written only when the page's date is that next edition.
+- `"organiser"`: t100triathlon.com's own status for the age-group 100 km race of the next
+  edition (what its entry buttons show): `live` → open, `upcoming` → opening-soon,
+  `sold_out` → sold-out, `wait_list` → waitlist.
+- `"platform"`: when t100triathlon.com cannot be read (it sits behind Cloudflare, which
+  may turn away GitHub-hosted runners), the entry platform's **explicit** signals only:
+  edition not published or an opening date ahead → opening-soon; edition closed or
+  archived, entries or race day past → closed; waiting-list mode → waitlist. The `label`
+  names that signal ("Entries open 2026-10-05 · Triathlon - 100km - Individual", "Edition
+  not published yet · …"), since the platform has no wording of its own. It never
+  infers "sold out" from entry counts (they do not add up to the places: London 2026 had
+  2397 entries reserved for 1750 places). When no signal applies (the race is on sale or
+  sold out, the platform cannot say which), the race keeps its previous status if that is
+  about the same edition, with its own `checkedAt`, so it still stops showing 30 days
+  after it was read; otherwise it has none.
+
+How the app uses it: a status is shown only when its `editionDate` is the race's next
+edition in `data/races` (the same date ± 3 days, or the same year when only the year is
+known), it was checked at most **30 days** ago, and it is not an "opening-soon" whose
+`opens` date has passed (entries are open or sold out by then: the next refresh will
+say); anything else is ignored. So a status about last year's edition, or a file nobody
+refreshed for a month, never shows.
+
+`npm run validate:data` checks these files too: known race ids of the file's brand
+(`ironman.json` only IRONMAN races, `t100.json` only T100 races), the status values, a
+`method` that belongs to the file, real dates and timestamps, `checkedAt` not in the
+future, https URLs, and that `t100-sources.json` only maps T100 races. It warns (without
+failing) when a file is older than 30 days, or when a status is about another edition
+than the next one in `data/races` (often a sign that a new edition's date is missing from
+the race file).

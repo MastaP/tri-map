@@ -26,7 +26,7 @@ import { SearchBox } from './components/SearchBox.tsx';
 import { Sheet } from './components/Sheet.tsx';
 import { Toast } from './components/Toast.tsx';
 import { BRAND_IDS, type BrandId } from './data/brands.ts';
-import { loadRaces } from './data/loadRaces.ts';
+import { loadRaces, loadRegistrationSources } from './data/loadRaces.ts';
 import { useGeolocation } from './hooks/useGeolocation.ts';
 import { DESKTOP_QUERY, useMediaQuery } from './hooks/useMediaQuery.ts';
 import { useShortlist } from './hooks/useShortlist.ts';
@@ -50,6 +50,7 @@ import {
   monthHistogram,
   searchesPeriod,
   shownEditions,
+  soldOutCount,
   sortRaces,
   suggestRelaxations,
   toggleValue,
@@ -76,6 +77,7 @@ const PANEL_DIMENSIONS: readonly Dimension[] = [
   'bike',
   'run',
   'entry',
+  'soldout',
   'estimated',
   'area',
   'shortlist',
@@ -121,6 +123,7 @@ function useDebounced<T>(value: T, ms: number): T {
 export function App() {
   const today = useToday();
   const races = useMemo(() => loadRaces(today), [today]);
+  const registrationSources = useMemo(() => loadRegistrationSources(today), [today]);
   // Every race, including ones without a next edition, so deep links keep working.
   const raceById = useMemo(() => new Map(races.map((r) => [r.id, r])), [races]);
   const listedCount = useMemo(() => races.filter(isListed).length, [races]);
@@ -231,6 +234,8 @@ export function App() {
     () => races.filter((r) => isListed(r) && shortlist.has(r.id)).length,
     [races, shortlist],
   );
+  // Races "Hide sold out" hides, or would hide.
+  const soldOut = useMemo(() => soldOutCount(races, filters, ctx), [races, filters, ctx]);
   // Races left out only because their date is not announced yet (estimated dates off).
   const estimatedHidden = useMemo(() => hiddenByEstimates(races, filters, ctx), [races, filters, ctx]);
   // Starred races the other filters hide. Those that match everything but have no date
@@ -549,6 +554,7 @@ export function App() {
     shortlistCount,
     mapAvailable: !mapFailed,
     missingCourse: missingCourse.length,
+    soldOut,
   };
 
   const map = mapMounted ? (
@@ -671,7 +677,7 @@ export function App() {
               </div>
               {toolbar}
               {list}
-              <Footer freshness={freshness} />
+              <Footer freshness={freshness} registration={registrationSources} />
             </div>
             {selectedRace && (
               <div
@@ -753,7 +759,7 @@ export function App() {
           <div ref={listScrollRef} className="absolute inset-0 z-10 overflow-y-auto bg-surface" inert={!!selectedRace}>
             {toolbar}
             {list}
-            <Footer freshness={freshness} />
+            <Footer freshness={freshness} registration={registrationSources} />
             <div className="h-24" aria-hidden="true" />
           </div>
         ) : (

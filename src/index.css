@@ -33,6 +33,16 @@
   /* Entry badge inside the map tooltip, which uses the inverted (ink) surface. */
   --tm-tip-entry-bg: rgb(251 113 133 / 0.24);
   --tm-tip-entry-fg: #fecdd3;
+  /* Registration status badges in the map tooltip (orange: cannot enter; violet: opens soon). */
+  --tm-tip-reg-bg: rgb(251 146 60 / 0.26);
+  --tm-tip-reg-fg: #fed7aa;
+  --tm-tip-soon-bg: rgb(167 139 250 / 0.3);
+  --tm-tip-soon-fg: #ede9fe;
+  /* The same badges in the venue popup, which uses the page surface. */
+  --tm-popup-reg-bg: #ffedd5;
+  --tm-popup-reg-fg: #7c2d12;
+  --tm-popup-soon-bg: #ede9fe;
+  --tm-popup-soon-fg: #4c1d95;
   /* Height of the sticky results toolbar; month headers stick right below it. */
   --tm-toolbar-h: 48px;
   color-scheme: light;
@@ -73,6 +83,14 @@
   --tm-logo-edge: rgb(255 255 255 / 0.14);
   --tm-tip-entry-bg: #ffe4e6;
   --tm-tip-entry-fg: #881337;
+  --tm-tip-reg-bg: #ffedd5;
+  --tm-tip-reg-fg: #7c2d12;
+  --tm-tip-soon-bg: #ede9fe;
+  --tm-tip-soon-fg: #4c1d95;
+  --tm-popup-reg-bg: rgb(251 146 60 / 0.15);
+  --tm-popup-reg-fg: #fed7aa;
+  --tm-popup-soon-bg: rgb(167 139 250 / 0.15);
+  --tm-popup-soon-fg: #ddd6fe;
   color-scheme: dark;
 }
 
@@ -371,6 +389,28 @@
   font-style: normal;
   white-space: nowrap;
 }
+/* "Sold out · as of 26 Sep", like the card badge. */
+.tm-tip .tm-tip-reg {
+  display: block;
+  width: fit-content;
+  margin-top: 4px;
+  padding: 0 6px;
+  border-radius: 5px;
+  background: var(--tm-tip-reg-bg);
+  color: var(--tm-tip-reg-fg);
+  font: 600 11px/17px var(--font-sans);
+  font-style: normal;
+  white-space: nowrap;
+}
+.tm-tip .tm-tip-reg-opening-soon {
+  background: var(--tm-tip-soon-bg);
+  color: var(--tm-tip-soon-fg);
+}
+/* Some places may remain: outlined, like the card badge. */
+.tm-tip .tm-tip-reg-general-sold-out {
+  background: none;
+  box-shadow: inset 0 0 0 1px var(--tm-tip-reg-fg);
+}
 /* "Non-standard distance: 3.4 / 202 / 41 km" */
 .tm-tip .tm-tip-course {
   display: block;
@@ -649,6 +689,26 @@
   font: 600 11px/17px var(--font-sans);
   font-style: normal;
   white-space: nowrap;
+}
+/* Registration status, as on the cards. */
+.tm-popup-list .tm-popup-reg {
+  display: inline-block;
+  margin-left: 2px;
+  padding: 0 5px;
+  border-radius: 5px;
+  background: var(--tm-popup-reg-bg);
+  color: var(--tm-popup-reg-fg);
+  font: 600 11px/17px var(--font-sans);
+  font-style: normal;
+  white-space: nowrap;
+}
+.tm-popup-list .tm-popup-reg-opening-soon {
+  background: var(--tm-popup-soon-bg);
+  color: var(--tm-popup-soon-fg);
+}
+.tm-popup-list .tm-popup-reg-general-sold-out {
+  background: none;
+  box-shadow: inset 0 0 0 1px var(--tm-popup-reg-fg);
 }
 [data-theme='dark'] .tm-popup-list .tm-popup-entry {
   background: rgb(251 113 133 / 0.15);

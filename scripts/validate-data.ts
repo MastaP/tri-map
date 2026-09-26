@@ -3,15 +3,19 @@
  *
  * Validates every data/races/*.json file against the data contract (data/README.md):
  * zod schema, unique ids across files, id format, sorted editions, known country codes,
- * coordinates inside the country's region, https URLs. Prints a summary table.
+ * coordinates inside the country's region, https URLs. Then the registration status files
+ * (data/registration, or with --dir <races dir> the sibling ../registration): known race
+ * ids of the right brand, status values, dates. Prints a summary table.
  * Exits non-zero on any error; warnings never fail.
  */
 import { relative, resolve } from 'node:path';
 import { BRAND_IDS, BRANDS, DISTANCE_IDS, DISTANCES } from '../src/data/brands.ts';
 import { REGION_IDS, REGIONS } from '../src/data/regions.ts';
+import { REGISTRATION_STATUSES } from '../src/data/registration.ts';
 import { summarize, validateRaceFiles, type Issue } from '../src/data/validate.ts';
+import { validateRegistrationFiles } from '../src/data/validateRegistration.ts';
 import { localToday } from '../src/lib/dates.ts';
-import { dataDirFor, readRaceFiles } from './raceFiles.ts';
+import { dataDirFor, readRaceFiles, readRegistrationFiles, registrationDirFor } from './raceFiles.ts';
 
 const args = process.argv.slice(2);
 const dirArg = args.includes('--dir') ? args[args.indexOf('--dir') + 1] : undefined;
@@ -39,9 +43,16 @@ if (!files.length) {
 }
 
 const result = validateRaceFiles(files, today);
+const regDir = dirArg ? resolve(dir, '..', 'registration') : registrationDirFor(source);
+const regFiles = readRegistrationFiles(regDir);
+const registration = validateRegistrationFiles(regFiles, result.races, today);
+const regRel = relative(process.cwd(), regDir) || '.';
+const allIssues = [...result.issues, ...registration.issues.map((i) => ({ ...i, file: `${regRel}/${i.file}` }))];
+const errorCount = result.errorCount + registration.errorCount;
+const warningCount = result.warningCount + registration.warningCount;
 
 function printIssues(level: Issue['level']) {
-  const list = result.issues.filter((i) => i.level === level);
+  const list = allIssues.filter((i) => i.level === level);
   if (!list.length) return;
   const paint = level === 'error' ? red : yellow;
   console.log('\n' + paint(bold(`${level === 'error' ? 'Errors' : 'Warnings'} (${list.length})`)));
@@ -57,7 +68,7 @@ function printIssues(level: Issue['level']) {
 
 printIssues('error');
 if (!quiet) printIssues('warning');
-else if (result.warningCount) console.log(dim(`\n${result.warningCount} warnings hidden (--quiet)`));
+else if (warningCount) console.log(dim(`\n${warningCount} warnings hidden (--quiet)`));
 
 function table(
   title: string,
@@ -123,8 +134,31 @@ if (s.missingCourse) {
   );
 }
 
-if (result.errorCount) {
-  console.log(red(bold(`\n✖ ${result.errorCount} error(s), ${result.warningCount} warning(s)`)));
+const regSources = Object.entries(registration.data);
+if (regSources.length || registration.t100Sources) {
+  console.log('\n' + bold(`Registration status (${regRel}/)`));
+  for (const [id, file] of regSources) {
+    const counts = REGISTRATION_STATUSES.map(
+      (st) => [st, Object.values(file.races).filter((e) => e.status === st).length] as const,
+    )
+      .filter(([, n]) => n > 0)
+      .map(([st, n]) => `${n} ${st}`)
+      .join(', ');
+    console.log(
+      `  ${id.padEnd(8)} checked ${file.checkedAt}: ${Object.keys(file.races).length} races (${counts || 'none'})`,
+    );
+  }
+  if (registration.t100Sources) {
+    console.log(
+      dim(`  t100-sources.json maps ${Object.keys(registration.t100Sources).length} races to the entry platform`),
+    );
+  }
+} else {
+  console.log(dim(`\nNo registration status files in ${regRel}/`));
+}
+
+if (errorCount) {
+  console.log(red(bold(`\n✖ ${errorCount} error(s), ${warningCount} warning(s)`)));
   process.exit(1);
 }
-console.log(green(bold(`\n✔ Data is valid`)) + dim(` (${result.warningCount} warning(s))`));
+console.log(green(bold(`\n✔ Data is valid`)) + dim(` (${warningCount} warning(s))`));

@@ -1,0 +1,202 @@
+{
+  "_id": "69ba8b6355c8af2ff65e6cec",
+  "status": "OPEN",
+  "openDate": null,
+  "startDate": "2027-03-21T13:00:00.000Z",
+  "timezone": "AUS Eastern Standard Time",
+  "isArchived": false,
+  "url": "gold-coast-t100-2027",
+  "name": [
+    {
+      "language": "en",
+      "translation": "Gold Coast T100 2027"
+    }
+  ],
+  "updated_at": "2026-05-06T09:37:55.832Z",
+  "competitions": [
+    {
+      "_id": "69ba8b6355c8af2ff65e6d25",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - 100km - Individual"
+        }
+      ],
+      "reportName": "Triathlon - 100km - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "1684",
+      "waitingListMode": false,
+      "startDate": "2027-03-20T22:00:00.000Z",
+      "startDateRegistrations": "2026-05-06T01:59:00.000Z",
+      "endDateRegistrations": "2027-04-29T23:00:00.000Z",
+      "registrationsModificationLimit": "2027-03-21T22:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": true,
+      "updated_at": "2026-06-11T11:02:11.241Z",
+      "prices": [
+        {
+          "reservedCount": 100,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 187,
+          "participantLimit": 200,
+          "value": 608,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 148,
+          "participantLimit": 200,
+          "value": 644,
+          "enabled": 1,
+          "end": "2026-05-05T01:59:00.000Z"
+        },
+        {
+          "reservedCount": 251,
+          "participantLimit": 250,
+          "value": 684,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 62,
+          "participantLimit": 450,
+          "value": 734,
+          "enabled": 1,
+          "end": "2026-11-19T12:59:00.000Z"
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": 350,
+          "value": 774,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 794,
+          "enabled": 1,
+          "end": null
+        }
+      ]
+    },
+    {
+      "_id": "69ba8b6355c8af2ff65e6d26",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Triathlon - Olympic - Individual"
+        }
+      ],
+      "reportName": "Triathlon - Olympic - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": true,
+      "place": "1579",
+      "waitingListMode": false,
+      "startDate": "2027-03-19T22:00:00.000Z",
+      "startDateRegistrations": "2026-05-04T01:59:00.000Z",
+      "endDateRegistrations": "2027-03-11T12:59:00.000Z",
+      "registrationsModificationLimit": "2027-03-21T19:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": true,
+      "updated_at": "2026-05-06T15:44:14.868Z",
+      "prices": [
+        {
+          "reservedCount": 25,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 386,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 84,
+          "participantLimit": 200,
+          "value": 294,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 10,
+          "participantLimit": 150,
+          "value": 314,
+          "enabled": 0,
+          "end": null
+        },
+        {
+          "reservedCount": 103,
+          "participantLimit": 200,
+          "value": 334,
+          "enabled": 1,
+          "end": "2026-07-12T23:00:00.000Z"
+        },
+        {
+          "reservedCount": 86,
+          "participantLimit": 500,
+          "value": 348,
+          "enabled": 1,
+          "end": "2026-11-19T12:59:00.000Z"
+        }
+      ]
+    },
+    {
+      "_id": "69bdbf7548c8d2c45de2b8f4",
+      "name": [
+        {
+          "language": "en",
+          "translation": "Run - 10km - Individual"
+        }
+      ],
+      "reportName": "Run - 10km - Individual",
+      "competitionType": "INDIVIDUAL",
+      "placeLimit": false,
+      "place": null,
+      "waitingListMode": false,
+      "startDate": "2027-03-21T09:00:00.000Z",
+      "startDateRegistrations": "2026-03-11T09:00:00.000Z",
+      "endDateRegistrations": "2026-03-30T09:00:00.000Z",
+      "registrationsModificationLimit": "2027-03-21T09:00:00.000Z",
+      "hideOnFront": false,
+      "activeIndividual": true,
+      "isCurrentDateAfterStartDateAndBeforeEndDate": false,
+      "updated_at": "2026-04-16T11:43:28.452Z",
+      "prices": [
+        {
+          "reservedCount": 64,
+          "participantLimit": 1200,
+          "value": 80,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 114,
+          "enabled": 1,
+          "end": null
+        },
+        {
+          "reservedCount": 0,
+          "participantLimit": null,
+          "value": 0,
+          "enabled": 0,
+          "end": null
+        }
+      ]
+    }
+  ]
+}

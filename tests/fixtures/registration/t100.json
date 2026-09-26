@@ -1,0 +1,20 @@
+{
+  "source": "https://front-api.registrations.protriathletes.org/edition/url/",
+  "checkedAt": "2026-08-01T12:00:00.000Z",
+  "races": {
+    "t100-dubai-t100": {
+      "status": "sold-out",
+      "label": "ENTRIES SOLD OUT · Triathlon - 100km - Individual",
+      "method": "organiser",
+      "editionDate": "2026-11-14",
+      "url": "https://in.registrations.protriathletes.org/dubai-t100-2026"
+    },
+    "t100-wanaka-t100": {
+      "status": "opening-soon",
+      "label": "OPEN · Triathlon - 100km - Individual",
+      "method": "platform",
+      "editionDate": "2027-02-20",
+      "opens": "2026-10-01"
+    }
+  }
+}

@@ -11,6 +11,7 @@ const LABELS: Record<Dimension, (f: Filters) => string> = {
   region: () => 'Any region',
   time: () => 'Any time',
   entry: () => 'Include qualifier-only and ballot races',
+  soldout: () => 'Include sold-out and closed races',
   bike: () => 'Any bike course',
   run: () => 'Any run course',
   // Turning estimated dates on only adds races, so turning them off is never suggested.

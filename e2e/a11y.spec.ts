@@ -38,6 +38,17 @@ for (const theme of ['light', 'dark'] as const) {
     await audit(page);
   });
 
+  test(`no serious axe violations with registration badges and "Hide sold out" (${theme})`, async ({ page }) => {
+    await openApp(page, '/?race=ironman-bahrain-half', { theme });
+    await waitForMap(page);
+    await audit(page);
+    await page.goto('/?est=1');
+    await page.getByRole('button', { name: /^Filters/ }).click();
+    await page.getByRole('switch', { name: /Hide sold out/ }).click();
+    await expect(page.getByRole('switch', { name: /Hide sold out/ })).toHaveAttribute('aria-checked', 'true');
+    await audit(page);
+  });
+
   test(`no serious axe violations in a replaced race's detail (${theme})`, async ({ page }) => {
     await openApp(page, '/?race=challenge-wanaka-half', { theme });
     await waitForMap(page);

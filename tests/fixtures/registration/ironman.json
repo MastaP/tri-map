@@ -1,0 +1,48 @@
+{
+  "source": "https://www.ironman.com/races",
+  "checkedAt": "2026-09-24T12:00:00.000Z",
+  "races": {
+    "ironman-bahrain-half": {
+      "status": "general-sold-out",
+      "label": "General Registration Sold Out",
+      "method": "finder",
+      "editionDate": "2027-12-04",
+      "url": "https://www.ironman.com/races/im703-bahrain"
+    },
+    "ironman-cascais-half": {
+      "status": "closed",
+      "label": "Registration Closed",
+      "method": "finder",
+      "editionDate": "2026-10-18",
+      "url": "https://www.ironman.com/races/im703-portugal-cascais"
+    },
+    "ironman-cozumel-full": {
+      "status": "sold-out",
+      "label": "Registration Sold Out",
+      "method": "finder",
+      "editionDate": "2026-11-22",
+      "url": "https://www.ironman.com/races/im-cozumel"
+    },
+    "ironman-da-nang-half": {
+      "status": "sold-out",
+      "label": "Registration Sold Out",
+      "method": "finder",
+      "editionDate": "2026-05-10",
+      "url": "https://www.ironman.com/races/im703-vietnam"
+    },
+    "ironman-frankfurt-full": {
+      "status": "open",
+      "label": "Flex90 Eligible",
+      "method": "finder",
+      "editionDate": "2027-06-27",
+      "url": "https://www.ironman.com/races/im-frankfurt"
+    },
+    "ironman-south-africa-full": {
+      "status": "opening-soon",
+      "label": "Registration Opening Soon",
+      "method": "finder",
+      "editionDate": "2027-03-28",
+      "url": "https://www.ironman.com/races/im-south-africa"
+    }
+  }
+}

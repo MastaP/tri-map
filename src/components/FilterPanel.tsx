@@ -1,4 +1,4 @@
-import { CalendarClock, Crosshair, Star, Ticket } from 'lucide-react';
+import { Ban, CalendarClock, Crosshair, Star, Ticket } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { BRAND_IDS, BRANDS, DISTANCE_IDS, DISTANCES } from '../data/brands.ts';
 import { TERRAINS } from '../data/constants.ts';
@@ -25,6 +25,8 @@ interface Props {
   mapAvailable: boolean;
   /** Races an active course filter hides only because their course profile is unknown. */
   missingCourse: number;
+  /** Races "Hide sold out" hides (or would hide) with the other filters as they are. */
+  soldOut: number;
   /**
    * "sheet": every filter (mobile). "more": the filters behind "Filters" on desktop;
    * distance and the date presets sit above it in QuickFilters.
@@ -124,6 +126,7 @@ export function FilterPanel({
   shortlistCount,
   mapAvailable,
   missingCourse,
+  soldOut,
   variant,
 }: Props) {
   const sheet = variant === 'sheet';
@@ -187,6 +190,17 @@ export function FilterPanel({
             icon={<Ticket className="size-3" />}
           >
             Open entry only
+          </ToggleChip>
+          <ToggleChip
+            checked={filters.hideSoldOut}
+            onChange={(v) => onChange((f) => ({ ...f, hideSoldOut: v }))}
+            title={`${filters.hideSoldOut ? 'Hiding' : 'Hide'} ${soldOut} ${soldOut === 1 ? 'race' : 'races'} sold out or closed for entries (IRONMAN and T100 World Tour status; "general entry sold out" stays)`}
+            icon={<Ban className="size-3" />}
+          >
+            Hide sold out
+            <span className="tabular text-[11px] font-semibold text-faint" data-testid="sold-out-count">
+              {soldOut}
+            </span>
           </ToggleChip>
           <ToggleChip
             checked={filters.showEstimated}

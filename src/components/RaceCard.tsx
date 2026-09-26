@@ -3,11 +3,19 @@ import { memo } from 'react';
 import { BRANDS, DISTANCES } from '../data/brands.ts';
 import { isNearStandard, legsText, raceLegs } from '../data/course.ts';
 import type { NextEdition } from '../data/nextEdition.ts';
+import { shownRegistration } from '../data/registration.ts';
 import type { Race } from '../data/types.ts';
 import { cn } from '../lib/cn.ts';
 import { formatDate, formatMonthShort, type ISODate } from '../lib/dates.ts';
 import { formatDistanceAway } from '../lib/nearest.ts';
-import { courseSummary, ENTRY_BADGE, isQualifierChampionship, seriesLabel, whenText } from '../lib/raceText.ts';
+import {
+  courseSummary,
+  ENTRY_BADGE,
+  isQualifierChampionship,
+  registrationSummary,
+  seriesLabel,
+  whenText,
+} from '../lib/raceText.ts';
 import { BrandGlyph } from './BrandGlyph.tsx';
 import { Flag } from './Flag.tsx';
 import {
@@ -18,6 +26,7 @@ import {
   DistanceBadge,
   EntryBadge,
   NonStandardBadge,
+  RegistrationBadge,
   StatusBadge,
 } from './RaceBits.tsx';
 
@@ -64,12 +73,16 @@ export const RaceCard = memo(function RaceCard({
   const away = distanceKm === undefined ? '' : formatDistanceAway(distanceKm);
   const qualifierTitle = isQualifierChampionship(race);
   const nonStandard = isNearStandard(race);
+  // Registration status of the shown edition (only when it is the next one, which the status is about).
+  const registration = shownRegistration(race, next);
+  const registrationShown = !!registration && registration.status !== 'open';
   // The bike hint only joins a simple badge row (distance, TBC, countdown), so the row
   // still fits on one line on a 390px phone; qualifier/ballot, championship,
-  // non-standard and estimated-date rows are full already. The shortlist shows the whole
-  // course instead.
+  // non-standard, registration and estimated-date rows are full already. The shortlist
+  // shows the whole course instead.
   const showBike =
     !showCourse &&
+    !registrationShown &&
     !!race.bike &&
     race.entry === 'open' &&
     !qualifierTitle &&
@@ -82,6 +95,7 @@ export const RaceCard = memo(function RaceCard({
     DISTANCES[race.distance].long,
     nonStandard && `non-standard distance ${legsText(raceLegs(race))}`,
     race.entry !== 'open' && ENTRY_BADGE[race.entry],
+    registrationShown && registrationSummary(registration, today),
     `${race.city}, ${race.countryName}`,
     away,
     dateLabel,
@@ -140,6 +154,7 @@ export const RaceCard = memo(function RaceCard({
           <DistanceBadge distance={race.distance} course={race.course} />
           {showBike && <BikeHint terrain={race.bike!} />}
           <EntryBadge entry={race.entry} />
+          <RegistrationBadge registration={registration} today={today} />
           <NonStandardBadge race={race} short />
           {qualifierTitle && <ChampionshipBadge race={race} />}
           <StatusBadge next={next} />

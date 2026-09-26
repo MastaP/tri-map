@@ -2,10 +2,11 @@
  * Filters and the selected race ⇄ URL query string, so every search is shareable.
  *
  *   ?q=roth&dist=full,half&brand=ironman&region=europe,asia&when=6m
- *   ?from=2026-10&to=2027-03&open=1&bike=flat,rolling&run=flat
+ *   ?from=2026-10&to=2027-03&open=1&hidesold=1&bike=flat,rolling&run=flat
  *   &est=1&area=1&bbox=4.1,51.9,6.3,52.8&star=1&sort=near&race=<id>
  *
  * `est=1` shows estimated dates (off by default; the old `est=0` is read as off).
+ * `hidesold=1` hides races that are sold out or closed for entries.
  *
  * `bbox` (the map area west,south,east,north) is only written with `area=1`, so a shared
  * "in map area" search shows the same races to whoever opens it, whatever the size of
@@ -109,6 +110,7 @@ export function parseUrlState(search: string): UrlState {
       regions: list(p.get('region'), isRegionId, REGION_IDS),
       time,
       openOnly: p.get('open') === '1',
+      hideSoldOut: p.get('hidesold') === '1',
       // Every profile selected still means "has course info", so it is kept as is.
       bike: list(p.get('bike'), isTerrain, TERRAINS, { collapseAll: false }),
       run: list(p.get('run'), isTerrain, TERRAINS, { collapseAll: false }),
@@ -137,6 +139,7 @@ export function serializeUrlState({ filters: f, raceId, bounds }: UrlState): str
     if (f.time.to !== f.time.from) p.set('to', f.time.to);
   }
   if (f.openOnly) p.set('open', '1');
+  if (f.hideSoldOut) p.set('hidesold', '1');
   if (f.bike.length) p.set('bike', f.bike.join(','));
   if (f.run.length) p.set('run', f.run.join(','));
   if (f.showEstimated) p.set('est', '1');

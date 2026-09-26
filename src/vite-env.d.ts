@@ -18,3 +18,9 @@ declare module 'virtual:trimap-races' {
   const records: import('./data/schema.ts').RaceRecord[];
   export default records;
 }
+
+/** Registration status files from data/registration (or the fixtures), validated at build time. */
+declare module 'virtual:trimap-registration' {
+  const data: import('./data/registration.ts').RegistrationData;
+  export default data;
+}

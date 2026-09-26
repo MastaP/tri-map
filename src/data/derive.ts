@@ -7,6 +7,7 @@ import type { ISODate } from '../lib/dates.ts';
 import { COUNTRY_ALIASES, normalizeText } from '../lib/search.ts';
 import { BRANDS } from './brands.ts';
 import { upcomingEditions } from './nextEdition.ts';
+import { attachRegistration, type RegistrationData } from './registration.ts';
 import { getCountry, REGIONS } from './regions.ts';
 import type { RaceRecord } from './schema.ts';
 import type { Race } from './types.ts';
@@ -74,7 +75,14 @@ export function linkSuccessors(races: readonly Race[]): Race[] {
   });
 }
 
-/** Records that already passed validation → the app model. */
-export function deriveRaces(records: readonly RaceRecord[], today: ISODate): Race[] {
-  return linkSuccessors(records.map((r) => deriveRace(r, today)));
+/**
+ * Records that already passed validation → the app model, with the registration status
+ * of each race's next edition when a recent one is known.
+ */
+export function deriveRaces(
+  records: readonly RaceRecord[],
+  today: ISODate,
+  registration: RegistrationData = {},
+): Race[] {
+  return attachRegistration(linkSuccessors(records.map((r) => deriveRace(r, today))), registration, today);
 }

@@ -6,6 +6,7 @@ import { BRAND_IDS, DISTANCE_IDS, type BrandId, type DistanceId } from '../data/
 import { TERRAINS, type Terrain } from '../data/constants.ts';
 import type { NextEdition } from '../data/nextEdition.ts';
 import { REGION_IDS, type RegionId } from '../data/regions.ts';
+import { HIDDEN_BY_SOLD_OUT, shownRegistration } from '../data/registration.ts';
 import type { Race } from '../data/types.ts';
 import { addMonths, formatMonthShort, monthKeyOf, monthRange, type ISODate, type MonthKey } from './dates.ts';
 import { inBounds, type Bounds, type LngLat } from './geo.ts';
@@ -64,6 +65,12 @@ export interface Filters {
   /** Hide races that need a qualifying slot or a ballot place. */
   openOnly: boolean;
   /**
+   * Hide races whose shown edition is sold out (a waitlist included) or closed for entries,
+   * by a recent registration status. "General entry sold out" stays: charity or
+   * travel-package places may remain. Races without a status are kept.
+   */
+  hideSoldOut: boolean;
+  /**
    * Bike / run course profiles to keep. Unlike the other multi-selects, selecting every
    * profile is not the same as none: any selection drops races without that course info.
    */
@@ -87,6 +94,7 @@ export const DEFAULT_FILTERS: Filters = Object.freeze({
   regions: [],
   time: { kind: 'any' },
   openOnly: false,
+  hideSoldOut: false,
   bike: [],
   run: [],
   showEstimated: false,
@@ -103,7 +111,18 @@ export interface FilterContext {
 }
 
 export type Dimension =
-  'q' | 'distance' | 'brand' | 'region' | 'time' | 'entry' | 'bike' | 'run' | 'estimated' | 'area' | 'shortlist';
+  | 'q'
+  | 'distance'
+  | 'brand'
+  | 'region'
+  | 'time'
+  | 'entry'
+  | 'soldout'
+  | 'bike'
+  | 'run'
+  | 'estimated'
+  | 'area'
+  | 'shortlist';
 
 export const COURSE_DIMENSIONS = ['bike', 'run'] as const;
 export type CourseDimension = (typeof COURSE_DIMENSIONS)[number];
@@ -238,6 +257,9 @@ function matches(race: Race, filters: Filters, p: Prepared, ctx: FilterContext, 
   if (!skip.has('brand') && p.brands && !p.brands.has(race.brand)) return false;
   if (!skip.has('region') && p.regions && !p.regions.has(race.region)) return false;
   if (!skip.has('entry') && filters.openOnly && race.entry !== 'open') return false;
+  if (!skip.has('soldout') && filters.hideSoldOut && isSoldOut(race, p, ctx.today, filters.showEstimated)) {
+    return false;
+  }
   if (!skip.has('bike') && p.bike && (race.bike === undefined || !p.bike.has(race.bike))) return false;
   if (!skip.has('run') && p.run && (race.run === undefined || !p.run.has(race.run))) return false;
   const next = race.nextEdition;
@@ -248,6 +270,18 @@ function matches(race: Race, filters: Filters, p: Prepared, ctx: FilterContext, 
   if (!skip.has('shortlist') && filters.shortlistOnly && !ctx.shortlist.has(race.id)) return false;
   if (!skip.has('area') && filters.inMapArea && ctx.bounds && !inBounds(race.lng, race.lat, ctx.bounds)) return false;
   return true;
+}
+
+/**
+ * Whether the edition a race is shown with is sold out or closed by its registration
+ * status. The status is about the next edition only: a race shown with a later edition (a
+ * 2027 search, when the 2026 edition is sold out) is not hidden.
+ */
+function isSoldOut(race: Race, p: Prepared, today: ISODate, withEstimated: boolean): boolean {
+  if (!race.registration || !HIDDEN_BY_SOLD_OUT.has(race.registration.status)) return false;
+  const shown =
+    p.range || p.years.length ? editionInRange(race, p.range, today, withEstimated, p.years) : race.nextEdition;
+  return shownRegistration(race, shown) !== undefined;
 }
 
 export function filterRaces(
@@ -460,6 +494,7 @@ export function activeDimensions(f: Filters): Dimension[] {
   if (f.regions.length && f.regions.length < REGION_IDS.length) out.push('region');
   if (f.time.kind !== 'any') out.push('time');
   if (f.openOnly) out.push('entry');
+  if (f.hideSoldOut) out.push('soldout');
   if (f.bike.length) out.push('bike');
   if (f.run.length) out.push('run');
   // Estimated dates are off by default; turning them on is the non-default setting.
@@ -483,6 +518,8 @@ export function clearDimension(f: Filters, dim: Dimension): Filters {
       return { ...f, time: { kind: 'any' } };
     case 'entry':
       return { ...f, openOnly: false };
+    case 'soldout':
+      return { ...f, hideSoldOut: false };
     case 'bike':
       return { ...f, bike: [] };
     case 'run':
@@ -508,6 +545,17 @@ export function clearAll(f: Filters): Filters {
 export function hiddenByEstimates(races: readonly Race[], filters: Filters, ctx: FilterContext): number {
   if (filters.showEstimated) return 0;
   return filterRaces(races, { ...filters, showEstimated: true }, ctx).length - filterRaces(races, filters, ctx).length;
+}
+
+/**
+ * How many races "Hide sold out" hides, or would hide if it were turned on, given the
+ * other filters.
+ */
+export function soldOutCount(races: readonly Race[], filters: Filters, ctx: FilterContext): number {
+  return (
+    filterRaces(races, filters, ctx, ['soldout']).length -
+    filterRaces(races, { ...filters, hideSoldOut: true }, ctx).length
+  );
 }
 
 /** Whether a time range or a year in the search limits the results to a period. */

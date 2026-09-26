@@ -76,6 +76,26 @@ Hosting: GitHub Pages, fully static, no backend, no API keys.
 - Derived at load: `entry` defaults to `"open"`; `formerly` is the reverse index of
   `continuedAs` (which races this one replaces), and former names are added to the
   search text so the old name finds the new race.
+- **Registration status** (`src/data/registration.ts`, pure, unit-tested): generated
+  files in `data/registration/` (contract in `data/README.md`) say whether an age-grouper
+  can still enter: `open`, `opening-soon`, `sold-out`, `general-sold-out` (charity or
+  travel-package places may remain), `waitlist`, `closed`, and how each was read
+  (`method`). IRONMAN's comes from ironman.com (`npm run refresh:ironman`, by hand:
+  ironman.com blocks GitHub-hosted runners): the race finder's tag, except that a
+  "Flex90 Eligible" tag is checked on the race's registration page (visible general-entry
+  card: price → open, "SOLD OUT" → general-sold-out or sold-out, unclear → none), and a
+  race with an announced edition but no card is read from its race page. The T100 World
+  Tour's comes from t100triathlon.com's own status for the next edition's 100 km race,
+  with the PTO entry platform for the edition and, when the organiser cannot be read,
+  its explicit signals only (never entry counts) (`npm run refresh:t100`, daily in CI
+  before the build, bounded in time and never failing the deploy; T100 Challenger events
+  enter on Active.com and have none). `npm run refresh:registration` runs both by hand.
+  Bundled at build time (`virtual:trimap-registration`). A status attaches to a race
+  only when its `editionDate` is the race's next edition (± 3 days, or the same year when
+  only the year is known), it was checked at most 30 days ago, and it is not an
+  "opening-soon" whose opening date has passed; otherwise it is ignored. The refresh
+  scripts never replace a file with a broken result (HTTP error, block page, fewer than
+  half the races matched).
 - `scripts/validate-data.ts` (`npm run validate:data`): zod-validate every file, unique
   ids across files, id format, editions sorted, known country code, lat/lng inside a
   coarse bounding box for the country's region, https urls, prints a summary table
@@ -130,6 +150,9 @@ GitHub repo, data freshness ("Race data checked Sep 2026").
   races without that profile are excluded; the UI says how many were hidden and can
   list them in a "Course not listed yet" group.
 - **Open entry only** toggle: hides `qualification` and `ballot` races.
+- **Hide sold out** toggle (off): hides races whose shown (next) edition is sold out, on a
+  waitlist or closed for entries; "general entry sold out" stays (places may remain), as
+  do races without a status. The chip counts the races it hides.
 - **Estimated dates** toggle (default **off**): shows estimated editions too. With it
   off, no estimated edition appears anywhere: list, map, histogram, counts, the
   detail's next race ("Next date not announced yet · last held <date>" with a "Show
@@ -153,7 +176,9 @@ start folded in a "Next 3 weeks" group (not while searching or on the shortlist)
 card: brand marker + series (a T100 World Championship Tour stop reads "T100": the card
 names what an age-grouper enters, the detail names the tour), distance badge ("Full",
 "Half", "T100 · 100 km"), name, entry badge ("Qualifier only" / "Ballot"; none for open
-entry), date (weekday + date; estimated dates styled differently), countdown in weeks up
+entry), registration badge for the next edition ("Sold out", "General entry sold out",
+"Waitlist", "Registration closed", "Opens soon"; none for open entry) with the date it was
+checked ("as of 26 Sep"), date (weekday + date; estimated dates styled differently), countdown in weeks up
 to a year out ("in 23 weeks", training plans count weeks), city + country flag, star. A
 compact bike-profile hint (bike icon, elevation silhouette and the word) is shown only
 when the badge row is otherwise simple. A championship title is a prominent badge only
@@ -208,10 +233,15 @@ properly in chat apps; it forwards to `?race=<id>`.
   successor shows "Formerly <name>" linking back.
 - No next edition: "No future edition announced", when it was last held, and the
   successor link if there is one.
+- **Registration** row (IRONMAN and T100 World Tour races with a recent status): the
+  status in plain words, "as of <date>", what it means ("charity or travel-package places
+  may remain" for general entry sold out) and a link to the official website or entry
+  page; the badge also sits next to the entry badge. The map tooltip and the venue popup
+  carry the card's badge.
 
 ### URL
 
-`?q=&dist=&brand=&region=&when=3m|6m|12m|year|next-year|from=&to=&open=1&bike=&run=&est=1&area=1&bbox=west,south,east,north&star=1&sort=name|near&race=`.
+`?q=&dist=&brand=&region=&when=3m|6m|12m|year|next-year|from=&to=&open=1&hidesold=1&bike=&run=&est=1&area=1&bbox=west,south,east,north&star=1&sort=name|near&race=`.
 Defaults are omitted; unknown values are ignored. `est=1` shows estimated dates (the
 old `est=0` is read as the default, off). `bbox` is written only with `area=1`: the
 recipient's map fits that box and the list keeps to it until they move the map, so a
@@ -234,13 +264,18 @@ centre and zoom (`at=lat,lng,zoom`) are still read.
 - Shareable: Open Graph / Twitter tags with a preview image, a per-race page for each
   race link, a web manifest and touch icons, a 404 page.
 - Footer: disclaimer "Not affiliated with IRONMAN, Challenge Family or PTO/T100. Dates
-  can change; always confirm on the official website." and a "Report a correction" link.
+  can change; always confirm on the official website.", which sources give a
+  registration status and when each was checked (races from other organisers show none),
+  and a "Report a correction" link.
 
 ## Delivery
 
 - `README.md`: what it is, how to run, how to update data, how to deploy.
-- `.github/workflows/deploy.yml`: on push to `main`, and weekly (Monday 05:00 UTC) so
-  the per-race share pages and their "next date" text do not go stale → `npm ci`,
-  `validate:data`, `test`, `build`, deploy with `actions/deploy-pages`.
+- `.github/workflows/deploy.yml`: on push to `main`, and daily (05:00 UTC) so the T100
+  registration status, the per-race share pages and their "next date" text do not go
+  stale → `npm ci`, `refresh:t100` (5-minute step timeout, `continue-on-error`; a
+  failure only warns: the committed file is used),
+  `validate:data`, `test`, `build`, deploy with `actions/deploy-pages`. The IRONMAN
+  status is refreshed by hand (`npm run refresh:ironman`, then commit and push).
 - Scripts: `dev`, `build`, `preview`, `test`, `test:e2e`, `validate:data`, `typecheck`,
   `lint` (if eslint is set up).

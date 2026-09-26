@@ -108,6 +108,12 @@ export function formatDate(iso: ISODate, { year = true }: { year?: boolean } = {
   return `${short(WEEKDAYS[p.wd]!)} ${p.day} ${short(MONTHS[p.m]!)}${year ? ` ${p.y}` : ''}`;
 }
 
+/** "26 Sep", or "26 Sep 2026" with `year` */
+export function formatDayMonth(iso: ISODate, { year = false }: { year?: boolean } = {}): string {
+  const p = parts(iso);
+  return `${p.day} ${short(MONTHS[p.m]!)}${year ? ` ${p.y}` : ''}`;
+}
+
 /** "Sunday 28 June 2026" */
 export function formatLongDate(iso: ISODate): string {
   const p = parts(iso);

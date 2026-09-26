@@ -1,7 +1,8 @@
 import type { NextEdition } from '../data/nextEdition.ts';
 import type { EntryType, SwimType, Terrain } from '../data/constants.ts';
+import { checkedDay, type RaceRegistration, type RegistrationStatus } from '../data/registration.ts';
 import type { Race } from '../data/types.ts';
-import { countdown, formatMonthShort, type ISODate } from './dates.ts';
+import { countdown, formatDayMonth, formatMonthShort, type ISODate } from './dates.ts';
 
 export const TERRAIN_LABEL: Record<Terrain, string> = {
   flat: 'Flat',
@@ -28,6 +29,46 @@ export const ENTRY_EXPLAINER: Record<EntryType, string> = {
   qualification: 'Qualifier only: you need a qualifying slot, earned at another race.',
   ballot: 'Ballot: places are drawn by lottery or given by application.',
 };
+
+/** Compact badge for a registration status (cards, map); open entry needs none. */
+export const REGISTRATION_BADGE: Record<Exclude<RegistrationStatus, 'open'>, string> = {
+  'opening-soon': 'Opens soon',
+  'sold-out': 'Sold out',
+  'general-sold-out': 'General entry sold out',
+  waitlist: 'Waitlist',
+  closed: 'Registration closed',
+};
+
+/** A registration status in plain words (race detail). */
+export const REGISTRATION_WORDS: Record<RegistrationStatus, string> = {
+  open: 'Open',
+  'opening-soon': 'Opening soon',
+  'sold-out': 'Sold out',
+  'general-sold-out': 'General entry sold out',
+  waitlist: 'Sold out, waitlist open',
+  closed: 'Closed',
+};
+
+/** What a registration status means for an age-grouper. */
+export const REGISTRATION_EXPLAINER: Record<RegistrationStatus, string> = {
+  open: 'You can still enter.',
+  'opening-soon': 'Entries are not open yet.',
+  'sold-out': 'No entries left.',
+  'general-sold-out': 'Charity or travel-package places may remain.',
+  waitlist: 'You can join the waitlist for a place.',
+  closed: 'Entries are no longer taken.',
+};
+
+/** "as of 26 Sep" (with the year when it is not this year's, or with `year`). */
+export function asOfText(checkedAt: string, today: ISODate, { year = false }: { year?: boolean } = {}): string {
+  const day = checkedDay(checkedAt);
+  return `as of ${formatDayMonth(day, { year: year || day.slice(0, 4) !== today.slice(0, 4) })}`;
+}
+
+/** "Sold out as of 26 Sep 2026" for tooltips and accessible names. */
+export function registrationSummary(reg: RaceRegistration, today: ISODate): string {
+  return `${REGISTRATION_WORDS[reg.status]} ${asOfText(reg.checkedAt, today, { year: true })}`;
+}
 
 export function isWorldChampionship(title: string): boolean {
   return /\bworld championship/i.test(title);
