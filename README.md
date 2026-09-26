@@ -6,7 +6,12 @@ IRONMAN 70.3, Challenge Family, T100 and notable independent full- and half-dist
 that age-groupers can race on one world map, searchable in seconds by **distance**,
 **date**, **region**, **how you get a start** and **how hilly the course is**.
 
-It is a fully static site (no backend, no API keys) built for GitHub Pages.
+**Live: <https://mastap.github.io/tri-map/>**
+
+It is a fully static site (no backend, no API keys) built for GitHub Pages. Race dates
+come from organisers' official sources; registration status (sold out, opens soon, …)
+is refreshed daily for T100 and by hand for IRONMAN (see
+[Keeping the data fresh](#keeping-the-data-fresh)).
 
 ![TriMap on desktop, light theme](docs/screenshots/desktop-light.png)
 
@@ -14,9 +19,10 @@ It is a fully static site (no backend, no API keys) built for GitHub Pages.
 | ------------------------------------------------ | ------------------------------------------- | --------------------------------------------------- |
 | ![Dark theme](docs/screenshots/desktop-dark.png) | ![Mobile list](docs/screenshots/mobile.png) | ![Race detail](docs/screenshots/desktop-detail.png) |
 
-_These screenshots show the real race data (September 2026). `npm run screenshots`
-regenerates every image in `docs/screenshots` from the small fixture set in
-`tests/fixtures/races` instead._
+_These four screenshots show the real race data and registration status (26 September
+2026). `npm run screenshots` regenerates every image in `docs/screenshots` from the small
+fixture set in `tests/fixtures/races` instead, so recapture these four from a real-data
+build (`npm run build && npm run preview`) when the UI changes._
 
 ## Features
 
@@ -129,6 +135,60 @@ npm run dev:fixtures    # same, with the 19-race fixture set (tests/fixtures/rac
 For the e2e tests install Chromium once with `npx playwright install chromium` (on a bare
 Linux box also `npx playwright install-deps chromium`).
 
+## Keeping the data fresh
+
+| What                                            | How                                                                                                                             | When                                                                    |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| T100 registration status                        | Automatic: the deploy workflow runs `npm run refresh:t100` before every build                                                   | Daily, 05:00 UTC                                                        |
+| **IRONMAN registration status**                 | **By hand:** `npm run refresh:registration`, check the summary, commit, push ([below](#refreshing-registration-status-by-hand)) | Every 1–2 weeks. A status older than 30 days is no longer shown         |
+| Per-race share pages and their "next date" text | Automatic: rebuilt by the daily deploy                                                                                          | Daily                                                                   |
+| Race dates, new editions, new or dropped races  | By hand: edit `data/races/*.json`, `npm run validate:data`, commit ([Updating data](#updating-data))                            | When organisers announce; most next-season dates appear October–January |
+
+### Refreshing registration status by hand
+
+ironman.com blocks GitHub's servers, so the IRONMAN status has to be fetched from your
+own machine (the script refuses to run in GitHub Actions). `refresh:registration` does
+IRONMAN, then T100:
+
+```bash
+git pull
+npm run refresh:registration -- --dry-run   # optional: fetch and print the summary, write nothing
+npm run refresh:registration                # takes about 3–8 minutes
+git diff --stat data/registration/
+git add data/registration/
+git commit -m "Refresh registration status"
+git push                                    # the deploy publishes it a few minutes later
+```
+
+Before committing, read the summary it prints:
+
+- **"… TriMap races with a status: … open, … sold-out, …"**: compare with the previous
+  run (`git diff data/registration/ironman.json`). A large drop usually means
+  ironman.com rate-limited the run part-way ("too many requests"). Races whose
+  registration page could not be read get no status rather than a guess, so run it again
+  later instead of committing.
+- **"cards with no race in data/races"**: a new IRONMAN race (or a changed URL). Add it
+  to `data/races` (see [Updating data](#updating-data)) and refresh again.
+- **"cards with a tag this script does not know"**: ironman.com introduced a new label.
+  Map it in `IRONMAN_LABELS` in `scripts/registration/ironman.ts`.
+- **"listed IRONMAN races with no card and no status"**: normal for races held recently
+  whose next edition is not on sale yet.
+
+If a refresh fails, the file for that source is left unchanged. `refresh:registration`
+still runs the other source, which may write its file, and then exits with an error. The
+last line shows which one failed (`IRONMAN: ok · T100: FAILED`). Check `git status`, then
+commit the file that refreshed or discard it with
+`git restore data/registration/<file>`. For IRONMAN, the usual causes are:
+
+- a block page or HTTP error from ironman.com: wait and retry;
+- fewer than half of the races matched: usually the site's markup changed. Fix the
+  parser in `scripts/registration/` against fresh pages; its tests use saved pages in
+  `tests/fixtures/registration/`.
+
+`npm run refresh:ironman` and `npm run refresh:t100` refresh one source each. Running the
+T100 refresh by hand is optional: CI does it before every deploy, and the committed
+`t100.json` is only its fallback.
+
 ## Race data
 
 All races live in `data/races/*.json`, one file per brand/region (see
@@ -164,78 +224,105 @@ the app not to guess a next edition for one-off or replaced races.
 
 ### Updating data
 
-1. Edit the right file in `data/races/`: add a new edition to `editions` (keep them
-   sorted), mark cancellations with `"status": "cancelled"`, and bump `verifiedAt`.
-2. Run `npm run validate:data`. It checks the schema, unique ids across files, the id
-   format (`<brand>-<location>-<distance>`), sorted editions, known country codes,
-   coordinates inside the country's region (catches flipped signs), https URLs, and
-   prints counts per brand × distance × region. Errors exit non-zero; warnings (for
-   example "next date is estimated", or a missing bike / run course profile, which
-   hides the race from course searches) do not.
-3. Open a pull request. CI runs the same checks, and the production build refuses
-   invalid data too, so a broken file cannot be deployed.
+1. Edit the right file in `data/races/`:
+   - a new date: add an edition to `editions` (keep them sorted by date);
+   - a cancellation: set that edition's `"status": "cancelled"`;
+   - a race that ends or is replaced: set `"recurring": false` or
+     `"continuedAs": "<id of the new race>"`;
+   - a new race: add a record following [`data/README.md`](data/README.md). Use the
+     id format `<brand>-<location>-<distance>`, the venue's coordinates, the official
+     `url` and at least one source.
+
+   For IRONMAN races, the next registration refresh finds the new race by its `url`.
+   Bump `verifiedAt` on every record you checked.
+
+2. Run `npm run validate:data`. It checks:
+   - the schema;
+   - ids that are unique across files and follow the format;
+   - sorted editions;
+   - known country codes;
+   - coordinates inside the country's region, which catches flipped signs;
+   - https URLs.
+
+   It also prints counts per brand × distance × region. Errors exit non-zero. Warnings
+   don't: for example "next date is estimated", or a missing bike / run course profile,
+   which hides the race from course searches.
+
+3. Commit and push to `main`, or open a pull request to get the e2e suite too. The deploy
+   runs the same checks, and the production build refuses invalid data, so a broken
+   file cannot be deployed.
 
 Countries and regions are defined in `src/data/regions.ts`; add a country there if the
 validator reports an unknown code.
 
-### Registration status
+## Registration status
 
-Whether a race is sold out lives in `data/registration/` (format, and how each status is
-read, in [`data/README.md`](data/README.md#registration-status)). The files are
-generated; do not edit them by hand.
+Whether a race can still be entered lives in `data/registration/`: `ironman.json`,
+`t100.json` and `t100-sources.json`. The first two are generated by the refresh scripts;
+do not edit them by hand. The file format and each status's exact meaning are in
+[`data/README.md`](data/README.md#registration-status).
 
-- **IRONMAN: refresh by hand.** ironman.com answers a normal connection but blocks
-  GitHub-hosted runners, so CI cannot read it (the script refuses to run in GitHub
-  Actions). Every week or two (a status older than 30 days is no longer shown), run
+**Coverage.** IRONMAN and IRONMAN 70.3 races, and the T100 World Championship Tour
+stops. Challenge Family, independent races and T100 Challenger events (which take
+entries on Active.com) show no status.
 
-  ```bash
-  npm run refresh:registration     # both IRONMAN and T100; -- --dry-run to only print the summary
-  git add data/registration/ && git commit -m "Refresh registration status" && git push
-  ```
+**What the app shows.** A status appears only when it is about the race's next edition,
+is at most 30 days old, and, for "Opens soon", its opening date has not passed. Every
+badge carries the date it was checked ("as of 26 Sep").
 
-  (`npm run refresh:ironman` alone does only IRONMAN.) It reads the race finder, one
-  request every 2 s with a `TriMap/1.0` User-Agent, and matches each race card to
-  `data/races` by the race's `url`. For each card tagged "Flex90 Eligible" (entries
-  opened less than 90 days ago, which says nothing about places left) it reads the race's
-  registration page and takes what its visible general-entry card shows: a price (open),
-  or "SOLD OUT" (general entry sold out, or sold out when no charity or special entries
-  remain); an unclear page gives no status. For a race with an announced next edition
-  but no card, it reads the race page's status tag. After "too many requests" it waits
-  as long as the site asks (within limits) and, if still refused, requests no more race
-  or registration pages. It prints the counts per status, what each page check found,
-  the cards with no race in the data and the IRONMAN races with no status. It writes
-  nothing, and exits with an error, on an HTTP error or block page in the finder, or when
-  fewer than half of the listed IRONMAN races get a status, so a broken run never
-  replaces good data.
+**How IRONMAN statuses are read** (`scripts/registration/ironman.ts`)
 
-- **T100 World Tour: automatic.** The deploy workflow runs `npm run refresh:t100` before
-  every build (daily), for the races in `data/registration/t100-sources.json`: the PTO
-  entry platform gives the next edition and its age-group 100 km race, and
-  t100triathlon.com its status. When t100triathlon.com cannot be read (Cloudflare may turn
-  away GitHub-hosted runners), only the platform's explicit signals count (not published
-  yet, closed, waiting list); a race on sale keeps its previous status for the same
-  edition, which stops showing 30 days after it was read. The step is bounded (no new
-  request after 3 minutes, a capped wait after "too many requests", a 5-minute step
-  timeout) and can never fail the deploy: if it fails, the build uses the committed
-  `t100.json`. CI does not commit what it fetched, so the committed file is only that
-  fallback; run `npm run refresh:registration` (or `refresh:t100`) locally and commit
-  now and then to keep it useful. Add a new World Tour stop to `t100-sources.json` (its
-  entry-platform slug without the year). T100 Challenger events enter on Active.com and
-  have no status.
+- The ironman.com race finder (about 23 pages) shows a registration tag on every race
+  card. The script matches each card to `data/races` by the race's `url`.
+- Cards tagged "Flex90 Eligible" only say that entries opened less than 90 days ago, not
+  whether places are left. For those, the script reads the race's `/register` page and
+  uses what its visible general-entry card shows:
+  - a price means open;
+  - "SOLD OUT" with charity or special entries still on sale means general entry sold
+    out;
+  - "SOLD OUT" otherwise means sold out;
+  - anything unclear means no status.
+- For a race with an announced next edition but no card, it reads the race page's tag.
+- Requests go one at a time, 2 s apart, with an honest `TriMap/1.0` User-Agent. After
+  "too many requests" it waits as long as the site asks (within limits); if still
+  refused, it requests no more race or registration pages.
+- It writes nothing if the finder returns an error or block page, or if fewer than half
+  of the listed IRONMAN races get a status.
+
+**How T100 statuses are read** (`scripts/registration/t100.ts`)
+
+- `t100-sources.json` maps each World Tour race to its entry-platform slug (without the
+  year). Add new World Tour stops there.
+- The PTO entry platform gives the next edition and its age-group 100 km race;
+  t100triathlon.com gives that race's status (open, opening soon, waiting list, sold
+  out).
+- If t100triathlon.com cannot be read, only the platform's explicit signals count: not
+  published yet, closed, waiting list. "Sold out" is never inferred from entry counts,
+  which include entries the place limit does not count. A race that is on sale keeps its
+  previous status for the same edition until that ages out.
+- In CI the step has hard limits: no new request after 3 minutes, a capped wait after
+  "too many requests", a 5-minute step timeout. It can never fail the deploy; if it
+  fails, the build uses the committed `t100.json`. CI does not commit what it fetched.
 
 ## Deploying to GitHub Pages
 
-1. Push this repository to GitHub.
+The site is deployed from `main` of
+[MastaP/tri-map](https://github.com/MastaP/tri-map) to
+<https://mastap.github.io/tri-map/>. Every push to `main` deploys.
+
+To set up a fork:
+
+1. Push the repository to GitHub.
 2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
 3. Push to `main`. `.github/workflows/deploy.yml` runs `npm ci`, `refresh:t100`,
    `validate:data`, `typecheck`, `test`, `build`, and deploys `dist/` with
    `actions/deploy-pages`.
 
-The workflow also runs every day at 05:00 UTC. It refreshes the T100 registration status
-before building (see "Registration status" above), and the per-race share pages
-(`race/<id>/`) and their "next date" text are written at build time, so the daily
-rebuild keeps both current between pushes. GitHub pauses scheduled workflows in a
-repository with no activity for 60 days; re-enable it under **Actions** if that happens.
+The workflow also runs every day at 05:00 UTC. That run refreshes the T100 registration
+status before building. It also rewrites the per-race share pages (`race/<id>/`) and
+their "next date" text, which are produced at build time, so they stay current between
+pushes. GitHub pauses scheduled workflows in a repository with no activity for 60 days;
+if that happens, re-enable the workflow under **Actions**.
 
 The build uses `base: './'`, so it works under any Pages sub-path
 (`https://<user>.github.io/<repo>/`). The GitHub link in the header and the "Report a
@@ -246,6 +333,18 @@ site's absolute URL: it defaults to the repository's GitHub Pages URL; set
 
 Pull requests run `.github/workflows/ci.yml` (checks, build and the e2e suite) without
 deploying.
+
+### Analytics
+
+`index.html` loads Google Analytics 4 (`G-JNRXNEP8TM`), but only when the page is served
+from `mastap.github.io`, so local dev servers, previews, e2e runs and forks send nothing.
+
+- **What GA receives:** page views, including the query string (filters, open race, and
+  the search-box text in `q`), plus GA's standard device and approximate-location data.
+- **What never reaches it:** the viewer's location for "Nearest" sort stays in the
+  browser and never enters the URL, and the shortlist stays in `localStorage`.
+- **No consent banner:** there isn't one yet. EU visitors normally need to consent to
+  GA's `_ga` cookie.
 
 ## How it is built
 
