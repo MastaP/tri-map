@@ -1245,5 +1245,32 @@
       "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
     ],
     "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-mamaia-half",
+    "name": "IRONMAN 70.3 Mamaia-Constanța",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Mamaia",
+    "country": "RO",
+    "lat": 44.302,
+    "lng": 28.6269,
+    "url": "https://www.ironman.com/races/im703-mamaia",
+    "editions": [
+      {
+        "date": "2027-09-26",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "New race, first edition 2027. Black Sea swim off Mamaia, single transition, one-loop bike, two-loop run on the promenade.",
+    "sources": [
+      "https://www.ironman.com/races/im703-mamaia",
+      "https://www.ironman.com/races/im703-mamaia/course"
+    ],
+    "verifiedAt": "2026-09-30"
   }
 ]
