@@ -773,17 +773,21 @@
       {
         "date": "2026-09-13",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-09-12",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
     "bike": "rolling",
     "run": "flat",
-    "notes": "Swim in Hakodate Bay (T1 Hokuto), bike on the Hakodate-Esashi expressway, finish in Kikonai. 2027 date TBA.",
+    "notes": "Swim in Hakodate Bay (T1 Hokuto), bike on the Hakodate-Esashi expressway, finish in Kikonai.",
     "sources": [
       "https://www.ironman.com/races/im-south-hokkaido",
       "https://labs-v2.competitor.com/results/event/4cdb1049-4f27-4e32-b49d-4fc9ca73c2fb"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-tenby-full",
@@ -894,6 +898,10 @@
       {
         "date": "2026-09-27",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-09-26",
+        "status": "confirmed"
       }
     ],
     "swim": "river",
@@ -905,7 +913,7 @@
       "https://labs-v2.competitor.com/results/event/0a742931-cf10-e311-9ec7-005056956277",
       "https://www.ironman.com/races/im-chattanooga/directions"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-calella-barcelona-full",
@@ -922,6 +930,10 @@
       {
         "date": "2026-10-04",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-10-03",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
@@ -932,7 +944,7 @@
       "https://www.ironman.com/races/im-barcelona",
       "https://labs-v2.competitor.com/results/event/c413f2e7-2dca-e311-b5f4-005056956277"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-gurye-full",
@@ -960,7 +972,7 @@
       "https://labs-v2.competitor.com/results/event/6e0f4c83-40d8-e611-9412-005056951bf1",
       "https://www.ironman.com/races/im-gurye/directions"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-kona-full",
@@ -1012,6 +1024,10 @@
       {
         "date": "2026-10-17",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-10-23",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
@@ -1022,7 +1038,7 @@
       "https://www.ironman.com/races/im-cascais",
       "https://labs-v2.competitor.com/results/event/4a7d66f0-94f5-e911-a812-000d3a5a1cf8"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-port-macquarie-full",
@@ -1071,6 +1087,10 @@
       {
         "date": "2026-10-18",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-10-24",
+        "status": "confirmed"
       }
     ],
     "swim": "river",
@@ -1082,7 +1102,7 @@
       "https://labs-v2.competitor.com/results/event/d74670f6-7fb2-4813-96e1-fae4ab1b948c",
       "https://www.ironman.com/races/im-california/directions"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-san-juan-full",
@@ -1368,6 +1388,33 @@
       "https://www.ironman.com/races/im703-les-sables-dolonne"
     ],
     "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-great-falls-full",
+    "name": "IRONMAN Montana",
+    "brand": "ironman",
+    "series": "IRONMAN",
+    "distance": "full",
+    "city": "Great Falls",
+    "country": "US",
+    "lat": 47.5046,
+    "lng": -111.3447,
+    "url": "https://www.ironman.com/races/im-montana",
+    "editions": [
+      {
+        "date": "2027-08-15",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "bike": "rolling",
+    "run": "rolling",
+    "notes": "New race, first edition 2027. Missouri River swim, one-loop bike west (~900 m gain), finish by Elks Riverside Park.",
+    "sources": [
+      "https://www.ironman.com/races/im-montana",
+      "https://www.ironman.com/races/im-montana/course"
+    ],
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-knokke-heist-full",

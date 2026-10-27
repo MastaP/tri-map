@@ -273,7 +273,7 @@
       "https://www.ironman.com/races/im703-warsaw",
       "https://labs-v2.competitor.com/results/event/b323092a-adef-4ffc-a093-ce89b8aed598"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-elsinore-half",
@@ -551,7 +551,7 @@
       "https://www.ironman.com/races/im703-gdynia",
       "https://labs-v2.competitor.com/results/event/e1339090-3e7a-e411-93fc-005056951bf1"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-krakow-half",
@@ -578,7 +578,7 @@
       "https://www.ironman.com/races/im703-krakow",
       "https://labs-v2.competitor.com/results/event/2c2982fc-2c97-459d-b2ef-e77b92eecd4f"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-duisburg-half",
@@ -636,7 +636,7 @@
       "https://www.ironman.com/races/im703-hradec-kralove",
       "https://labs-v2.competitor.com/results/event/87f1af8b-ceaf-4f25-a975-16e17e4f6de4"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-leipzig-half",
@@ -760,7 +760,7 @@
       "https://www.ironman.com/races/im703-poznan/course",
       "https://eneastadion.pl/wydarzenie/enea-ironman-70-3-poznan-30-sierpnia-2026/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-zell-am-see-kaprun-half",
@@ -819,7 +819,7 @@
       "https://labs-v2.competitor.com/results/event/ba996145-f3ab-47db-9edf-88c17ca8968c",
       "https://www.ironman.com/stories/news-updates/baku-capital-city-azerbaijan-will-host-first-edition-alufar-ironman-703-baku"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-knokke-heist-half",
@@ -897,17 +897,21 @@
       {
         "date": "2026-09-13",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-09-12",
+        "status": "confirmed"
       }
     ],
     "swim": "lake",
     "bike": "flat",
     "run": "flat",
-    "notes": "Swim in Sava Lake (Ada Ciganlija); flat bike and run through the city. 2027 date not yet announced.",
+    "notes": "Swim in Sava Lake (Ada Ciganlija); flat bike and run through the city.",
     "sources": [
       "https://www.ironman.com/races/im703-belgrade",
       "https://labs-v2.competitor.com/results/event/41e1ec53-e777-473b-a015-2c64c1f56442"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-erkner-half",
@@ -1027,7 +1031,7 @@
       "https://www.ironman.com/races/im703-versailles",
       "https://www.versailles.fr/2145/sports/reporte-ironman-703-versailles.htm"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-cascais-half",
@@ -1044,17 +1048,21 @@
       {
         "date": "2026-10-17",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-10-23",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
     "bike": "rolling",
     "run": "rolling",
-    "notes": "Saturday race, same day as IRONMAN Portugal-Cascais. Swim in Cascais bay; bike via Guincho and Sintra. 2027 date TBA.",
+    "notes": "Saturday race, same day as IRONMAN Portugal-Cascais. Swim in Cascais bay; bike via Guincho and Sintra.",
     "sources": [
       "https://www.ironman.com/races/im703-cascais",
       "https://labs-v2.competitor.com/results/event/86f0cd79-3580-e611-9410-005056951bf1"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-malaga-half",
@@ -1071,17 +1079,21 @@
       {
         "date": "2026-10-18",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-10-31",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
     "bike": "flat",
     "run": "flat",
-    "notes": "First edition, replaces Marbella. Harbour swim, transition on Paseo de los Curas, flat coastal bike, finish on Calle Larios.",
+    "notes": "Replaced Marbella from 2026. Harbour swim, transition on Paseo de los Curas, flat coastal bike, finish on Calle Larios.",
     "sources": [
       "https://www.ironman.com/races/im703-malaga",
       "https://www.ironman.com/stories/news-updates/ironman-703-malaga-announced-new-race-2026-season"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-porec-half",
@@ -1108,7 +1120,7 @@
       "https://www.ironman.com/races/im703-croatia",
       "https://labs-v2.competitor.com/results/event/dec32902-8a8c-4707-ad87-fa27be294d7a"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-costa-navarino-half",
@@ -1135,7 +1147,7 @@
       "https://www.ironman.com/races/im703-greece",
       "https://labs-v2.competitor.com/results/event/372808eb-839a-4a2d-bf7c-d090eca0714f"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-belek-half",

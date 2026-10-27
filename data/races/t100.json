@@ -128,7 +128,7 @@
       "https://sportstats.one/event/t100-triathlon-world-tour-london-uk?eventid=42152",
       "https://t100triathlon.com/media-releases/pto-and-world-triathlon-launch-triathlon-world-tour/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "t100-vancouver-t100",
@@ -226,7 +226,7 @@
       "https://t100triathlon.com/media-releases/pto-and-world-triathlon-launch-triathlon-world-tour/",
       "https://triathlon.org/events/2026-t100-triathlon-world-tour-saudi-arabia"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "t100-qatar-t100",
@@ -332,19 +332,20 @@
     "url": "https://challenge-brazil.com/florianopolis/",
     "editions": [
       {
-        "date": "2027-04-25",
-        "status": "tentative"
+        "date": "2027-04-18",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
     "run": "rolling",
-    "notes": "T100 Challenger weekend 24-25 Apr 2027; Sunday assumed (April 2026 race was a Sunday). Separate from the November Challenge race.",
+    "notes": "Sunday race. Swim off Jurerê Internacional. Separate from the November Challenge race.",
     "sources": [
       "https://t100triathlon.com/media-releases/triathlon-world-tour-announces-31-more-races-for-2027/",
       "https://challengefamily.com/races/challenge-florianopolis-april/",
-      "https://challenge-brazil.com/florianopolis/"
+      "https://challenge-brazil.com/florianopolis/",
+      "https://challenge-brazil.com/programacao-abril-2027/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "t100-salou-t100",
@@ -402,7 +403,7 @@
       "https://t100triathlon.com/french-riviera/participate/",
       "https://t100triathlon.com/media-releases/pto-and-world-triathlon-launch-triathlon-world-tour/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "t100-cesenatico-t100",
@@ -602,7 +603,7 @@
       "https://challengefamily.com/races/challenge-fortaleza/",
       "https://challenge-brazil.com/fortaleza/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "t100-marbella-t100",
@@ -624,14 +625,14 @@
     "swim": "ocean",
     "bike": "hilly",
     "run": "rolling",
-    "notes": "New for 2027, replacing the Pamplona Spain T100. Pro race Sat 18 Sep; AG 100km day TBC, Sunday 19 assumed. Venue TBC.",
+    "notes": "New for 2027, replacing the Pamplona Spain T100. Pro race Sat 18 Sep; AG 100km Sun 19 Sep per the entry platform (TBC). Venue TBC.",
     "sources": [
       "https://t100triathlon.com/marbella/participate/",
       "https://t100triathlon.com/marbella/participate/event-info/",
       "https://t100triathlon.com/marbella/pro/",
       "https://t100triathlon.com/media-releases/pto-and-world-triathlon-launch-triathlon-world-tour/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "t100-vieux-boucau-t100",
@@ -646,20 +647,21 @@
     "url": "https://challenge-vieuxboucau.com/?lang=en",
     "editions": [
       {
-        "date": "2027-10-09",
-        "status": "tentative"
+        "date": "2027-10-02",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
     "bike": "flat",
     "run": "flat",
-    "notes": "T100 Challenger weekend 9-10 Oct 2027; Saturday assumed (the 2026 half is on Saturday). Marine-lake swim, flat Landes roads.",
+    "notes": "Saturday race. Marine-lake swim, flat Landes roads.",
     "sources": [
       "https://t100triathlon.com/media-releases/triathlon-world-tour-announces-31-more-races-for-2027/",
       "https://challengefamily.com/races/challenge-vieux-boucau/",
-      "https://challenge-vieuxboucau.com/?lang=en"
+      "https://challenge-vieuxboucau.com/?lang=en",
+      "https://challenge-vieuxboucau.com/frais-dinscription-2/?lang=en"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "t100-peguera-mallorca-t100",
@@ -675,19 +677,19 @@
     "editions": [
       {
         "date": "2027-10-16",
-        "status": "tentative"
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
     "bike": "hilly",
     "run": "rolling",
-    "notes": "T100 Challenger weekend 16-17 Oct 2027; Saturday assumed (the 2026 half is on Saturday). Technical bike with big elevation changes.",
+    "notes": "Saturday race. Technical bike with big elevation changes.",
     "sources": [
       "https://t100triathlon.com/media-releases/triathlon-world-tour-announces-31-more-races-for-2027/",
       "https://challengefamily.com/races/challenge-peguera-mallorca/",
       "https://challenge-mallorca.com/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "t100-forte-village-t100",
@@ -715,7 +717,7 @@
       "https://challengefamily.com/races/challenge-forte-village/",
       "https://challenge-fortevillage.com/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "t100-xiamen-t100",
@@ -743,6 +745,6 @@
       "https://challengefamily.com/races/challenge-xiamen/",
       "https://challenge-xiamen.com/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   }
 ]

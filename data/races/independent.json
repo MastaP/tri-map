@@ -32,7 +32,7 @@
       "https://mountfestival.kiwi/events/tauranga-half/",
       "https://www.nzherald.co.nz/bay-of-plenty-times/news/full-results-from-tauranga-half-and-mount-festival-of-multisport/C5LO2PNZVRHJTI7TRUB24TAEIE/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-australian-alpine-ascent-full",
@@ -59,7 +59,7 @@
       "https://www.eliteenergy.com.au/australian-alpine-ascent-returns-in-2026-with-xtri-world-tour-partnership/",
       "https://www.xtriworldtour.com/aaa"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-wildflower-half",
@@ -87,7 +87,7 @@
       "https://www.wildflowerexperience.com/race/distances/",
       "https://www.wildflowerexperience.com/race/distances/long-course/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-himalayan-xtri-full",
@@ -316,7 +316,7 @@
       "https://schlosstriathlon.de/",
       "https://schlosstriathlon.de/app/uploads/2025/12/Ausschreibung2026_STM.pdf"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-moritzburg-half",
@@ -347,7 +347,7 @@
       "https://schlosstriathlon.de/",
       "https://schlosstriathlon.de/app/uploads/2025/12/Ausschreibung2026_STM.pdf"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-patriot-east-freetown-half",
@@ -429,19 +429,19 @@
       },
       {
         "date": "2027-06-19",
-        "status": "tentative"
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
     "bike": "hilly",
     "run": "flat",
-    "notes": "1.9/88/21 km sea swim, Pays d'Auge bike, boardwalk run; 2027 festival is 18-20 Jun, L assumed Sat 19 Jun as in 2026",
+    "notes": "1.9/90/21 km sea swim, Pays d'Auge bike, boardwalk run. Saturday race.",
     "sources": [
       "https://triathlondeauville.com/longue-distance/",
       "https://triathlondeauville.com/programme/",
       "https://triathlondeauville.com/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-swissman-full",
@@ -531,7 +531,7 @@
       "https://triathlon.susz.pl/pl/dla-zawodnika/harmonogram-zawodow-2026",
       "https://triathlon.susz.pl/media/attachments/2026/01/07/regulamin-susz-triathlon-2026---dystans-redni.pdf"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-swedeman-full",
@@ -858,7 +858,7 @@
       "https://www.extrememan.hu/",
       "https://www.extrememan.hu/filekezelorendszer/dok/kozos/versenyki%C3%ADr%C3%A1sok%202026/Nagyata%CC%81d%20Versenykii%CC%81ra%CC%81s.pdf"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-embrunman-full",
@@ -888,7 +888,7 @@
       "https://www.embrunman.com/",
       "https://www.embrunman.com/longue-distance/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-aberfeldy-half",
@@ -1198,7 +1198,7 @@
       "https://www.jtu.or.jp/news/2026/09/08/86355/",
       "https://www.scsf.jp/triathlon/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-blacklake-full",
@@ -1309,6 +1309,10 @@
       {
         "date": "2026-10-10",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-10-16",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
@@ -1324,7 +1328,7 @@
       "https://greekheroxtri.com",
       "https://www.xtriworldtour.com/events"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-ican-gandia-full",
@@ -1340,6 +1344,10 @@
       {
         "date": "2026-10-17",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-10-16",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
@@ -1350,7 +1358,7 @@
       "https://www.icantriathlon.com/",
       "https://www.icantriathlon.com/informacion/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-formosa-xtri-full",
@@ -1382,7 +1390,7 @@
       "https://www.formosaxtri.com",
       "https://www.xtriworldtour.com/events"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-patagonman-full",
@@ -1410,7 +1418,7 @@
       "https://www.patagonman.com/enrollment",
       "https://www.patagonman.com/_files/ugd/f06813_be8e6d7e781546a5ac63d06bda2c8a2c.pdf"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-fodaxman-full",
@@ -1443,7 +1451,7 @@
       "https://www.xtriworldtour.com/events",
       "https://en.fodaxman.com.br"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-chibchi-fisha-full",
@@ -1458,7 +1466,7 @@
     "url": "https://www.xtricolombia.com/",
     "editions": [
       {
-        "date": "2027-01-30",
+        "date": "2027-01-31",
         "status": "confirmed"
       }
     ],
@@ -1476,7 +1484,7 @@
       "https://www.xtricolombia.com/courses",
       "https://www.xtriworldtour.com/events"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "independent-lakesman-full",

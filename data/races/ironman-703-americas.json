@@ -86,7 +86,7 @@
       "https://www.ironman.com/races/im703-monterrey",
       "https://labs-v2.competitor.com/results/event/8ca744f9-e161-e311-8ba1-005056956277"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-curitiba-half",
@@ -521,7 +521,7 @@
       "https://www.ironman.com/races/im703-cap-cana",
       "https://labs-v2.competitor.com/results/event/e56852ab-06cc-4094-bc96-38d696ee15a6"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-chattanooga-half",
@@ -1048,17 +1048,21 @@
       {
         "date": "2026-07-19",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-07-25",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
     "bike": "rolling",
     "run": "flat",
-    "notes": "Pacific swim in Manta, rolling bike, finish at the cruise terminal. 2027 date not yet announced.",
+    "notes": "Pacific swim in Manta, rolling bike, finish at the cruise terminal.",
     "sources": [
       "https://www.ironman.com/races/im703-ecuador",
       "https://labs-v2.competitor.com/results/event/f53b55a5-16b2-e411-9400-005056951bf1"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-salem-half",
@@ -1214,7 +1218,7 @@
       "https://labs-v2.competitor.com/results/event/4598aa20-f278-e111-b16a-005056956277",
       "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-rio-de-janeiro-half",
@@ -1294,18 +1298,22 @@
       {
         "date": "2026-09-12",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-09-11",
+        "status": "confirmed"
       }
     ],
     "swim": "lake",
     "bike": "rolling",
     "run": "hilly",
-    "notes": "Lake Monona swim at Law Park, rolling bike, hilly run in Madison. Saturday race. 2027 date not yet announced.",
+    "notes": "Lake Monona swim at Law Park, rolling bike, hilly run in Madison. Saturday race.",
     "sources": [
       "https://www.ironman.com/races/im703-wisconsin",
       "https://labs-v2.competitor.com/results/event/adaedbb8-6095-e611-9410-005056951bf1",
       "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-santa-cruz-half",
@@ -1322,18 +1330,22 @@
       {
         "date": "2026-09-13",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-09-12",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
     "bike": "flat",
     "run": "rolling",
-    "notes": "Pacific swim at Main Beach by the wharf, finish at Cowell's Beach. 2027 date not yet announced.",
+    "notes": "Pacific swim at Main Beach by the wharf, finish at Cowell's Beach.",
     "sources": [
       "https://www.ironman.com/races/im703-santa-cruz",
       "https://labs-v2.competitor.com/results/event/76fcef91-46b1-e411-9400-005056951bf1",
       "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-cozumel-half",
@@ -1392,7 +1404,7 @@
       "https://labs-v2.competitor.com/results/event/20ac93b1-5db7-e811-a967-000d3a37468c",
       "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-richland-half",
@@ -1409,18 +1421,22 @@
       {
         "date": "2026-09-20",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-09-19",
+        "status": "confirmed"
       }
     ],
     "swim": "river",
     "bike": "rolling",
     "run": "flat",
-    "notes": "Columbia River swim at Howard Amon Park, finish at Columbia Point Park. 2027 date not yet announced.",
+    "notes": "Columbia River swim at Howard Amon Park, finish at Columbia Point Park.",
     "sources": [
       "https://www.ironman.com/races/im703-washington-tri-cities",
       "https://labs-v2.competitor.com/results/event/cd32ce29-af1d-ea11-a811-000d3a5a1f86",
       "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-sao-paulo-half",
@@ -1478,7 +1494,7 @@
       "https://www.ironman.com/races/im703-new-york",
       "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-augusta-ga-half",
@@ -1495,6 +1511,10 @@
       {
         "date": "2026-09-27",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-09-26",
+        "status": "confirmed"
       }
     ],
     "swim": "river",
@@ -1505,7 +1525,7 @@
       "https://www.ironman.com/races/im703-augusta",
       "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-buenos-aires-half",
@@ -1531,7 +1551,7 @@
     "sources": [
       "https://www.ironman.com/races/im703-buenos-aires"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-waco-half",
@@ -1548,17 +1568,21 @@
       {
         "date": "2026-10-04",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-11-14",
+        "status": "confirmed"
       }
     ],
     "swim": "river",
     "bike": "flat",
     "run": "rolling",
-    "notes": "Brazos River swim, flat bike, finish at Indian Spring Park. Often hot (average high ~34 °C).",
+    "notes": "Brazos River swim, flat bike, finish at Indian Spring Park. Moves to mid-November in 2027 (early October in 2026).",
     "sources": [
       "https://www.ironman.com/races/im703-waco",
       "https://www.ironman.com/races/im703-waco/schedule"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-encarnacion-half",
@@ -1584,7 +1608,7 @@
     "sources": [
       "https://www.ironman.com/races/im703-encarnacion"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-wilmington-half",
@@ -1601,6 +1625,10 @@
       {
         "date": "2026-10-17",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-10-16",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
@@ -1611,7 +1639,7 @@
       "https://www.ironman.com/races/im703-north-carolina",
       "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-florianopolis-half",
@@ -1628,6 +1656,10 @@
       {
         "date": "2026-10-18",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-10-24",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
@@ -1638,7 +1670,7 @@
       "https://www.ironman.com/races/im703-florianopolis",
       "https://www.ironman.com/races/im703-florianopolis/directions"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-campeche-half",
@@ -1668,7 +1700,7 @@
   },
   {
     "id": "ironman-aracaju-half",
-    "name": "IRONMAN 70.3 Aracaju-Sergipe",
+    "name": "IRONMAN 70.3 Sergipe",
     "brand": "ironman",
     "series": "IRONMAN 70.3",
     "distance": "half",
@@ -1676,7 +1708,7 @@
     "country": "BR",
     "lat": -10.9838,
     "lng": -37.0462,
-    "url": "https://www.ironman.com/races/im703-aracaju-sergipe",
+    "url": "https://www.ironman.com/races/im703-sergipe",
     "editions": [
       {
         "date": "2026-11-29",
@@ -1688,9 +1720,9 @@
     "run": "flat",
     "notes": "Swim at the Vaza-Barris river mouth, flat bike and run, finish at Atalaia Beach.",
     "sources": [
-      "https://www.ironman.com/races/im703-aracaju-sergipe"
+      "https://www.ironman.com/races/im703-sergipe"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-cartagena-half",
@@ -1824,6 +1856,60 @@
       "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
     ],
     "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-lake-george-half",
+    "name": "IRONMAN 70.3 Lake George",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Lake George",
+    "country": "US",
+    "lat": 43.4263,
+    "lng": -73.7246,
+    "url": "https://www.ironman.com/races/im703-lake-george",
+    "editions": [
+      {
+        "date": "2027-06-13",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
+    "notes": "New race, first edition 2027. Beach start in Lake George, one-loop Adirondack bike, finish in the village.",
+    "sources": [
+      "https://www.ironman.com/races/im703-lake-george",
+      "https://www.ironman.com/races/im703-lake-george/course"
+    ],
+    "verifiedAt": "2026-10-27"
+  },
+  {
+    "id": "ironman-orem-half",
+    "name": "IRONMAN 70.3 Utah",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Orem",
+    "country": "US",
+    "lat": 40.2953,
+    "lng": -111.735,
+    "url": "https://www.ironman.com/races/im703-utah",
+    "editions": [
+      {
+        "date": "2027-08-21",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "hilly",
+    "run": "rolling",
+    "notes": "New race, first edition 2027. Saturday race. Deer Creek Reservoir swim, bike down Provo Canyon to T2 and finish in Orem.",
+    "sources": [
+      "https://www.ironman.com/races/im703-utah",
+      "https://www.ironman.com/races/im703-utah/course"
+    ],
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-chattanooga-world-championship-half",

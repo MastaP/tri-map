@@ -493,10 +493,6 @@
       {
         "date": "2026-06-28",
         "status": "confirmed"
-      },
-      {
-        "date": "2027-06-27",
-        "status": "tentative"
       }
     ],
     "swim": "ocean",
@@ -507,13 +503,12 @@
       "bike": 85,
       "run": 21.1
     },
-    "notes": "Two-lap bike through the Vestfold countryside. 2027 listed only as June; last Sunday of June assumed, as in 2026.",
+    "notes": "Two-lap bike through the Vestfold countryside. 2027 date TBA; no longer on the Challenge Family calendar.",
     "sources": [
       "https://challenge-sandefjord.com/",
-      "https://challengefamily.com/races/challenge-sandefjord/",
       "https://challenge-sandefjord.com/race-information/time-schedule/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "challenge-walchsee-half",
@@ -805,13 +800,14 @@
       "bike": 80,
       "run": 21.1
     },
-    "notes": "Hilly bike with a 17 km climb to Passo Ghimbegna (1,030 m) and the Poggio descent; flat run on the seafront cycle path.",
+    "notes": "Hilly bike with a 17 km climb to Passo Ghimbegna (1,030 m); flat seafront run. Last half edition; 2/80/18 from 2027.",
+    "continuedAs": "challenge-sanremo-t100",
     "sources": [
       "https://challenge-sanremo.com/",
       "https://challengefamily.com/races/challenge-sanremo/",
       "https://challenge-sanremo.com/races/middle-distance/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "challenge-vieux-boucau-half",
@@ -897,7 +893,7 @@
       "https://challengefamily.com/news/challenge-family-announces-china-expansion-with-launch-of-challenge-shanghai/",
       "https://challengefamily.com/races/challenge-shanghai/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "challenge-barcelona-half",
@@ -924,7 +920,7 @@
       "https://www.triathlon.barcelona/en/atletas/distances-modalities/middle/",
       "https://challengefamily.com/races/challenge-barcelona/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "challenge-forte-village-half",
@@ -1066,5 +1062,30 @@
       "https://t100triathlon.com/media-releases/triathlon-world-tour-announces-31-more-races-for-2027/"
     ],
     "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "challenge-sanremo-t100",
+    "name": "Challenge Sanremo 100",
+    "brand": "challenge",
+    "series": "Challenge Family",
+    "distance": "t100",
+    "city": "Sanremo",
+    "country": "IT",
+    "lat": 43.8171,
+    "lng": 7.787,
+    "url": "https://challenge-sanremo.com/",
+    "editions": [
+      {
+        "date": "2027-10-03",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "notes": "2/80/18 from 2027 (event 1-3 Oct 2027, Portosole); race day TBC, Sunday assumed as in 2026. 2027 course not published yet.",
+    "sources": [
+      "https://www.active.com/sanremo-im/triathlon/challenge-sanremo-100-2027",
+      "https://challenge-sanremo.com/"
+    ],
+    "verifiedAt": "2026-10-27"
   }
 ]

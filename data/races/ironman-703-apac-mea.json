@@ -47,18 +47,22 @@
       {
         "date": "2026-02-22",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-08-22",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
     "bike": "flat",
     "run": "flat",
-    "notes": "Swim, transition and finish at Port City Colombo; flat bike on a closed coastal highway.",
+    "notes": "Swim, transition and finish at Port City Colombo; flat bike on a closed coastal highway. Moves to August in 2027 (February in 2026).",
     "sources": [
       "https://www.ironman.com/races/im703-colombo",
       "https://labs-v2.competitor.com/results/event/ca7a8458-3a3a-e711-9417-005056951bf1",
       "https://www.ironman.com/races/im703-colombo/schedule"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-new-zealand-half",
@@ -280,7 +284,7 @@
       "https://www.ironman.com/races/im703-shanghai-chongming/schedule",
       "https://www.ironman.com/races/im703-shanghai-chongming/directions"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-durban-half",
@@ -341,7 +345,7 @@
       "https://labs-v2.competitor.com/results/event/30c4b1f7-08b2-e411-9400-005056951bf1",
       "https://www.ironman.com/races/im703-subic-bay-philippines/schedule"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-cairns-half",
@@ -401,7 +405,7 @@
       "https://labs-v2.competitor.com/results/event/80711e6b-fdca-e811-a96a-000d3a35f53a",
       "https://www.ironman.com/races/im703-goseong/schedule"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-desaru-coast-half",
@@ -450,18 +454,22 @@
       {
         "date": "2026-08-09",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-08-08",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
     "bike": "flat",
     "run": "flat",
-    "notes": "Swim at Mactan Newtown Beach; bike crosses the CCLEX bridge to Cebu City. 2027 date not yet announced.",
+    "notes": "Swim at Mactan Newtown Beach; bike crosses the CCLEX bridge to Cebu City.",
     "sources": [
       "https://www.ironman.com/races/im703-cebu-philippines",
       "https://labs-v2.competitor.com/results/event/6f98aa20-f278-e111-b16a-005056956277",
       "https://www.ironman.com/races/im703-cebu-philippines/schedule"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-dali-half",
@@ -490,7 +498,7 @@
       "https://www.ironman.com/races/im703-dali/schedule",
       "https://www.ironman.com/races/im703-dali/directions"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-sunshine-coast-half",
@@ -549,7 +557,7 @@
       "https://www.ironman.com/races/im703-sharm-el-sheikh",
       "https://www.ironman.com/races/im703-sharm-el-sheikh/schedule"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-port-macquarie-half",
@@ -608,7 +616,7 @@
       "https://www.ironman.com/races/im703-dhofar",
       "https://www.ironman.com/races/im703-dhofar/schedule"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-agadir-half",
@@ -636,7 +644,7 @@
       "https://www.ironman.com/races/im703-agadir/schedule",
       "https://www.ironman.com/races/im703-agadir/directions"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-goa-half",
@@ -894,6 +902,33 @@
       "https://labs-v2.competitor.com/results/event/72e540e0-4f6e-44f4-9735-d8b5424ae8f2"
     ],
     "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-amdavad-half",
+    "name": "IRONMAN 70.3 Amdavad",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Ahmedabad",
+    "country": "IN",
+    "lat": 23.0164,
+    "lng": 72.5756,
+    "url": "https://www.ironman.com/races/im703-amdavad",
+    "editions": [
+      {
+        "date": "2027-02-14",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "New race, first edition 2027. Sabarmati River swim by Atal Bridge, three-loop flat bike, run on the Riverfront promenade.",
+    "sources": [
+      "https://www.ironman.com/races/im703-amdavad",
+      "https://www.ironman.com/races/im703-amdavad/course"
+    ],
+    "verifiedAt": "2026-10-27"
   },
   {
     "id": "ironman-laoag-half",
