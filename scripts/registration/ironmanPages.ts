@@ -10,8 +10,11 @@
  *   same status tag and date as a finder card would.
  *
  * Both pages carry hidden sections for other states (a stale "OPENING SOON" general-entry
- * card, "Missed out?" banners…), so only visible elements are read (./html.ts). Anything
- * unclear gives no status: a wrong "open" is worse than none.
+ * card, "Missed out?" banners…), so only visible elements are read (./html.ts). Since
+ * October 2026 registration pages also name their state in a class on <body>
+ * (`registration-state--sold_out`…), which the site's CSS uses to pick the state heading
+ * and to print "Sold Out" over prices still in the markup; that is read too (see
+ * registrationState). Anything unclear gives no status: a wrong "open" is worse than none.
  */
 import { closest, findAll, parseHtml, visibleText, type HtmlElement } from './html.ts';
 
@@ -50,11 +53,55 @@ export interface PriceCard {
 const hasClass = (c: string) => (el: HtmlElement) => el.classes.has(c);
 const isHeading = (el: HtmlElement) => /^h[1-6]$/.test(el.tag);
 
+const STATE_CLASS = 'registration-state--';
+
+/**
+ * The registration state a page names in a class on <body> (`registration-state--open`,
+ * `sold_out`, `general_sold_out`, `closed`, `opening_soon`); null on pages without one.
+ * ironman.com's CSS uses it to pick which state heading shows (see visibleBanners) and to
+ * print "Sold Out" or "Closed" over card prices (see shownPrice), so on these pages the
+ * markup alone does not say what a visitor sees.
+ */
+export function registrationState(el: HtmlElement): string | null {
+  let root = el;
+  while (root.parent) root = root.parent;
+  const body = root.tag === 'body' ? root : findAll(root, (e) => e.tag === 'body')[0];
+  const cls = body && [...body.classes].find((c) => c.startsWith(STATE_CLASS));
+  return cls ? cls.slice(STATE_CLASS.length) : null;
+}
+
+/** Card types the body's sold_out state leaves alone: fundraising, Xclusive, upgrades, "open" entries. */
+const KEPT_WHEN_SOLD_OUT = ['type--team-imf', 'type--xclusive', 'type--nirvana-upgrade', 'type--open'];
+/** Card types the body's general_sold_out state marks sold out. */
+const SOLD_WHEN_GENERAL_SOLD_OUT = ['type--general', 'type--relay'];
+/** Card types the body's closed state leaves alone. */
+const KEPT_WHEN_CLOSED = ['type--open', 'type--nirvana-upgrade'];
+
+/**
+ * What a card's price line shows, after ironman.com's CSS: a card with the `sold-out` or
+ * `closed` class, or one the body state covers, shows "Sold Out" / "Closed" in place of the
+ * price that is still in its markup; the `open` class undoes that.
+ */
+function shownPrice(card: HtmlElement, price: string, state: string | null): string {
+  const isAny = (types: string[]) => types.some((t) => card.classes.has(t));
+  if (card.classes.has('open')) return price;
+  if (
+    card.classes.has('sold-out') ||
+    (state === 'sold_out' && !isAny(KEPT_WHEN_SOLD_OUT)) ||
+    (state === 'general_sold_out' && isAny(SOLD_WHEN_GENERAL_SOLD_OUT))
+  ) {
+    return 'SOLD OUT';
+  }
+  if (card.classes.has('closed') || (state === 'closed' && !isAny(KEPT_WHEN_CLOSED))) return 'CLOSED';
+  return price;
+}
+
 /**
  * The visible price cards of a registration page (`.price-card` elements with a
- * `.price-value`), innermost ones only.
+ * `.price-value`), innermost ones only, with the price as shown (see shownPrice).
  */
 export function visiblePriceCards(doc: HtmlElement): PriceCard[] {
+  const state = registrationState(doc);
   const cards = findAll(doc, hasClass('price-card'), { visibleOnly: true });
   return cards
     .filter((card) => !findAll(card, hasClass('price-card')).length)
@@ -62,14 +109,22 @@ export function visiblePriceCards(doc: HtmlElement): PriceCard[] {
       const price = findAll(card, hasClass('price-value'), { visibleOnly: true })[0];
       const header = findAll(card, (el) => isHeading(el) && !el.classes.has('price-value'), { visibleOnly: true })[0];
       if (!price) return [];
-      return [{ header: header ? visibleText(header) : '', price: visibleText(price) }];
+      return [{ header: header ? visibleText(header) : '', price: shownPrice(card, visibleText(price), state) }];
     });
 }
 
-/** The visible headings outside the price cards (banners such as "SOLD OUT | SPECIAL ENTRIES AVAILABLE"). */
+const STATE_HEADING = 'registration-page__reg-';
+
+/**
+ * The visible headings outside the price cards (banners such as "SOLD OUT | SPECIAL ENTRIES
+ * AVAILABLE"). Of the per-state headings (`.registration-page__reg-sold-out`, …), only the
+ * body state's shows, or the "open" one when the body names no state.
+ */
 export function visibleBanners(doc: HtmlElement): string[] {
+  const shown = `${STATE_HEADING}${(registrationState(doc) ?? 'open').replaceAll('_', '-')}`;
+  const otherState = (el: HtmlElement) => [...el.classes].some((c) => c.startsWith(STATE_HEADING) && c !== shown);
   return findAll(doc, isHeading, { visibleOnly: true })
-    .filter((h) => !closest(h, hasClass('price-card')))
+    .filter((h) => !closest(h, hasClass('price-card')) && !closest(h, otherState))
     .map(visibleText)
     .filter(Boolean);
 }
@@ -95,7 +150,12 @@ const clip = (s: string) => (s.length > LABEL_MAX ? `${s.slice(0, LABEL_MAX - 1)
  *   entry with a price) → "general-sold-out";
  * - "SOLD OUT" otherwise → "sold-out";
  * - anything else (no visible general-entry card, "OPENING SOON", a price in one card and
- *   "SOLD OUT" in another, a visible "sold out" banner next to a price) → no status.
+ *   "SOLD OUT" in another, a visible "sold out" banner next to a price, a body state that
+ *   says the race is not open yet) → no status.
+ *
+ * "Visible" and "shows" follow the body state where the page has one: a card's price reads
+ * "SOLD OUT" or "CLOSED" when its class or the state says so, and of the per-state headings
+ * only the state's own counts.
  */
 export function readRegisterPage(html: string): RegisterPageReading {
   const doc = parseHtml(html);
@@ -106,9 +166,16 @@ export function readRegisterPage(html: string): RegisterPageReading {
   return { ...readGeneralEntry(main), dateText: (date && visibleText(date)) || null };
 }
 
+/** Body states the cards and headings tell apart (see shownPrice); any other gives no status. */
+const READABLE_STATES = new Set(['open', 'sold_out', 'general_sold_out', 'closed']);
+
 function readGeneralEntry(
   doc: HtmlElement,
 ): { status: RegisterPageStatus; label: string } | { status: null; reason: string } {
+  const state = registrationState(doc);
+  if (state !== null && !READABLE_STATES.has(state)) {
+    return { status: null, reason: `the page says registration is ${state}` };
+  }
   const cards = visiblePriceCards(doc);
   const general = cards.filter((c) => GENERAL_CARD.test(c.header));
   if (!general.length) return { status: null, reason: 'no visible general-entry card' };

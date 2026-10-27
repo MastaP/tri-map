@@ -282,6 +282,12 @@ badge carries the date it was checked ("as of 26 Sep").
     out;
   - "SOLD OUT" otherwise means sold out;
   - anything unclear means no status.
+
+  "Shows" means what the page draws: these pages name their state in a class on `<body>`
+  (`registration-state--sold_out`…) and let CSS print "SOLD OUT" over prices that are
+  still in the markup and pick which state heading appears, so the script reads that
+  class and the cards' own `sold-out` class too.
+
 - For a race with an announced next edition but no card, it reads the race page's tag.
 - Requests go one at a time, 2 s apart, with an honest `TriMap/1.0` User-Agent. After
   "too many requests" it waits as long as the site asks (within limits); if still

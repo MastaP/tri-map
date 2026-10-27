@@ -201,7 +201,14 @@ the last two):
   "SOLD OUT" otherwise → `sold-out`. Anything unclear (no visible general-entry card,
   "OPENING SOON", a price in one currency and "SOLD OUT" in another, a page dated for
   another edition than the card, a page that could not be loaded) → **no status**; it
-  never falls back to the card's "open".
+  never falls back to the card's "open". Pages that name their state in a class on
+  `<body>` (`registration-state--open`, `sold_out`, `general_sold_out`, `closed`,
+  `opening_soon`) are read the way the site's CSS draws them: a card with the `sold-out`
+  class, or one the state covers (every entry card under `sold_out`, general and relay
+  under `general_sold_out`), shows "SOLD OUT" whatever price is left in its markup; only
+  the heading of the page's own state counts ("Registration sold out" is on every such
+  page, hidden unless sold out); `opening_soon` or a state the script does not know → no
+  status.
 - `"race-page"`: the status tag and date in the race page's header, read for a race with
   an announced (not estimated) next edition that has no card in the finder (IRONMAN
   Wisconsin 2027). Written only when the page's date is that next edition.

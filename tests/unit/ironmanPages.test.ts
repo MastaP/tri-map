@@ -5,6 +5,7 @@ import {
   isSoldOutText,
   readRacePage,
   readRegisterPage,
+  visibleBanners,
   visiblePriceCards,
 } from '../../scripts/registration/ironmanPages.ts';
 import { registrationSample } from './helpers.ts';
@@ -139,6 +140,105 @@ describe('readRegisterPage (the Flex90 check)', () => {
       status: 'open',
       label: 'General entry: $421.52 USD / $638.14 CAD',
     });
+  });
+});
+
+describe('readRegisterPage on pages that set the state on <body> (registration-state--…)', () => {
+  // These pages carry the heading of every state and let CSS show the one the body names;
+  // a card's price is replaced by "Sold Out" / "Closed" by its own class or by the body state.
+  const page = (state: string | null, ...content: string[]) =>
+    `<body${state ? ` class="registration-state--${state}"` : ''}><div id="block-ironman-content">${content.join('')}</div></body>`;
+  const headings =
+    '<div class="registration-page__heading">' +
+    '<div class="registration-page__reg-open"><h1>Registration is open</h1></div>' +
+    '<div class="registration-page__reg-general-sold-out"><h1>Special entries available</h1></div>' +
+    '<div class="registration-page__reg-sold-out"><h1>Registration sold out</h1></div>' +
+    '<div class="registration-page__reg-closed"><h1>Registration closed</h1></div>' +
+    '<div class="registration-page__reg-opening-soon"><h1>Registration Opening Soon</h1></div>' +
+    '</div>';
+  const card = (type: string, header: string, price: string, extra = '') =>
+    `<div class="price-card type--${type}${extra}"><div class="card-header"><h2>${header}</h2></div><h3 class="price-value">${price}</h3></div>`;
+  const general = (extra = '') => card('general', 'General Entry', '€508.65', extra);
+  const relay = card('relay', 'Relay Entry', '€705.33');
+
+  it('open: the body says open and the general-entry card shows a price; the hidden "Registration sold out" heading does not count', () => {
+    const html = sample('register-state-open-mamaia');
+    expect(html).toContain('Registration sold out');
+    expect(readRegisterPage(html)).toEqual({
+      status: 'open',
+      label: 'General entry: €508.65',
+      dateText: 'September 26th, 2027',
+    });
+    expect(visibleBanners(parseHtml(html))).toContain('Registration is open');
+    expect(visibleBanners(parseHtml(html))).not.toContain('Registration sold out');
+  });
+
+  it('sold-out: a general-entry card with the sold-out class shows "Sold Out", whatever is left of its price', () => {
+    const html = sample('register-card-sold-out-aix');
+    const cards = visiblePriceCards(parseHtml(html));
+    expect(cards.find((c) => c.header === 'General Entry')?.price).toBe('SOLD OUT');
+    expect(readRegisterPage(html)).toEqual({
+      status: 'sold-out',
+      label: 'General entry: SOLD OUT',
+      dateText: 'May 23rd, 2027',
+    });
+  });
+
+  it('sold-out: the body says sold_out, so the relay price in the markup is not on sale either', () => {
+    const html = sample('register-state-sold-out-cascais');
+    const cards = visiblePriceCards(parseHtml(html));
+    expect(cards.find((c) => c.header === 'Relay Entry')?.price).toBe('SOLD OUT');
+    expect(readRegisterPage(html)).toEqual({
+      status: 'sold-out',
+      label: 'General entry: SOLD OUT',
+      dateText: 'October 23rd, 2027',
+    });
+  });
+
+  it('general-sold-out: the body says general_sold_out and its "Special entries available" heading shows', () => {
+    expect(readRegisterPage(page('general_sold_out', headings, general(), relay))).toMatchObject({
+      status: 'general-sold-out',
+      label: 'General entry: SOLD OUT · Special entries available',
+    });
+  });
+
+  it('general-sold-out: the general-entry card is sold out while a Foundation entry is priced', () => {
+    const foundation = card('foundation', 'IRONMAN Foundation Community Fund Entry', '$1,108.25 USD');
+    expect(readRegisterPage(page('open', headings, general(' sold-out'), foundation))).toMatchObject({
+      status: 'general-sold-out',
+      label: 'General entry: SOLD OUT · IRONMAN Foundation Community Fund Entry: $1,108.25 USD',
+    });
+    // Under sold_out, the Foundation card is sold out too.
+    expect(readRegisterPage(page('sold_out', headings, general(), foundation))).toMatchObject({ status: 'sold-out' });
+  });
+
+  it('no status when the body says the race is closed, not open yet, or names a state this script does not know', () => {
+    expect(readRegisterPage(page('closed', headings, general()))).toMatchObject({
+      status: null,
+      reason: 'general entry shows "CLOSED"',
+    });
+    expect(readRegisterPage(page('opening_soon', headings, general()))).toMatchObject({
+      status: null,
+      reason: 'the page says registration is opening_soon',
+    });
+    expect(readRegisterPage(page('paused', headings, general()))).toMatchObject({
+      status: null,
+      reason: 'the page says registration is paused',
+    });
+  });
+
+  it('a card class "open" keeps its price even when the body says sold_out (then unclear: no status)', () => {
+    const html = page('sold_out', headings, general(' open'));
+    expect(visiblePriceCards(parseHtml(html)).map((c) => c.price)).toEqual(['€508.65']);
+    expect(readRegisterPage(html)).toMatchObject({
+      status: null,
+      reason: 'a price, but the page says "Registration sold out"',
+    });
+  });
+
+  it('without a body state, only the "open" heading shows (as before the change)', () => {
+    expect(visibleBanners(parseHtml(page(null, headings)))).toEqual(['Registration is open']);
+    expect(readRegisterPage(page(null, headings, general()))).toMatchObject({ status: 'open' });
   });
 });
 
