@@ -18,6 +18,9 @@ test('each category has a distance tile with its count, and filters by it', asyn
   await expect(tiles.getByRole('button', { name: 'Bike time trial (bike only), 1 races' })).toBeVisible();
   await expect(tiles.getByRole('button', { name: 'Sprint distance (0.75 / 20 / 5 km), 1 races' })).toBeVisible();
   await expect(tiles.getByRole('button', { name: 'Olympic distance (1.5 / 40 / 10 km), 0 races' })).toBeVisible();
+  await expect(
+    tiles.getByRole('button', { name: 'Off-road triathlon (swim, mountain bike, trail run), 0 races' }),
+  ).toBeVisible();
 
   await tiles.getByRole('button', { name: /^Duathlon/ }).click();
   await expect(page).toHaveURL(/dist=duathlon/);

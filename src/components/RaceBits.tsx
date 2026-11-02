@@ -49,6 +49,7 @@ const DISTANCE_BADGE: Record<DistanceId, string> = {
   t100: 'text-fg ring-1 ring-inset ring-line-strong',
   olympic: 'text-muted ring-1 ring-inset ring-line',
   sprint: 'text-muted ring-1 ring-inset ring-line',
+  cross: 'bg-surface-2 text-fg ring-1 ring-inset ring-line',
   duathlon: 'bg-surface-2 text-fg ring-1 ring-inset ring-line',
   'time-trial': 'bg-surface-2 text-fg ring-1 ring-inset ring-line',
 };

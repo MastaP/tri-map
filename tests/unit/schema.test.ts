@@ -86,9 +86,28 @@ describe('RaceSchema', () => {
       ).toEqual([]);
     });
 
+    it('accepts an off-road triathlon with its swim / bike / run km and swim type', () => {
+      expect(
+        messages(
+          indie({
+            id: 'independent-xterra-molveno-cross',
+            series: 'XTERRA World Cup',
+            distance: 'cross',
+            course: { swim: 1.5, bike: 30, run: 10 },
+            swim: 'lake',
+            bike: 'mountainous',
+            run: 'hilly',
+          }),
+        ),
+      ).toEqual([]);
+    });
+
     it('requires a duathlon or time trial to give its km, with exactly the legs of its sport', () => {
       expect(messages(indie({ id: 'independent-almere-duathlon', distance: 'duathlon' })).join()).toMatch(
-        /^course: a duathlon has no standard distance: give its run1 \/ bike \/ run2 km/,
+        /^course: Duathlon has no standard distance: give its run1 \/ bike \/ run2 km/,
+      );
+      expect(messages(indie({ id: 'independent-xterra-molveno-cross', distance: 'cross' })).join()).toMatch(
+        /^course: Off-road triathlon has no standard distance: give its swim \/ bike \/ run km/,
       );
       expect(
         messages(

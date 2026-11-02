@@ -8,8 +8,9 @@ One record = one race **at one distance** at one venue. If a venue holds a full 
 half on the same weekend (e.g. Challenge Almere-Amsterdam), that is two records.
 
 TriMap covers long-distance triathlons (full, half, T100) worldwide. Shorter triathlons
-(Olympic, sprint), duathlons and bike time trials are covered where a file below says
-so: the major duathlons worldwide, and every distance of the Dutch race series.
+(Olympic, sprint), off-road triathlons, duathlons and bike time trials are covered where
+a file below says so: XTERRA and the major duathlons worldwide, and every distance of
+the Dutch race series.
 
 ## Files
 
@@ -24,6 +25,7 @@ so: the major duathlons worldwide, and every distance of the Dutch race series.
 | `independent.json` | Notable non-branded full/half races (Xtri World Tour, Outlaw, Embrunman, …) |
 | `netherlands.json` | Dutch race series at every distance: Dutch Triathlon Series (DTS) and TriHard (triathlons, duathlons, time trials) |
 | `duathlon.json` | Major duathlons worldwide outside those series: Powerman, World/European age-group championships, flagship races |
+| `xterra.json` | XTERRA off-road triathlons worldwide (main age-group race of each event), incl. the XTERRA World Championship |
 
 A World Championship goes in the file for its region/brand like any other race.
 
@@ -36,7 +38,7 @@ A World Championship goes in the file for its region/brand like any other race.
   "brand": "ironman",                       // required: "ironman" | "challenge" | "t100" | "independent"
   "series": "IRONMAN",                      // optional: sub-brand / series, e.g. "IRONMAN 70.3", "Xtri World Tour", "Outlaw"
   "distance": "full",                       // required: "full" (3.8/180/42.2) | "half" (1.9/90/21.1) | "t100" (2/80/18)
-                                            //   | "olympic" (1.5/40/10) | "sprint" (0.75/20/5) | "duathlon" | "time-trial" (see "Distances")
+                                            //   | "olympic" (1.5/40/10) | "sprint" (0.75/20/5) | "cross" | "duathlon" | "time-trial" (see "Distances")
   "championship": "IRONMAN European Championship", // optional: only if the race is a world/regional championship
   "city": "Frankfurt am Main",              // required: host city / town as commonly named in English
   "country": "DE",                          // required: ISO 3166-1 alpha-2, uppercase
@@ -50,7 +52,7 @@ A World Championship goes in the file for its region/brand like any other race.
   "swim": "river",                          // optional, triathlons only: "ocean" | "lake" | "river"  (sea/bay/lagoon => "ocean"; reservoir => "lake")
   "bike": "rolling",                        // optional bike course profile: "flat" | "rolling" | "hilly" | "mountainous"
   "run": "flat",                            // optional run course profile, same scale (not for time trials)
-  "course": { "swim": 3.4, "bike": 202, "run": 41 }, // official km: ONLY for near-standard triathlons; REQUIRED for duathlons and time trials (see "Distances")
+  "course": { "swim": 3.4, "bike": 202, "run": 41 }, // official km: ONLY for near-standard triathlons; REQUIRED for off-road, duathlons and time trials (see "Distances")
   "entry": "open",                          // optional, default "open": "open" | "qualification" | "ballot" (see below)
   "notes": "Hilly bike, famous Heartbreak Hill", // optional, <= 140 chars, factual, no marketing fluff
   "recurring": false,                       // optional, default true. false = do NOT project future editions beyond the listed ones (see below)
@@ -156,11 +158,15 @@ the Americas (negative) and of `lat` in the southern hemisphere (negative).
     within 50% for `olympic` and `sprint` (short races come in many local variants: a
     Dutch "kwart" 1/40/10 is `olympic`, an "achtste" 0.5/20/5 is `sprint`). Anything
     further off is out of scope; the validator rejects a `course` like that.
-- `duathlon` (run / bike / run) and `time-trial` (bike only) have no standard: their
+- `cross` (off-road triathlon: open water, mountain bike, trail run, e.g. XTERRA),
+  `duathlon` (run / bike / run) and `time-trial` (bike only) have no standard: their
   legs vary too much. Such a race always has a `course` with exactly its legs:
-  `{ "run1": 10, "bike": 56, "run2": 10 }` for a duathlon, `{ "bike": 42 }` for a time
-  trial. Cards and the map show these km with the sport ("Duathlon · 10/56/10 km").
-  Leave out `swim` for both and `run` for a time trial; the validator rejects them.
+  `{ "swim": 1.5, "bike": 30, "run": 10 }` off-road, `{ "run1": 10, "bike": 56,
+  "run2": 10 }` for a duathlon, `{ "bike": 42 }` for a time trial. Cards and the map
+  show these km with the category ("Duathlon · 10/56/10 km"). Leave out `swim` for
+  duathlons and time trials and `run` for a time trial; the validator rejects them.
+- XTERRA: one record per event for its main race (`series: "XTERRA World Cup"` for
+  World Cup races, else `"XTERRA"`), not the sprint or short-track side races.
 - Two races of the same category at one venue (a short and a long duathlon, a 28 km and
   a 42 km time trial) get a distinguishing slug and name:
   `independent-rbr-almere-short-duathlon` "RBR Almere Short".

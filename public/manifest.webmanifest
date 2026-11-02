@@ -1,7 +1,7 @@
 {
   "name": "TriMap: find a triathlon or duathlon to enter",
   "short_name": "TriMap",
-  "description": "Every IRONMAN, 70.3, Challenge, T100 and notable independent full and half triathlon age-groupers can enter, plus major duathlons and Dutch races at every distance, on one map.",
+  "description": "Every IRONMAN, 70.3, Challenge, T100 and notable independent full and half triathlon age-groupers can enter, plus XTERRA, major duathlons and Dutch races at every distance, on one map.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

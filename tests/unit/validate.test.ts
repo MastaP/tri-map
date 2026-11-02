@@ -149,7 +149,7 @@ describe('races other than long-distance triathlons', () => {
   const du = (slug: string, run1: number, bike: number, run2: number, lat = 52.3508) =>
     nl({ id: `independent-${slug}-duathlon`, distance: 'duathlon', lat, course: { run1, bike, run2 } });
 
-  it('knows the Dutch-series and duathlon files and what belongs in them', () => {
+  it('knows the Dutch-series, duathlon and XTERRA files and what belongs in them', () => {
     const r = validateRaceFiles(
       [
         file('netherlands.json', [nl({ id: 'independent-almere-sprint', distance: 'sprint' })]),
@@ -157,12 +157,22 @@ describe('races other than long-distance triathlons', () => {
           du('zofingen', 10, 150, 30),
           nl({ id: 'independent-almere-olympic', distance: 'olympic', lat: 52.5012 }),
         ]),
+        file('xterra.json', [
+          nl({
+            id: 'independent-xterra-almere-cross',
+            distance: 'cross',
+            lat: 52.6012,
+            course: { swim: 1, bike: 20, run: 6 },
+          }),
+          nl({ id: 'independent-almere-2-sprint', distance: 'sprint', lat: 52.7012 }),
+        ]),
       ],
       TODAY,
     );
     expect(r.errorCount).toBe(0);
     expect(r.issues.map((i) => `${i.id ?? i.file}: ${i.message}`)).toEqual([
       'independent-almere-olympic: distance "olympic" does not belong in duathlon.json',
+      'independent-almere-2-sprint: distance "sprint" does not belong in xterra.json',
     ]);
     const abroad = validateRaceFiles(
       [
@@ -225,6 +235,7 @@ describe('summarize', () => {
       t100: 0,
       olympic: 0,
       sprint: 0,
+      cross: 0,
       duathlon: 0,
       'time-trial': 0,
     });
@@ -234,6 +245,7 @@ describe('summarize', () => {
       t100: 3,
       olympic: 0,
       sprint: 0,
+      cross: 0,
       duathlon: 0,
       'time-trial': 0,
     });

@@ -24,9 +24,10 @@ function searchTextFor(record: RaceRecord, countryName: string, regionLabel: str
     record.series ?? '',
     BRANDS[record.brand].label,
   ];
-  // A duathlon or time trial is found by its sport, which its name often leaves out ("RBR Almere").
-  const sport = DISTANCES[record.distance].sport;
-  if (sport !== 'triathlon') parts.push(sport.replace('-', ' '));
+  // A duathlon, time trial or off-road race is found by its kind, which its name often
+  // leaves out ("RBR Almere").
+  const { searchWords } = DISTANCES[record.distance];
+  if (searchWords) parts.push(searchWords);
   if (record.brand === 'ironman') parts.push('im');
   // "70.3" is also typed as "703".
   if (/70\.3/.test(`${record.name} ${record.series ?? ''}`)) parts.push('703');

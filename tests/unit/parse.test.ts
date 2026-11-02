@@ -27,6 +27,9 @@ describe('parseRaceFiles', () => {
     const tt = deriveRace({ ...record, distance: 'time-trial', course: { bike: 42 } }, '2026-09-25');
     expect(du.searchText).toMatch(/\bduathlon\b/);
     expect(tt.searchText).toMatch(/\btime trial\b/);
+    const xterra = deriveRace({ ...record, distance: 'cross', course: { swim: 1.5, bike: 30, run: 10 } }, '2026-09-25');
+    expect(xterra.searchText).toMatch(/\boff road\b/);
+    expect(xterra.searchText).toMatch(/\bcross\b/);
     expect(byId('ironman-frankfurt-full').searchText).not.toMatch(/triathlon/);
   });
 

@@ -61,6 +61,7 @@ export const FILE_SCOPES: Record<string, FileScope> = {
   'independent.json': { brand: 'independent' },
   'netherlands.json': { brand: 'independent', countries: ['NL'] },
   'duathlon.json': { brand: 'independent', distance: 'duathlon' },
+  'xterra.json': { brand: 'independent', distance: 'cross' },
 };
 
 const EXPECTED_SERIES: Partial<Record<`${BrandId}:${DistanceId}`, string[]>> = {

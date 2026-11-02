@@ -90,6 +90,21 @@ describe('duathlons and time trials', () => {
     expect(legsLong(raceLegs(timeTrial))).toBe('42 km bike');
   });
 
+  it('include off-road triathlons, swum, biked and run over their own legs', () => {
+    const xterra = { distance: 'cross' as const, course: { swim: 1.5, bike: 30, run: 10 } };
+    expect(raceLegs(xterra)).toEqual({
+      legs: [
+        { key: 'swim', km: 1.5 },
+        { key: 'bike', km: 30 },
+        { key: 'run', km: 10 },
+      ],
+      total: 41.5,
+    });
+    expect(legsLong(raceLegs(xterra))).toBe('1.5 km swim, 30 km bike, 10 km run');
+    expect(isNearStandard(xterra)).toBe(false);
+    expect(hasOwnLegs(xterra)).toBe(true);
+  });
+
   it('have no standard, so they are never "non-standard" but always show their own km', () => {
     expect(isNearStandard(duathlon)).toBe(false);
     expect(isNearStandard(timeTrial)).toBe(false);

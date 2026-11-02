@@ -18,7 +18,7 @@ export type SportId = (typeof SPORT_IDS)[number];
  * TriMap; the shorter categories, duathlons and time trials come after them everywhere
  * they are listed (filter tiles, summaries).
  */
-export const DISTANCE_IDS = ['full', 'half', 't100', 'olympic', 'sprint', 'duathlon', 'time-trial'] as const;
+export const DISTANCE_IDS = ['full', 'half', 't100', 'olympic', 'sprint', 'cross', 'duathlon', 'time-trial'] as const;
 export type DistanceId = (typeof DISTANCE_IDS)[number];
 
 export type BrandShape = 'circle' | 'square' | 'hexagon' | 'diamond';
@@ -120,6 +120,11 @@ export interface DistanceStyle {
   /** Text of the small distance tag on map markers. */
   tag: string;
   /**
+   * Words that find the category in the free-text search, for races whose name may not
+   * say it ("RBR Almere" is a duathlon); null for the classic triathlon categories.
+   */
+  searchWords: string | null;
+  /**
    * The category's standard km, or null for duathlons and time trials: their legs vary
    * too much for one standard, so every such race gives its own `course` (data/README.md).
    */
@@ -135,6 +140,7 @@ export interface DistanceStyle {
 
 const triathlon = (swim: number, bike: number, run: number, maxDeviation: number) => ({
   sport: 'triathlon' as const,
+  searchWords: null,
   standard: { swim, bike, run },
   total: Math.round((swim + bike + run) * 100) / 100,
   maxDeviation,
@@ -191,6 +197,21 @@ export const DISTANCES: Record<DistanceId, DistanceStyle> = {
     tag: 'Sprint',
     ...triathlon(0.75, 20, 5, 0.5),
   },
+  // Off-road (cross) triathlon, XTERRA and the like: open water, mountain bike, trail run,
+  // over legs that vary too much from race to race for a standard.
+  cross: {
+    id: 'cross',
+    sport: 'triathlon',
+    label: 'Off-road',
+    long: 'Off-road triathlon',
+    badge: 'Off-road',
+    badgeLong: 'Off-road triathlon',
+    tag: 'Off-road',
+    searchWords: 'cross off-road offroad',
+    standard: null,
+    total: null,
+    maxDeviation: 0,
+  },
   duathlon: {
     id: 'duathlon',
     sport: 'duathlon',
@@ -199,6 +220,7 @@ export const DISTANCES: Record<DistanceId, DistanceStyle> = {
     badge: 'Duathlon',
     badgeLong: 'Duathlon',
     tag: 'Du',
+    searchWords: 'duathlon',
     standard: null,
     total: null,
     maxDeviation: 0,
@@ -211,6 +233,7 @@ export const DISTANCES: Record<DistanceId, DistanceStyle> = {
     badge: 'Time trial',
     badgeLong: 'Bike time trial',
     tag: 'TT',
+    searchWords: 'time trial',
     standard: null,
     total: null,
     maxDeviation: 0,

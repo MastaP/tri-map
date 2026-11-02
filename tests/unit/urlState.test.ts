@@ -67,7 +67,7 @@ describe('URL state', () => {
   });
 
   it('treats "all selected" as no filter and swaps reversed ranges', () => {
-    expect(parseUrlState('dist=full,half,t100,olympic,sprint,duathlon,time-trial').filters.distances).toEqual([]);
+    expect(parseUrlState('dist=full,half,t100,olympic,sprint,cross,duathlon,time-trial').filters.distances).toEqual([]);
     expect(parseUrlState('dist=full,half,t100').filters.distances).toEqual(['full', 'half', 't100']);
     expect(parseUrlState('from=2027-03&to=2026-10').filters.time).toEqual({
       kind: 'range',

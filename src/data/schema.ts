@@ -128,7 +128,7 @@ export const RaceSchema = z
         ctx.addIssue({
           code: 'custom',
           path: ['course'],
-          message: `a ${category.sport} has no standard distance: give its ${legs.join(' / ')} km`,
+          message: `${category.badgeLong} has no standard distance: give its ${legs.join(' / ')} km`,
         });
       }
     } else {

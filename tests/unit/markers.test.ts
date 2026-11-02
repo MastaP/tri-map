@@ -19,6 +19,9 @@ describe('map marker text', () => {
       'Duathlon: 10 / 56 / 10 km',
     );
     expect(courseLabel({ ...base, distance: 'time-trial', course: { bike: 42 } })).toBe('Time trial: 42 km');
+    expect(courseLabel({ ...base, distance: 'cross', course: { swim: 1.5, bike: 30, run: 10 } })).toBe(
+      'Off-road: 1.5 / 30 / 10 km',
+    );
   });
 
   it('writes the shown edition', () => {

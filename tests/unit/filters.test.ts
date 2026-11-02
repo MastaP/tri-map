@@ -388,7 +388,16 @@ describe('facetCounts', () => {
     expect(facetCounts(races, est({ brands: ['ironman'], regions: ['europe'] }), ctx).brand.challenge).toBe(3);
     expect(c.region.europe).toBe(2);
     expect(c.region['latin-america']).toBe(2);
-    expect(c.distance).toEqual({ full: 1, half: 1, t100: 0, olympic: 0, sprint: 0, duathlon: 0, 'time-trial': 0 });
+    expect(c.distance).toEqual({
+      full: 1,
+      half: 1,
+      t100: 0,
+      olympic: 0,
+      sprint: 0,
+      cross: 0,
+      duathlon: 0,
+      'time-trial': 0,
+    });
   });
 
   it('counts course profiles (races without the profile are not counted)', () => {

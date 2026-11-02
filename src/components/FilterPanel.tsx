@@ -50,24 +50,31 @@ const tile =
 const tileOn = 'border-ink bg-ink text-on-ink';
 const tileOff = 'border-line bg-surface hover:border-line-strong hover:bg-surface-2';
 
-/** The long-distance triathlons first, in big tiles; shorter races and other sports below. */
+/**
+ * The long-distance triathlons first, in big tiles; then the shorter and off-road
+ * triathlons, then the other sports, in compact tiles.
+ */
 const TILE_ROWS: readonly (readonly DistanceId[])[] = [
   ['full', 'half', 't100'],
-  ['olympic', 'sprint', 'duathlon', 'time-trial'],
+  ['olympic', 'sprint', 'cross'],
+  ['duathlon', 'time-trial'],
 ];
 
-/** "3.8 · 180 · 42.2" under a triathlon's name; what is raced for the other sports. */
+/** What categories without a standard race over, in place of their km. */
+const NO_STANDARD_LEGS: Partial<Record<DistanceId, { text: string; spoken: string }>> = {
+  cross: { text: 'MTB · trail run', spoken: 'swim, mountain bike, trail run' },
+  duathlon: { text: 'run · bike · run', spoken: 'run, bike, run' },
+  'time-trial': { text: 'bike only', spoken: 'bike only' },
+};
+
+/** "3.8 · 180 · 42.2" under a triathlon's name; what is raced for the other categories. */
 function tileLegs(d: DistanceId): { text: string; spoken: string } {
-  const { standard, sport } = DISTANCES[d];
-  if (standard) {
-    return {
-      text: `${standard.swim} · ${standard.bike} · ${standard.run}`,
-      spoken: `${standard.swim} / ${standard.bike} / ${standard.run} km`,
-    };
-  }
-  return sport === 'duathlon'
-    ? { text: 'run · bike · run', spoken: 'run, bike, run' }
-    : { text: 'bike only', spoken: 'bike only' };
+  const { standard } = DISTANCES[d];
+  if (!standard) return NO_STANDARD_LEGS[d] ?? { text: '', spoken: '' };
+  return {
+    text: `${standard.swim} · ${standard.bike} · ${standard.run}`,
+    spoken: `${standard.swim} / ${standard.bike} / ${standard.run} km`,
+  };
 }
 
 /** Distance tiles with each category's swim · bike · run km and race count. */
@@ -87,8 +94,7 @@ export function DistanceTiles({
   return (
     <div role="group" aria-labelledby={labelledBy} aria-label={label} className="space-y-1.5">
       {TILE_ROWS.map((row, r) => (
-        // Four compact tiles side by side only where their names fit (not on a 390px phone).
-        <div key={r} className={cn('grid gap-1.5', r === 0 ? 'grid-cols-3' : 'grid-cols-2 min-[440px]:grid-cols-4')}>
+        <div key={r} className={cn('grid gap-1.5', row.length === 3 ? 'grid-cols-3' : 'grid-cols-2')}>
           {row.map((d) => {
             const info = DISTANCES[d];
             const legs = tileLegs(d);
