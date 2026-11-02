@@ -16,7 +16,7 @@ test.describe('map failures stay local to the map', () => {
     await expect(page.getByTestId('map-unavailable')).toContainText('The map could not load', { timeout: 15_000 });
     // One automatic reload to pick up a new deploy, then it gives up.
     expect(requests.length).toBe(2);
-    await expectResults(page, 16);
+    await expectResults(page, 19);
     await expect(cards(page).first()).toBeVisible();
     await page.getByRole('button', { name: /^Full distance/ }).click();
     await expectResults(page, 9);
@@ -38,7 +38,7 @@ test.describe('map failures stay local to the map', () => {
     await expect(page.getByTestId('map-unavailable')).toContainText('WebGL 2');
     await expect(page.getByRole('heading', { level: 2, name: 'IRONMAN Frankfurt' })).toBeVisible();
     await page.keyboard.press('Escape');
-    await expectResults(page, 16);
+    await expectResults(page, 19);
   });
 });
 
@@ -53,7 +53,7 @@ test('without a map, an "in map area" link falls back to all races and says the 
   });
   await openApp(page, '/?area=1&at=52.37,5.2,8');
   await expect(page.getByTestId('map-unavailable')).toBeVisible();
-  await expectResults(page, 16);
+  await expectResults(page, 19);
   await expect(page).not.toHaveURL(/area=1/);
   await openFilterPanel(page);
   await expect(page.getByRole('switch', { name: /In map area/ })).toHaveAttribute('aria-checked', 'false');
@@ -110,11 +110,11 @@ test('each race has a small page whose preview names it and forwards to the app'
 });
 
 test('a shared "in map area" search reopens the same map view and results', async ({ page }) => {
-  // Zoomed in on the Netherlands: only the two Almere races are inside.
+  // Zoomed in on the Netherlands: only the Almere and Zandvoort races are inside.
   await openApp(page, '/?area=1&at=52.37,5.2,8');
   await waitForMap(page);
-  await expectResults(page, 2);
-  await expect(cards(page).first()).toContainText('Challenge Almere-Amsterdam');
+  await expectResults(page, 5);
+  await expect(cards(page).filter({ hasText: 'Challenge Almere-Amsterdam' })).toHaveCount(2);
 });
 
 test('map markers show the edition that matches the search, and update in place', async ({ page }) => {
@@ -144,7 +144,7 @@ test('an "in map area" link with an open race keeps the shared view', async ({ p
   expect(west < 5.2 && east > 5.2 && south < 52.37 && north > 52.37).toBe(true);
   expect(east - west).toBeLessThan(8);
   await page.keyboard.press('Escape');
-  await expectResults(page, 2);
+  await expectResults(page, 5);
 });
 
 test('the share page of a race whose next date is not announced does not state an estimate', async ({ request }) => {

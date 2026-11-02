@@ -3,6 +3,7 @@
  * `today`, so it is unit-tested without a browser.
  */
 import { BRAND_IDS, DISTANCE_IDS, type BrandId, type DistanceId } from '../data/brands.ts';
+import { profiledDisciplines } from '../data/course.ts';
 import { TERRAINS, type Terrain } from '../data/constants.ts';
 import type { NextEdition } from '../data/nextEdition.ts';
 import { REGION_IDS, type RegionId } from '../data/regions.ts';
@@ -352,6 +353,9 @@ export function missingCourseRaces(races: readonly Race[], filters: Filters, ctx
   const active = COURSE_DIMENSIONS.filter((d) => filters[d].length > 0);
   if (!active.length) return [];
   return filterRaces(races, filters, ctx, active).filter((r) => {
+    // A race without that leg (a time trial's run) is not missing a profile: it never matches.
+    const profiled = profiledDisciplines(r);
+    if (active.some((d) => !profiled.includes(d))) return false;
     let missing = false;
     for (const d of active) {
       const v = r[d];

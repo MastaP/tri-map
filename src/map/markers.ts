@@ -3,7 +3,7 @@
  * selection halo). Kept out of React: maplibre owns their positioning.
  */
 import { BRAND_IDS, BRANDS, brandGlyphSvg, DISTANCES, glyphPixelSize, type BrandId } from '../data/brands.ts';
-import { isNearStandard, legsText, raceLegs } from '../data/course.ts';
+import { hasOwnLegs, isNearStandard, legsText, raceLegs } from '../data/course.ts';
 import type { NextEdition } from '../data/nextEdition.ts';
 import { shownRegistration, type RaceRegistration } from '../data/registration.ts';
 import type { Race } from '../data/types.ts';
@@ -40,9 +40,15 @@ export function entryLabel(race: Race): string | null {
   return race.entry === 'open' ? null : ENTRY_BADGE[race.entry];
 }
 
-/** "Non-standard distance: 3.4 / 202 / 41 km", or null for a race over the standard distances. */
-export function nonStandardLabel(race: Race): string | null {
-  return isNearStandard(race) ? `Non-standard distance: ${legsText(raceLegs(race))}` : null;
+/**
+ * The race's own km where the map should spell them out: "Non-standard distance: 3.4 / 202 /
+ * 41 km", "Duathlon: 10 / 56 / 10 km", "Time trial: 42 km"; null for a race over the
+ * standard distances of its category.
+ */
+export function courseLabel(race: Pick<Race, 'distance' | 'course'>): string | null {
+  if (!hasOwnLegs(race)) return null;
+  const what = isNearStandard(race) ? 'Non-standard distance' : DISTANCES[race.distance].badge;
+  return `${what}: ${legsText(raceLegs(race))}`;
 }
 
 /** The registration status a marker shows for `edition` (none for open entry). */
@@ -81,7 +87,7 @@ export function raceMarkerElement(
   btn.style.width = `${px}px`;
   btn.style.height = `${px}px`;
   const entry = entryLabel(race);
-  const course = nonStandardLabel(race);
+  const course = courseLabel(race);
   btn.setAttribute(
     'aria-label',
     [
@@ -101,8 +107,8 @@ export function raceMarkerElement(
     halo,
     ring: 'var(--tm-marker-ring)',
   });
-  // Same words and look as the distance badge on the cards: FULL / HALF / T100.
-  const tag = el('span', `tm-tag tm-tag-${race.distance}`, DISTANCES[race.distance].label);
+  // Same look as the distance badge on the cards: FULL / HALF / T100 / OLY / SPRINT / DU / TT.
+  const tag = el('span', `tm-tag tm-tag-${race.distance}`, DISTANCES[race.distance].tag);
   tag.setAttribute('aria-hidden', 'true');
   const tip = el('span', 'tm-tip');
   tip.setAttribute('aria-hidden', 'true');
@@ -316,7 +322,7 @@ export function clusterPopupContent(
     if (entry) meta.append(' ', el('em', `tm-popup-entry tm-popup-entry-${r.entry}`, entry));
     const reg = markerRegistration(r, editionOf(r));
     if (reg) meta.append(' ', el('em', `tm-popup-reg tm-popup-reg-${reg.status}`, registrationLabel(reg)));
-    const course = nonStandardLabel(r);
+    const course = courseLabel(r);
     if (course) meta.append(el('span', 'tm-popup-course', course));
     text.append(document.createTextNode(`${r.name} · ${DISTANCES[r.distance].label}`), meta);
     b.append(glyph, text);

@@ -106,7 +106,7 @@ test('mobile: a race picked on the map opens as a peek, without the map controls
 test('mobile: the filter sheet announces the result count inside the dialog', async ({ browser }) => {
   const { context, page } = await phone(browser);
   await openApp(page);
-  await expectResults(page, 16);
+  await expectResults(page, 19);
   await page.getByRole('button', { name: /^Filters/ }).click();
   const sheet = page.getByRole('dialog', { name: 'Filters' });
   await sheet.getByRole('button', { name: /^T100 distance/ }).click();

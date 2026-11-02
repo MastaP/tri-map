@@ -45,7 +45,7 @@ setWorkerUrl(workerUrl);
 
 const SOURCE = 'races';
 const MAX_ZOOM = 14;
-/** Distance tags (FULL / HALF / T100) under single markers from this zoom on. */
+/** Distance tags (FULL / HALF / T100 / …) under single markers from this zoom on. */
 const TAG_ZOOM = 6;
 /** Pixels within which races merge into a cluster (maplibre's default is 50). */
 const CLUSTER_RADIUS = 34;

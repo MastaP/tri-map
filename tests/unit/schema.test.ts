@@ -62,4 +62,74 @@ describe('RaceSchema', () => {
     expect(messages(makeRecord({ lat: 91 })).join()).toMatch(/lat/);
     expect(messages(makeRecord({ lng: -181 })).join()).toMatch(/lng/);
   });
+
+  describe('sports other than triathlon', () => {
+    const indie = (overrides: Parameters<typeof makeRecord>[0]) =>
+      makeRecord({ brand: 'independent', series: 'TriHard', ...overrides });
+
+    it('accepts a duathlon with its run / bike / run km and a time trial with its bike km', () => {
+      expect(
+        messages(
+          indie({
+            id: 'independent-almere-duathlon',
+            distance: 'duathlon',
+            course: { run1: 10, bike: 56, run2: 10 },
+            bike: 'flat',
+            run: 'flat',
+          }),
+        ),
+      ).toEqual([]);
+      expect(
+        messages(
+          indie({ id: 'independent-almere-time-trial', distance: 'time-trial', course: { bike: 42 }, bike: 'flat' }),
+        ),
+      ).toEqual([]);
+    });
+
+    it('requires a duathlon or time trial to give its km, with exactly the legs of its sport', () => {
+      expect(messages(indie({ id: 'independent-almere-duathlon', distance: 'duathlon' })).join()).toMatch(
+        /^course: a duathlon has no standard distance: give its run1 \/ bike \/ run2 km/,
+      );
+      expect(
+        messages(
+          indie({ id: 'independent-almere-duathlon', distance: 'duathlon', course: { swim: 1, bike: 40, run: 10 } }),
+        ).join(),
+      ).toMatch(/^course: a duathlon needs exactly run1, bike, run2 \(not swim, run\)/);
+      expect(
+        messages(
+          indie({ id: 'independent-almere-time-trial', distance: 'time-trial', course: { run1: 5, bike: 42 } }),
+        ).join(),
+      ).toMatch(/^course: a time-trial needs exactly bike \(not run1\)/);
+      expect(messages(makeRecord({ course: { run1: 5, bike: 180, run2: 5 } })).join()).toMatch(
+        /^course: a triathlon needs exactly swim, bike, run/,
+      );
+    });
+
+    it('rejects a swim type on a race without a swim and a run profile on a time trial', () => {
+      const du = {
+        id: 'independent-almere-duathlon',
+        distance: 'duathlon',
+        course: { run1: 10, bike: 56, run2: 10 },
+      } as const;
+      expect(messages(indie({ ...du, swim: 'lake' })).join()).toMatch(/^swim: a duathlon has no swim/);
+      expect(
+        messages(
+          indie({ id: 'independent-almere-time-trial', distance: 'time-trial', course: { bike: 42 }, run: 'flat' }),
+        ).join(),
+      ).toMatch(/^run: a time-trial has no run/);
+    });
+
+    it('lets a short triathlon vary more than a long one before it is out of scope', () => {
+      // A Dutch "achtste" (0.5 / 20 / 5) is a sprint; 0.3 km is too short for one.
+      const sprint = (swim: number) =>
+        messages(indie({ id: 'independent-almere-sprint', distance: 'sprint', course: { swim, bike: 20, run: 5 } }));
+      expect(sprint(0.5)).toEqual([]);
+      expect(sprint(0.3).join()).toMatch(/^course.swim: 0.3 km is more than 50% off the sprint distance swim/);
+      expect(
+        messages(
+          indie({ id: 'independent-almere-olympic', distance: 'olympic', course: { swim: 1, bike: 40, run: 10 } }),
+        ),
+      ).toEqual([]);
+    });
+  });
 });

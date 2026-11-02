@@ -7,15 +7,15 @@ const sidebar = (page: import('@playwright/test').Page) => page.getByRole('main'
 test.describe('TriMap smoke', () => {
   test('loads and renders the list before/independently of the map', async ({ page }) => {
     await openApp(page);
-    await expectResults(page, 16);
+    await expectResults(page, 19);
     // Races in the next three weeks (T100 French Riviera, Kona) start folded away.
     const soon = page.getByRole('button', { name: /^Next 3 weeks/ });
     await expect(soon).toHaveAttribute('aria-expanded', 'false');
     await expect(soon).toContainText('2');
     await expect(page.getByRole('heading', { name: 'October 2026' })).toBeVisible();
-    await expect(cards(page)).toHaveCount(14);
+    await expect(cards(page)).toHaveCount(17);
     await soon.click();
-    await expect(cards(page)).toHaveCount(16);
+    await expect(cards(page)).toHaveCount(19);
     await expect(cards(page).first()).toHaveAttribute('data-race-id', 't100-french-riviera-t100');
     // Freshness from the newest verifiedAt in the fixtures.
     await expect(page.getByText('Race data checked Sep 2026').first()).toBeVisible();
@@ -74,7 +74,7 @@ test.describe('TriMap smoke', () => {
     await page.getByRole('button', { name: /^Filters/ }).click();
     await expect(page.locator('#filter-panel')).toBeHidden();
     await page.getByRole('button', { name: 'Oceania: remove filter' }).click();
-    await expectResults(page, 16);
+    await expectResults(page, 19);
     await expect(page).not.toHaveURL(/region=/);
 
     // Accent-insensitive search; "/" focuses the search box.
@@ -121,7 +121,7 @@ test.describe('TriMap smoke', () => {
   test('a date range from an old link is dropped with a notice', async ({ page }) => {
     await openApp(page, '/?from=2026-06&to=2026-08');
     await expect(page.getByText('That date range has passed')).toBeVisible();
-    await expectResults(page, 16);
+    await expectResults(page, 19);
     await expect(page).not.toHaveURL(/from=/);
   });
 
@@ -217,7 +217,7 @@ test.describe('TriMap smoke', () => {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
     const page = await context.newPage();
     await openApp(page);
-    await expectResults(page, 16);
+    await expectResults(page, 19);
     // The map is not loaded until it is needed.
     await expect(page.locator('.maplibregl-canvas')).toHaveCount(0);
     await page.getByRole('button', { name: /^Filters/ }).click();

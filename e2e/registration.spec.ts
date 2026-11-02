@@ -80,13 +80,13 @@ test.describe('registration status', () => {
     page,
   }) => {
     await openApp(page, '/');
-    await expectResults(page, 16);
+    await expectResults(page, 19);
     await openFilterPanel(page);
     const toggle = page.getByRole('switch', { name: /Hide sold out/ });
     await expect(toggle).toHaveAttribute('aria-checked', 'false');
     await expect(toggle.getByTestId('sold-out-count')).toHaveText('2');
     await toggle.click();
-    await expectResults(page, 14);
+    await expectResults(page, 17);
     await expect(page).toHaveURL(/hidesold=1/);
     await expect(card(page, 'ironman-cozumel-full')).toHaveCount(0);
     await expect(card(page, 'ironman-cascais-half')).toHaveCount(0);
@@ -97,11 +97,11 @@ test.describe('registration status', () => {
 
     await page.reload();
     await expect(page.getByRole('switch', { name: /Hide sold out/ })).toHaveAttribute('aria-checked', 'true');
-    await expectResults(page, 14);
+    await expectResults(page, 17);
     // With the panel closed, the filter shows as a removable chip.
     await page.getByRole('button', { name: /^Filters/ }).click();
     await page.getByRole('button', { name: 'Hide sold out: remove filter' }).click();
-    await expectResults(page, 16);
+    await expectResults(page, 19);
     await expect(page).not.toHaveURL(/hidesold/);
   });
 

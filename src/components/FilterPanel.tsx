@@ -1,6 +1,6 @@
 import { Ban, CalendarClock, Crosshair, Star, Ticket } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { BRAND_IDS, BRANDS, DISTANCE_IDS, DISTANCES } from '../data/brands.ts';
+import { BRAND_IDS, BRANDS, DISTANCE_IDS, DISTANCES, type DistanceId } from '../data/brands.ts';
 import { TERRAINS } from '../data/constants.ts';
 import { REGION_IDS, REGIONS } from '../data/regions.ts';
 import { cn } from '../lib/cn.ts';
@@ -50,7 +50,27 @@ const tile =
 const tileOn = 'border-ink bg-ink text-on-ink';
 const tileOff = 'border-line bg-surface hover:border-line-strong hover:bg-surface-2';
 
-/** Full / Half / T100 tiles with their swim · bike · run km. */
+/** The long-distance triathlons first, in big tiles; shorter races and other sports below. */
+const TILE_ROWS: readonly (readonly DistanceId[])[] = [
+  ['full', 'half', 't100'],
+  ['olympic', 'sprint', 'duathlon', 'time-trial'],
+];
+
+/** "3.8 · 180 · 42.2" under a triathlon's name; what is raced for the other sports. */
+function tileLegs(d: DistanceId): { text: string; spoken: string } {
+  const { standard, sport } = DISTANCES[d];
+  if (standard) {
+    return {
+      text: `${standard.swim} · ${standard.bike} · ${standard.run}`,
+      spoken: `${standard.swim} / ${standard.bike} / ${standard.run} km`,
+    };
+  }
+  return sport === 'duathlon'
+    ? { text: 'run · bike · run', spoken: 'run, bike, run' }
+    : { text: 'bike only', spoken: 'bike only' };
+}
+
+/** Distance tiles with each category's swim · bike · run km and race count. */
 export function DistanceTiles({
   filters,
   onChange,
@@ -65,38 +85,51 @@ export function DistanceTiles({
   label?: string;
 }) {
   return (
-    <div role="group" aria-labelledby={labelledBy} aria-label={label} className="grid grid-cols-3 gap-1.5">
-      {DISTANCE_IDS.map((d) => {
-        const info = DISTANCES[d];
-        const pressed = filters.distances.includes(d);
-        return (
-          <button
-            key={d}
-            type="button"
-            aria-pressed={pressed}
-            aria-label={`${info.long} (${info.swim} / ${info.bike} / ${info.run} km), ${counts[d]} races`}
-            onClick={() => onChange((f) => ({ ...f, distances: toggleValue(f.distances, d, DISTANCE_IDS) }))}
-            className={cn(tile, pressed ? tileOn : tileOff)}
-          >
-            <span className="flex w-full items-baseline justify-between gap-1">
-              <span className="font-display text-[16px] leading-tight font-bold tracking-wide uppercase">
-                {info.label}
-              </span>
-              <span className={cn('tabular text-[11px] font-semibold', pressed ? 'text-on-ink/65' : 'text-faint')}>
-                {counts[d]}
-              </span>
-            </span>
-            <span
-              className={cn(
-                'tabular text-[11px] leading-tight whitespace-nowrap',
-                pressed ? 'text-on-ink/75' : 'text-muted',
-              )}
-            >
-              {info.swim} · {info.bike} · {info.run}
-            </span>
-          </button>
-        );
-      })}
+    <div role="group" aria-labelledby={labelledBy} aria-label={label} className="space-y-1.5">
+      {TILE_ROWS.map((row, r) => (
+        // Four compact tiles side by side only where their names fit (not on a 390px phone).
+        <div key={r} className={cn('grid gap-1.5', r === 0 ? 'grid-cols-3' : 'grid-cols-2 min-[440px]:grid-cols-4')}>
+          {row.map((d) => {
+            const info = DISTANCES[d];
+            const legs = tileLegs(d);
+            const pressed = filters.distances.includes(d);
+            const compact = r > 0;
+            return (
+              <button
+                key={d}
+                type="button"
+                aria-pressed={pressed}
+                aria-label={`${info.long} (${legs.spoken}), ${counts[d]} races`}
+                onClick={() => onChange((f) => ({ ...f, distances: toggleValue(f.distances, d, DISTANCE_IDS) }))}
+                className={cn(tile, compact && 'px-2 py-1', pressed ? tileOn : tileOff)}
+              >
+                <span className="flex w-full items-baseline justify-between gap-1">
+                  <span
+                    className={cn(
+                      'truncate font-display leading-tight font-bold tracking-wide uppercase',
+                      compact ? 'text-[13.5px]' : 'text-[16px]',
+                    )}
+                  >
+                    {info.label}
+                  </span>
+                  <span className={cn('tabular text-[11px] font-semibold', pressed ? 'text-on-ink/65' : 'text-faint')}>
+                    {counts[d]}
+                  </span>
+                </span>
+                <span
+                  className={cn(
+                    'tabular truncate leading-tight whitespace-nowrap',
+                    compact ? 'text-[10.5px]' : 'text-[11px]',
+                    pressed ? 'text-on-ink/75' : 'text-muted',
+                  )}
+                >
+                  {legs.text}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      ))}
     </div>
   );
 }

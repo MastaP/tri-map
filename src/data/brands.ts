@@ -9,7 +9,16 @@
 export const BRAND_IDS = ['ironman', 'challenge', 't100', 'independent'] as const;
 export type BrandId = (typeof BRAND_IDS)[number];
 
-export const DISTANCE_IDS = ['full', 'half', 't100'] as const;
+/** What is raced: swim–bike–run, run–bike–run, or the bike alone. */
+export const SPORT_IDS = ['triathlon', 'duathlon', 'time-trial'] as const;
+export type SportId = (typeof SPORT_IDS)[number];
+
+/**
+ * Distance categories, longest triathlon first. Long-distance triathlons are the core of
+ * TriMap; the shorter categories, duathlons and time trials come after them everywhere
+ * they are listed (filter tiles, summaries).
+ */
+export const DISTANCE_IDS = ['full', 'half', 't100', 'olympic', 'sprint', 'duathlon', 'time-trial'] as const;
 export type DistanceId = (typeof DISTANCE_IDS)[number];
 
 export type BrandShape = 'circle' | 'square' | 'hexagon' | 'diamond';
@@ -90,8 +99,16 @@ export const SHAPE_PATHS: Record<BrandShape, string> = {
     'M13.7 1.95a3.25 3.25 0 0 1 4.6 0l11.75 11.75a3.25 3.25 0 0 1 0 4.6L18.3 30.05a3.25 3.25 0 0 1-4.6 0L1.95 18.3a3.25 3.25 0 0 1 0-4.6Z',
 };
 
+/** Official swim / bike / run km of a triathlon category. */
+export interface TriathlonLegs {
+  swim: number;
+  bike: number;
+  run: number;
+}
+
 export interface DistanceStyle {
   id: DistanceId;
+  sport: SportId;
   /** Short name for filter tiles ("Full"). */
   label: string;
   /** Spoken/long name ("Full distance"), used in aria labels and tooltips. */
@@ -100,12 +117,28 @@ export interface DistanceStyle {
   badge: string;
   /** Text of the larger badge in the race detail. */
   badgeLong: string;
-  swim: number;
-  bike: number;
-  run: number;
-  /** Total km, used as the small distance tag on markers. */
-  total: number;
+  /** Text of the small distance tag on map markers. */
+  tag: string;
+  /**
+   * The category's standard km, or null for duathlons and time trials: their legs vary
+   * too much for one standard, so every such race gives its own `course` (data/README.md).
+   */
+  standard: TriathlonLegs | null;
+  /** Total standard km, or null without a standard. */
+  total: number | null;
+  /**
+   * How far (0.25 = 25%) a leg may be from `standard` with the race still in this category;
+   * the data validation rejects a `course` beyond it. Short races vary more than long ones.
+   */
+  maxDeviation: number;
 }
+
+const triathlon = (swim: number, bike: number, run: number, maxDeviation: number) => ({
+  sport: 'triathlon' as const,
+  standard: { swim, bike, run },
+  total: Math.round((swim + bike + run) * 100) / 100,
+  maxDeviation,
+});
 
 export const DISTANCES: Record<DistanceId, DistanceStyle> = {
   full: {
@@ -114,9 +147,8 @@ export const DISTANCES: Record<DistanceId, DistanceStyle> = {
     long: 'Full distance',
     badge: 'Full',
     badgeLong: 'Full distance',
-    swim: 3.8,
-    bike: 180,
-    run: 42.2,
+    tag: 'Full',
+    ...triathlon(3.8, 180, 42.2, 0.25),
     total: 226,
   },
   half: {
@@ -125,9 +157,8 @@ export const DISTANCES: Record<DistanceId, DistanceStyle> = {
     long: 'Half distance',
     badge: 'Half',
     badgeLong: 'Half distance',
-    swim: 1.9,
-    bike: 90,
-    run: 21.1,
+    tag: 'Half',
+    ...triathlon(1.9, 90, 21.1, 0.25),
     total: 113,
   },
   // "T100" alone means little to most age-groupers; say how far it is.
@@ -137,10 +168,52 @@ export const DISTANCES: Record<DistanceId, DistanceStyle> = {
     long: 'T100 distance',
     badge: 'T100 · 100 km',
     badgeLong: 'T100 · 100 km',
-    swim: 2,
-    bike: 80,
-    run: 18,
-    total: 100,
+    tag: 'T100',
+    ...triathlon(2, 80, 18, 0.25),
+  },
+  // Short races are held over many local variants (a Dutch "kwart" is 1 / 40 / 10), so a
+  // leg may be up to half off the standard.
+  olympic: {
+    id: 'olympic',
+    label: 'Olympic',
+    long: 'Olympic distance',
+    badge: 'Olympic',
+    badgeLong: 'Olympic distance',
+    tag: 'Oly',
+    ...triathlon(1.5, 40, 10, 0.5),
+  },
+  sprint: {
+    id: 'sprint',
+    label: 'Sprint',
+    long: 'Sprint distance',
+    badge: 'Sprint',
+    badgeLong: 'Sprint distance',
+    tag: 'Sprint',
+    ...triathlon(0.75, 20, 5, 0.5),
+  },
+  duathlon: {
+    id: 'duathlon',
+    sport: 'duathlon',
+    label: 'Duathlon',
+    long: 'Duathlon',
+    badge: 'Duathlon',
+    badgeLong: 'Duathlon',
+    tag: 'Du',
+    standard: null,
+    total: null,
+    maxDeviation: 0,
+  },
+  'time-trial': {
+    id: 'time-trial',
+    sport: 'time-trial',
+    label: 'Time trial',
+    long: 'Bike time trial',
+    badge: 'Time trial',
+    badgeLong: 'Bike time trial',
+    tag: 'TT',
+    standard: null,
+    total: null,
+    maxDeviation: 0,
   },
 };
 

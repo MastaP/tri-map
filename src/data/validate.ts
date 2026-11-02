@@ -6,8 +6,8 @@
 import type { ISODate } from '../lib/dates.ts';
 import { daysBetween } from '../lib/dates.ts';
 import { haversineKm } from '../lib/geo.ts';
-import { BRAND_IDS, DISTANCE_IDS, type BrandId, type DistanceId } from './brands.ts';
-import { isNearStandard, legsText, NEAR_STANDARD_TOLERANCE } from './course.ts';
+import { BRAND_IDS, DISTANCE_IDS, DISTANCES, type BrandId, type DistanceId } from './brands.ts';
+import { isNearStandard, legsText, NEAR_STANDARD_TOLERANCE, profiledDisciplines, raceLegs } from './course.ts';
 import { deriveRace } from './derive.ts';
 import { getCountry, isInRegionBox, REGION_IDS, REGIONS, type RegionId } from './regions.ts';
 import { formatIssuePath, RaceSchema, type RaceRecord } from './schema.ts';
@@ -42,6 +42,8 @@ interface FileScope {
   brand?: BrandId;
   distance?: DistanceId;
   regions?: RegionId[];
+  /** ISO country codes. */
+  countries?: string[];
 }
 
 /** Expected contents per file, from data/README.md. Mismatches are warnings. */
@@ -57,6 +59,8 @@ export const FILE_SCOPES: Record<string, FileScope> = {
   'challenge.json': { brand: 'challenge' },
   't100.json': { brand: 't100', distance: 't100' },
   'independent.json': { brand: 'independent' },
+  'netherlands.json': { brand: 'independent', countries: ['NL'] },
+  'duathlon.json': { brand: 'independent', distance: 'duathlon' },
 };
 
 const EXPECTED_SERIES: Partial<Record<`${BrandId}:${DistanceId}`, string[]>> = {
@@ -142,6 +146,9 @@ export function validateRaceFiles(files: readonly SourceFile[], today: ISODate):
         if (scope.regions && !scope.regions.includes(country.region)) {
           push('warning', file, `${country.name} (${REGIONS[country.region].label}) does not belong in ${file}`, id);
         }
+        if (scope.countries && !scope.countries.includes(rec.country)) {
+          push('warning', file, `${country.name} does not belong in ${file}`, id);
+        }
       }
 
       const expectedSeries = EXPECTED_SERIES[`${rec.brand}:${rec.distance}`];
@@ -152,11 +159,11 @@ export function validateRaceFiles(files: readonly SourceFile[], today: ISODate):
         push('warning', file, 'T100 races should use distance "t100"', id);
       }
       if (/\b20\d\d\b/.test(rec.name)) push('warning', file, 'name should not contain a year', id);
-      if (rec.course && !isNearStandard(rec)) {
+      if (rec.course && DISTANCES[rec.distance].standard && !isNearStandard(rec)) {
         push(
           'warning',
           file,
-          `course (${legsText(rec.course)}) is within ${NEAR_STANDARD_TOLERANCE * 100}% of the standard on every leg: leave "course" out`,
+          `course (${legsText(raceLegs(rec))}) is within ${NEAR_STANDARD_TOLERANCE * 100}% of the standard on every leg: leave "course" out`,
           id,
         );
       }
@@ -176,7 +183,7 @@ export function validateRaceFiles(files: readonly SourceFile[], today: ISODate):
         push('warning', file, `no edition on/after ${today}; next date is estimated as ${race.nextEdition.date}`, id);
       }
       if (race.nextEdition) {
-        const missing = (['bike', 'run'] as const).filter((d) => rec[d] === undefined);
+        const missing = profiledDisciplines(rec).filter((d) => rec[d] === undefined);
         if (missing.length) {
           push(
             'warning',
@@ -206,7 +213,8 @@ export function validateRaceFiles(files: readonly SourceFile[], today: ISODate):
       const a = races[i]!;
       const b = races[j]!;
       const linked = a.continuedAs === b.id || b.continuedAs === a.id;
-      if (!linked && a.distance === b.distance && haversineKm(a.lat, a.lng, b.lat, b.lng) < 2) {
+      const sameLegs = legsText(raceLegs(a)) === legsText(raceLegs(b));
+      if (!linked && a.distance === b.distance && sameLegs && haversineKm(a.lat, a.lng, b.lat, b.lng) < 2) {
         push('warning', b.file, `possible duplicate of ${a.id} (${a.file}): same distance within 2 km`, b.id);
       }
     }
@@ -250,7 +258,7 @@ export function summarize(races: readonly Race[]): DataSummary {
   let latest: string | null = null;
   let missingCourse = 0;
   for (const r of races) {
-    if (r.nextEdition && (!r.bike || !r.run)) missingCourse++;
+    if (r.nextEdition && profiledDisciplines(r).some((d) => !r[d])) missingCourse++;
     byBrandDistance[r.brand][r.distance]++;
     byRegionDistance[r.region][r.distance]++;
     byBrandRegion[r.brand][r.region]++;

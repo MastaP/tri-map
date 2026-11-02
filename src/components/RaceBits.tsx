@@ -14,7 +14,15 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { DISTANCES, type DistanceId } from '../data/brands.ts';
-import { isNearStandard, legsLong, nonStandardTitle, raceLegs } from '../data/course.ts';
+import {
+  isNearStandard,
+  LEG_DISCIPLINE,
+  legsLong,
+  legsText,
+  nonStandardTitle,
+  raceLegs,
+  SPORT_LEGS,
+} from '../data/course.ts';
 import type { Course } from '../data/schema.ts';
 import type { EntryType, Terrain } from '../data/constants.ts';
 import type { NextEdition } from '../data/nextEdition.ts';
@@ -39,7 +47,15 @@ const DISTANCE_BADGE: Record<DistanceId, string> = {
   full: 'bg-ink text-on-ink',
   half: 'bg-surface-3 text-fg',
   t100: 'text-fg ring-1 ring-inset ring-line-strong',
+  olympic: 'text-muted ring-1 ring-inset ring-line',
+  sprint: 'text-muted ring-1 ring-inset ring-line',
+  duathlon: 'bg-surface-2 text-fg ring-1 ring-inset ring-line',
+  'time-trial': 'bg-surface-2 text-fg ring-1 ring-inset ring-line',
 };
+
+/** "10/56/10 km": a race's own km, compact enough for a badge. */
+const compactLegs = (distance: DistanceId, course: Course | undefined) =>
+  legsText(raceLegs({ distance, course })).replaceAll(' / ', '/');
 
 export function DistanceBadge({
   distance,
@@ -66,6 +82,12 @@ export function DistanceBadge({
         // "T100 · 100 km": the name plus how far it is, with the unit in lower case.
         <>
           T100 <span className="ml-0.5 font-bold tracking-[0.02em] normal-case">· {DISTANCES.t100.total} km</span>
+        </>
+      ) : !DISTANCES[distance].standard ? (
+        // No standard to name: "Duathlon · 10/56/10 km", "Time trial · 42 km".
+        <>
+          {long ? DISTANCES[distance].badgeLong : DISTANCES[distance].badge}{' '}
+          <span className="ml-0.5 font-bold tracking-[0.02em] normal-case">· {compactLegs(distance, course)}</span>
         </>
       ) : long ? (
         DISTANCES[distance].badgeLong
@@ -263,7 +285,9 @@ export function BikeHint({ terrain }: { terrain: Terrain }) {
 }
 
 /** "Sea swim · Rolling bike · Flat run": the course at a glance, for comparing a shortlist. */
-export function CourseLine({ race }: { race: Pick<Race, 'swim' | 'bike' | 'run'> }) {
+export function CourseLine({ race }: { race: Pick<Race, 'distance' | 'swim' | 'bike' | 'run'> }) {
+  const legs = SPORT_LEGS[DISTANCES[race.distance].sport];
+  const has = (discipline: 'swim' | 'run') => legs.some((l) => LEG_DISCIPLINE[l] === discipline);
   const item = (Icon: typeof Bike, text: string | null, what: string, terrain?: Terrain) => (
     <span className={cn('inline-flex items-center gap-1 whitespace-nowrap', !text && 'text-faint')}>
       <Icon className="size-3.5 shrink-0" strokeWidth={2} aria-hidden="true" />
@@ -277,9 +301,9 @@ export function CourseLine({ race }: { race: Pick<Race, 'swim' | 'bike' | 'run'>
       className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[12px] font-medium text-muted"
       data-testid="course-line"
     >
-      {item(Waves, race.swim ? SWIM_LABEL[race.swim] : null, 'Swim')}
+      {has('swim') && item(Waves, race.swim ? SWIM_LABEL[race.swim] : null, 'Swim')}
       {item(Bike, race.bike ? TERRAIN_LABEL[race.bike] : null, 'Bike course', race.bike)}
-      {item(Footprints, race.run ? TERRAIN_LABEL[race.run] : null, 'Run course', race.run)}
+      {has('run') && item(Footprints, race.run ? TERRAIN_LABEL[race.run] : null, 'Run course', race.run)}
     </p>
   );
 }

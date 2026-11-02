@@ -69,7 +69,7 @@ const MapView = lazy(importMapViewOrReload);
 
 /** Desktop: whether the full filter panel is open ('1'); closed by default. */
 const MORE_FILTERS_KEY = 'trimap.moreFilters';
-const DEFAULT_TITLE = 'TriMap · Find a full, half or T100 triathlon to enter';
+const DEFAULT_TITLE = 'TriMap · Find a triathlon or duathlon to enter';
 /** Filters that live behind the desktop "Filters" button (distance and dates stay in view). */
 const PANEL_DIMENSIONS: readonly Dimension[] = [
   'region',
@@ -625,7 +625,7 @@ export function App() {
       Skip to results
     </a>
   );
-  const heading = <h1 className="sr-only">TriMap: full, half and T100 triathlons you can enter</h1>;
+  const heading = <h1 className="sr-only">TriMap: triathlons and duathlons you can enter</h1>;
 
   if (isDesktop) {
     return (

@@ -5,7 +5,7 @@
  */
 import type { ISODate } from '../lib/dates.ts';
 import { COUNTRY_ALIASES, normalizeText } from '../lib/search.ts';
-import { BRANDS } from './brands.ts';
+import { BRANDS, DISTANCES } from './brands.ts';
 import { upcomingEditions } from './nextEdition.ts';
 import { attachRegistration, type RegistrationData } from './registration.ts';
 import { getCountry, REGIONS } from './regions.ts';
@@ -24,6 +24,9 @@ function searchTextFor(record: RaceRecord, countryName: string, regionLabel: str
     record.series ?? '',
     BRANDS[record.brand].label,
   ];
+  // A duathlon or time trial is found by its sport, which its name often leaves out ("RBR Almere").
+  const sport = DISTANCES[record.distance].sport;
+  if (sport !== 'triathlon') parts.push(sport.replace('-', ' '));
   if (record.brand === 'ironman') parts.push('im');
   // "70.3" is also typed as "703".
   if (/70\.3/.test(`${record.name} ${record.series ?? ''}`)) parts.push('703');

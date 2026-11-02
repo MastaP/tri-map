@@ -29,10 +29,13 @@ test('a desktop "in map area" link shows the same races on a phone', async ({ br
   await expect(dPage).toHaveURL(/bbox=/);
   const shared = dPage.url();
   const expected = await listedIds(dPage);
-  // Almere (full and half) and Frankfurt: more than a phone would show around that centre.
+  // Almere, Zandvoort and Frankfurt: more than a phone would show around that centre.
   expect(expected).toEqual([
     'challenge-almere-amsterdam-full',
     'challenge-almere-amsterdam-half',
+    'independent-dts-zandvoort-sprint',
+    'independent-rbr-almere-long-duathlon',
+    'independent-tt-almere-42k-time-trial',
     'ironman-frankfurt-full',
   ]);
   await desktop.close();
@@ -51,6 +54,6 @@ test('a desktop "in map area" link shows the same races on a phone', async ({ br
   await page.getByRole('button', { name: 'Zoom out' }).click();
   await expect.poll(() => bboxOf(page.url()), { timeout: 10_000 }).not.toBe(bboxOf(shared));
   await page.getByRole('button', { name: /^List/ }).click();
-  expect((await listedIds(page)).length).toBeGreaterThan(3);
+  expect((await listedIds(page)).length).toBeGreaterThan(expected.length);
   await phone.close();
 });

@@ -13,8 +13,8 @@ test('by default no estimated date appears in the list, histogram or counts', as
   await openApp(page);
   await expandSoon(page);
   // Challenge Roth's next date is not announced: it is left out, and the note says so.
-  await expectResults(page, 16);
-  await expect(page.getByTestId('result-count')).toContainText('of 17');
+  await expectResults(page, 19);
+  await expect(page.getByTestId('result-count')).toContainText('of 20');
   await expect(card(page, 'challenge-roth-full')).toHaveCount(0);
   await expect(page.getByRole('main')).not.toContainText('≈');
   await expect(page.getByRole('main')).not.toContainText('Estimated');
@@ -29,7 +29,7 @@ test('by default no estimated date appears in the list, histogram or counts', as
 
   // One click shows them, labelled as estimates.
   await page.getByRole('button', { name: 'Show estimated dates' }).click();
-  await expectResults(page, 17);
+  await expectResults(page, 20);
   await expect(page).toHaveURL(/\?est=1$/);
   await expect(card(page, 'challenge-roth-full')).toContainText('≈ Jul 2027 · date TBA');
   await expect(page.getByRole('button', { name: /^Full distance .*, 10 races$/ })).toBeVisible();
@@ -40,7 +40,7 @@ test('by default no estimated date appears in the list, histogram or counts', as
   // Closed, the filter panel leaves a removable chip; "Clear" goes back to announced dates.
   await page.getByRole('button', { name: /^Filters/ }).click();
   await page.getByRole('button', { name: 'Estimated dates: remove filter' }).click();
-  await expectResults(page, 16);
+  await expectResults(page, 19);
   await expect(page).not.toHaveURL(/est=/);
 });
 
@@ -70,12 +70,12 @@ test('season planning only counts announced dates, and says how many are still t
   await expect(page).toHaveURL(/from=2027-10&to=2027-12&est=1/);
 
   await page.goto('/?when=next-year');
-  await expectResults(page, 11);
+  await expectResults(page, 14);
   await expect(page.getByTestId('estimated-hidden-note')).toHaveText(
     '6 more races usually held in this period have no date announced yet.',
   );
   await openFilterPanel(page);
-  await expect(page.getByTestId('time-summary')).toHaveText('2027 · 11 races');
+  await expect(page.getByTestId('time-summary')).toHaveText('2027 · 14 races');
 });
 
 test('the empty state offers estimated dates when that is what is missing', async ({ page }) => {
@@ -98,7 +98,7 @@ test('old links: est=0 is the default now, est=1 shows estimates', async ({ page
   await expectResults(page, 9);
   await expect(page).toHaveURL(/\?dist=full$/);
   await page.goto('/?est=1');
-  await expectResults(page, 17);
+  await expectResults(page, 20);
 });
 
 test('the detail of a race without an announced date says so and offers the estimate', async ({ page }) => {

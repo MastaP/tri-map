@@ -8,7 +8,7 @@ describe('validateRaceFiles', () => {
   it('passes the fixture data with only the expected estimated-date and course warnings', () => {
     const result = validateRaceFiles(fixtureFiles(), TODAY);
     expect(result.errorCount).toBe(0);
-    expect(result.races).toHaveLength(19);
+    expect(result.races).toHaveLength(22);
     // The replaced Challenge Wanaka and the one-off 70.3 World Championship have no next
     // date on purpose (continuedAs / recurring: false), so they raise no warning.
     expect(result.issues.filter((i) => /estimated/.test(i.message)).map((i) => i.id)).toEqual(['challenge-roth-full']);
@@ -133,13 +133,110 @@ describe('validateRaceFiles', () => {
   });
 });
 
+describe('races other than long-distance triathlons', () => {
+  const nl = (overrides: Parameters<typeof makeRecord>[0]) =>
+    makeRecord({
+      brand: 'independent',
+      series: 'TriHard',
+      country: 'NL',
+      city: 'Almere',
+      lat: 52.3508,
+      lng: 5.2647,
+      bike: 'flat',
+      run: 'flat',
+      ...overrides,
+    });
+  const du = (slug: string, run1: number, bike: number, run2: number, lat = 52.3508) =>
+    nl({ id: `independent-${slug}-duathlon`, distance: 'duathlon', lat, course: { run1, bike, run2 } });
+
+  it('knows the Dutch-series and duathlon files and what belongs in them', () => {
+    const r = validateRaceFiles(
+      [
+        file('netherlands.json', [nl({ id: 'independent-almere-sprint', distance: 'sprint' })]),
+        file('duathlon.json', [
+          du('zofingen', 10, 150, 30),
+          nl({ id: 'independent-almere-olympic', distance: 'olympic', lat: 52.5012 }),
+        ]),
+      ],
+      TODAY,
+    );
+    expect(r.errorCount).toBe(0);
+    expect(r.issues.map((i) => `${i.id ?? i.file}: ${i.message}`)).toEqual([
+      'independent-almere-olympic: distance "olympic" does not belong in duathlon.json',
+    ]);
+    const abroad = validateRaceFiles(
+      [
+        file('netherlands.json', [
+          nl({ id: 'independent-gent-sprint', distance: 'sprint', country: 'BE', lat: 51.0543, lng: 3.7174 }),
+        ]),
+      ],
+      TODAY,
+    );
+    expect(abroad.issues.map((i) => i.message)).toEqual(['Belgium does not belong in netherlands.json']);
+  });
+
+  it('asks only for the course profiles of the legs a race has', () => {
+    const r = validateRaceFiles(
+      [
+        file('netherlands.json', [
+          nl({ id: 'independent-almere-time-trial', distance: 'time-trial', course: { bike: 42 }, run: undefined }),
+          nl({
+            id: 'independent-almere-28k-time-trial',
+            distance: 'time-trial',
+            course: { bike: 28 },
+            lat: 52.4012,
+            bike: undefined,
+            run: undefined,
+          }),
+        ]),
+      ],
+      TODAY,
+    );
+    expect(r.issues.map((i) => `${i.id}: ${i.message.split(':')[0]}`)).toEqual([
+      'independent-almere-28k-time-trial: no bike course profile',
+    ]);
+  });
+
+  it('flags a possible duplicate only when the legs match too', () => {
+    const r = validateRaceFiles(
+      [
+        file('netherlands.json', [
+          du('rbr-almere-short', 5, 28, 5),
+          du('rbr-almere-long', 10, 56, 10),
+          du('almere', 5, 28, 5, 52.351),
+        ]),
+      ],
+      TODAY,
+    );
+    expect(r.issues.map((i) => `${i.id}: ${i.message}`)).toEqual([
+      'independent-almere-duathlon: possible duplicate of independent-rbr-almere-short-duathlon (netherlands.json): same distance within 2 km',
+    ]);
+  });
+});
+
 describe('summarize', () => {
   it('counts by brand, distance and region and races without a confirmed date', () => {
     const { races } = validateRaceFiles(fixtureFiles(), TODAY);
     const s = summarize(races);
-    expect(s.total).toBe(19);
-    expect(s.byBrandDistance.ironman).toEqual({ full: 5, half: 4, t100: 0 });
-    expect(s.byBrandDistance.t100).toEqual({ full: 0, half: 0, t100: 3 });
+    expect(s.total).toBe(22);
+    expect(s.byBrandDistance.ironman).toEqual({
+      full: 5,
+      half: 4,
+      t100: 0,
+      olympic: 0,
+      sprint: 0,
+      duathlon: 0,
+      'time-trial': 0,
+    });
+    expect(s.byBrandDistance.t100).toEqual({
+      full: 0,
+      half: 0,
+      t100: 3,
+      olympic: 0,
+      sprint: 0,
+      duathlon: 0,
+      'time-trial': 0,
+    });
     expect(s.byRegionDistance.europe.full).toBe(6);
     expect(s.byBrandRegion.challenge.oceania).toBe(1);
     expect(s).toMatchObject({

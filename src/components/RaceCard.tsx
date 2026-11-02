@@ -1,7 +1,7 @@
 import { Star } from 'lucide-react';
 import { memo } from 'react';
 import { BRANDS, DISTANCES } from '../data/brands.ts';
-import { isNearStandard, legsText, raceLegs } from '../data/course.ts';
+import { hasOwnLegs, isNearStandard, legsText, raceLegs } from '../data/course.ts';
 import type { NextEdition } from '../data/nextEdition.ts';
 import { shownRegistration } from '../data/registration.ts';
 import type { Race } from '../data/types.ts';
@@ -73,6 +73,8 @@ export const RaceCard = memo(function RaceCard({
   const away = distanceKm === undefined ? '' : formatDistanceAway(distanceKm);
   const qualifierTitle = isQualifierChampionship(race);
   const nonStandard = isNearStandard(race);
+  // Duathlons and time trials carry their km in a longer distance badge.
+  const ownLegs = hasOwnLegs(race);
   // Registration status of the shown edition (only when it is the next one, which the status is about).
   const registration = shownRegistration(race, next);
   const registrationShown = !!registration && registration.status !== 'open';
@@ -86,14 +88,14 @@ export const RaceCard = memo(function RaceCard({
     !!race.bike &&
     race.entry === 'open' &&
     !qualifierTitle &&
-    !nonStandard &&
+    !ownLegs &&
     !!next &&
     !next.estimated &&
     !later;
   const label = [
     race.name,
     DISTANCES[race.distance].long,
-    nonStandard && `non-standard distance ${legsText(raceLegs(race))}`,
+    ownLegs && `${nonStandard ? 'non-standard distance ' : ''}${legsText(raceLegs(race))}`,
     race.entry !== 'open' && ENTRY_BADGE[race.entry],
     registrationShown && registrationSummary(registration, today),
     `${race.city}, ${race.countryName}`,

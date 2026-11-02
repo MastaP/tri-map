@@ -26,7 +26,7 @@ export function Header({ freshness, raceCount, themePref, onThemeChange, compact
       </a>
       {!compact && (
         <p className="hidden truncate border-l border-line pl-3 text-sm text-muted xl:block">
-          Find a full, half or T100 triathlon you can enter, worldwide
+          Find a triathlon or duathlon you can enter, from sprint to full distance
         </p>
       )}
       <div className="ml-auto flex items-center gap-2 sm:gap-3">

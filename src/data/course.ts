@@ -1,14 +1,38 @@
 /**
- * Official swim / bike / run distances. Most races are held over their category's
- * standard distances (DISTANCES); a near-standard race carries `course` with its official
- * km (see "Brand vs series" in data/README.md). Pure, so it is shared by the app, the
- * per-race pages and the data validation.
+ * Official distances of each leg. A triathlon is swim / bike / run, a duathlon run / bike /
+ * run, a time trial the bike alone. Most triathlons are held over their category's standard
+ * distances (DISTANCES); a near-standard one carries `course` with its official km (see
+ * "Brand vs series" in data/README.md). Duathlons and time trials have no standard: each
+ * carries its own `course`. Pure, so it is shared by the app, the per-race pages and the
+ * data validation.
  */
-import { DISTANCES, type DistanceId } from './brands.ts';
+import { DISTANCES, type DistanceId, type SportId } from './brands.ts';
 import type { Course } from './schema.ts';
 
-export const LEGS = ['swim', 'bike', 'run'] as const;
-export type Leg = (typeof LEGS)[number];
+/** A leg of a race: `run1` and `run2` are a duathlon's first and second run. */
+export type LegKey = 'swim' | 'run1' | 'bike' | 'run' | 'run2';
+export type Discipline = 'swim' | 'bike' | 'run';
+
+/** The legs of each sport, in race order: the keys its `course` must have. */
+export const SPORT_LEGS: Record<SportId, readonly LegKey[]> = {
+  triathlon: ['swim', 'bike', 'run'],
+  duathlon: ['run1', 'bike', 'run2'],
+  'time-trial': ['bike'],
+};
+
+export const LEG_DISCIPLINE: Record<LegKey, Discipline> = {
+  swim: 'swim',
+  run1: 'run',
+  bike: 'bike',
+  run: 'run',
+  run2: 'run',
+};
+
+/** The course profiles (data `bike` / `run`) a race can have: a time trial has no run. */
+export function profiledDisciplines(race: { distance: DistanceId }): ('bike' | 'run')[] {
+  const legs = SPORT_LEGS[DISTANCES[race.distance].sport];
+  return (['bike', 'run'] as const).filter((d) => legs.some((l) => LEG_DISCIPLINE[l] === d));
+}
 
 /**
  * A race with any leg more than this far off its category's standard is "near-standard"
@@ -21,49 +45,70 @@ const EPSILON = 1e-9;
 
 type WithCourse = { distance: DistanceId; course?: Course | undefined };
 
+export interface Leg {
+  key: LegKey;
+  km: number;
+}
+
 export interface Legs {
-  swim: number;
-  bike: number;
-  run: number;
+  /** In race order. */
+  legs: Leg[];
   total: number;
 }
+
+const round1 = (km: number) => Math.round(km * 10) / 10;
 
 /** The km an age-grouper races: the race's own course when it has one, else the standard. */
 export function raceLegs(race: WithCourse): Legs {
   const d = DISTANCES[race.distance];
-  const { swim, bike, run } = race.course ?? d;
-  if (!race.course) return { swim, bike, run, total: d.total };
-  return { swim, bike, run, total: Math.round((swim + bike + run) * 10) / 10 };
+  const source: Partial<Record<LegKey, number>> = race.course ?? d.standard ?? {};
+  const legs = SPORT_LEGS[d.sport].flatMap((key) => {
+    const km = source[key];
+    return km === undefined ? [] : [{ key, km }];
+  });
+  const total = !race.course && d.total !== null ? d.total : round1(legs.reduce((sum, l) => sum + l.km, 0));
+  return { legs, total };
 }
 
-/** How far each leg of the race's course is from its category's standard (0.1 = 10%). */
-export function legDeviations(race: WithCourse): Record<Leg, number> {
-  const d = DISTANCES[race.distance];
-  const legs = race.course ?? d;
-  return {
-    swim: Math.abs(legs.swim - d.swim) / d.swim,
-    bike: Math.abs(legs.bike - d.bike) / d.bike,
-    run: Math.abs(legs.run - d.run) / d.run,
-  };
+/**
+ * How far each leg of the race's course is from its category's standard (0.1 = 10%);
+ * empty for a category without a standard.
+ */
+export function legDeviations(race: WithCourse): Partial<Record<LegKey, number>> {
+  const standard = DISTANCES[race.distance].standard;
+  if (!standard) return {};
+  const legs: Partial<Record<LegKey, number>> = race.course ?? standard;
+  const out: Partial<Record<LegKey, number>> = {};
+  for (const key of ['swim', 'bike', 'run'] as const) {
+    out[key] = Math.abs((legs[key] ?? 0) - standard[key]) / standard[key];
+  }
+  return out;
 }
 
 /** A race whose official course is noticeably (> 5% on a leg) off its category's standard. */
 export function isNearStandard(race: WithCourse): boolean {
   if (!race.course) return false;
-  const dev = legDeviations(race);
-  return LEGS.some((leg) => dev[leg] > NEAR_STANDARD_TOLERANCE + EPSILON);
+  return Object.values(legDeviations(race)).some((dev) => dev > NEAR_STANDARD_TOLERANCE + EPSILON);
 }
 
-const num = (km: number) => km.toLocaleString('en-US', { maximumFractionDigits: 1 });
-
-/** "3.4 / 202 / 41 km" */
-export function legsText(legs: Pick<Legs, Leg>): string {
-  return `${num(legs.swim)} / ${num(legs.bike)} / ${num(legs.run)} km`;
+/**
+ * Whether cards and tags should spell out the race's own km: a near-standard race, and
+ * every duathlon and time trial (no standard to name instead).
+ */
+export function hasOwnLegs(race: WithCourse): boolean {
+  return DISTANCES[race.distance].standard === null || isNearStandard(race);
 }
 
-/** "3.4 km swim, 202 km bike, 41 km run" */
-export function legsLong(legs: Pick<Legs, Leg>): string {
-  return `${num(legs.swim)} km swim, ${num(legs.bike)} km bike, ${num(legs.run)} km run`;
+const num = (km: number) => km.toLocaleString('en-US', { maximumFractionDigits: 2 });
+
+/** "3.4 / 202 / 41 km", "42 km" */
+export function legsText({ legs }: Pick<Legs, 'legs'>): string {
+  return `${legs.map((l) => num(l.km)).join(' / ')} km`;
+}
+
+/** "3.4 km swim, 202 km bike, 41 km run", "10 km run, 56 km bike, 10 km run" */
+export function legsLong({ legs }: Pick<Legs, 'legs'>): string {
+  return legs.map((l) => `${num(l.km)} km ${LEG_DISCIPLINE[l.key]}`).join(', ');
 }
 
 /** Tooltip / accessible text of the "Non-standard distance" tag, listing the real km. */

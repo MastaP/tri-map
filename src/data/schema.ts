@@ -5,6 +5,7 @@
  */
 import { z } from 'zod';
 import { BRAND_IDS, DISTANCE_IDS, DISTANCES } from './brands.ts';
+import { LEG_DISCIPLINE, SPORT_LEGS } from './course.ts';
 import { EDITION_STATUSES, ENTRY_TYPES, SWIM_TYPES, TERRAINS } from './constants.ts';
 import { isKnownCountry } from './regions.ts';
 
@@ -55,14 +56,19 @@ export const EditionSchema = z
 
 export type Edition = z.infer<typeof EditionSchema>;
 
-/** A near-standard race may differ from its category's standard by at most this much per leg. */
-export const MAX_LEG_DEVIATION = 0.25;
+const km = z.number().positive();
 
-/** Official swim/bike/run km, for races that are not raced over the standard distances. */
+/**
+ * Official km of each leg, for races not held over a standard distance: swim / bike / run
+ * for a triathlon, run1 / bike / run2 for a duathlon, bike alone for a time trial (which
+ * legs a race needs is checked against its distance below).
+ */
 export const CourseSchema = z.strictObject({
-  swim: z.number().positive(),
-  bike: z.number().positive(),
-  run: z.number().positive(),
+  swim: km.optional(),
+  run1: km.optional(),
+  bike: km,
+  run: km.optional(),
+  run2: km.optional(),
 });
 
 export type Course = z.infer<typeof CourseSchema>;
@@ -115,18 +121,44 @@ export const RaceSchema = z
         });
       }
     }
-    if (race.course !== undefined) {
-      const standard = DISTANCES[race.distance];
-      for (const leg of ['swim', 'bike', 'run'] as const) {
-        const deviation = Math.abs(race.course[leg] - standard[leg]) / standard[leg];
-        if (deviation > MAX_LEG_DEVIATION) {
-          ctx.addIssue({
-            code: 'custom',
-            path: ['course', leg],
-            message: `${race.course[leg]} km is more than ${MAX_LEG_DEVIATION * 100}% off the ${standard.long.toLowerCase()} ${leg} (${standard[leg]} km); the race is out of scope`,
-          });
+    const category = DISTANCES[race.distance];
+    const legs = SPORT_LEGS[category.sport];
+    if (race.course === undefined) {
+      if (!category.standard) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['course'],
+          message: `a ${category.sport} has no standard distance: give its ${legs.join(' / ')} km`,
+        });
+      }
+    } else {
+      const given = Object.keys(race.course);
+      const wrong = given.filter((k) => !(legs as readonly string[]).includes(k));
+      if (wrong.length || given.length !== legs.length) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['course'],
+          message: `a ${category.sport} needs exactly ${legs.join(', ')}${wrong.length ? ` (not ${wrong.join(', ')})` : ''}`,
+        });
+      } else if (category.standard) {
+        const { standard, maxDeviation } = category;
+        for (const leg of ['swim', 'bike', 'run'] as const) {
+          const km = race.course[leg] ?? 0;
+          if (Math.abs(km - standard[leg]) / standard[leg] > maxDeviation) {
+            ctx.addIssue({
+              code: 'custom',
+              path: ['course', leg],
+              message: `${km} km is more than ${maxDeviation * 100}% off the ${category.long.toLowerCase()} ${leg} (${standard[leg]} km); the race is out of scope`,
+            });
+          }
         }
       }
+    }
+    if (race.swim !== undefined && !legs.includes('swim')) {
+      ctx.addIssue({ code: 'custom', path: ['swim'], message: `a ${category.sport} has no swim` });
+    }
+    if (race.run !== undefined && !legs.some((l) => LEG_DISCIPLINE[l] === 'run')) {
+      ctx.addIssue({ code: 'custom', path: ['run'], message: `a ${category.sport} has no run` });
     }
     // The slug between brand and distance must not be empty.
     if (race.id.length <= race.brand.length + race.distance.length + 2) {

@@ -69,6 +69,20 @@ describe('ics', () => {
     );
   });
 
+  it('describes the legs of a duathlon and a time trial', () => {
+    const du = {
+      ...race,
+      id: 'independent-almere-duathlon',
+      distance: 'duathlon' as const,
+      course: { run1: 10, bike: 56, run2: 10 },
+    };
+    const tt = { ...race, id: 'independent-almere-time-trial', distance: 'time-trial' as const, course: { bike: 42 } };
+    const desc = (r: typeof race) =>
+      buildIcs(r, { date: '2027-04-18', status: 'confirmed' }, now).replace(/\r\n /g, '');
+    expect(desc(du)).toContain('DESCRIPTION:Duathlon: 10 km run · 56 km bike · 10 km run');
+    expect(desc(tt)).toContain('DESCRIPTION:Bike time trial: 42 km bike');
+  });
+
   it('names the file after the race and date', () => {
     expect(icsFileName(race, '2027-06-27')).toBe('ironman-frankfurt-full-2027-06-27.ics');
   });

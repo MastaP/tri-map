@@ -17,7 +17,7 @@ test.describe('entry type', () => {
 
     await openFilterPanel(page);
     await page.getByRole('switch', { name: /Open entry only/ }).click();
-    await expectResults(page, 13);
+    await expectResults(page, 16);
     await expect(card(page, 'ironman-kailua-kona-full')).toHaveCount(0);
     await expect(card(page, 'independent-norseman-full')).toHaveCount(0);
     await expect(page).toHaveURL(/open=1/);
@@ -25,7 +25,7 @@ test.describe('entry type', () => {
     await page.reload();
     // The panel stays open across reloads; closed, the filter shows as a removable chip.
     await expect(page.getByRole('switch', { name: /Open entry only/ })).toHaveAttribute('aria-checked', 'true');
-    await expectResults(page, 13);
+    await expectResults(page, 16);
     await page.getByRole('button', { name: /^Filters/ }).click();
     await expect(page.getByRole('button', { name: 'Open entry only: remove filter' })).toBeVisible();
   });
@@ -65,7 +65,7 @@ test.describe('course profile', () => {
     await openFilterPanel(page);
     const bike = page.getByRole('group', { name: 'Bike course' });
     await bike.getByRole('button', { name: /^Bike course: Flat/ }).click();
-    await expect(cards(page)).toHaveCount(3);
+    await expect(cards(page)).toHaveCount(6);
     await expect(page).toHaveURL(/bike=flat/);
     await expect(page.getByTestId('missing-course-note')).toHaveText(
       '3 races hidden: no course profile in our data yet.',
@@ -76,17 +76,18 @@ test.describe('course profile', () => {
     const unknown = page.getByRole('list', { name: 'Races without a course profile' });
     await expect(unknown.locator('li[data-race-id]')).toHaveCount(3);
     await expect(unknown).toContainText('T100 Dubai');
-    await expectResults(page, 3);
+    await expectResults(page, 6);
 
     await page
       .getByRole('group', { name: 'Run course' })
       .getByRole('button', { name: /^Run course: Flat/ })
       .click();
     await expect(page).toHaveURL(/bike=flat&run=flat/);
-    await expectResults(page, 3);
+    // The time trial has no run, so a run filter drops it without counting it as unknown.
+    await expectResults(page, 5);
 
     await page.getByRole('button', { name: 'Clear course filter' }).click();
-    await expectResults(page, 16);
+    await expectResults(page, 19);
     await expect(page.getByTestId('missing-course-note')).toHaveCount(0);
   });
 

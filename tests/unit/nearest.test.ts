@@ -39,10 +39,13 @@ describe('sortByDistance', () => {
   it('orders races nearest first and keeps co-located races in date order', () => {
     const almere = { lat: 52.37, lng: 5.22 };
     const sorted = sortByDistance(races, almere).map((r) => r.id);
-    expect(sorted.slice(0, 3)).toEqual([
+    expect(sorted.slice(0, 5)).toEqual([
       'challenge-almere-amsterdam-full',
       'challenge-almere-amsterdam-half',
-      'ironman-frankfurt-full',
+      // RBR and TT Almere: 1.5 km away, same venue and day, so by name.
+      'independent-rbr-almere-long-duathlon',
+      'independent-tt-almere-42k-time-trial',
+      'independent-dts-zandvoort-sprint',
     ]);
     expect(sorted).toHaveLength(races.length);
   });

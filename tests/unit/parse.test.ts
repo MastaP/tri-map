@@ -7,7 +7,7 @@ describe('parseRaceFiles', () => {
   const byId = (id: string) => races.find((r) => r.id === id)!;
 
   it('loads every fixture race', () => {
-    expect(races).toHaveLength(19);
+    expect(races).toHaveLength(22);
     expect(new Set(races.map((r) => r.brand))).toEqual(new Set(['ironman', 'challenge', 't100', 'independent']));
     expect(new Set(races.map((r) => r.region)).size).toBe(7);
   });
@@ -19,6 +19,15 @@ describe('parseRaceFiles', () => {
     expect(r.flag).toBe('🇧🇷');
     expect(r.searchText).toContain('florianopolis');
     expect(r.searchText).toContain('brazil');
+  });
+
+  it('makes the sport searchable when it is not a triathlon', () => {
+    const record = { ...byId('ironman-frankfurt-full'), id: 'independent-almere-duathlon', name: 'RBR Almere' };
+    const du = deriveRace({ ...record, distance: 'duathlon', course: { run1: 10, bike: 56, run2: 10 } }, '2026-09-25');
+    const tt = deriveRace({ ...record, distance: 'time-trial', course: { bike: 42 } }, '2026-09-25');
+    expect(du.searchText).toMatch(/\bduathlon\b/);
+    expect(tt.searchText).toMatch(/\btime trial\b/);
+    expect(byId('ironman-frankfurt-full').searchText).not.toMatch(/triathlon/);
   });
 
   it('derives the next edition with today injected', () => {

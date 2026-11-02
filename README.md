@@ -1,9 +1,11 @@
 # TriMap
 
-**Find your next long-distance triathlon to enter.** TriMap is built for age-group
+**Find your next triathlon or duathlon to enter.** TriMap is built for age-group
 athletes choosing their next race, not for following pro racing. It puts every IRONMAN,
 IRONMAN 70.3, Challenge Family, T100 and notable independent full- and half-distance race
-that age-groupers can race on one world map, searchable in seconds by **distance**,
+that age-groupers can race on one world map, together with the major duathlons and the
+Dutch race series at every distance (DTS and TriHard: sprint and Olympic triathlons,
+duathlons, bike time trials). Everything is searchable in seconds by **distance**,
 **date**, **region**, **how you get a start** and **how hilly the course is**.
 
 **Live: <https://mastap.github.io/tri-map/>**
@@ -34,14 +36,16 @@ build (`npm run build && npm run preview`) when the UI changes._
   a dashed outline,
   qualifier-only and ballot races carry a small lock / ticket pip, a few races close
   together fan out their own glyphs and bigger clusters are donuts showing the brand
-  mix. A FULL / HALF / T100 tag, like the card badge, appears when you zoom in.
+  mix. A distance tag like the card badge (FULL, HALF, T100, OLY, SPRINT, DU, TT)
+  appears when you zoom in.
 - **The filters you need first stay in view.** Search, distance and date presets sit
   above the results; region, course, entry options and brand open under **Filters**,
   and while it is closed the filters set there show as removable chips.
 - **Filters that combine:** free-text search (accent- and case-insensitive, word starts,
   common country names such as "USA" or "UK", a year such as "roth 2027"; press `/`),
-  distance (Full 3.8/180/42.2, Half 1.9/90/21.1, T100 2/80/18), brand (chips and the
-  map legend share one state), region, and a **month histogram** you can click or drag
+  distance (Full 3.8/180/42.2, Half 1.9/90/21.1, T100 2/80/18, then Olympic 1.5/40/10,
+  Sprint 0.75/20/5, Duathlon and Time trial in a row of smaller tiles), brand (chips
+  and the map legend share one state), region, and a **month histogram** you can click or drag
   across, with presets (3, 6 and 12 months, rest of this year, next year).
 - **Planning next season works.** A date range matches a race when any upcoming
   edition with an announced date falls in it, so "2027" also finds races whose next
@@ -87,6 +91,10 @@ build (`npm run build && npm run preview`) when the UI changes._
   its category's standard on some leg (Celtman: 3.4 / 202 / 41 km) shows those numbers
   and a "Non-standard distance" tag on the card, in the detail and in the map tooltip.
   The distance filter still works by category.
+- **Duathlons and time trials.** They have no standard distance, so cards, the map
+  tooltip and the detail always give their own km ("Duathlon · 10/56/10 km", "Time
+  trial · 42 km"; the detail lists Run 1 / Bike / Run 2). Searching "duathlon" or "time
+  trial" finds them even when the name does not say it.
 - **Only in map area**, a **shortlist** (stars, stored in your browser; shortlisted
   cards spell out swim, bike and run for comparing), sort by date or name, sticky month
   headers, and an empty state that tells you which filter to relax.

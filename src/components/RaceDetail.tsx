@@ -16,7 +16,7 @@ import {
 import { useEffect, useRef, type ReactNode } from 'react';
 import { correctionUrl, RACE_PAGES } from '../config.ts';
 import { BRANDS, DISTANCES, formatKm } from '../data/brands.ts';
-import { isNearStandard, raceLegs } from '../data/course.ts';
+import { isNearStandard, LEG_DISCIPLINE, legsText, raceLegs, type LegKey } from '../data/course.ts';
 import { REGIONS } from '../data/regions.ts';
 import { checkedDay, REGISTRATION_METHOD_INFO } from '../data/registration.ts';
 import type { Race } from '../data/types.ts';
@@ -50,6 +50,9 @@ import {
   RegistrationBadge,
   TerrainGlyph,
 } from './RaceBits.tsx';
+
+/** Column titles of the course grid: a duathlon runs twice. */
+const LEG_LABEL: Record<LegKey, string> = { swim: 'Swim', run1: 'Run 1', bike: 'Bike', run: 'Run', run2: 'Run 2' };
 
 interface Props {
   race: Race;
@@ -398,69 +401,67 @@ export function RaceDetail({
             <h3 id="course-title" className="sr-only">
               Course details
             </h3>
-            <div className="grid grid-cols-3 overflow-hidden rounded-2xl border border-line">
-              {(
-                [
-                  {
-                    label: 'Swim',
-                    km: legs.swim,
-                    Icon: Waves,
-                    detail: race.swim ? SWIM_LABEL[race.swim] : null,
-                    title: race.swim ? SWIM_LONG[race.swim] : undefined,
-                    terrain: undefined,
-                    what: 'Swim type',
-                  },
-                  {
-                    label: 'Bike',
-                    km: legs.bike,
-                    Icon: Bike,
-                    detail: race.bike ? TERRAIN_LABEL[race.bike] : null,
-                    title: race.bike ? `${TERRAIN_LABEL[race.bike]} bike course` : undefined,
-                    terrain: race.bike,
-                    what: 'Bike course',
-                  },
-                  {
-                    label: 'Run',
-                    km: legs.run,
-                    Icon: Footprints,
-                    detail: race.run ? TERRAIN_LABEL[race.run] : null,
-                    title: race.run ? `${TERRAIN_LABEL[race.run]} run course` : undefined,
-                    terrain: race.run,
-                    what: 'Run course',
-                  },
-                ] as const
-              ).map(({ label, km, Icon, detail, title, terrain, what }, i) => (
-                <div key={label} className={cn('flex min-w-0 flex-col', i > 0 && 'border-l border-line')}>
-                  <div className="px-3 pt-3 pb-2.5">
-                    <Icon className="size-4 text-muted" aria-hidden="true" />
-                    <p className="tabular mt-1.5 font-display text-[24px] leading-none font-bold">
-                      {km}
-                      <span className="ml-0.5 text-[13px] font-bold text-muted">km</span>
+            <div
+              className={cn(
+                'grid overflow-hidden rounded-2xl border border-line',
+                legs.legs.length === 1 ? 'grid-cols-1' : 'grid-cols-3',
+              )}
+            >
+              {legs.legs
+                .map(({ key, km }) => {
+                  const discipline = LEG_DISCIPLINE[key];
+                  const label = LEG_LABEL[key];
+                  if (discipline === 'swim') {
+                    return {
+                      key,
+                      label,
+                      km,
+                      Icon: Waves,
+                      detail: race.swim ? SWIM_LABEL[race.swim] : null,
+                      title: race.swim ? SWIM_LONG[race.swim] : undefined,
+                      terrain: undefined,
+                      what: 'Swim type',
+                    };
+                  }
+                  const terrain = race[discipline];
+                  return {
+                    key,
+                    label,
+                    km,
+                    Icon: discipline === 'bike' ? Bike : Footprints,
+                    detail: terrain ? TERRAIN_LABEL[terrain] : null,
+                    title: terrain ? `${TERRAIN_LABEL[terrain]} ${discipline} course` : undefined,
+                    terrain,
+                    what: discipline === 'bike' ? 'Bike course' : 'Run course',
+                  };
+                })
+                .map(({ key, label, km, Icon, detail, title, terrain, what }, i) => (
+                  <div key={key} className={cn('flex min-w-0 flex-col', i > 0 && 'border-l border-line')}>
+                    <div className="px-3 pt-3 pb-2.5">
+                      <Icon className="size-4 text-muted" aria-hidden="true" />
+                      <p className="tabular mt-1.5 font-display text-[24px] leading-none font-bold">
+                        {km}
+                        <span className="ml-0.5 text-[13px] font-bold text-muted">km</span>
+                      </p>
+                      <p className="mt-0.5 text-[12px] text-muted">{label}</p>
+                    </div>
+                    <p
+                      className={cn(
+                        'mt-auto flex min-h-9 items-center gap-1.5 border-t border-line bg-surface-2/60 px-3 py-2 text-[12.5px] leading-tight',
+                        detail ? 'font-semibold text-fg' : 'text-faint',
+                      )}
+                      title={title}
+                    >
+                      <span className="sr-only">{what}: </span>
+                      {terrain && <TerrainGlyph terrain={terrain} />}
+                      <span className="min-w-0">{detail ?? 'Not listed yet'}</span>
                     </p>
-                    <p className="mt-0.5 text-[12px] text-muted">{label}</p>
                   </div>
-                  <p
-                    className={cn(
-                      'mt-auto flex min-h-9 items-center gap-1.5 border-t border-line bg-surface-2/60 px-3 py-2 text-[12.5px] leading-tight',
-                      detail ? 'font-semibold text-fg' : 'text-faint',
-                    )}
-                    title={title}
-                  >
-                    <span className="sr-only">{what}: </span>
-                    {terrain && <TerrainGlyph terrain={terrain} />}
-                    <span className="min-w-0">{detail ?? 'Not listed yet'}</span>
-                  </p>
-                </div>
-              ))}
+                ))}
             </div>
             <p className="mt-2 text-[12px] text-faint" data-testid="course-total">
               {d.long} · {formatKm(legs.total)} total
-              {nonStandard && (
-                <>
-                  {' '}
-                  · standard {d.swim} / {d.bike} / {d.run} km
-                </>
-              )}
+              {nonStandard && <> · standard {legsText(raceLegs({ distance: race.distance }))}</>}
             </p>
           </section>
 
