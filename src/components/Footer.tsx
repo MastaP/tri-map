@@ -28,8 +28,8 @@ export function Footer({
   return (
     <footer className="space-y-2 px-4 py-6 text-[12px] leading-relaxed text-faint">
       <p>
-        Not affiliated with IRONMAN, Challenge Family or PTO/T100. Dates can change; always confirm on the official
-        website.
+        Not affiliated with IRONMAN, Challenge Family, PTO/T100 or XTERRA; their logos are trademarks of their owners.
+        Dates can change; always confirm on the official website.
       </p>
       {registration.length > 0 && (
         <p data-testid="registration-sources">

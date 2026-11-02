@@ -61,13 +61,14 @@ export const FILE_SCOPES: Record<string, FileScope> = {
   'independent.json': { brand: 'independent' },
   'netherlands.json': { brand: 'independent', countries: ['NL'] },
   'duathlon.json': { brand: 'independent', distance: 'duathlon' },
-  'xterra.json': { brand: 'independent', distance: 'cross' },
+  'xterra.json': { brand: 'xterra', distance: 'cross' },
 };
 
 const EXPECTED_SERIES: Partial<Record<`${BrandId}:${DistanceId}`, string[]>> = {
   'ironman:full': ['IRONMAN'],
   'ironman:half': ['IRONMAN 70.3'],
   't100:t100': ['T100 World Championship Tour', 'T100 Challenger'],
+  'xterra:cross': ['XTERRA World Cup', 'XTERRA'],
 };
 
 function decimals(n: number): number {

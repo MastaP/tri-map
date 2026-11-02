@@ -28,10 +28,12 @@ build (`npm run build && npm run preview`) when the UI changes._
 
 ## Features
 
-- **World map with brand markers.** Each brand has its own original glyph: shape, colour
-  _and_ monogram, so it stays readable for colour-blind users and in greyscale
-  (IRONMAN: red circle "IM", Challenge: blue rounded square "C", T100: teal hexagon
-  "T", Independent: amber diamond with a spark). Full-distance races get an outer ring,
+- **World map with brand markers.** Each brand's marker carries its own logo in white
+  on a badge that differs in shape _and_ colour, so it stays readable for colour-blind
+  users and in greyscale (IRONMAN: the M-Dot on a red circle, Challenge Family: its
+  heart on a blue rounded square, T100: its wordmark on a teal hexagon, XTERRA: its X
+  on a slate pentagon; independent races, which share no logo: a spark on an amber
+  diamond). Full-distance races get an outer ring,
   races whose date is only estimated (when estimated dates are on) are drawn hollow with
   a dashed outline,
   qualifier-only and ballot races carry a small lock / ticket pip, a few races close
@@ -399,6 +401,6 @@ e2e/           Playwright smoke, accessibility and screenshot specs
 
 ## Disclaimer
 
-TriMap is not affiliated with IRONMAN, Challenge Family or PTO/T100. Brand glyphs are
-original monograms, not the organisers' logos. Dates can change; always confirm on the
-official website.
+TriMap is not affiliated with IRONMAN, Challenge Family, PTO/T100 or XTERRA. Their
+logos, shown on the brand markers (`src/data/logos.ts`), are trademarks of their owners.
+Dates can change; always confirm on the official website.

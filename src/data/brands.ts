@@ -1,12 +1,14 @@
 /**
  * Brand identity for markers, chips and the legend.
  *
- * These are original monogram glyphs, NOT the organisers' logos (which are trademarks).
- * Every brand differs in shape, colour and monogram so it stays identifiable for
- * colour-blind users and in greyscale.
+ * Each brand's glyph is a badge in its colour carrying the organiser's own mark in white
+ * (./logos.ts; trademarks of their owners). Independent races have no common mark and
+ * get a spark. Every brand also differs in badge shape, so the glyphs stay identifiable
+ * for colour-blind users and in greyscale.
  */
+import { LOGOS, type BrandLogo } from './logos.ts';
 
-export const BRAND_IDS = ['ironman', 'challenge', 't100', 'independent'] as const;
+export const BRAND_IDS = ['ironman', 'challenge', 't100', 'xterra', 'independent'] as const;
 export type BrandId = (typeof BRAND_IDS)[number];
 
 /** What is raced: swim–bike–run, run–bike–run, or the bike alone. */
@@ -21,7 +23,7 @@ export type SportId = (typeof SPORT_IDS)[number];
 export const DISTANCE_IDS = ['full', 'half', 't100', 'olympic', 'sprint', 'cross', 'duathlon', 'time-trial'] as const;
 export type DistanceId = (typeof DISTANCE_IDS)[number];
 
-export type BrandShape = 'circle' | 'square' | 'hexagon' | 'diamond';
+export type BrandShape = 'circle' | 'square' | 'hexagon' | 'pentagon' | 'diamond';
 
 export interface BrandStyle {
   id: BrandId;
@@ -30,15 +32,15 @@ export interface BrandStyle {
   description: string;
   /** Fill colour; chosen to read on both the light and the dark basemap. */
   color: string;
-  /** Colour of the monogram drawn on top of `color` (AA contrast). */
+  /** Colour of the mark drawn on top of `color` (AA contrast). */
   ink: string;
   shape: BrandShape;
-  /** Text monogram, or null when the glyph is drawn as a path (see `glyphPath`). */
-  monogram: string | null;
-  /** Optional path drawn instead of a text monogram (viewBox 0 0 32 32). */
+  /** The organiser's mark, fitted into `logoBox`; or null to draw `glyphPath`. */
+  logo: BrandLogo | null;
+  /** Where the logo sits in the 32×32 badge: x, y, width, height (centred, kept in proportion). */
+  logoBox?: readonly [number, number, number, number];
+  /** The mark of a brand without a logo (viewBox 0 0 32 32). */
   glyphPath?: string;
-  /** Font size of the monogram in the 32×32 viewBox. */
-  monogramSize: number;
 }
 
 export const BRANDS: Record<BrandId, BrandStyle> = {
@@ -49,8 +51,9 @@ export const BRANDS: Record<BrandId, BrandStyle> = {
     color: '#D42A1F',
     ink: '#FFFFFF',
     shape: 'circle',
-    monogram: 'IM',
-    monogramSize: 15,
+    // The M-Dot: taller than wide.
+    logo: LOGOS.ironman,
+    logoBox: [7.5, 7, 17, 17.6],
   },
   challenge: {
     id: 'challenge',
@@ -59,8 +62,8 @@ export const BRANDS: Record<BrandId, BrandStyle> = {
     color: '#1D5FD6',
     ink: '#FFFFFF',
     shape: 'square',
-    monogram: 'C',
-    monogramSize: 19,
+    logo: LOGOS.challenge,
+    logoBox: [7.6, 7.6, 16.8, 17.2],
   },
   t100: {
     id: 't100',
@@ -72,8 +75,21 @@ export const BRANDS: Record<BrandId, BrandStyle> = {
     color: '#0D9488',
     ink: '#FFFFFF',
     shape: 'hexagon',
-    monogram: 'T',
-    monogramSize: 19,
+    // A wide wordmark: as wide as the hexagon allows.
+    logo: LOGOS.t100,
+    logoBox: [3.4, 11, 25.2, 10],
+  },
+  xterra: {
+    id: 'xterra',
+    label: 'XTERRA',
+    description: 'XTERRA off-road triathlons',
+    // Slate, after XTERRA's black: dark enough for the white X (4.8:1), light enough to
+    // stand out on the dark theme's panels (3.6:1), and neutral next to the other brands.
+    color: '#64748B',
+    ink: '#FFFFFF',
+    shape: 'pentagon',
+    logo: LOGOS.xterra,
+    logoBox: [7.2, 11.6, 17.6, 11.6],
   },
   independent: {
     id: 'independent',
@@ -82,10 +98,9 @@ export const BRANDS: Record<BrandId, BrandStyle> = {
     color: '#F0A30A',
     ink: '#2A1B00',
     shape: 'diamond',
-    monogram: null,
+    logo: null,
     // A four-point spark: distinct from the five-point shortlist star.
     glyphPath: 'M16 7.6 18.2 13.8 24.4 16 18.2 18.2 16 24.4 13.8 18.2 7.6 16 13.8 13.8Z',
-    monogramSize: 0,
   },
 };
 
@@ -95,6 +110,8 @@ export const SHAPE_PATHS: Record<BrandShape, string> = {
   square: 'M9.5 3.5h13a6 6 0 0 1 6 6v13a6 6 0 0 1-6 6h-13a6 6 0 0 1-6-6v-13a6 6 0 0 1 6-6Z',
   hexagon:
     'M14.3 2.4a3.4 3.4 0 0 1 3.4 0l9.6 5.55a3.4 3.4 0 0 1 1.7 2.94v10.22a3.4 3.4 0 0 1-1.7 2.94L17.7 29.6a3.4 3.4 0 0 1-3.4 0L4.7 24.05a3.4 3.4 0 0 1-1.7-2.94V10.89a3.4 3.4 0 0 1 1.7-2.94Z',
+  pentagon:
+    'M18.1 4.33L27.59 11.22Q29.7 12.75 28.89 15.22L25.27 26.38Q24.46 28.85 21.86 28.85L10.14 28.85Q7.54 28.85 6.73 26.38L3.11 15.22Q2.3 12.75 4.41 11.22L13.9 4.33Q16 2.8 18.1 4.33Z',
   diamond:
     'M13.7 1.95a3.25 3.25 0 0 1 4.6 0l11.75 11.75a3.25 3.25 0 0 1 0 4.6L18.3 30.05a3.25 3.25 0 0 1-4.6 0L1.95 18.3a3.25 3.25 0 0 1 0-4.6Z',
 };
@@ -266,6 +283,20 @@ export interface GlyphOptions {
 const escapeXml = (s: string) =>
   s.replace(/[<>&"']/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&apos;' })[c]!);
 
+const num = (n: number) => String(Math.round(n * 10000) / 10000);
+
+/**
+ * The transform that fits a logo into its box, centred and in proportion. A transform
+ * rather than a nested <svg>: page CSS that sizes marker SVGs would also resize a nested one.
+ */
+function logoTransform(logo: BrandLogo, [x, y, w, h]: readonly [number, number, number, number]): string {
+  const [vx, vy, vw, vh] = logo.viewBox.split(' ').map(Number) as [number, number, number, number];
+  const k = Math.min(w / vw, h / vh);
+  const tx = x + (w - vw * k) / 2;
+  const ty = y + (h - vh * k) / 2;
+  return `translate(${num(tx)} ${num(ty)}) scale(${num(k)}) translate(${num(-vx)} ${num(-vy)})`;
+}
+
 /**
  * SVG markup for a brand glyph (viewBox 0 0 32 32). Used for the HTML map markers,
  * which are plain DOM for performance; the React `BrandGlyph` component renders the
@@ -298,12 +329,11 @@ export function brandGlyphSvg(brand: BrandId, opts: GlyphOptions = {}): string {
   } else {
     parts.push(`<path d="${shape}" style="fill:${fill};stroke:${ring};stroke-width:2;stroke-linejoin:round"/>`);
   }
-  if (b.glyphPath) {
+  if (b.logo && b.logoBox) {
+    const paths = b.logo.paths.map((d) => `<path d="${d}" style="fill:${ink}"/>`).join('');
+    parts.push(`<g transform="${logoTransform(b.logo, b.logoBox)}">${paths}</g>`);
+  } else if (b.glyphPath) {
     parts.push(`<path d="${b.glyphPath}" style="fill:${ink}"/>`);
-  } else if (b.monogram) {
-    parts.push(
-      `<text x="16" y="16.8" text-anchor="middle" dominant-baseline="central" style="fill:${ink};font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:700;font-size:${b.monogramSize}px;letter-spacing:${b.monogram.length > 1 ? '-0.4px' : '0'}">${escapeXml(b.monogram)}</text>`,
-    );
   }
   const a11y = opts.title ? `role="img" aria-label="${escapeXml(opts.title)}"` : 'aria-hidden="true" focusable="false"';
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb}" ${a11y}>${parts.join('')}</svg>`;

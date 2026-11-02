@@ -1,8 +1,8 @@
 [
   {
-    "id": "independent-xterra-grabouw-cross",
+    "id": "xterra-grabouw-cross",
     "name": "XTERRA South Africa",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Grabouw",
@@ -33,9 +33,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-dunsborough-cross",
+    "id": "xterra-dunsborough-cross",
     "name": "XTERRA Australia",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA World Cup",
     "distance": "cross",
     "championship": "XTERRA Asia-Pacific Championship",
@@ -71,9 +71,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-rotorua-cross",
+    "id": "xterra-rotorua-cross",
     "name": "XTERRA Rotorua",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Rotorua",
@@ -108,9 +108,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-sematan-cross",
+    "id": "xterra-sematan-cross",
     "name": "XTERRA Borneo Sarawak",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Sematan",
@@ -144,9 +144,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-cabo-rojo-cross",
+    "id": "xterra-cabo-rojo-cross",
     "name": "XTERRA Puerto Rico",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Cabo Rojo",
@@ -181,9 +181,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-vouliagmeni-cross",
+    "id": "xterra-vouliagmeni-cross",
     "name": "XTERRA Greece",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA World Cup",
     "distance": "cross",
     "city": "Vouliagmeni",
@@ -219,9 +219,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-new-jersey-cross",
+    "id": "xterra-new-jersey-cross",
     "name": "XTERRA New Jersey",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Branchville",
@@ -257,9 +257,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-weston-park-cross",
+    "id": "xterra-weston-park-cross",
     "name": "XTERRA Weston Park",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA World Cup",
     "distance": "cross",
     "city": "Weston-under-Lizard",
@@ -295,9 +295,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-mali-losinj-cross",
+    "id": "xterra-mali-losinj-cross",
     "name": "XTERRA Croatia Mali Lošinj",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Mali Lošinj",
@@ -318,7 +318,7 @@
       "run": 9.7
     },
     "notes": "Adriatic swim at Veli Žal beach; XTERRA Croatia moves to Ugljan Island near Zadar from October 2027",
-    "continuedAs": "independent-xterra-ugljan-cross",
+    "continuedAs": "xterra-ugljan-cross",
     "sources": [
       "https://results.xterraplanet.com/results/f4222cb0-15ee-40dd-9171-679218cf41d2",
       "https://www.xterraplanet.com/event/xterra-croatia",
@@ -327,9 +327,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-ilha-grande-cross",
+    "id": "xterra-ilha-grande-cross",
     "name": "XTERRA Ilha Grande",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Ilha Grande",
@@ -366,9 +366,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-oak-mountain-cross",
+    "id": "xterra-oak-mountain-cross",
     "name": "XTERRA Oak Mountain",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA World Cup",
     "distance": "cross",
     "championship": "XTERRA North American Championship",
@@ -404,9 +404,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-namur-cross",
+    "id": "xterra-namur-cross",
     "name": "XTERRA Belgium",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Namur",
@@ -442,9 +442,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-vassiviere-cross",
+    "id": "xterra-vassiviere-cross",
     "name": "XTERRA Nouvelle Aquitaine",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Beaumont-du-Lac",
@@ -480,9 +480,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-molveno-cross",
+    "id": "xterra-molveno-cross",
     "name": "XTERRA Molveno",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA World Cup",
     "distance": "cross",
     "championship": "XTERRA European Championship",
@@ -520,9 +520,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-banska-stiavnica-cross",
+    "id": "xterra-banska-stiavnica-cross",
     "name": "XTERRA Slovakia",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Banská Štiavnica",
@@ -559,9 +559,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-xonrupt-cross",
+    "id": "xterra-xonrupt-cross",
     "name": "XTERRA France",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Xonrupt-Longemer",
@@ -597,9 +597,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-lac-delage-cross",
+    "id": "xterra-lac-delage-cross",
     "name": "XTERRA Quebec",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Lac-Delage",
@@ -633,9 +633,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-paipa-cross",
+    "id": "xterra-paipa-cross",
     "name": "XTERRA Colombia",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "championship": "XTERRA South American Championship",
@@ -671,9 +671,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-scanno-cross",
+    "id": "xterra-scanno-cross",
     "name": "XTERRA Lake Scanno",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Scanno",
@@ -708,9 +708,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-portland-cross",
+    "id": "xterra-portland-cross",
     "name": "XTERRA Portland",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Gaston",
@@ -747,9 +747,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-gileppe-cross",
+    "id": "xterra-gileppe-cross",
     "name": "XTERRA Ardennes",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Jalhay",
@@ -785,9 +785,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-prachatice-cross",
+    "id": "xterra-prachatice-cross",
     "name": "XTERRA Czech Republic",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA World Cup",
     "distance": "cross",
     "city": "Prachatice",
@@ -824,9 +824,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-huasca-cross",
+    "id": "xterra-huasca-cross",
     "name": "XTERRA Santa Elena",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Huasca de Ocampo",
@@ -863,9 +863,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-olbersdorf-cross",
+    "id": "xterra-olbersdorf-cross",
     "name": "XTERRA O-SEE Challenge",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Olbersdorf",
@@ -902,9 +902,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-thunder-bay-cross",
+    "id": "xterra-thunder-bay-cross",
     "name": "XTERRA Sleeping Giant",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Thunder Bay",
@@ -938,9 +938,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-las-catalinas-cross",
+    "id": "xterra-las-catalinas-cross",
     "name": "XTERRA Costa Rica",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Las Catalinas",
@@ -976,9 +976,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-altaussee-cross",
+    "id": "xterra-altaussee-cross",
     "name": "XTERRA Austria",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Altaussee",
@@ -1014,9 +1014,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-ruidoso-cross",
+    "id": "xterra-ruidoso-cross",
     "name": "XTERRA World Championship",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA World Cup",
     "distance": "cross",
     "championship": "XTERRA World Championship",
@@ -1051,9 +1051,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-suzhou-cross",
+    "id": "xterra-suzhou-cross",
     "name": "XTERRA Suzhou",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA World Cup",
     "distance": "cross",
     "city": "Suzhou",
@@ -1085,9 +1085,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-moorea-cross",
+    "id": "xterra-moorea-cross",
     "name": "XTERRA Tahiti",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Moorea",
@@ -1117,9 +1117,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-los-cabos-cross",
+    "id": "xterra-los-cabos-cross",
     "name": "XTERRA Cabo",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Los Cabos",
@@ -1152,9 +1152,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-pokhara-cross",
+    "id": "xterra-pokhara-cross",
     "name": "XTERRA Nepal",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Pokhara",
@@ -1185,9 +1185,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-anglesea-cross",
+    "id": "xterra-anglesea-cross",
     "name": "XTERRA Anglesea",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Anglesea",
@@ -1215,9 +1215,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-branson-cross",
+    "id": "xterra-branson-cross",
     "name": "XTERRA Branson",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Branson",
@@ -1247,9 +1247,9 @@
     "verifiedAt": "2026-11-02"
   },
   {
-    "id": "independent-xterra-ugljan-cross",
+    "id": "xterra-ugljan-cross",
     "name": "XTERRA Croatia Zadar-Ugljan Island",
-    "brand": "independent",
+    "brand": "xterra",
     "series": "XTERRA",
     "distance": "cross",
     "city": "Preko",

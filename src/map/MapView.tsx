@@ -20,7 +20,7 @@ import type { FeatureCollection, Point } from 'geojson';
 import { Maximize, Minus, Plus } from 'lucide-react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { MapUnavailable } from '../components/MapUnavailable.tsx';
-import type { BrandId } from '../data/brands.ts';
+import { BRAND_IDS, type BrandId } from '../data/brands.ts';
 import type { NextEdition } from '../data/nextEdition.ts';
 import type { Race } from '../data/types.ts';
 import type { Theme } from '../hooks/useTheme.ts';
@@ -263,12 +263,7 @@ function MapCanvas(props: MapViewProps & { onCrash: () => void }) {
         // Clusters exist up to the last zoom level, so races at one venue stay one
         // clickable marker that opens a list.
         clusterMaxZoom: MAX_ZOOM,
-        clusterProperties: {
-          ironman: brandSum('ironman'),
-          challenge: brandSum('challenge'),
-          t100: brandSum('t100'),
-          independent: brandSum('independent'),
-        },
+        clusterProperties: Object.fromEntries(BRAND_IDS.map((b) => [b, brandSum(b)])),
       });
       // Invisible layer: makes the source load tiles so clusters can be queried.
       map.addLayer({

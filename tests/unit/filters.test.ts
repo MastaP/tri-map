@@ -384,7 +384,7 @@ describe('facetCounts', () => {
   it('counts each option ignoring its own dimension', () => {
     const c = facetCounts(races, f({ brands: ['ironman'], regions: ['europe'] }), ctx);
     // Challenge Roth's next date is not announced (estimated dates are off).
-    expect(c.brand).toEqual({ ironman: 2, challenge: 2, t100: 1, independent: 6 });
+    expect(c.brand).toEqual({ ironman: 2, challenge: 2, t100: 1, xterra: 0, independent: 6 });
     expect(facetCounts(races, est({ brands: ['ironman'], regions: ['europe'] }), ctx).brand.challenge).toBe(3);
     expect(c.region.europe).toBe(2);
     expect(c.region['latin-america']).toBe(2);

@@ -159,9 +159,20 @@ describe('races other than long-distance triathlons', () => {
         ]),
         file('xterra.json', [
           nl({
-            id: 'independent-xterra-almere-cross',
+            id: 'xterra-almere-cross',
+            brand: 'xterra',
+            series: 'XTERRA World Cup',
             distance: 'cross',
             lat: 52.6012,
+            course: { swim: 1, bike: 20, run: 6 },
+          }),
+          nl({
+            id: 'xterra-lelystad-cross',
+            brand: 'xterra',
+            series: 'Xterra',
+            distance: 'cross',
+            lat: 52.5168,
+            lng: 5.4714,
             course: { swim: 1, bike: 20, run: 6 },
           }),
           nl({ id: 'independent-almere-2-sprint', distance: 'sprint', lat: 52.7012 }),
@@ -172,6 +183,8 @@ describe('races other than long-distance triathlons', () => {
     expect(r.errorCount).toBe(0);
     expect(r.issues.map((i) => `${i.id ?? i.file}: ${i.message}`)).toEqual([
       'independent-almere-olympic: distance "olympic" does not belong in duathlon.json',
+      'xterra-lelystad-cross: series should be "XTERRA World Cup" or "XTERRA"',
+      'independent-almere-2-sprint: brand "independent" does not belong in xterra.json (expected "xterra")',
       'independent-almere-2-sprint: distance "sprint" does not belong in xterra.json',
     ]);
     const abroad = validateRaceFiles(

@@ -25,7 +25,7 @@ the Dutch race series.
 | `independent.json` | Notable non-branded full/half races (Xtri World Tour, Outlaw, Embrunman, …) |
 | `netherlands.json` | Dutch race series at every distance: Dutch Triathlon Series (DTS) and TriHard (triathlons, duathlons, time trials) |
 | `duathlon.json` | Major duathlons worldwide outside those series: Powerman, World/European age-group championships, flagship races |
-| `xterra.json` | XTERRA off-road triathlons worldwide (main age-group race of each event), incl. the XTERRA World Championship |
+| `xterra.json` | XTERRA off-road triathlons worldwide (`brand: "xterra"`; main age-group race of each event), incl. the XTERRA World Championship |
 
 A World Championship goes in the file for its region/brand like any other race.
 
@@ -35,7 +35,7 @@ A World Championship goes in the file for its region/brand like any other race.
 {
   "id": "ironman-frankfurt-full",           // required, unique across ALL files: <brand>-<location-slug>-<distance>, kebab-case ascii
   "name": "IRONMAN Frankfurt",              // required, official event name, no year
-  "brand": "ironman",                       // required: "ironman" | "challenge" | "t100" | "independent"
+  "brand": "ironman",                       // required: "ironman" | "challenge" | "t100" | "xterra" | "independent"
   "series": "IRONMAN",                      // optional: sub-brand / series, e.g. "IRONMAN 70.3", "Xtri World Tour", "Outlaw"
   "distance": "full",                       // required: "full" (3.8/180/42.2) | "half" (1.9/90/21.1) | "t100" (2/80/18)
                                             //   | "olympic" (1.5/40/10) | "sprint" (0.75/20/5) | "cross" | "duathlon" | "time-trial" (see "Distances")
@@ -140,6 +140,8 @@ the Americas (negative) and of `lat` in the southern hemisphere (negative).
     under its own brand.
   - T50 (short course) is out of scope (no file covers short races outside the
     Netherlands yet).
+- `brand: "xterra"`, `distance: "cross"`, all in `xterra.json`: `series: "XTERRA World Cup"`
+  for World Cup races (including the XTERRA World Championship), else `"XTERRA"`.
 - `brand: "independent"` for everything else; put the series/organiser in `series`
   (e.g. `"Xtri World Tour"`, `"Outlaw"`, `"Dutch Triathlon Series"`, `"TriHard"`,
   `"Powerman"`) or omit it for a one-off race.
@@ -165,8 +167,8 @@ the Americas (negative) and of `lat` in the southern hemisphere (negative).
   "run2": 10 }` for a duathlon, `{ "bike": 42 }` for a time trial. Cards and the map
   show these km with the category ("Duathlon · 10/56/10 km"). Leave out `swim` for
   duathlons and time trials and `run` for a time trial; the validator rejects them.
-- XTERRA: one record per event for its main race (`series: "XTERRA World Cup"` for
-  World Cup races, else `"XTERRA"`), not the sprint or short-track side races.
+- XTERRA: one record per event for its main race, not the sprint or short-track side
+  races.
 - Two races of the same category at one venue (a short and a long duathlon, a 28 km and
   a 42 km time trial) get a distinguishing slug and name:
   `independent-rbr-almere-short-duathlon` "RBR Almere Short".

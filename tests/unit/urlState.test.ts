@@ -57,10 +57,11 @@ describe('URL state', () => {
 
   it('ignores junk and normalizes order', () => {
     const { filters, raceId } = parseUrlState(
-      'dist=half,marathon,FULL&brand=xterra&region=mars,oceania&when=forever&from=2026-13&race=<script>',
+      'dist=half,marathon,FULL&brand=zwift&region=mars,oceania&when=forever&from=2026-13&race=<script>',
     );
     expect(filters.distances).toEqual(['full', 'half']);
     expect(filters.brands).toEqual([]);
+    expect(parseUrlState('brand=xterra').filters.brands).toEqual(['xterra']);
     expect(filters.regions).toEqual(['oceania']);
     expect(filters.time).toEqual({ kind: 'any' });
     expect(raceId).toBeNull();

@@ -12,14 +12,8 @@ import { asOfText, ENTRY_BADGE, REGISTRATION_BADGE, registrationSummary } from '
 
 export const MARKER_CORE_PX = 26;
 
-export interface ClusterProps {
-  cluster_id: number;
-  point_count: number;
-  ironman: number;
-  challenge: number;
-  t100: number;
-  independent: number;
-}
+/** A cluster's id, size and race count per brand. */
+export type ClusterProps = { cluster_id: number; point_count: number } & Record<BrandId, number>;
 
 function el<K extends keyof HTMLElementTagNameMap>(tag: K, className?: string, text?: string) {
   const e = document.createElement(tag);
