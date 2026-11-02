@@ -141,6 +141,7 @@ npm run dev:fixtures    # same, with the 19-race fixture set (tests/fixtures/rac
 | `npm test`                              | Unit tests (Vitest)                                                                |
 | `npm run test:e2e`                      | Playwright smoke + accessibility tests against a fixture build                     |
 | `npm run screenshots`                   | Regenerate `docs/screenshots/*.png`                                                |
+| `npm run og-image`                      | Regenerate the share image `public/og-image.png`                                   |
 | `npm run typecheck` / `lint` / `format` | TypeScript, ESLint, Prettier                                                       |
 
 For the e2e tests install Chromium once with `npx playwright install chromium` (on a bare
@@ -383,7 +384,9 @@ from `mastap.github.io`, so local dev servers, previews, e2e runs and forks send
 - The build also writes `race/<id>/index.html` for every race (share previews, see
   `scripts/racePages.ts`) and injects absolute `og:image` / `og:url` / canonical tags
   when the site URL is known (`VITE_SITE_URL`, else the GitHub Pages URL of the repo).
-  `public/og-image.png` and the app icons are static files.
+  The app icons are static files. `public/og-image.png`, the image those previews show,
+  is rendered from `scripts/ogImage.ts` by `npm run og-image` (Playwright's Chromium),
+  so it follows the brand list and logos; regenerate and commit it when they change.
 - Flags are SVGs from [`flag-icons`](https://github.com/lipis/flag-icons) because
   Windows does not render flag emoji; the heaviest ones (coats of arms) are small PNGs
   in `src/assets/flags`.
