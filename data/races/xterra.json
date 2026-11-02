@@ -1,0 +1,1283 @@
+[
+  {
+    "id": "independent-xterra-grabouw-cross",
+    "name": "XTERRA South Africa",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Grabouw",
+    "country": "ZA",
+    "lat": -34.12792,
+    "lng": 19.02397,
+    "url": "https://results.xterraplanet.com/results/709b4bee-a085-4141-b8d7-ff7ee0f66386",
+    "editions": [
+      {
+        "date": "2026-02-28",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "course": {
+      "swim": 1.5,
+      "bike": 30,
+      "run": 10
+    },
+    "notes": "Elgin Valley near Cape Town, 20th edition in 2026; event page and planned 2027 edition withdrawn from the XTERRA calendar",
+    "recurring": false,
+    "sources": [
+      "https://results.xterraplanet.com/results/709b4bee-a085-4141-b8d7-ff7ee0f66386",
+      "https://www.xterraplanet.com/world-tour/2026",
+      "https://xterraplanet.com/race-reports/weekend-highlights-from-south-africa-as-xterra-enters-its-30th-year",
+      "https://running.life/en/event/xterra-south-africa"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-dunsborough-cross",
+    "name": "XTERRA Australia",
+    "brand": "independent",
+    "series": "XTERRA World Cup",
+    "distance": "cross",
+    "championship": "XTERRA Asia-Pacific Championship",
+    "city": "Dunsborough",
+    "country": "AU",
+    "lat": -33.6026,
+    "lng": 115.1017,
+    "url": "https://www.xterraplanet.com/event/xterra-australia",
+    "editions": [
+      {
+        "date": "2026-03-28",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-03",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "run": "hilly",
+    "course": {
+      "swim": 1.5,
+      "bike": 30.2,
+      "run": 10.5
+    },
+    "notes": "Asia-Pacific Championship and World Cup opener; Geographe Bay swim, 2 MTB laps in Meelup Regional Park, coastal trail run",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-australia",
+      "https://www.xterraplanet.com/race/xterra-australia-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/83336c51-cb77-4836-8b4d-e3c24cbab585",
+      "https://www.xterraplanet.com/world-cup"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-rotorua-cross",
+    "name": "XTERRA Rotorua",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Rotorua",
+    "country": "NZ",
+    "lat": -38.1868,
+    "lng": 176.3278,
+    "url": "https://www.xterraplanet.com/event/xterra-rotorua-festival",
+    "editions": [
+      {
+        "date": "2026-04-11",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-10",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "mountainous",
+    "course": {
+      "swim": 1,
+      "bike": 26,
+      "run": 11
+    },
+    "notes": "Also the XTERRA New Zealand Championships; one-lap Blue Lake (Tikitapu) swim, Whakarewarewa Forest MTB",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-rotorua-festival",
+      "https://www.xterraplanet.com/race/xterra-rotorua-festival-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/6a51a9d2-6313-48da-9fec-9710d123d21b",
+      "https://www.xterra.co.nz/"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-sematan-cross",
+    "name": "XTERRA Borneo Sarawak",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Sematan",
+    "country": "MY",
+    "lat": 1.82788,
+    "lng": 109.74804,
+    "url": "https://www.xterraplanet.com/event/xterra-borneo-sarawak",
+    "editions": [
+      {
+        "date": "2026-04-18",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-24",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "hilly",
+    "course": {
+      "swim": 1.5,
+      "bike": 32,
+      "run": 10
+    },
+    "notes": "South China Sea swim at Sematan, MTB through Mount Pueh foothills, jungle run to a finish at Camp Belia, Pueh",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-borneo-sarawak",
+      "https://www.xterraplanet.com/race/xterra-borneo-sarawak-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/46ecc89a-a7ae-46b7-8aa6-d3dcd6642105"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-cabo-rojo-cross",
+    "name": "XTERRA Puerto Rico",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Cabo Rojo",
+    "country": "PR",
+    "lat": 17.9766,
+    "lng": -67.2128,
+    "url": "https://www.xterraplanet.com/event/xterra-puerto-rico",
+    "editions": [
+      {
+        "date": "2026-04-19",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "hilly",
+    "run": "hilly",
+    "course": {
+      "swim": 1.5,
+      "bike": 33,
+      "run": 10
+    },
+    "notes": "Combate Beach; 2-lap ocean swim, almost all off-road bike in dry forest",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-puerto-rico",
+      "https://www.xterraplanet.com/race/xterra-puerto-rico-triathlon",
+      "https://results.xterraplanet.com/results/4e761b97-a787-47a0-85b3-591239f2b52c"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-vouliagmeni-cross",
+    "name": "XTERRA Greece",
+    "brand": "independent",
+    "series": "XTERRA World Cup",
+    "distance": "cross",
+    "city": "Vouliagmeni",
+    "country": "GR",
+    "lat": 37.8135,
+    "lng": 23.7786,
+    "url": "https://www.xterraplanet.com/event/xterra-greece",
+    "editions": [
+      {
+        "date": "2026-04-25",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-24",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 30,
+      "run": 11
+    },
+    "notes": "World Cup stop; swim in the Vouliagmeni gulf (Athens 2004 Olympic tri venue), bike 800 m+, run 360 m+",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-greece",
+      "https://www.xterraplanet.com/race/xterra-greece-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/03fc3f4a-0ce5-4548-ab81-e4be303dca67",
+      "https://trimore.gr/en/events/extrra-greece"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-new-jersey-cross",
+    "name": "XTERRA New Jersey",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Branchville",
+    "country": "US",
+    "lat": 41.2136,
+    "lng": -74.7984,
+    "url": "https://www.xterraplanet.com/event/xterra-new-jersey",
+    "editions": [
+      {
+        "date": "2026-04-26",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-16",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "hilly",
+    "run": "hilly",
+    "course": {
+      "swim": 1,
+      "bike": 22,
+      "run": 10
+    },
+    "notes": "Stokes State Forest; 2-lap swim in Robert Rooke Lake, 2 laps of an 11 km mixed-terrain MTB loop",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-new-jersey",
+      "https://www.xterraplanet.com/race/xterra-new-jersey-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/3f58ff6e-f2fe-415b-a02f-8b0ed2670311",
+      "https://ridewithgps.com/routes/53564058"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-weston-park-cross",
+    "name": "XTERRA Weston Park",
+    "brand": "independent",
+    "series": "XTERRA World Cup",
+    "distance": "cross",
+    "city": "Weston-under-Lizard",
+    "country": "GB",
+    "lat": 52.6876,
+    "lng": -2.2939,
+    "url": "https://www.xterraplanet.com/event/xterra-weston-park",
+    "editions": [
+      {
+        "date": "2026-05-03",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-02",
+        "status": "tentative"
+      }
+    ],
+    "swim": "lake",
+    "bike": "hilly",
+    "run": "rolling",
+    "course": {
+      "swim": 1.5,
+      "bike": 31,
+      "run": 10
+    },
+    "notes": "World Cup stop on a Staffordshire estate; 2-lap lake swim, 2-lap MTB, 2-lap run; 2027 date provisional on XTERRA site",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-weston-park",
+      "https://www.xterraplanet.com/race/xterra-weston-park-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/472ae9f5-01ce-4352-8951-eff9a51d5d30",
+      "https://xterraplanet.com/race-reports/xterra-weston-park-brings-festival-energy-to-staffordshire-uk-as-hedley-and-forissier-sweep-world-cup-weekend"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-mali-losinj-cross",
+    "name": "XTERRA Croatia Mali Lošinj",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Mali Lošinj",
+    "country": "HR",
+    "lat": 44.5242,
+    "lng": 14.4585,
+    "url": "https://www.xterraplanet.com/event/xterra-croatia",
+    "editions": [
+      {
+        "date": "2026-05-09",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "course": {
+      "swim": 1.5,
+      "bike": 28,
+      "run": 9.7
+    },
+    "notes": "Adriatic swim at Veli Žal beach; XTERRA Croatia moves to Ugljan Island near Zadar from October 2027",
+    "continuedAs": "independent-xterra-ugljan-cross",
+    "sources": [
+      "https://results.xterraplanet.com/results/f4222cb0-15ee-40dd-9171-679218cf41d2",
+      "https://www.xterraplanet.com/event/xterra-croatia",
+      "https://www.xterraplanet.com/world-tour/2026"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-ilha-grande-cross",
+    "name": "XTERRA Ilha Grande",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Ilha Grande",
+    "country": "BR",
+    "lat": -23.1384,
+    "lng": -44.1692,
+    "url": "https://www.xterraplanet.com/event/xterra-ilha-grande",
+    "editions": [
+      {
+        "date": "2026-05-16",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-15",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 21,
+      "run": 10
+    },
+    "notes": "Car-free island; swim at Vila do Abraão, steep Atlantic-forest MTB (~695 m) and run (~360 m); 2027 date provisional",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-ilha-grande",
+      "https://www.xterraplanet.com/race/xterra-ilha-grande-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/fec5fde7-bc9c-4d4f-9fb1-4aef3d41c763",
+      "https://xterrabrasil.com.br/portfolio-item/ilha-grande-15-a-17-maio-2026/",
+      "https://ridewithgps.com/routes/54629136"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-oak-mountain-cross",
+    "name": "XTERRA Oak Mountain",
+    "brand": "independent",
+    "series": "XTERRA World Cup",
+    "distance": "cross",
+    "championship": "XTERRA North American Championship",
+    "city": "Pelham",
+    "country": "US",
+    "lat": 33.3253,
+    "lng": -86.7581,
+    "url": "https://www.xterraplanet.com/event/xterra-oak-mountain",
+    "editions": [
+      {
+        "date": "2026-05-17",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-23",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "hilly",
+    "course": {
+      "swim": 1.5,
+      "bike": 30,
+      "run": 10
+    },
+    "notes": "North American Championship and World Cup stop; Double Oak Lake swim, one-lap singletrack bike with Blood Rock (~500 m)",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-oak-mountain",
+      "https://www.xterraplanet.com/race/xterra-oak-mountain-triathlon",
+      "https://results.xterraplanet.com/results/bbb08a30-9896-48ae-81fe-c55d7c2d86aa",
+      "https://xterraplanet.com/world-cup-stops/2026/oak-mountain"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-namur-cross",
+    "name": "XTERRA Belgium",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Namur",
+    "country": "BE",
+    "lat": 50.4598,
+    "lng": 4.8611,
+    "url": "https://www.xterraplanet.com/event/xterra-belgium",
+    "editions": [
+      {
+        "date": "2026-06-06",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 43,
+      "run": 10
+    },
+    "notes": "Belgian cross-tri championship; Meuse swim below the Citadel, 2x21.5 km MTB (1,010 m); 2026 bike was 35 km",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-belgium",
+      "https://www.xterraplanet.com/race/xterra-belgium-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/05b92751-44df-40b2-bbf8-cd740ba4ae3f",
+      "https://www.xterraplanet.com/race-reports/2026-xterra-belgium-captures-10-years-of-citadel-success"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-vassiviere-cross",
+    "name": "XTERRA Nouvelle Aquitaine",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Beaumont-du-Lac",
+    "country": "FR",
+    "lat": 45.8037,
+    "lng": 1.8445,
+    "url": "https://www.xterraplanet.com/event/xterra-nouvelle-aquitaine",
+    "editions": [
+      {
+        "date": "2026-06-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-12",
+        "status": "tentative"
+      }
+    ],
+    "swim": "lake",
+    "bike": "mountainous",
+    "run": "hilly",
+    "course": {
+      "swim": 1.5,
+      "bike": 33,
+      "run": 10
+    },
+    "notes": "Lac de Vassivière at ~650 m; 2-lap MTB (~910 m), 2-lap 10 km run (200 m); 2027 date provisional on XTERRA site",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-nouvelle-aquitaine",
+      "https://www.xterraplanet.com/race/xterra-nouvelle-aquitaine-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/e388f8b7-7977-441a-9d86-baa9a295d2c0",
+      "https://www.xterra-nouvelle-aquitaine.com/"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-molveno-cross",
+    "name": "XTERRA Molveno",
+    "brand": "independent",
+    "series": "XTERRA World Cup",
+    "distance": "cross",
+    "championship": "XTERRA European Championship",
+    "city": "Molveno",
+    "country": "IT",
+    "lat": 46.1392,
+    "lng": 10.9671,
+    "url": "https://www.xterraplanet.com/event/xterra-trentino-dolomiti-paganella",
+    "editions": [
+      {
+        "date": "2026-06-20",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 32,
+      "run": 10
+    },
+    "notes": "European Championship 2026-27, World Cup stop, 2025 Worlds venue; 2x16 km MTB into Paganella (1,100 m+), 2x5 km run (288 m)",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-trentino-dolomiti-paganella",
+      "https://www.xterraplanet.com/race/xterra-trentino-dolomiti-paganella-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/b99fbef2-93d1-49fc-9092-fa76c1ddf078",
+      "https://ridewithgps.com/routes/55499348",
+      "https://www.endurancesportswire.com/2026-xterra-european-championship-heads-to-the-italian-alps/"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-banska-stiavnica-cross",
+    "name": "XTERRA Slovakia",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Banská Štiavnica",
+    "country": "SK",
+    "lat": 48.4596,
+    "lng": 18.8925,
+    "url": "https://www.xterraplanet.com/event/xterra-slovakia",
+    "editions": [
+      {
+        "date": "2026-06-27",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-26",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 33,
+      "run": 10
+    },
+    "notes": "Swim in Kolpašské lake 8 km from the venue, MTB (~710 m) and 2x5 km run in and around the old mining town",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-slovakia",
+      "https://www.xterraplanet.com/race/xterra-slovakia-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/706cd047-38dc-460b-8a0f-118ef48f4bc4",
+      "https://ridewithgps.com/routes/55692839",
+      "https://ridewithgps.com/routes/55692800"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-xonrupt-cross",
+    "name": "XTERRA France",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Xonrupt-Longemer",
+    "country": "FR",
+    "lat": 48.07703,
+    "lng": 6.94656,
+    "url": "https://www.xterraplanet.com/event/xterra-france",
+    "editions": [
+      {
+        "date": "2026-07-05",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 40,
+      "run": 10
+    },
+    "notes": "Lac de Longemer in the Vosges; 2x20 km MTB (1,200 m), 2-lap run (320 m); 2027 weekend 3-4 July, full distance on the Sunday",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-france",
+      "https://www.xterraplanet.com/race/xterra-france-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/d3eefa9d-263e-4742-9264-8add92b5a463",
+      "https://xterra-france.com/"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-lac-delage-cross",
+    "name": "XTERRA Quebec",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Lac-Delage",
+    "country": "CA",
+    "lat": 46.9714,
+    "lng": -71.4027,
+    "url": "https://www.xterraplanet.com/event/xterra-quebec",
+    "editions": [
+      {
+        "date": "2026-07-11",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-11",
+        "status": "tentative"
+      }
+    ],
+    "swim": "lake",
+    "course": {
+      "swim": 1.5,
+      "bike": 29,
+      "run": 9
+    },
+    "notes": "Lac Delage swim, Empire 47 trail network north of Quebec City; 2027 date provisional",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-quebec",
+      "https://www.xterraplanet.com/race/xterra-quebec-triathlon-full-distance-individual-teams",
+      "https://results.xterraplanet.com/results/df79a6a8-3c04-4810-b8d6-c7594822550a",
+      "https://xterraquebec.com/"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-paipa-cross",
+    "name": "XTERRA Colombia",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "championship": "XTERRA South American Championship",
+    "city": "Paipa",
+    "country": "CO",
+    "lat": 5.7621,
+    "lng": -73.1125,
+    "url": "https://www.xterraplanet.com/event/xterra-colombia",
+    "editions": [
+      {
+        "date": "2026-07-11",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-10",
+        "status": "tentative"
+      }
+    ],
+    "swim": "lake",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 30,
+      "run": 10
+    },
+    "notes": "South American Championship; Lake Sochagota swim at ~2,500 m altitude, farmland MTB; 2027 date provisional on XTERRA site",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-colombia",
+      "https://www.xterraplanet.com/race/xterra-colombia-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/5dc31cad-b8e1-4642-b618-2ede1a9120f3",
+      "https://xterraplanet.com/race-reports/2026-xterra-south-american-championship-recap-in-colombia"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-scanno-cross",
+    "name": "XTERRA Lake Scanno",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Scanno",
+    "country": "IT",
+    "lat": 41.9177,
+    "lng": 13.8725,
+    "url": "https://www.xterraplanet.com/event/xterra-lake-scanno",
+    "editions": [
+      {
+        "date": "2026-07-25",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-24",
+        "status": "tentative"
+      }
+    ],
+    "swim": "lake",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 30,
+      "run": 10
+    },
+    "notes": "Abruzzo NP; 2x15 km MTB to the ski slopes (1,000 m), 10 km run (440 m) through Scanno; 2027 date provisional",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-lake-scanno",
+      "https://www.xterraplanet.com/race/xterra-lake-scanno-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/7f748889-5fd7-47b7-9b6e-3eedac75e286"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-portland-cross",
+    "name": "XTERRA Portland",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Gaston",
+    "country": "US",
+    "lat": 45.4925,
+    "lng": -123.2331,
+    "url": "https://www.xterraplanet.com/event/xterra-portland",
+    "editions": [
+      {
+        "date": "2026-08-01",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-31",
+        "status": "tentative"
+      }
+    ],
+    "swim": "lake",
+    "bike": "hilly",
+    "run": "hilly",
+    "course": {
+      "swim": 1,
+      "bike": 27.5,
+      "run": 8
+    },
+    "notes": "Henry Hagg Lake west of Portland; 2x500 m swim, MTB around the reservoir (~300 m); 2027 date provisional",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-portland",
+      "https://www.xterraplanet.com/race/xterra-portland-xterra-portland-full-triathlon",
+      "https://results.xterraplanet.com/results/a061f465-b780-4ad6-8032-73ec93e843dd",
+      "https://ridewithgps.com/routes/40109378",
+      "https://ridewithgps.com/routes/40428761"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-gileppe-cross",
+    "name": "XTERRA Ardennes",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Jalhay",
+    "country": "BE",
+    "lat": 50.5876,
+    "lng": 5.9709,
+    "url": "https://www.xterraplanet.com/event/xterra-ardennes-trophy",
+    "editions": [
+      {
+        "date": "2026-08-08",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "hilly",
+    "run": "hilly",
+    "course": {
+      "swim": 1,
+      "bike": 42,
+      "run": 8
+    },
+    "notes": "Lac de la Gileppe dam; MTB or gravel bike (650 m), 8 km run (180 m); a 1.9/70/16 km long race runs the same day",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-ardennes-trophy",
+      "https://www.xterraplanet.com/race/xterra-ardennes-trophy-short-distance-triathlon",
+      "https://results.xterraplanet.com/results/92d49ebe-624d-4358-a67b-1c79a658de16",
+      "https://www.lagileppetrophy.be/xterraardennes"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-prachatice-cross",
+    "name": "XTERRA Czech Republic",
+    "brand": "independent",
+    "series": "XTERRA World Cup",
+    "distance": "cross",
+    "city": "Prachatice",
+    "country": "CZ",
+    "lat": 49.0129,
+    "lng": 13.9979,
+    "url": "https://www.xterraplanet.com/event/xterra-czech-republic",
+    "editions": [
+      {
+        "date": "2026-08-08",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 33,
+      "run": 10.5
+    },
+    "notes": "World Cup stop; swim in Kristanovicky lake, one-way MTB (~690 m) to the old town of Prachatice, 2-lap run up Cerna Hora",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-czech-republic",
+      "https://www.xterraplanet.com/race/xterra-czech-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/5052651b-d273-45b1-810c-428925b5228e",
+      "https://ridewithgps.com/routes/56384393",
+      "https://ridewithgps.com/routes/50207424"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-huasca-cross",
+    "name": "XTERRA Santa Elena",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Huasca de Ocampo",
+    "country": "MX",
+    "lat": 20.1381,
+    "lng": -98.5039,
+    "url": "https://www.xterraplanet.com/event/xterra-santa-elena",
+    "editions": [
+      {
+        "date": "2026-08-15",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-03",
+        "status": "tentative"
+      }
+    ],
+    "swim": "lake",
+    "bike": "mountainous",
+    "run": "hilly",
+    "course": {
+      "swim": 1.5,
+      "bike": 26,
+      "run": 10
+    },
+    "notes": "Rancho Santa Elena, Hidalgo, at ~2,400 m; first held 2025; 2027 moves to early July (date provisional on XTERRA site)",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-santa-elena",
+      "https://www.xterraplanet.com/race/xterra-santa-elena-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/ebef0aa7-72f1-4357-bb63-4ed14e19dd55",
+      "https://www.xterramexico.com/santaelena",
+      "https://ridewithgps.com/routes/56312883"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-olbersdorf-cross",
+    "name": "XTERRA O-SEE Challenge",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Olbersdorf",
+    "country": "DE",
+    "lat": 50.8931,
+    "lng": 14.7761,
+    "url": "https://www.xterraplanet.com/event/xterra-germany",
+    "editions": [
+      {
+        "date": "2026-08-15",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-14",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "mountainous",
+    "run": "hilly",
+    "course": {
+      "swim": 1.5,
+      "bike": 37,
+      "run": 10
+    },
+    "notes": "Olbersdorfer See near Zittau, raced for 25+ years; one-lap 37 km MTB (~1,000 m) in the Zittau Mountains; 2027 festival 13-15 Aug",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-germany",
+      "https://www.xterraplanet.com/race/xterra-germany-short-track-xterra-full-distance",
+      "https://results.xterraplanet.com/results/4c88b090-4ff6-4d47-9fe7-424f1ce081f3",
+      "https://www.o-see-sports.de/veranstaltungen/o-see-challenge/",
+      "https://ridewithgps.com/routes/39939732"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-thunder-bay-cross",
+    "name": "XTERRA Sleeping Giant",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Thunder Bay",
+    "country": "CA",
+    "lat": 48.4564,
+    "lng": -89.1986,
+    "url": "https://www.xterraplanet.com/event/xterra-sleeping-giant",
+    "editions": [
+      {
+        "date": "2026-08-16",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-29",
+        "status": "tentative"
+      }
+    ],
+    "swim": "lake",
+    "run": "hilly",
+    "course": {
+      "swim": 1.5,
+      "bike": 26,
+      "run": 10
+    },
+    "notes": "Boulevard Lake swim, MTB in Trowbridge Forest; run = 2 laps of the 10 km trail course (~140 m); 2027 date provisional",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-sleeping-giant",
+      "https://www.xterraplanet.com/race/xterra-sleeping-giant-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/e9462c72-c8ea-4d32-b95f-7a9f7002af48"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-las-catalinas-cross",
+    "name": "XTERRA Costa Rica",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Las Catalinas",
+    "country": "CR",
+    "lat": 10.4802,
+    "lng": -85.7864,
+    "url": "https://www.xterraplanet.com/event/xterra-costa-rica",
+    "editions": [
+      {
+        "date": "2026-08-23",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-22",
+        "status": "tentative"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 27.3,
+      "run": 10.4
+    },
+    "notes": "Car-free beach town in Guanacaste; Pacific swim, dry-forest MTB, 2-lap beach/trail run; 2027 date provisional",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-costa-rica",
+      "https://www.xterraplanet.com/race/xterra-costa-rica-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/beffc38d-3d04-4d1b-90c8-c0a192f0f984",
+      "https://xterraplanet.com/race-reports/2026-xterra-costa-rica-hosted-triathlon-legends-trail-champions-and-off-roads-next-generation"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-altaussee-cross",
+    "name": "XTERRA Austria",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Altaussee",
+    "country": "AT",
+    "lat": 47.6381,
+    "lng": 13.7692,
+    "url": "https://www.xterraplanet.com/event/xterra-austria",
+    "editions": [
+      {
+        "date": "2026-08-29",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-21",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 34,
+      "run": 10
+    },
+    "notes": "Lake Altaussee in the Styrian Alps; 2-lap swim, 2x17 km MTB (1,050 m), 10 km trail run (350 m)",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-austria",
+      "https://www.xterraplanet.com/race/xterra-austria-full-distance",
+      "https://results.xterraplanet.com/results/f972a6b7-a217-4c46-9175-35bce18860bc",
+      "https://www.xterraplanet.com/race-reports/back-together-at-2026-xterra-austria"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-ruidoso-cross",
+    "name": "XTERRA World Championship",
+    "brand": "independent",
+    "series": "XTERRA World Cup",
+    "distance": "cross",
+    "championship": "XTERRA World Championship",
+    "city": "Ruidoso",
+    "country": "US",
+    "lat": 33.3236,
+    "lng": -105.6844,
+    "url": "https://www.xterraplanet.com/event/xterra-ruidoso",
+    "editions": [
+      {
+        "date": "2026-10-10",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 27,
+      "run": 10
+    },
+    "entry": "qualification",
+    "notes": "Age-group entry by qualifying slot only; Grindstone Lake at ~2,100 m; Ruidoso hosts Worlds 2026-2028, 2027 date TBA",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-ruidoso",
+      "https://www.xterraplanet.com/race/xterra-ruidoso-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/dfcc581f-d575-45f0-a523-6aa59823df52",
+      "https://www.xterraplanet.com/race-rules/xterra-world-championship-qualification",
+      "https://www.ruidoso-nm.gov/news-info/7ekygx4tbhdf3datfbfkztcr42437f"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-suzhou-cross",
+    "name": "XTERRA Suzhou",
+    "brand": "independent",
+    "series": "XTERRA World Cup",
+    "distance": "cross",
+    "city": "Suzhou",
+    "country": "CN",
+    "lat": 31.21521,
+    "lng": 120.39695,
+    "url": "https://www.xterraplanet.com/event/xterra-suzhou",
+    "editions": [
+      {
+        "date": "2026-11-01",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "mountainous",
+    "run": "hilly",
+    "course": {
+      "swim": 1.4,
+      "bike": 26,
+      "run": 9.5
+    },
+    "notes": "World Cup finale, first held 2026; Lake Taihu swim, purpose-built MTB trails at Yuyang Bay; 2027 date not announced",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-suzhou",
+      "https://www.xterraplanet.com/race/xterra-suzhou-full-distance-triathlon",
+      "https://results.xterraplanet.com/results/b8ae46ba-57ba-411b-be68-3ee28c6ed8a9",
+      "https://www.xterraplanet.com/world-cup"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-moorea-cross",
+    "name": "XTERRA Tahiti",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Moorea",
+    "country": "PF",
+    "lat": -17.51698,
+    "lng": -149.84973,
+    "url": "https://www.xterraplanet.com/event/xterra-tahiti",
+    "editions": [
+      {
+        "date": "2026-11-07",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "mountainous",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 34,
+      "run": 10
+    },
+    "notes": "Boat start in Opunohu Bay with a swim to shore, jungle MTB (650 m) and 10 km run (340 m); 2027 date not announced",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-tahiti",
+      "https://www.xterraplanet.com/race/xterra-tahiti-xterra-triathlon"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-los-cabos-cross",
+    "name": "XTERRA Cabo",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Los Cabos",
+    "country": "MX",
+    "lat": 22.9742,
+    "lng": -109.7813,
+    "url": "https://www.xterraplanet.com/event/xterra-cabo",
+    "editions": [
+      {
+        "date": "2026-11-21",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "mountainous",
+    "run": "hilly",
+    "course": {
+      "swim": 1.5,
+      "bike": 32,
+      "run": 10
+    },
+    "notes": "Solaz Resort; Sea of Cortez swim, 2-lap desert MTB (~700 m), 2-lap run; 2027 date not announced",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-cabo",
+      "https://www.xterraplanet.com/race/xterra-cabo-full-distance-triathlon",
+      "https://www.xterramexico.com/cabo",
+      "https://ridewithgps.com/routes/47790540",
+      "https://ridewithgps.com/routes/48899697"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-pokhara-cross",
+    "name": "XTERRA Nepal",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Pokhara",
+    "country": "NP",
+    "lat": 28.22683,
+    "lng": 83.94301,
+    "url": "https://www.xterraplanet.com/event/xterra-nepal",
+    "editions": [
+      {
+        "date": "2026-11-28",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "run": "mountainous",
+    "course": {
+      "swim": 1.5,
+      "bike": 28,
+      "run": 12
+    },
+    "notes": "Phewa Lake swim, 2x14 km MTB and 12 km trail run (~340 m) above Pokhara; 2027 date not announced",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-nepal",
+      "https://www.xterraplanet.com/race/xterra-nepal-full-distance-triathlon",
+      "https://periwinkleservice.com/xterra-nepal",
+      "https://ridewithgps.com/routes/56724563"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-anglesea-cross",
+    "name": "XTERRA Anglesea",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Anglesea",
+    "country": "AU",
+    "lat": -38.41225,
+    "lng": 144.18934,
+    "url": "https://www.xterraplanet.com/event/xterra-anglesea",
+    "editions": [
+      {
+        "date": "2027-02-14",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "course": {
+      "swim": 1.5,
+      "bike": 30,
+      "run": 10
+    },
+    "notes": "New for 2027 on the Surf Coast; 2-lap surf swim off Anglesea Main Beach, 2x15 km singletrack MTB, one-loop 10 km trail run",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-anglesea",
+      "https://www.xterraplanet.com/race/xterra-anglesea-full-distance-triathlon"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-branson-cross",
+    "name": "XTERRA Branson",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Branson",
+    "country": "US",
+    "lat": 36.5839,
+    "lng": -93.3099,
+    "url": "https://www.xterraplanet.com/event/xterra-branson",
+    "editions": [
+      {
+        "date": "2027-04-24",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "course": {
+      "swim": 1.5,
+      "bike": 30,
+      "run": 10
+    },
+    "notes": "Table Rock State Park; held in September 2024-25 as Branson Mountain Man, no 2026 race; returns April 2027",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-branson",
+      "https://www.xterraplanet.com/race/xterra-branson-full-distance-triathlon",
+      "https://www.active.com/branson-mo/triathlon/races/xterra-branson-2027",
+      "https://runsignup.com/Race/MO/Branson/BransonMtnMan"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-xterra-ugljan-cross",
+    "name": "XTERRA Croatia Zadar-Ugljan Island",
+    "brand": "independent",
+    "series": "XTERRA",
+    "distance": "cross",
+    "city": "Preko",
+    "country": "HR",
+    "lat": 44.0948,
+    "lng": 15.1732,
+    "url": "https://www.xterraplanet.com/event/xterra-croatia",
+    "editions": [
+      {
+        "date": "2027-10-23",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "mountainous",
+    "run": "hilly",
+    "course": {
+      "swim": 1.5,
+      "bike": 29.3,
+      "run": 9.4
+    },
+    "notes": "New home of XTERRA Croatia from 2027 (previously Mali Lošinj); Adriatic swim, island MTB (~600 m) and trail run",
+    "sources": [
+      "https://www.xterraplanet.com/event/xterra-croatia",
+      "https://www.xterraplanet.com/race/xterra-croatia-full-distance-triathlon",
+      "https://ridewithgps.com/routes/57694350",
+      "https://ridewithgps.com/routes/57695095"
+    ],
+    "verifiedAt": "2026-11-02"
+  }
+]
