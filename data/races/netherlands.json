@@ -1,0 +1,739 @@
+[
+  {
+    "id": "independent-rbr-rotterdam-sprint-duathlon",
+    "name": "RBR Rotterdam Sprint",
+    "brand": "independent",
+    "series": "TriHard",
+    "distance": "duathlon",
+    "city": "Zevenhuizen",
+    "country": "NL",
+    "lat": 52.00454,
+    "lng": 4.56641,
+    "url": "https://in.njuko.com/rbr-rotterdam-20271786625155223",
+    "editions": [
+      {
+        "date": "2026-03-28",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-03",
+        "status": "confirmed"
+      }
+    ],
+    "bike": "flat",
+    "run": "flat",
+    "course": {
+      "run1": 5,
+      "bike": 20,
+      "run2": 2.5
+    },
+    "notes": "Closed, flat course around the Willem-Alexander rowing course; 4 bike laps, no drafting.",
+    "sources": [
+      "https://in.njuko.com/rbr--tt-rotterdam-20261759828714893",
+      "https://in.njuko.com/rbr-rotterdam-20271786625155223",
+      "https://running.life/nl/event/rbr-rotterdam"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-rbr-rotterdam-standard-duathlon",
+    "name": "RBR Rotterdam Standard",
+    "brand": "independent",
+    "series": "TriHard",
+    "distance": "duathlon",
+    "city": "Zevenhuizen",
+    "country": "NL",
+    "lat": 52.00454,
+    "lng": 4.56641,
+    "url": "https://in.njuko.com/rbr-rotterdam-20271786625155223",
+    "editions": [
+      {
+        "date": "2026-03-28",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-03",
+        "status": "confirmed"
+      }
+    ],
+    "bike": "flat",
+    "run": "flat",
+    "course": {
+      "run1": 10,
+      "bike": 40,
+      "run2": 5
+    },
+    "notes": "Closed, flat course around the Willem-Alexander rowing course; 8 bike laps, no drafting.",
+    "sources": [
+      "https://in.njuko.com/rbr--tt-rotterdam-20261759828714893",
+      "https://in.njuko.com/rbr-rotterdam-20271786625155223",
+      "https://running.life/nl/event/rbr-rotterdam"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-rbr-almere-long-duathlon",
+    "name": "RBR Almere Long",
+    "brand": "independent",
+    "series": "TriHard",
+    "distance": "duathlon",
+    "city": "Almere",
+    "country": "NL",
+    "lat": 52.33379,
+    "lng": 5.21794,
+    "url": "https://in.njuko.com/rbr--tt-almere-20271786603370440",
+    "editions": [
+      {
+        "date": "2026-04-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-18",
+        "status": "confirmed"
+      }
+    ],
+    "bike": "flat",
+    "run": "flat",
+    "course": {
+      "run1": 10,
+      "bike": 56,
+      "run2": 10
+    },
+    "notes": "Run-bike-run from the Almere Haven harbour; no drafting.",
+    "sources": [
+      "https://in.njuko.com/rbr--tt-almere-20261759840194009",
+      "https://in.njuko.com/rbr--tt-almere-20271786603370440",
+      "https://running.life/nl/event/rbr-almere"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-rbr-almere-short-duathlon",
+    "name": "RBR Almere Short",
+    "brand": "independent",
+    "series": "TriHard",
+    "distance": "duathlon",
+    "city": "Almere",
+    "country": "NL",
+    "lat": 52.33379,
+    "lng": 5.21794,
+    "url": "https://in.njuko.com/rbr--tt-almere-20271786603370440",
+    "editions": [
+      {
+        "date": "2026-04-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-18",
+        "status": "confirmed"
+      }
+    ],
+    "bike": "flat",
+    "run": "flat",
+    "course": {
+      "run1": 5,
+      "bike": 28,
+      "run2": 5
+    },
+    "notes": "Run-bike-run from the Almere Haven harbour; no drafting.",
+    "sources": [
+      "https://in.njuko.com/rbr--tt-almere-20261759840194009",
+      "https://in.njuko.com/rbr--tt-almere-20271786603370440",
+      "https://running.life/nl/event/rbr-almere"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-tt-almere-28k-time-trial",
+    "name": "Time Trial Almere 28 km",
+    "brand": "independent",
+    "series": "TriHard",
+    "distance": "time-trial",
+    "city": "Almere",
+    "country": "NL",
+    "lat": 52.33379,
+    "lng": 5.21794,
+    "url": "https://in.njuko.com/rbr--tt-almere-20271786603370440",
+    "editions": [
+      {
+        "date": "2026-04-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-18",
+        "status": "confirmed"
+      }
+    ],
+    "bike": "flat",
+    "course": {
+      "bike": 28
+    },
+    "notes": "Individual time trial, 2 laps on the Gooimeerdijk Oost dike, start and finish at the Almere Haven harbour.",
+    "sources": [
+      "https://in.njuko.com/rbr--tt-almere-20261759840194009",
+      "https://in.njuko.com/rbr--tt-almere-20271786603370440",
+      "https://running.life/nl/event/rbr-almere"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-tt-almere-42k-time-trial",
+    "name": "Time Trial Almere 42 km",
+    "brand": "independent",
+    "series": "TriHard",
+    "distance": "time-trial",
+    "city": "Almere",
+    "country": "NL",
+    "lat": 52.33379,
+    "lng": 5.21794,
+    "url": "https://in.njuko.com/rbr--tt-almere-20271786603370440",
+    "editions": [
+      {
+        "date": "2026-04-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-04-18",
+        "status": "confirmed"
+      }
+    ],
+    "bike": "flat",
+    "course": {
+      "bike": 42
+    },
+    "notes": "Individual time trial, 3 laps on the Gooimeerdijk Oost dike, start and finish at the Almere Haven harbour.",
+    "sources": [
+      "https://in.njuko.com/rbr--tt-almere-20261759840194009",
+      "https://in.njuko.com/rbr--tt-almere-20271786603370440",
+      "https://running.life/nl/event/rbr-almere"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-trihard-almere-olympic",
+    "name": "TRI Almere",
+    "brand": "independent",
+    "series": "TriHard",
+    "distance": "olympic",
+    "city": "Almere",
+    "country": "NL",
+    "lat": 52.33379,
+    "lng": 5.21794,
+    "url": "https://in.njuko.com/tri-almere-20271786003837730",
+    "editions": [
+      {
+        "date": "2026-05-10",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-16",
+        "status": "confirmed"
+      }
+    ],
+    "bike": "flat",
+    "run": "flat",
+    "course": {
+      "swim": 1.5,
+      "bike": 44,
+      "run": 10
+    },
+    "notes": "Course through Almere Haven and over the surrounding dikes.",
+    "sources": [
+      "https://in.njuko.com/tri-almere-20261757012527229",
+      "https://in.njuko.com/tri-almere-20271786003837730",
+      "https://www.intervals.icu/events/12615/",
+      "https://running.life/nl/event/tri-almere"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-trihard-almere-sprint",
+    "name": "TRI Almere",
+    "brand": "independent",
+    "series": "TriHard",
+    "distance": "sprint",
+    "city": "Almere",
+    "country": "NL",
+    "lat": 52.33379,
+    "lng": 5.21794,
+    "url": "https://in.njuko.com/tri-almere-20271786003837730",
+    "editions": [
+      {
+        "date": "2026-05-10",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-16",
+        "status": "confirmed"
+      }
+    ],
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Course through Almere Haven and over the surrounding dikes. Rookie Race for beginners.",
+    "sources": [
+      "https://in.njuko.com/tri-almere-20261757012527229",
+      "https://in.njuko.com/tri-almere-20271786003837730",
+      "https://www.intervals.icu/events/12615/",
+      "https://running.life/nl/event/tri-almere"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-trihard-amsterdam-half",
+    "name": "TRI Amsterdam",
+    "brand": "independent",
+    "series": "TriHard",
+    "distance": "half",
+    "city": "Amsterdam",
+    "country": "NL",
+    "lat": 52.34045,
+    "lng": 4.91704,
+    "url": "https://in.njuko.com/tri-amsterdam-20271786366736588",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Swim in the Amstel by the Berlagebrug, bike through Amstelland along the Amstel and Amsterdam-Rijnkanaal.",
+    "sources": [
+      "https://in.njuko.com/tri-amsterdam-20261759997827576",
+      "https://in.njuko.com/tri-amsterdam-20271786366736588",
+      "https://running.life/nl/event/tri-amsterdam",
+      "https://www.willem3.nl/nieuws/2026/06/zondag-7-juni-wegafsluiting-ivm-triatlon",
+      "https://www.at5.nl/nieuws/233025/park-somerlust-startpunt-van-triatlon-omleidingen-in-omgeving"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-trihard-amsterdam-olympic",
+    "name": "TRI Amsterdam",
+    "brand": "independent",
+    "series": "TriHard",
+    "distance": "olympic",
+    "city": "Amsterdam",
+    "country": "NL",
+    "lat": 52.34045,
+    "lng": 4.91704,
+    "url": "https://in.njuko.com/tri-amsterdam-20271786366736588",
+    "editions": [
+      {
+        "date": "2026-06-07",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-06",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Swim in the Amstel by the Berlagebrug, bike into Amstelland, run laps finishing by the Watertoren in Amsterdam-Oost.",
+    "sources": [
+      "https://in.njuko.com/tri-amsterdam-20261759997827576",
+      "https://in.njuko.com/tri-amsterdam-20271786366736588",
+      "https://running.life/nl/event/tri-amsterdam",
+      "https://www.willem3.nl/nieuws/2026/06/zondag-7-juni-wegafsluiting-ivm-triatlon"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-dts-zandvoort-olympic",
+    "name": "DTS Grand Prix Zandvoort",
+    "brand": "independent",
+    "series": "Dutch Triathlon Series",
+    "distance": "olympic",
+    "city": "Zandvoort",
+    "country": "NL",
+    "lat": 52.38968,
+    "lng": 4.54214,
+    "url": "https://www.dutchtriathlons.nl/dts-grand-prix-zandvoort",
+    "editions": [
+      {
+        "date": "2026-06-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-14",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "flat",
+    "notes": "North Sea swim, bike on the closed Circuit Zandvoort F1 track; rough sea can turn it into a run-bike-run.",
+    "sources": [
+      "https://www.dutchtriathlons.nl/dts-grand-prix-zandvoort",
+      "https://in.njuko.com/dts-gp-zandvoort-2026",
+      "https://in.njuko.com/-dts-gp-zandvoort-14-august-20271790347249348",
+      "https://www.circuitzandvoort.nl/en/events/13-06-2026-dts-grand-prix-zandvoort/"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-dts-zandvoort-sprint",
+    "name": "DTS Grand Prix Zandvoort",
+    "brand": "independent",
+    "series": "Dutch Triathlon Series",
+    "distance": "sprint",
+    "city": "Zandvoort",
+    "country": "NL",
+    "lat": 52.38968,
+    "lng": 4.54214,
+    "url": "https://www.dutchtriathlons.nl/dts-grand-prix-zandvoort",
+    "editions": [
+      {
+        "date": "2026-06-13",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-14",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "flat",
+    "notes": "North Sea swim, bike on the closed Circuit Zandvoort F1 track, run on dune service roads. Rookie Race wave.",
+    "sources": [
+      "https://www.dutchtriathlons.nl/dts-grand-prix-zandvoort",
+      "https://in.njuko.com/dts-gp-zandvoort-2026",
+      "https://in.njuko.com/-dts-gp-zandvoort-14-august-20271790347249348",
+      "https://www.circuitzandvoort.nl/en/events/13-06-2026-dts-grand-prix-zandvoort/"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-trihard-rotterdam-olympic",
+    "name": "TRI Rotterdam",
+    "brand": "independent",
+    "series": "TriHard",
+    "distance": "olympic",
+    "city": "Zevenhuizen",
+    "country": "NL",
+    "lat": 52.00454,
+    "lng": 4.56641,
+    "url": "https://in.njuko.com/tri-rotterdam-20271786626300612",
+    "editions": [
+      {
+        "date": "2026-06-21",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-20",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "At the Willem-Alexander rowing course in Zevenhuizen.",
+    "sources": [
+      "https://in.njuko.com/tri-rotterdam-20261759820623705",
+      "https://in.njuko.com/tri-rotterdam-20271786626300612",
+      "https://running.life/nl/event/tri-rotterdam"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-trihard-rotterdam-sprint",
+    "name": "TRI Rotterdam",
+    "brand": "independent",
+    "series": "TriHard",
+    "distance": "sprint",
+    "city": "Zevenhuizen",
+    "country": "NL",
+    "lat": 52.00454,
+    "lng": 4.56641,
+    "url": "https://in.njuko.com/tri-rotterdam-20271786626300612",
+    "editions": [
+      {
+        "date": "2026-06-21",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-19",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "At the Willem-Alexander rowing course in Zevenhuizen. Rookie Race (500 m swim) for beginners.",
+    "sources": [
+      "https://in.njuko.com/tri-rotterdam-20261759820623705",
+      "https://in.njuko.com/tri-rotterdam-20271786626300612",
+      "https://running.life/nl/event/tri-rotterdam"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-dts-hlmrmeer-half",
+    "name": "DTS HLMRMEER",
+    "brand": "independent",
+    "series": "Dutch Triathlon Series",
+    "distance": "half",
+    "city": "Hoofddorp",
+    "country": "NL",
+    "lat": 52.32982,
+    "lng": 4.66734,
+    "url": "https://www.dutchtriathlons.nl/dts-hlmrmeer",
+    "editions": [
+      {
+        "date": "2026-07-11",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "2027 bike is one 90 km lap incl. the 60 km Rondje Ringvaart around the Haarlemmermeer polder (2026: 4 x 22.5 km).",
+    "sources": [
+      "https://www.dutchtriathlons.nl/dts-hlmrmeer",
+      "https://in.njuko.com/dts-hlmrmeer-2026",
+      "https://in.njuko.com/dts-hlmrmeer-18-july-20261790345842396",
+      "https://irp.cdn-website.com/debd1553/files/uploaded/DTS+HLMRMEER+2026+-+MIDDLE+DISTANCE+-+DEELNEMERSINFORMATIE+NEDERLANDS.pdf"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-dts-hlmrmeer-olympic",
+    "name": "DTS HLMRMEER",
+    "brand": "independent",
+    "series": "Dutch Triathlon Series",
+    "distance": "olympic",
+    "city": "Hoofddorp",
+    "country": "NL",
+    "lat": 52.32982,
+    "lng": 4.66734,
+    "url": "https://www.dutchtriathlons.nl/dts-hlmrmeer",
+    "editions": [
+      {
+        "date": "2026-07-11",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Swim in the Haarlemmermeerse Bos lake, bike on wide roads around Hoofddorp, run through the former Floriade park.",
+    "sources": [
+      "https://www.dutchtriathlons.nl/dts-hlmrmeer",
+      "https://in.njuko.com/dts-hlmrmeer-2026",
+      "https://in.njuko.com/dts-hlmrmeer-18-july-20261790345842396",
+      "https://irp.cdn-website.com/debd1553/files/uploaded/DTS+HLMRMEER+2026+-+OD-SPRINT+-+DEELNEMERSINFORMATIE+NEDERLANDS.pdf"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-dts-hlmrmeer-sprint",
+    "name": "DTS HLMRMEER",
+    "brand": "independent",
+    "series": "Dutch Triathlon Series",
+    "distance": "sprint",
+    "city": "Hoofddorp",
+    "country": "NL",
+    "lat": 52.32982,
+    "lng": 4.66734,
+    "url": "https://www.dutchtriathlons.nl/dts-hlmrmeer",
+    "editions": [
+      {
+        "date": "2026-07-11",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-18",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Swim in the Haarlemmermeerse Bos lake, run through the former Floriade park. Rookie Race wave for beginners.",
+    "sources": [
+      "https://www.dutchtriathlons.nl/dts-hlmrmeer",
+      "https://in.njuko.com/dts-hlmrmeer-2026",
+      "https://in.njuko.com/dts-hlmrmeer-18-july-20261790345842396",
+      "https://irp.cdn-website.com/debd1553/files/uploaded/DTS+HLMRMEER+2026+-+OD-SPRINT+-+DEELNEMERSINFORMATIE+NEDERLANDS.pdf"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-dts-ouderkerk-olympic",
+    "name": "DTS Ouderkerk",
+    "brand": "independent",
+    "series": "Dutch Triathlon Series",
+    "distance": "olympic",
+    "city": "Ouderkerk aan de Amstel",
+    "country": "NL",
+    "lat": 52.29534,
+    "lng": 4.92946,
+    "url": "https://www.dutchtriathlons.nl/dts-ouderkerk",
+    "editions": [
+      {
+        "date": "2026-08-22",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Water start in the Ouderkerkerplas, bike laps near the Amstel, two run laps mostly unpaved around the lake.",
+    "sources": [
+      "https://www.dutchtriathlons.nl/dts-ouderkerk",
+      "https://in.njuko.com/dts-ouderkerk-2026",
+      "https://in.njuko.com/dts-ouderkerk-30-mei-20271789754758603",
+      "https://irp.cdn-website.com/debd1553/files/uploaded/2026+DTS+OUDERKERK+participant+information.pdf"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-dts-ouderkerk-sprint",
+    "name": "DTS Ouderkerk",
+    "brand": "independent",
+    "series": "Dutch Triathlon Series",
+    "distance": "sprint",
+    "city": "Ouderkerk aan de Amstel",
+    "country": "NL",
+    "lat": 52.29534,
+    "lng": 4.92946,
+    "url": "https://www.dutchtriathlons.nl/dts-ouderkerk",
+    "editions": [
+      {
+        "date": "2026-08-22",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Water start in the Ouderkerkerplas, short bike laps, run mostly unpaved around the lake. Rookie Race wave for beginners.",
+    "sources": [
+      "https://www.dutchtriathlons.nl/dts-ouderkerk",
+      "https://in.njuko.com/dts-ouderkerk-2026",
+      "https://in.njuko.com/dts-ouderkerk-30-mei-20271789754758603",
+      "https://irp.cdn-website.com/debd1553/files/uploaded/2026+DTS+OUDERKERK+participant+information.pdf"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-dts-bosbaan-olympic",
+    "name": "DTS Bosbaan",
+    "brand": "independent",
+    "series": "Dutch Triathlon Series",
+    "distance": "olympic",
+    "city": "Amstelveen",
+    "country": "NL",
+    "lat": 52.32902,
+    "lng": 4.85012,
+    "url": "https://www.dutchtriathlons.nl/dts-bosbaan",
+    "editions": [
+      {
+        "date": "2026-09-26",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Boat ride to the swim start in the Bosbaan rowing course, 8 km bike laps through the Amsterdamse Bos.",
+    "sources": [
+      "https://www.dutchtriathlons.nl/dts-bosbaan",
+      "https://in.njuko.com/dts-bosbaan-2026",
+      "https://in.njuko.com/dts-bosbaan-25-september-20271790348140455",
+      "https://irp.cdn-website.com/debd1553/files/uploaded/2026+DTS+BOSBAAN+Deelnemersinformatie+-2.pdf"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-dts-bosbaan-sprint",
+    "name": "DTS Bosbaan",
+    "brand": "independent",
+    "series": "Dutch Triathlon Series",
+    "distance": "sprint",
+    "city": "Amstelveen",
+    "country": "NL",
+    "lat": 52.32902,
+    "lng": 4.85012,
+    "url": "https://www.dutchtriathlons.nl/dts-bosbaan",
+    "editions": [
+      {
+        "date": "2026-09-26",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "course": {
+      "swim": 0.75,
+      "bike": 24,
+      "run": 5
+    },
+    "notes": "Swim in the Bosbaan rowing course, 3 x 8 km bike laps through the Amsterdamse Bos. Rookie Race wave for beginners.",
+    "sources": [
+      "https://www.dutchtriathlons.nl/dts-bosbaan",
+      "https://in.njuko.com/dts-bosbaan-2026",
+      "https://in.njuko.com/dts-bosbaan-25-september-20271790348140455",
+      "https://irp.cdn-website.com/debd1553/files/uploaded/2026+DTS+BOSBAAN+Deelnemersinformatie+-2.pdf"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-dts-ouderkerk-half",
+    "name": "DTS Ouderkerk",
+    "brand": "independent",
+    "series": "Dutch Triathlon Series",
+    "distance": "half",
+    "city": "Ouderkerk aan de Amstel",
+    "country": "NL",
+    "lat": 52.29534,
+    "lng": 4.92946,
+    "url": "https://www.dutchtriathlons.nl/dts-ouderkerk",
+    "editions": [
+      {
+        "date": "2027-05-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "New in 2027. Swim in the Ouderkerkerplas, 2 x 45 km bike laps via Vinkeveen, Waverveen and the Ronde Hoep.",
+    "sources": [
+      "https://www.dutchtriathlons.nl/dts-ouderkerk",
+      "https://in.njuko.com/dts-ouderkerk-30-mei-20271789754758603"
+    ],
+    "verifiedAt": "2026-11-02"
+  }
+]

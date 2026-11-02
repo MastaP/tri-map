@@ -1,0 +1,381 @@
+[
+  {
+    "id": "independent-powerman-alsdorf-duathlon",
+    "name": "Powerman Alsdorf",
+    "brand": "independent",
+    "series": "Powerman",
+    "distance": "duathlon",
+    "championship": "Europe Triathlon Powerman Middle Distance Duathlon Championships",
+    "city": "Alsdorf",
+    "country": "DE",
+    "lat": 50.8742,
+    "lng": 6.1609,
+    "url": "https://mc-eschweiler.de/veranstaltungen/powerman-alsdorf/",
+    "editions": [
+      {
+        "date": "2026-04-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-09",
+        "status": "confirmed"
+      }
+    ],
+    "bike": "rolling",
+    "run": "rolling",
+    "course": {
+      "run1": 10,
+      "bike": 60,
+      "run2": 10
+    },
+    "notes": "European and German champs plus an open race; 4 run laps in the town centre, 3 laps of an undulating closed-road bike course",
+    "sources": [
+      "https://mc-eschweiler.de/veranstaltungen/powerman-alsdorf/",
+      "https://powerman.org/alsdorf/",
+      "https://triathlon.org/news/powerman-middle-distance-duathlon-championships-in-alsdorf-confirmed-for-2026",
+      "https://triathlon.org/news/europe-triathlon-announces-2027-championship-calendar",
+      "https://mc-eschweiler.de/wp-content/uploads/2024/01/GPX-file-POWERMAN-Bike.gpx"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-alpe-dhuez-duathlon",
+    "name": "Duathlon de l'Alpe d'Huez",
+    "brand": "independent",
+    "distance": "duathlon",
+    "city": "Alpe d'Huez",
+    "country": "FR",
+    "lat": 45.0902,
+    "lng": 6.0696,
+    "url": "https://www.alpetriathlon.com/duathlon-de-lalpe-dhuez/",
+    "editions": [
+      {
+        "date": "2026-08-03",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-07-26",
+        "status": "confirmed"
+      }
+    ],
+    "bike": "mountainous",
+    "run": "hilly",
+    "course": {
+      "run1": 6.5,
+      "bike": 15,
+      "run2": 5.5
+    },
+    "notes": "1,000+ starters; run in Bourg-d'Oisans, bike up the 21 hairpins (1,170 m), last run at the top; opens Alpe d'Huez Triathlon week",
+    "sources": [
+      "https://www.alpetriathlon.com/duathlon-de-lalpe-dhuez/",
+      "https://www.alpetriathlon.com/programme-triathlon-alpe-dhuez/",
+      "https://www.festivalenfrance.com/en/festival/triathlon-de-l-alpe-dhuez",
+      "https://prod.chronorace.be/Classements/ListeRapports.aspx?eventId=2157018475567873"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-powerman-zofingen-long-duathlon",
+    "name": "Powerman Zofingen",
+    "brand": "independent",
+    "series": "Powerman",
+    "distance": "duathlon",
+    "championship": "World Triathlon Powerman Long Distance Duathlon World Championships",
+    "city": "Zofingen",
+    "country": "CH",
+    "lat": 47.2883,
+    "lng": 7.9486,
+    "url": "https://powerman.ch/long_distance",
+    "editions": [
+      {
+        "date": "2026-09-06",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-05",
+        "status": "confirmed"
+      }
+    ],
+    "bike": "hilly",
+    "run": "hilly",
+    "course": {
+      "run1": 10,
+      "bike": 150,
+      "run2": 30
+    },
+    "notes": "Long-distance worlds since 1997; AG worlds and open categories, direct entry; 3 hilly 50 km bike laps, mostly forest-trail runs",
+    "sources": [
+      "https://powerman.ch/long_distance",
+      "https://powerman.ch/save_the_date_2026",
+      "https://powerman.ch/wp-content/uploads/2026/09/Bikke-2027-Overview-LD-SD.pdf",
+      "https://powerman.ch/wp-content/uploads/2026/10/PMZ2027-Schedule_V20261015_d.pdf",
+      "https://powerman.ch/wp-content/uploads/2026/09/Powerman-Long-Distance-Kategorien-2027_V20260914.pdf",
+      "https://triathlon.org/events/2026-world-triathlon-powerman-long-distance-duathlon-championships-zofingen",
+      "https://powerman.ch/wp-content/uploads/2026/02/Powerman_2026_Bike_V2.gpx"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-powerman-zofingen-short-duathlon",
+    "name": "Powerman Zofingen",
+    "brand": "independent",
+    "series": "Powerman",
+    "distance": "duathlon",
+    "city": "Zofingen",
+    "country": "CH",
+    "lat": 47.2883,
+    "lng": 7.9486,
+    "url": "https://powerman.ch/short_distance",
+    "editions": [
+      {
+        "date": "2026-09-06",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-05",
+        "status": "confirmed"
+      }
+    ],
+    "bike": "hilly",
+    "run": "hilly",
+    "course": {
+      "run1": 10,
+      "bike": 50,
+      "run2": 5
+    },
+    "notes": "Short distance on the same day as the long-distance worlds; one lap of the hilly 50 km bike course",
+    "sources": [
+      "https://powerman.ch/short_distance",
+      "https://powerman.ch/save_the_date_2026",
+      "https://powerman.ch/wp-content/uploads/2026/09/Bikke-2027-Overview-LD-SD.pdf",
+      "https://powerman.ch/wp-content/uploads/2026/09/Laufstrecke-2027-Run-2-Short.pdf",
+      "https://powerman.ch/wp-content/uploads/2026/10/PMZ2027-Schedule_V20261015_d.pdf"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-powerman-malaysia-classic-duathlon",
+    "name": "Powerman Malaysia",
+    "brand": "independent",
+    "series": "Powerman",
+    "distance": "duathlon",
+    "city": "Putrajaya",
+    "country": "MY",
+    "lat": 2.9352,
+    "lng": 101.6911,
+    "url": "https://powerman.org/malaysia/",
+    "editions": [
+      {
+        "date": "2026-09-20",
+        "status": "confirmed"
+      }
+    ],
+    "course": {
+      "run1": 10,
+      "bike": 60,
+      "run2": 10
+    },
+    "notes": "Billed as the world's biggest duathlon (4,500 athletes in 2026); 2026 cut to 5/30/5 because of haze; 2027 date TBC",
+    "sources": [
+      "https://powerman.org/powerman-malaysia-hosts-its-first-ever-race-simulation-in-putrajaya/",
+      "https://bernama.com/en/news.php?id=2609395",
+      "https://www.thestar.com.my/metro/community-sports/2026/02/09/putrajaya-to-shine-as-powerman-city-for-duathlon-series",
+      "https://powerman.org/",
+      "https://powerman.org/malaysia/"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-powerman-malaysia-short-duathlon",
+    "name": "Powerman Malaysia",
+    "brand": "independent",
+    "series": "Powerman",
+    "distance": "duathlon",
+    "city": "Putrajaya",
+    "country": "MY",
+    "lat": 2.9352,
+    "lng": 101.6911,
+    "url": "https://powerman.org/malaysia/",
+    "editions": [
+      {
+        "date": "2026-09-20",
+        "status": "confirmed"
+      }
+    ],
+    "course": {
+      "run1": 5,
+      "bike": 30,
+      "run2": 5
+    },
+    "notes": "Short distance at the world's biggest duathlon, starting from Dataran Putra; 2026 sold out by April; 2027 date TBC",
+    "sources": [
+      "https://powerman.org/powerman-malaysia-hosts-its-first-ever-race-simulation-in-putrajaya/",
+      "https://bernama.com/en/news.php?id=2609395",
+      "https://www.thestar.com.my/metro/community-sports/2026/02/09/putrajaya-to-shine-as-powerman-city-for-duathlon-series",
+      "https://powerman.org/",
+      "https://powerman.org/malaysia/"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-abu-dhabi-world-championship-sprint-duathlon",
+    "name": "World Triathlon Duathlon Championships Abu Dhabi",
+    "brand": "independent",
+    "series": "World Triathlon",
+    "distance": "duathlon",
+    "championship": "World Triathlon Sprint Duathlon World Championships",
+    "city": "Abu Dhabi",
+    "country": "AE",
+    "lat": 24.41798,
+    "lng": 54.33254,
+    "url": "https://triathlon.org/events/2026-world-triathlon-duathlon-championships-abu-dhabi",
+    "editions": [
+      {
+        "date": "2026-11-14",
+        "status": "confirmed"
+      }
+    ],
+    "course": {
+      "run1": 5,
+      "bike": 20,
+      "run2": 2.5
+    },
+    "entry": "qualification",
+    "notes": "Rotating host; AG entry via national federation team selection. Part of the 13-22 Nov Multisport Worlds on Hudayriyat Island",
+    "recurring": false,
+    "sources": [
+      "https://triathlon.org/events/2026-world-triathlon-multisport-championships-abu-dhabi/schedule",
+      "https://triathlon.org/events/2026-world-triathlon-multisport-championships-abu-dhabi/athlete-information",
+      "https://triathlon.org/events/2026-world-triathlon-duathlon-championships-abu-dhabi"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-abu-dhabi-world-championship-standard-duathlon",
+    "name": "World Triathlon Duathlon Championships Abu Dhabi",
+    "brand": "independent",
+    "series": "World Triathlon",
+    "distance": "duathlon",
+    "championship": "World Triathlon Duathlon World Championships",
+    "city": "Abu Dhabi",
+    "country": "AE",
+    "lat": 24.41798,
+    "lng": 54.33254,
+    "url": "https://triathlon.org/events/2026-world-triathlon-duathlon-championships-abu-dhabi",
+    "editions": [
+      {
+        "date": "2026-11-15",
+        "status": "confirmed"
+      }
+    ],
+    "course": {
+      "run1": 10,
+      "bike": 40,
+      "run2": 5
+    },
+    "entry": "qualification",
+    "notes": "Rotating host; AG entry via national federation team selection. Part of the 13-22 Nov Multisport Worlds on Hudayriyat Island",
+    "recurring": false,
+    "sources": [
+      "https://triathlon.org/events/2026-world-triathlon-multisport-championships-abu-dhabi/schedule",
+      "https://triathlon.org/events/2026-world-triathlon-multisport-championships-abu-dhabi/athlete-information",
+      "https://triathlon.org/events/2026-world-triathlon-duathlon-championships-abu-dhabi"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-grand-rapids-usat-nationals-duathlon",
+    "name": "USA Triathlon Standard Duathlon National Championships",
+    "brand": "independent",
+    "series": "USA Triathlon",
+    "distance": "duathlon",
+    "city": "Grand Rapids",
+    "country": "US",
+    "lat": 42.9437,
+    "lng": -85.7263,
+    "url": "https://www.multisportfest.com/",
+    "editions": [
+      {
+        "date": "2027-05-23",
+        "status": "confirmed"
+      }
+    ],
+    "course": {
+      "run1": 10,
+      "bike": 40,
+      "run2": 5
+    },
+    "notes": "US national title and Team USA worlds qualifier, no qualification needed; at the Multisport Festival in Millennium Park; venue rotates",
+    "recurring": false,
+    "sources": [
+      "https://www.multisportfest.com/events.html",
+      "https://www.multisportfest.com/race-weekend.html",
+      "https://www.usatriathlon.org/news/2026/october/15/2027-usa-triathlon-multisport-national-championships-festival-set-for-grand-rapids"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-edmonton-world-championship-sprint-duathlon",
+    "name": "World Triathlon Duathlon Championships Edmonton",
+    "brand": "independent",
+    "series": "World Triathlon",
+    "distance": "duathlon",
+    "championship": "World Triathlon Sprint Duathlon World Championships",
+    "city": "Edmonton",
+    "country": "CA",
+    "lat": 53.5266,
+    "lng": -113.5469,
+    "url": "https://triathlon.org/events/2027-world-triathlon-duathlon-championships-edmonton",
+    "editions": [
+      {
+        "date": "2027-07-17",
+        "status": "tentative"
+      }
+    ],
+    "course": {
+      "run1": 5,
+      "bike": 20,
+      "run2": 2.5
+    },
+    "entry": "qualification",
+    "notes": "Rotating host; AG entry via national federation. Duathlon worlds on 17–18 Jul; day of the sprint race TBA",
+    "recurring": false,
+    "sources": [
+      "https://triathlon.org/events/2027-world-triathlon-duathlon-championships-edmonton",
+      "https://triathlon.org/news/edmonton-to-host-the-2027-world-triathlon-multisport-championships-on-1625-july"
+    ],
+    "verifiedAt": "2026-11-02"
+  },
+  {
+    "id": "independent-edmonton-world-championship-standard-duathlon",
+    "name": "World Triathlon Duathlon Championships Edmonton",
+    "brand": "independent",
+    "series": "World Triathlon",
+    "distance": "duathlon",
+    "championship": "World Triathlon Duathlon World Championships",
+    "city": "Edmonton",
+    "country": "CA",
+    "lat": 53.5266,
+    "lng": -113.5469,
+    "url": "https://triathlon.org/events/2027-world-triathlon-duathlon-championships-edmonton",
+    "editions": [
+      {
+        "date": "2027-07-18",
+        "status": "tentative"
+      }
+    ],
+    "course": {
+      "run1": 10,
+      "bike": 40,
+      "run2": 5
+    },
+    "entry": "qualification",
+    "notes": "Rotating host; AG entry via national federation. Duathlon worlds on 17–18 Jul; day of the standard race TBA",
+    "recurring": false,
+    "sources": [
+      "https://triathlon.org/events/2027-world-triathlon-duathlon-championships-edmonton",
+      "https://triathlon.org/news/edmonton-to-host-the-2027-world-triathlon-multisport-championships-on-1625-july"
+    ],
+    "verifiedAt": "2026-11-02"
+  }
+]
