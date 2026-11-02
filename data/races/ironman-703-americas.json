@@ -1207,18 +1207,22 @@
       {
         "date": "2026-07-26",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-07-25",
+        "status": "confirmed"
       }
     ],
     "swim": "lake",
     "bike": "rolling",
     "run": "rolling",
-    "notes": "Ghost Lake swim, rolling foothills bike, finish at Cochrane Ranche west of Calgary. 2027 date not yet announced.",
+    "notes": "Ghost Lake swim, rolling foothills bike, finish at Cochrane Ranche west of Calgary.",
     "sources": [
       "https://www.ironman.com/races/im703-calgary",
       "https://labs-v2.competitor.com/results/event/4598aa20-f278-e111-b16a-005056956277",
       "https://www.ironman.com/stories/news-updates/journey-starts-here-ironman-releases-its-full-2026-schedule-events-across"
     ],
-    "verifiedAt": "2026-10-27"
+    "verifiedAt": "2026-11-02"
   },
   {
     "id": "ironman-rio-de-janeiro-half",
@@ -1941,5 +1945,31 @@
       "https://www.ironman.com/stories/news-updates/new-race-locations-and-returning-favorites-highlight-2027-experience-oman"
     ],
     "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-asuncion-half",
+    "name": "IRONMAN 70.3 Asunción",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Asunción",
+    "country": "PY",
+    "lat": -25.2787,
+    "lng": -57.633,
+    "url": "https://www.ironman.com/races/im703-asuncion",
+    "editions": [
+      {
+        "date": "2027-07-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "New race, first edition 2027; not the Encarnacion 70.3. River swim, flat bike and run. Venue unpublished: pin on the Asunción riverfront.",
+    "sources": [
+      "https://www.ironman.com/races/im703-asuncion"
+    ],
+    "verifiedAt": "2026-11-02"
   }
 ]

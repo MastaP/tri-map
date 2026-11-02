@@ -1,13 +1,13 @@
 {
   "source": "https://www.ironman.com/races",
-  "checkedAt": "2026-10-27T12:13:28.708Z",
+  "checkedAt": "2026-11-02T16:13:06.754Z",
   "races": {
     "ironman-aix-en-provence-half": {
-      "status": "sold-out",
-      "label": "General entry: SOLD OUT",
-      "method": "register-page",
+      "status": "general-sold-out",
+      "label": "General Registration Sold Out",
+      "method": "finder",
       "editionDate": "2027-05-23",
-      "url": "https://www.ironman.com/races/im703-aix-en-provence/register"
+      "url": "https://www.ironman.com/races/im703-aix-en-provence"
     },
     "ironman-alcudia-mallorca-half": {
       "status": "general-sold-out",
@@ -37,6 +37,13 @@
       "editionDate": "2026-11-29",
       "url": "https://www.ironman.com/races/im703-sergipe"
     },
+    "ironman-asuncion-half": {
+      "status": "opening-soon",
+      "label": "Registration Opening Soon",
+      "method": "finder",
+      "editionDate": "2027-07-11",
+      "url": "https://www.ironman.com/races/im703-asuncion"
+    },
     "ironman-augusta-ga-half": {
       "status": "opening-soon",
       "label": "Registration Opening Soon",
@@ -46,7 +53,7 @@
     },
     "ironman-augusta-me-half": {
       "status": "open",
-      "label": "General entry: $530.64 USD",
+      "label": "General entry: $552.75 USD",
       "method": "register-page",
       "editionDate": "2027-07-25",
       "url": "https://www.ironman.com/races/im703-maine/register"
@@ -64,13 +71,6 @@
       "method": "finder",
       "editionDate": "2027-04-04",
       "url": "https://www.ironman.com/races/im703-barranquilla"
-    },
-    "ironman-belek-half": {
-      "status": "closed",
-      "label": "Registration Closed",
-      "method": "finder",
-      "editionDate": "2026-11-01",
-      "url": "https://www.ironman.com/races/im703-turkey"
     },
     "ironman-belgrade-half": {
       "status": "opening-soon",
@@ -129,8 +129,8 @@
       "url": "https://www.ironman.com/races/im703-cairns"
     },
     "ironman-calella-barcelona-full": {
-      "status": "opening-soon",
-      "label": "Registration Opening Soon",
+      "status": "sold-out",
+      "label": "Registration Sold Out",
       "method": "finder",
       "editionDate": "2027-10-03",
       "url": "https://www.ironman.com/races/im-barcelona"
@@ -164,18 +164,18 @@
       "url": "https://www.ironman.com/races/im703-cartagena"
     },
     "ironman-cascais-full": {
-      "status": "open",
-      "label": "General entry: 946.18 €",
+      "status": "sold-out",
+      "label": "General entry: SOLD OUT",
       "method": "register-page",
       "editionDate": "2027-10-23",
       "url": "https://www.ironman.com/races/im-cascais/register"
     },
     "ironman-cascais-half": {
       "status": "sold-out",
-      "label": "General entry: SOLD OUT",
-      "method": "register-page",
+      "label": "Registration Sold Out",
+      "method": "finder",
       "editionDate": "2027-10-23",
-      "url": "https://www.ironman.com/races/im703-cascais/register"
+      "url": "https://www.ironman.com/races/im703-cascais"
     },
     "ironman-cervia-full": {
       "status": "sold-out",
@@ -197,6 +197,13 @@
       "method": "finder",
       "editionDate": "2027-05-16",
       "url": "https://www.ironman.com/races/im703-chattanooga"
+    },
+    "ironman-cochrane-half": {
+      "status": "opening-soon",
+      "label": "Registration Opening Soon",
+      "method": "finder",
+      "editionDate": "2027-07-25",
+      "url": "https://www.ironman.com/races/im703-calgary"
     },
     "ironman-coeur-dalene-half": {
       "status": "open",
@@ -276,8 +283,8 @@
       "url": "https://www.ironman.com/races/im703-desaru-coast"
     },
     "ironman-doha-half": {
-      "status": "open",
-      "label": "Registration Now Open",
+      "status": "general-sold-out",
+      "label": "General Registration Sold Out",
       "method": "finder",
       "editionDate": "2027-03-20",
       "url": "https://www.ironman.com/races/im703-doha"
@@ -325,8 +332,8 @@
       "url": "https://www.ironman.com/races/im-brazil"
     },
     "ironman-florianopolis-half": {
-      "status": "opening-soon",
-      "label": "Registration Opening Soon",
+      "status": "sold-out",
+      "label": "Registration Sold Out",
       "method": "finder",
       "editionDate": "2027-10-24",
       "url": "https://www.ironman.com/races/im703-florianopolis"
@@ -358,20 +365,6 @@
       "method": "register-page",
       "editionDate": "2027-07-11",
       "url": "https://www.ironman.com/races/im703-musselman/register"
-    },
-    "ironman-goa-half": {
-      "status": "sold-out",
-      "label": "Registration Sold Out",
-      "method": "finder",
-      "editionDate": "2026-11-01",
-      "url": "https://www.ironman.com/races/im703-goa"
-    },
-    "ironman-great-falls-full": {
-      "status": "opening-soon",
-      "label": "Registration Opening Soon",
-      "method": "finder",
-      "editionDate": "2027-08-15",
-      "url": "https://www.ironman.com/races/im-montana"
     },
     "ironman-haines-city-half": {
       "status": "general-sold-out",
@@ -422,13 +415,6 @@
       "editionDate": "2027-08-21",
       "url": "https://www.ironman.com/races/im-kalmar"
     },
-    "ironman-kenting-half": {
-      "status": "closed",
-      "label": "Registration Closed",
-      "method": "finder",
-      "editionDate": "2026-11-01",
-      "url": "https://www.ironman.com/races/im703-kenting"
-    },
     "ironman-klagenfurt-full": {
       "status": "sold-out",
       "label": "Registration Sold Out",
@@ -451,8 +437,8 @@
       "url": "https://www.ironman.com/races/im703-hawaii/register"
     },
     "ironman-kraichgau-half": {
-      "status": "open",
-      "label": "General entry: 559.28 EUR",
+      "status": "sold-out",
+      "label": "General entry: SOLD OUT",
       "method": "register-page",
       "editionDate": "2027-05-23",
       "url": "https://www.ironman.com/races/im703-kraichgau/register"
@@ -465,8 +451,8 @@
       "url": "https://www.ironman.com/races/im703-la-quinta"
     },
     "ironman-lake-george-half": {
-      "status": "opening-soon",
-      "label": "Registration Opening Soon",
+      "status": "sold-out",
+      "label": "Registration Sold Out",
       "method": "finder",
       "editionDate": "2027-06-13",
       "url": "https://www.ironman.com/races/im703-lake-george"
@@ -557,10 +543,10 @@
     },
     "ironman-luxembourg-half": {
       "status": "sold-out",
-      "label": "General entry: SOLD OUT",
-      "method": "register-page",
+      "label": "Registration Sold Out",
+      "method": "finder",
       "editionDate": "2027-07-11",
-      "url": "https://www.ironman.com/races/im703-luxembourg/register"
+      "url": "https://www.ironman.com/races/im703-luxembourg"
     },
     "ironman-madison-full": {
       "status": "open",
@@ -661,11 +647,11 @@
       "url": "https://www.ironman.com/races/im703-new-zealand"
     },
     "ironman-nice-full": {
-      "status": "open",
-      "label": "General entry: 920.64 EUR",
-      "method": "register-page",
+      "status": "general-sold-out",
+      "label": "General Registration Sold Out",
+      "method": "finder",
       "editionDate": "2027-09-12",
-      "url": "https://www.ironman.com/races/im-france/register"
+      "url": "https://www.ironman.com/races/im-france"
     },
     "ironman-nice-half": {
       "status": "sold-out",
@@ -689,22 +675,22 @@
       "url": "https://www.ironman.com/races/im703-omaha"
     },
     "ironman-orem-half": {
-      "status": "opening-soon",
-      "label": "Registration Opening Soon",
+      "status": "general-sold-out",
+      "label": "General Registration Sold Out",
       "method": "finder",
       "editionDate": "2027-08-21",
       "url": "https://www.ironman.com/races/im703-utah"
     },
     "ironman-ottawa-full": {
       "status": "open",
-      "label": "General entry: $1,042.70 USD / $1,458.92 CAD",
+      "label": "General entry: $1,065.65 USD / $1,496.65 CAD",
       "method": "register-page",
       "editionDate": "2027-08-08",
       "url": "https://www.ironman.com/races/im-canada-ottawa/register"
     },
     "ironman-panama-city-beach-full": {
-      "status": "sold-out",
-      "label": "Registration Sold Out",
+      "status": "closed",
+      "label": "Registration Closed",
       "method": "finder",
       "editionDate": "2026-11-07",
       "url": "https://www.ironman.com/races/im-florida"
@@ -736,6 +722,13 @@
       "method": "finder",
       "editionDate": "2026-11-15",
       "url": "https://www.ironman.com/races/im703-phu-quoc"
+    },
+    "ironman-porec-half": {
+      "status": "open",
+      "label": "General entry: 583.59 EUR",
+      "method": "register-page",
+      "editionDate": "2027-10-17",
+      "url": "https://www.ironman.com/races/im703-croatia/register"
     },
     "ironman-port-macquarie-full": {
       "status": "open",
@@ -828,13 +821,6 @@
       "editionDate": "2027-07-18",
       "url": "https://www.ironman.com/races/im703-oregon"
     },
-    "ironman-san-juan-full": {
-      "status": "open",
-      "label": "Registration Now Open",
-      "method": "finder",
-      "editionDate": "2026-11-01",
-      "url": "https://www.ironman.com/races/im-san-juan"
-    },
     "ironman-san-juan-half": {
       "status": "open",
       "label": "Registration Now Open",
@@ -885,8 +871,8 @@
       "url": "https://www.ironman.com/races/im-south-hokkaido"
     },
     "ironman-st-poelten-half": {
-      "status": "general-sold-out",
-      "label": "General Registration Sold Out",
+      "status": "sold-out",
+      "label": "Registration Sold Out",
       "method": "finder",
       "editionDate": "2027-05-23",
       "url": "https://www.ironman.com/races/im703-st-poelten"
@@ -921,7 +907,7 @@
     },
     "ironman-tallinn-half": {
       "status": "open",
-      "label": "General entry: 638 EUR",
+      "label": "General entry: 671.01 EUR",
       "method": "register-page",
       "editionDate": "2027-08-08",
       "url": "https://www.ironman.com/races/im703-tallinn/register"
@@ -1018,11 +1004,11 @@
       "url": "https://www.ironman.com/races/im703-victoria/register"
     },
     "ironman-vilamoura-algarve-half": {
-      "status": "sold-out",
-      "label": "General entry: SOLD OUT",
-      "method": "register-page",
+      "status": "general-sold-out",
+      "label": "General Registration Sold Out",
+      "method": "finder",
       "editionDate": "2027-04-03",
-      "url": "https://www.ironman.com/races/im703-vilamoura-algarve/register"
+      "url": "https://www.ironman.com/races/im703-vilamoura-algarve"
     },
     "ironman-vitoria-gasteiz-full": {
       "status": "general-sold-out",
