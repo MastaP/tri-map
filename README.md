@@ -8,7 +8,7 @@ the age-group races at World Triathlon's T50 World Championship Tour stops, the 
 and Olympic triathlons, duathlons, bike time trials). Everything is searchable in seconds by **distance**,
 **date**, **region**, **how you get a start** and **how hilly the course is**.
 
-**Live: <https://trimap.live/>**
+**Live: <https://mastap.github.io/tri-map/>**
 
 It is a fully static site (no backend, no API keys) built for GitHub Pages. Race dates
 come from organisers' official sources; registration status (sold out, opens soon, …)
@@ -325,9 +325,9 @@ badge carries the date it was checked ("as of 26 Sep").
 ## Deploying to GitHub Pages
 
 The site is deployed from `main` of
-[MastaP/tri-map](https://github.com/MastaP/tri-map) to <https://trimap.live/> (the
-custom domain of its GitHub Pages site; `mastap.github.io/tri-map/` and `trimap.app`
-redirect there). Every push to `main` deploys.
+[MastaP/tri-map](https://github.com/MastaP/tri-map) to
+<https://mastap.github.io/tri-map/> (`trimap.live` and `trimap.app` redirect there, through
+Cloudflare). Every push to `main` deploys.
 
 To set up a fork:
 
@@ -348,8 +348,8 @@ The build uses `base: './'`, so it works under any Pages sub-path
 correction" links are derived from the repository automatically in Actions; set
 `VITE_REPO_URL` to override it (for example for a local build). Share previews need the
 site's absolute URL: it defaults to the repository's GitHub Pages URL; set
-`VITE_SITE_URL` for a custom domain (`deploy.yml` sets `https://trimap.live/`; a fork
-should change or remove it).
+`VITE_SITE_URL` for a custom domain (`deploy.yml` sets `https://mastap.github.io/tri-map/`;
+a fork should change or remove it).
 
 Pull requests run `.github/workflows/ci.yml` (checks, build and the e2e suite) without
 deploying.
@@ -357,8 +357,8 @@ deploying.
 ### Analytics
 
 `index.html` loads Google Analytics 4 (`G-JNRXNEP8TM`), but only when the page is served
-from `trimap.live` (or `mastap.github.io`, which redirects there), so local dev servers,
-previews, e2e runs and forks on other hosts send nothing.
+from `mastap.github.io` or `trimap.live`, so local dev servers, previews, e2e runs and
+forks on other hosts send nothing.
 
 - **What GA receives:** page views, including the query string (filters, open race, and
   the search-box text in `q`), plus GA's standard device and approximate-location data.
