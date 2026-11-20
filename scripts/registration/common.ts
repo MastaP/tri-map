@@ -13,7 +13,7 @@ import type { ISODate } from '../../src/lib/dates.ts';
 import { dataDirFor, readRaceFiles } from '../raceFiles.ts';
 
 /** An honest User-Agent that says who is asking and where to find us. */
-export const USER_AGENT = 'TriMap/1.0 (+https://mastap.github.io/tri-map/)';
+export const USER_AGENT = 'TriMap/1.0 (+https://trimap.live/)';
 
 /** Pause between two requests: one request at a time, at least 2 s apart (ironman.com answers 429 when pushed). */
 export const REQUEST_GAP_MS = 2000;
