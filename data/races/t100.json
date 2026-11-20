@@ -208,25 +208,26 @@
     "editions": [
       {
         "date": "2026-11-28",
-        "status": "tentative"
+        "status": "cancelled"
       },
       {
-        "date": "2027-11-27",
-        "status": "tentative"
+        "date": "2027-04-17",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
-    "bike": "flat",
+    "bike": "rolling",
     "run": "flat",
-    "notes": "Debut weekend 27-28 Nov 2026 in Jeddah (Red Sea), exact venue unpublished. AG 100km day TBC: Saturday assumed, also for 26-27 Nov 2027.",
+    "notes": "Moved from 27-28 Nov 2026 to 16-17 Apr 2027 in Jeddah (Red Sea); venue unpublished. Age-group 100km Sat 17 Apr per the entry page.",
     "sources": [
       "https://t100triathlon.com/saudi-arabia/participate/",
+      "https://in.registrations.protriathletes.org/saudi-arabia-t100-2027",
       "https://t100triathlon.com/saudi-arabia/pro/",
       "https://t100triathlon.com/media-releases/professional-triathletes-organisation-signs-agreement-with-sela-to-bring-world-class-triathlon-to-saudi-arabia/",
       "https://t100triathlon.com/media-releases/pto-and-world-triathlon-launch-triathlon-world-tour/",
       "https://triathlon.org/events/2026-t100-triathlon-world-tour-saudi-arabia"
     ],
-    "verifiedAt": "2026-10-27"
+    "verifiedAt": "2026-11-20"
   },
   {
     "id": "t100-qatar-t100",

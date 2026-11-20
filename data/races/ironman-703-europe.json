@@ -1141,17 +1141,21 @@
       {
         "date": "2026-10-25",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-10-31",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
     "bike": "rolling",
     "run": "flat",
-    "notes": "Swim and beachfront finish at W Costa Navarino, Peloponnese; rolling bike, flat run. 2027 date not yet announced.",
+    "notes": "Swim and beachfront finish at W Costa Navarino, Peloponnese; rolling bike, flat run.",
     "sources": [
       "https://www.ironman.com/races/im703-greece",
       "https://labs-v2.competitor.com/results/event/372808eb-839a-4a2d-bf7c-d090eca0714f"
     ],
-    "verifiedAt": "2026-10-27"
+    "verifiedAt": "2026-11-20"
   },
   {
     "id": "ironman-belek-half",
@@ -1288,5 +1292,32 @@
       "https://www.ironman.com/races/im703-mamaia/course"
     ],
     "verifiedAt": "2026-09-30"
+  },
+  {
+    "id": "ironman-maastricht-half",
+    "name": "IRONMAN 70.3 Maastricht-Limburg",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Maastricht",
+    "country": "NL",
+    "lat": 50.8515,
+    "lng": 5.6907,
+    "url": "https://www.ironman.com/races/im703-maastricht-limburg",
+    "editions": [
+      {
+        "date": "2027-09-05",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Returns in 2027. Meuse swim in the city centre, two-loop bike, three-loop run, finish on the Markt in front of the town hall.",
+    "sources": [
+      "https://www.ironman.com/races/im703-maastricht-limburg",
+      "https://triathlonplan.nl/nieuws/ironman-70-3-maastricht-2027/"
+    ],
+    "verifiedAt": "2026-11-20"
   }
 ]

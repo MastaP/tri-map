@@ -76,17 +76,21 @@
       {
         "date": "2026-03-01",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-03-07",
+        "status": "confirmed"
       }
     ],
     "swim": "river",
     "bike": "flat",
     "run": "flat",
-    "notes": "Swim in the Santa Lucía river walk at Parque Fundidora, flat urban course, finish at the Macroplaza. 2027 date TBA.",
+    "notes": "Swim in the Santa Lucía river walk at Parque Fundidora, flat urban course, finish at the Macroplaza.",
     "sources": [
       "https://www.ironman.com/races/im703-monterrey",
       "https://labs-v2.competitor.com/results/event/8ca744f9-e161-e311-8ba1-005056956277"
     ],
-    "verifiedAt": "2026-10-27"
+    "verifiedAt": "2026-11-20"
   },
   {
     "id": "ironman-curitiba-half",

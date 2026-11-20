@@ -1,14 +1,7 @@
 {
   "source": "https://front-api.registrations.protriathletes.org/edition/url/",
-  "checkedAt": "2026-11-02T16:05:18.242Z",
+  "checkedAt": "2026-11-20T09:34:33.158Z",
   "races": {
-    "t100-dubai-t100": {
-      "status": "sold-out",
-      "label": "ENTRIES SOLD OUT · Triathlon - 100km - Individual",
-      "method": "organiser",
-      "editionDate": "2026-11-16",
-      "url": "https://in.registrations.protriathletes.org/dubai-t100-2026"
-    },
     "t100-gold-coast-t100": {
       "status": "open",
       "label": "REGISTER NOW · Triathlon - 100km - Individual",
@@ -38,12 +31,11 @@
       "url": "https://in.registrations.protriathletes.org/qatar-t100-2026"
     },
     "t100-saudi-arabia-t100": {
-      "status": "opening-soon",
-      "label": "ENTRIES OPENING SOON · Triathlon - 100km - Individual",
+      "status": "open",
+      "label": "REGISTER NOW · Triathlon - 100km - Individual",
       "method": "organiser",
       "editionDate": "2027-04-17",
-      "url": "https://in.registrations.protriathletes.org/saudi-arabia-t100-2026",
-      "opens": "2026-11-03"
+      "url": "https://in.registrations.protriathletes.org/saudi-arabia-t100-2027"
     },
     "t100-singapore-t100": {
       "status": "open",

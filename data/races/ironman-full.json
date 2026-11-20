@@ -1146,6 +1146,10 @@
       {
         "date": "2026-11-07",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-11-06",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
@@ -1157,7 +1161,7 @@
       "https://labs-v2.competitor.com/results/event/b998aa20-f278-e111-b16a-005056956277",
       "https://www.ironman.com/races/im-florida/directions"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-11-20"
   },
   {
     "id": "ironman-langkawi-full",

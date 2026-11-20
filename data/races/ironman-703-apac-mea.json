@@ -394,18 +394,22 @@
       {
         "date": "2026-06-14",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-06-13",
+        "status": "confirmed"
       }
     ],
     "swim": "ocean",
     "bike": "rolling",
     "run": "hilly",
-    "notes": "Venue at Goseong Dinosaur Expo Park (Danghangpo); run has a 7% hill. 2027 date not yet announced.",
+    "notes": "Venue at Goseong Dinosaur Expo Park (Danghangpo); run has a 7% hill.",
     "sources": [
       "https://www.ironman.com/races/im703-goseong",
       "https://labs-v2.competitor.com/results/event/80711e6b-fdca-e811-a96a-000d3a35f53a",
       "https://www.ironman.com/races/im703-goseong/schedule"
     ],
-    "verifiedAt": "2026-10-27"
+    "verifiedAt": "2026-11-20"
   },
   {
     "id": "ironman-desaru-coast-half",
@@ -984,5 +988,32 @@
       "https://www.ironman.com/races/im703-doha/course"
     ],
     "verifiedAt": "2026-09-25"
+  },
+  {
+    "id": "ironman-ha-long-bay-half",
+    "name": "IRONMAN 70.3 Ha Long Bay",
+    "brand": "ironman",
+    "series": "IRONMAN 70.3",
+    "distance": "half",
+    "city": "Ha Long",
+    "country": "VN",
+    "lat": 20.9374,
+    "lng": 107.1297,
+    "url": "https://www.ironman.com/races/im703-ha-long-bay",
+    "editions": [
+      {
+        "date": "2027-03-21",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "hilly",
+    "run": "flat",
+    "notes": "New race, first edition 2027. Bay swim, single transition and finish at Hon Gai Beach; bike rated hilly.",
+    "sources": [
+      "https://www.ironman.com/races/im703-ha-long-bay",
+      "https://www.ironman.com/races/im703-ha-long-bay/course"
+    ],
+    "verifiedAt": "2026-11-20"
   }
 ]
