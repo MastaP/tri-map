@@ -198,6 +198,31 @@ describe('races other than long-distance triathlons', () => {
     expect(abroad.issues.map((i) => i.message)).toEqual(['Belgium does not belong in netherlands.json']);
   });
 
+  it('keeps World Triathlon races in their own file, as T50 World Championship Tour stops', () => {
+    const wt = (overrides: Parameters<typeof makeRecord>[0]) =>
+      nl({ brand: 'world-triathlon', series: 'T50 World Championship Tour', country: 'DE', ...overrides });
+    const r = validateRaceFiles(
+      [
+        file('world-triathlon.json', [
+          wt({ id: 'world-triathlon-hamburg-olympic', distance: 'olympic', lat: 53.5511, lng: 9.9937 }),
+          wt({ id: 'world-triathlon-hamburg-sprint', distance: 'sprint', lat: 53.5511, lng: 9.9937 }),
+          wt({ id: 'world-triathlon-kiel-olympic', series: 'WTCS', distance: 'olympic', lat: 54.3233, lng: 10.1228 }),
+          nl({ id: 'independent-almere-sprint', distance: 'sprint' }),
+        ]),
+        file('independent.json', [
+          wt({ id: 'world-triathlon-rome-olympic', distance: 'olympic', country: 'IT', lat: 41.8933, lng: 12.4829 }),
+        ]),
+      ],
+      TODAY,
+    );
+    expect(r.errorCount).toBe(0);
+    expect(r.issues.map((i) => `${i.id ?? i.file}: ${i.message}`)).toEqual([
+      'world-triathlon-rome-olympic: brand "world-triathlon" does not belong in independent.json (expected "independent")',
+      'world-triathlon-kiel-olympic: series should be "T50 World Championship Tour"',
+      'independent-almere-sprint: brand "independent" does not belong in world-triathlon.json (expected "world-triathlon")',
+    ]);
+  });
+
   it('asks only for the course profiles of the legs a race has', () => {
     const r = validateRaceFiles(
       [

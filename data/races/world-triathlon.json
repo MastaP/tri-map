@@ -1,0 +1,158 @@
+[
+  {
+    "id": "world-triathlon-samarkand-olympic",
+    "name": "Samarkand Triathlon",
+    "brand": "world-triathlon",
+    "series": "T50 World Championship Tour",
+    "distance": "olympic",
+    "city": "Samarkand",
+    "country": "UZ",
+    "lat": 39.6605,
+    "lng": 67.0487,
+    "url": "https://triathlon.uz/en/world_triathlon_championship_series_samarkand_2026",
+    "editions": [
+      {
+        "date": "2026-04-26",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "2026: age-group Olympic (Uzbekistan Open) the day after the pro race. Rowing-canal swim. 2027 weekend 24-25 Apr, AG races TBC.",
+    "sources": [
+      "https://triathlon.uz/en/world_triathlon_championship_series_samarkand_2026/schedule/uzbekistan-triathlon-open-championship",
+      "https://triathlon.org/events/2026-wtcs-samarkand",
+      "https://triathlon.org/events/2027-t50-samarkand-world-championship",
+      "https://t100triathlon.com/t100-age-group-world-championships/"
+    ],
+    "verifiedAt": "2026-11-20"
+  },
+  {
+    "id": "world-triathlon-yokohama-olympic",
+    "name": "Yokohama Triathlon",
+    "brand": "world-triathlon",
+    "series": "T50 World Championship Tour",
+    "distance": "olympic",
+    "city": "Yokohama",
+    "country": "JP",
+    "lat": 35.4457,
+    "lng": 139.6499,
+    "url": "https://yokohamatriathlon.jp/wts/",
+    "editions": [
+      {
+        "date": "2026-05-17",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-16",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Age-group races on the Sunday after the pro race; harbour swim, start and finish in Yamashita Park. Overseas entries on Race Roster.",
+    "sources": [
+      "https://yokohamatriathlon.jp/wts/entry/",
+      "https://raceroster.com/events/2027/166227/t50-world-championship-tour-2027-yokohama-triathlon",
+      "https://triathlon.org/events/2027-t50-yokohama-world-championship",
+      "https://triathlon.org/events/2026-wtcs-yokohama"
+    ],
+    "verifiedAt": "2026-11-20"
+  },
+  {
+    "id": "world-triathlon-yokohama-sprint",
+    "name": "Yokohama Triathlon",
+    "brand": "world-triathlon",
+    "series": "T50 World Championship Tour",
+    "distance": "sprint",
+    "city": "Yokohama",
+    "country": "JP",
+    "lat": 35.4457,
+    "lng": 139.6499,
+    "url": "https://yokohamatriathlon.jp/wts/",
+    "editions": [
+      {
+        "date": "2026-05-17",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-16",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Age-group sprint (280 places) on the Sunday after the pro race; harbour swim, start and finish in Yamashita Park.",
+    "sources": [
+      "https://yokohamatriathlon.jp/wts/entry/",
+      "https://raceroster.com/events/2027/166227/t50-world-championship-tour-2027-yokohama-triathlon",
+      "https://triathlon.org/events/2027-t50-yokohama-world-championship"
+    ],
+    "verifiedAt": "2026-11-20"
+  },
+  {
+    "id": "world-triathlon-london-sprint",
+    "name": "London Triathlon",
+    "brand": "world-triathlon",
+    "series": "T50 World Championship Tour",
+    "distance": "sprint",
+    "city": "London",
+    "country": "GB",
+    "lat": 51.5081,
+    "lng": 0.0297,
+    "url": "https://t100triathlon.com/london/participate/",
+    "editions": [
+      {
+        "date": "2026-07-25",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-21",
+        "status": "tentative"
+      }
+    ],
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Part of the London T100 weekend at ExCeL; Royal Victoria Dock swim, two-lap Docklands bike. 2027 sprint listed as Sat 21 Aug TBC.",
+    "sources": [
+      "https://t100triathlon.com/london/participate/",
+      "https://t100triathlon.com/t100-age-group-world-championships/",
+      "https://in.registrations.protriathletes.org/london-t100-2027"
+    ],
+    "verifiedAt": "2026-11-20"
+  },
+  {
+    "id": "world-triathlon-london-olympic",
+    "name": "London Triathlon",
+    "brand": "world-triathlon",
+    "series": "T50 World Championship Tour",
+    "distance": "olympic",
+    "city": "London",
+    "country": "GB",
+    "lat": 51.5081,
+    "lng": 0.0297,
+    "url": "https://t100triathlon.com/london/participate/",
+    "editions": [
+      {
+        "date": "2026-07-26",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-08-22",
+        "status": "tentative"
+      }
+    ],
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Part of the London T100 weekend at ExCeL; Royal Victoria Dock swim. 2026 had Olympic races both days; 2027 listed as Sun 22 Aug TBC.",
+    "sources": [
+      "https://t100triathlon.com/london/participate/",
+      "https://t100triathlon.com/t100-age-group-world-championships/",
+      "https://in.registrations.protriathletes.org/london-t100-2027"
+    ],
+    "verifiedAt": "2026-11-20"
+  }
+]

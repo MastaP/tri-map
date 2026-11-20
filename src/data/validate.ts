@@ -62,6 +62,7 @@ export const FILE_SCOPES: Record<string, FileScope> = {
   'netherlands.json': { brand: 'independent', countries: ['NL'] },
   'duathlon.json': { brand: 'independent', distance: 'duathlon' },
   'xterra.json': { brand: 'xterra', distance: 'cross' },
+  'world-triathlon.json': { brand: 'world-triathlon' },
 };
 
 const EXPECTED_SERIES: Partial<Record<`${BrandId}:${DistanceId}`, string[]>> = {
@@ -69,6 +70,8 @@ const EXPECTED_SERIES: Partial<Record<`${BrandId}:${DistanceId}`, string[]>> = {
   'ironman:half': ['IRONMAN 70.3'],
   't100:t100': ['T100 World Championship Tour', 'T100 Challenger'],
   'xterra:cross': ['XTERRA World Cup', 'XTERRA'],
+  'world-triathlon:olympic': ['T50 World Championship Tour'],
+  'world-triathlon:sprint': ['T50 World Championship Tour'],
 };
 
 function decimals(n: number): number {

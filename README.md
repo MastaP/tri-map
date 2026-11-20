@@ -4,7 +4,7 @@
 athletes choosing their next race, not for following pro racing. It puts every IRONMAN,
 IRONMAN 70.3, Challenge Family, T100 and notable independent full- and half-distance race
 that age-groupers can race on one world map, together with XTERRA off-road triathlons,
-the major duathlons and the Dutch race series at every distance (DTS and TriHard: sprint
+the age-group races at World Triathlon's T50 World Championship Tour stops, the major duathlons and the Dutch race series at every distance (DTS and TriHard: sprint
 and Olympic triathlons, duathlons, bike time trials). Everything is searchable in seconds by **distance**,
 **date**, **region**, **how you get a start** and **how hilly the course is**.
 
@@ -31,8 +31,8 @@ build (`npm run build && npm run preview`) when the UI changes._
 - **World map with brand markers.** Each brand's marker carries its own logo in white
   on a badge that differs in shape _and_ colour, so it stays readable for colour-blind
   users and in greyscale (IRONMAN: the M-Dot on a red circle, Challenge Family: its
-  heart on a blue rounded square, T100: its wordmark on a teal hexagon, XTERRA: its X
-  on a slate pentagon; independent races, which share no logo: a spark on an amber
+  heart on a blue rounded square, T100: its wordmark on a teal hexagon, World Triathlon:
+  its symbol on a raspberry shield, XTERRA: its X on a slate pentagon; independent races, which share no logo: a spark on an amber
   diamond). Full-distance races get an outer ring,
   races whose date is only estimated (when estimated dates are on) are drawn hollow with
   a dashed outline,
@@ -404,6 +404,6 @@ e2e/           Playwright smoke, accessibility and screenshot specs
 
 ## Disclaimer
 
-TriMap is not affiliated with IRONMAN, Challenge Family, PTO/T100 or XTERRA. Their
+TriMap is not affiliated with IRONMAN, Challenge Family, PTO/T100, World Triathlon or XTERRA. Their
 logos, shown on the brand markers (`src/data/logos.ts`), are trademarks of their owners.
 Dates can change; always confirm on the official website.

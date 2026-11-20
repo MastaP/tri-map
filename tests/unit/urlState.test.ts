@@ -62,6 +62,7 @@ describe('URL state', () => {
     expect(filters.distances).toEqual(['full', 'half']);
     expect(filters.brands).toEqual([]);
     expect(parseUrlState('brand=xterra').filters.brands).toEqual(['xterra']);
+    expect(parseUrlState('brand=world-triathlon').filters.brands).toEqual(['world-triathlon']);
     expect(filters.regions).toEqual(['oceania']);
     expect(filters.time).toEqual({ kind: 'any' });
     expect(raceId).toBeNull();

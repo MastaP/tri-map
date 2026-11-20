@@ -11,8 +11,8 @@ describe('share image', () => {
     for (const logo of Object.values(LOGOS)) expect(html).toContain(`d="${logo.paths[0]}"`);
   });
 
-  it('names the brands it covers, XTERRA included', () => {
-    expect(html).toContain('Every IRONMAN, 70.3, Challenge, T100, XTERRA and notable independent race');
+  it('names the brands it covers, T50 and XTERRA included', () => {
+    expect(html).toContain('Every IRONMAN, 70.3, Challenge, T100, T50, XTERRA and notable independent race');
   });
 
   it('is laid out for a 1200 × 630 preview', () => {

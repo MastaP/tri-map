@@ -4,8 +4,8 @@ import { LOGOS } from '../../src/data/logos.ts';
 
 describe('brand glyphs', () => {
   it('draws each brand with a mark of its own: the official logo, or the spark for independents', () => {
-    expect(BRAND_IDS).toEqual(['ironman', 'challenge', 't100', 'xterra', 'independent']);
-    for (const id of ['ironman', 'challenge', 't100', 'xterra'] as const) {
+    expect(BRAND_IDS).toEqual(['ironman', 'challenge', 't100', 'world-triathlon', 'xterra', 'independent']);
+    for (const id of ['ironman', 'challenge', 't100', 'world-triathlon', 'xterra'] as const) {
       const svg = brandGlyphSvg(id);
       for (const d of LOGOS[id].paths) expect(svg).toContain(`d="${d}"`);
       // Placed by a transform, not a nested <svg>: page CSS sizing marker SVGs

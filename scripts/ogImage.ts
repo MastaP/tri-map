@@ -86,9 +86,9 @@ export function ogImageHtml({ fonts }: OgImageOptions): string {
   .wordmark b { color: ${ACCENT}; font-weight: 700; }
   h1 { margin-top: 66px; font: 700 92px/0.98 'Barlow Condensed', 'Arial Narrow', sans-serif; text-transform: uppercase; letter-spacing: 0.3px; }
   h1 em { font-style: normal; color: ${ACCENT}; }
-  p { margin-top: 26px; max-width: 700px; font-size: 27px; line-height: 1.35; color: #a9b2c1; }
-  .brands { position: absolute; left: 72px; bottom: 58px; display: flex; gap: 34px; align-items: center; }
-  .brand { display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 500; color: #e6eaf0; }
+  p { margin-top: 26px; max-width: 800px; font-size: 27px; line-height: 1.35; color: #a9b2c1; }
+  .brands { position: absolute; left: 72px; bottom: 58px; display: flex; gap: 26px; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 21px; font-weight: 500; color: #e6eaf0; }
   .brand svg { width: 34px; height: 34px; display: block; }
 </style>
 </head>
@@ -97,7 +97,7 @@ export function ogImageHtml({ fonts }: OgImageOptions): string {
   <div class="content">
     <div class="logo">${LOGO_MARK}<span class="wordmark">Tri<b>Map</b></span></div>
     <h1>Find a <em>full or half</em><br>triathlon you can enter</h1>
-    <p>Every IRONMAN, 70.3, Challenge, T100, XTERRA and notable independent race, worldwide, on one map.</p>
+    <p>Every IRONMAN, 70.3, Challenge, T100, T50, XTERRA and notable independent race, worldwide, on one map.</p>
   </div>
   <div class="brands">${brands}</div>
 </body>

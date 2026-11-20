@@ -9,8 +9,8 @@ half on the same weekend (e.g. Challenge Almere-Amsterdam), that is two records.
 
 TriMap covers long-distance triathlons (full, half, T100) worldwide. Shorter triathlons
 (Olympic, sprint), off-road triathlons, duathlons and bike time trials are covered where
-a file below says so: XTERRA and the major duathlons worldwide, and every distance of
-the Dutch race series.
+a file below says so: XTERRA, the age-group races at T50 World Championship Tour stops
+and the major duathlons worldwide, and every distance of the Dutch race series.
 
 ## Files
 
@@ -26,6 +26,7 @@ the Dutch race series.
 | `netherlands.json` | Dutch race series at every distance: Dutch Triathlon Series (DTS) and TriHard (triathlons, duathlons, time trials) |
 | `duathlon.json` | Major duathlons worldwide outside those series: Powerman, World/European age-group championships, flagship races |
 | `xterra.json` | XTERRA off-road triathlons worldwide (`brand: "xterra"`; main age-group race of each event), incl. the XTERRA World Championship |
+| `world-triathlon.json` | Age-group races at T50 World Championship Tour stops (`brand: "world-triathlon"`), one record per age-group distance (Olympic, sprint) |
 
 A World Championship goes in the file for its region/brand like any other race.
 
@@ -35,7 +36,7 @@ A World Championship goes in the file for its region/brand like any other race.
 {
   "id": "ironman-frankfurt-full",           // required, unique across ALL files: <brand>-<location-slug>-<distance>, kebab-case ascii
   "name": "IRONMAN Frankfurt",              // required, official event name, no year
-  "brand": "ironman",                       // required: "ironman" | "challenge" | "t100" | "xterra" | "independent"
+  "brand": "ironman",                       // required: "ironman" | "challenge" | "t100" | "world-triathlon" | "xterra" | "independent"
   "series": "IRONMAN",                      // optional: sub-brand / series, e.g. "IRONMAN 70.3", "Xtri World Tour", "Outlaw"
   "distance": "full",                       // required: "full" (3.8/180/42.2) | "half" (1.9/90/21.1) | "t100" (2/80/18)
                                             //   | "olympic" (1.5/40/10) | "sprint" (0.75/20/5) | "cross" | "duathlon" | "time-trial" (see "Distances")
@@ -138,8 +139,14 @@ the Americas (negative) and of `lat` in the southern hemisphere (negative).
     `continuedAs` pointing at the T100 Challenger record.
   - Challenge Family keeps its full-distance races (Challenge Roth, Almere-Amsterdam, …)
     under its own brand.
-  - T50 (short course) is out of scope (no file covers short races outside the
-    Netherlands yet).
+  - T50 stops are not T100 races: their age-group races are Olympic or sprint distance
+    and go in `world-triathlon.json` (below).
+- `brand: "world-triathlon"`, all in `world-triathlon.json`, `series: "T50 World Championship
+  Tour"`: the age-group races at the stops of the T50 tour, the former World Triathlon
+  Championship Series, run by World Triathlon and the PTO from 2027. One record per
+  age-group distance (`olympic`, `sprint`); the pro T50 race is not an edition. An
+  Age-Group World Championship race that needs a national-federation slot is
+  `entry: "qualification"`.
 - `brand: "xterra"`, `distance: "cross"`, all in `xterra.json`: `series: "XTERRA World Cup"`
   for World Cup races (including the XTERRA World Championship), else `"XTERRA"`.
 - `brand: "independent"` for everything else; put the series/organiser in `series`

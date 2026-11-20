@@ -8,7 +8,7 @@
  */
 import { LOGOS, type BrandLogo } from './logos.ts';
 
-export const BRAND_IDS = ['ironman', 'challenge', 't100', 'xterra', 'independent'] as const;
+export const BRAND_IDS = ['ironman', 'challenge', 't100', 'world-triathlon', 'xterra', 'independent'] as const;
 export type BrandId = (typeof BRAND_IDS)[number];
 
 /** What is raced: swim–bike–run, run–bike–run, or the bike alone. */
@@ -23,7 +23,7 @@ export type SportId = (typeof SPORT_IDS)[number];
 export const DISTANCE_IDS = ['full', 'half', 't100', 'olympic', 'sprint', 'cross', 'duathlon', 'time-trial'] as const;
 export type DistanceId = (typeof DISTANCE_IDS)[number];
 
-export type BrandShape = 'circle' | 'square' | 'hexagon' | 'pentagon' | 'diamond';
+export type BrandShape = 'circle' | 'square' | 'hexagon' | 'shield' | 'pentagon' | 'diamond';
 
 export interface BrandStyle {
   id: BrandId;
@@ -79,6 +79,19 @@ export const BRANDS: Record<BrandId, BrandStyle> = {
     logo: LOGOS.t100,
     logoBox: [3.4, 11, 25.2, 10],
   },
+  'world-triathlon': {
+    id: 'world-triathlon',
+    label: 'World Triathlon',
+    description: 'World Triathlon age-group races at T50 World Championship Tour stops',
+    // Raspberry, not World Triathlon's own blue, which is nearly the Challenge blue: it
+    // stays ≥ 9 apart (ΔE2000) from every other brand with simulated colour blindness,
+    // carries the white symbol at 5.5:1 and stands out on both basemaps (≥ 3.4:1).
+    color: '#C71F6E',
+    ink: '#FFFFFF',
+    shape: 'shield',
+    logo: LOGOS['world-triathlon'],
+    logoBox: [8, 6.4, 16, 16],
+  },
   xterra: {
     id: 'xterra',
     label: 'XTERRA',
@@ -110,6 +123,7 @@ export const SHAPE_PATHS: Record<BrandShape, string> = {
   square: 'M9.5 3.5h13a6 6 0 0 1 6 6v13a6 6 0 0 1-6 6h-13a6 6 0 0 1-6-6v-13a6 6 0 0 1 6-6Z',
   hexagon:
     'M14.3 2.4a3.4 3.4 0 0 1 3.4 0l9.6 5.55a3.4 3.4 0 0 1 1.7 2.94v10.22a3.4 3.4 0 0 1-1.7 2.94L17.7 29.6a3.4 3.4 0 0 1-3.4 0L4.7 24.05a3.4 3.4 0 0 1-1.7-2.94V10.89a3.4 3.4 0 0 1 1.7-2.94Z',
+  shield: 'M8 3.5h16a3.5 3.5 0 0 1 3.5 3.5v8.6c0 6.4-4.5 11.2-11.5 13.9C9 26.8 4.5 22 4.5 15.6V7A3.5 3.5 0 0 1 8 3.5Z',
   pentagon:
     'M18.1 4.33L27.59 11.22Q29.7 12.75 28.89 15.22L25.27 26.38Q24.46 28.85 21.86 28.85L10.14 28.85Q7.54 28.85 6.73 26.38L3.11 15.22Q2.3 12.75 4.41 11.22L13.9 4.33Q16 2.8 18.1 4.33Z',
   diamond:
