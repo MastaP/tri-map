@@ -213,15 +213,20 @@
       {
         "date": "2027-04-17",
         "status": "confirmed"
+      },
+      {
+        "date": "2027-11-27",
+        "status": "tentative"
       }
     ],
     "swim": "ocean",
     "bike": "rolling",
     "run": "flat",
-    "notes": "Moved from 27-28 Nov 2026 to 16-17 Apr 2027 in Jeddah (Red Sea); venue unpublished. Age-group 100km Sat 17 Apr per the entry page.",
+    "notes": "Moved from 27-28 Nov 2026 to 16-17 Apr 2027 (100km Sat 17 Apr), Jeddah; venue unpublished. Back 26-27 Nov 2027, Sat assumed.",
     "sources": [
       "https://t100triathlon.com/saudi-arabia/participate/",
       "https://in.registrations.protriathletes.org/saudi-arabia-t100-2027",
+      "https://t100triathlon.com/t100-age-group-world-championships/",
       "https://t100triathlon.com/saudi-arabia/pro/",
       "https://t100triathlon.com/media-releases/professional-triathletes-organisation-signs-agreement-with-sela-to-bring-world-class-triathlon-to-saudi-arabia/",
       "https://t100triathlon.com/media-releases/pto-and-world-triathlon-launch-triathlon-world-tour/",
@@ -437,6 +442,33 @@
     "verifiedAt": "2026-09-25"
   },
   {
+    "id": "t100-st-george-t100",
+    "name": "St. George T100",
+    "brand": "t100",
+    "series": "T100 Challenger",
+    "distance": "t100",
+    "city": "St. George",
+    "country": "US",
+    "lat": 37.0965,
+    "lng": -113.5684,
+    "url": "https://t100triathlon.com/st-george/participate/",
+    "editions": [
+      {
+        "date": "2027-05-22",
+        "status": "tentative"
+      }
+    ],
+    "swim": "lake",
+    "bike": "hilly",
+    "run": "hilly",
+    "notes": "New for 2027, weekend 21-22 May; Saturday assumed. Reservoir swim, hilly bike and run; venue unpublished, pin on St. George.",
+    "sources": [
+      "https://t100triathlon.com/st-george/participate/",
+      "https://t100triathlon.com/t100-age-group-world-championships/"
+    ],
+    "verifiedAt": "2026-11-20"
+  },
+  {
     "id": "t100-gunsan-saemangeum-t100",
     "name": "Challenge Gunsan-Saemangeum",
     "brand": "t100",
@@ -620,20 +652,21 @@
     "editions": [
       {
         "date": "2027-10-02",
-        "status": "confirmed"
+        "status": "tentative"
       }
     ],
     "swim": "ocean",
     "bike": "flat",
     "run": "flat",
-    "notes": "Saturday race. Marine-lake swim, flat Landes roads.",
+    "notes": "Organiser site: 2-3 Oct 2027, T100 lists: 9-10 Oct; organiser's Saturday used. Marine-lake swim, flat Landes roads.",
     "sources": [
       "https://t100triathlon.com/media-releases/triathlon-world-tour-announces-31-more-races-for-2027/",
+      "https://t100triathlon.com/t100-age-group-world-championships/",
       "https://challengefamily.com/races/challenge-vieux-boucau/",
       "https://challenge-vieuxboucau.com/?lang=en",
       "https://challenge-vieuxboucau.com/frais-dinscription-2/?lang=en"
     ],
-    "verifiedAt": "2026-10-27"
+    "verifiedAt": "2026-11-20"
   },
   {
     "id": "t100-peguera-mallorca-t100",
