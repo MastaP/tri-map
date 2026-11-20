@@ -184,15 +184,15 @@
     "swim": "ocean",
     "bike": "rolling",
     "run": "flat",
-    "notes": "New venue Al Mamzar Beach in 2026. Age-group 100km Sun 15 Nov. Not on the 2027 T100 calendar.",
-    "recurring": false,
+    "notes": "Al Mamzar Beach. 2026 age-group 100km on Sun 15 Nov. Back for 2027 with a 100km and an Olympic race, date TBC.",
     "sources": [
+      "https://t100triathlon.com/dubai/2027-participate/",
       "https://t100triathlon.com/dubai/participate/event-info/",
       "https://t100triathlon.com/dubai/participate/",
       "https://t100triathlon.com/media-releases/al-mamzar-announced-as-new-home-of-dubai-t100-triathlon-weekend/",
       "https://t100triathlon.com/dubai/pro/"
     ],
-    "verifiedAt": "2026-09-25"
+    "verifiedAt": "2026-11-20"
   },
   {
     "id": "t100-saudi-arabia-t100",
@@ -376,35 +376,6 @@
       "https://t100triathlon.com/media-releases/triathlon-world-tour-announces-31-more-races-for-2027/"
     ],
     "verifiedAt": "2026-09-25"
-  },
-  {
-    "id": "t100-french-riviera-t100",
-    "name": "French Riviera T100",
-    "brand": "t100",
-    "series": "T100 World Championship Tour",
-    "distance": "t100",
-    "city": "Fréjus",
-    "country": "FR",
-    "lat": 43.4175,
-    "lng": 6.7366,
-    "url": "https://t100triathlon.com/french-riviera/pro/",
-    "editions": [
-      {
-        "date": "2027-05-15",
-        "status": "tentative"
-      }
-    ],
-    "swim": "ocean",
-    "bike": "rolling",
-    "run": "flat",
-    "notes": "Fréjus-Saint-Raphaël. 2026 was pro-only; age-group 100km returns in 2027. Only 15 May is published, so it is used; AG race day TBC.",
-    "sources": [
-      "https://t100triathlon.com/french-riviera/pro/",
-      "https://t100triathlon.com/media-releases/triathlon-world-tour-announces-31-more-races-for-2027/",
-      "https://t100triathlon.com/french-riviera/participate/",
-      "https://t100triathlon.com/media-releases/pto-and-world-triathlon-launch-triathlon-world-tour/"
-    ],
-    "verifiedAt": "2026-10-27"
   },
   {
     "id": "t100-cesenatico-t100",
