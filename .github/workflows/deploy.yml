@@ -56,11 +56,11 @@ jobs:
 
       # The build also refuses invalid race data. VITE_REPO_URL is derived from
       # GITHUB_REPOSITORY for the header and "Report a correction" links. VITE_SITE_URL is
-      # the address the site is served from, for the absolute og:image / og:url / canonical
-      # tags and the per-race share pages. trimap.live and trimap.app redirect to it.
+      # the custom domain, for the absolute og:image / og:url / canonical tags and the
+      # per-race share pages.
       - run: npm run build
         env:
-          VITE_SITE_URL: https://mastap.github.io/tri-map/
+          VITE_SITE_URL: https://trimap.live/
 
       - uses: actions/configure-pages@v6
 
