@@ -254,7 +254,9 @@ export function racePageHtml(race: Race, opts: RacePageOptions): string {
     <link rel="canonical" href="${esc(abs)}" />`
         : ''
     }
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />${
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png" />
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />${
       event
         ? `
     <script type="application/ld+json">${scriptJson(event)}</script>`
