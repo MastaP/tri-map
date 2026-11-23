@@ -9,7 +9,9 @@ import { RaceFileSchema } from './src/data/schema.ts';
 import { validateRaceFiles } from './src/data/validate.ts';
 import { validateRegistrationFiles } from './src/data/validateRegistration.ts';
 import { dataDirFor, readRaceFiles, readRegistrationFiles, registrationDirFor } from './scripts/raceFiles.ts';
-import { racePageHtml } from './scripts/racePages.ts';
+import { nearbyRaces, racePageHtml } from './scripts/racePages.ts';
+import { robotsTxt, sitemapXml } from './scripts/sitemap.ts';
+import { attachRegistration } from './src/data/registration.ts';
 
 /**
  * Fails the production build when the race data is missing or invalid, so a broken data
@@ -148,8 +150,11 @@ function resolveSiteUrl(explicit: string | undefined, repoUrl: string): string {
  * Share previews and first paint:
  * - absolute og:image / og:url / canonical when the site URL is known;
  * - <link rel="preload"> for the two fonts the first screen uses;
- * - one small page per race (race/<id>/index.html) whose title and preview tags name the
- *   race, so a shared race link unfurls in chats; it forwards to ./?race=<id>.
+ * - one page per race (race/<id>/index.html): the race's details, readable without
+ *   JavaScript and by search engines, with preview tags that name the race (so a shared
+ *   link unfurls in chats) and a link that opens it in the app (./?race=<id>);
+ * - robots.txt, and sitemap.xml (home page and every race the app lists) when the site
+ *   URL is known.
  */
 function sitePages(source: string | undefined, siteUrl: string): Plugin {
   return {
@@ -176,18 +181,36 @@ function sitePages(source: string | undefined, siteUrl: string): Plugin {
         return preload ? out.replace('</title>', `</title>\n    ${preload}`) : out;
       },
     },
-    generateBundle() {
-      const files = readRaceFiles(dataDirFor(source));
+    generateBundle(_options, bundle) {
       const today = localToday();
-      const result = validateRaceFiles(files, today);
-      const names = new Map(result.races.map((r) => [r.id, r.name]));
-      for (const race of result.races) {
+      const validated = validateRaceFiles(readRaceFiles(dataDirFor(source)), today).races;
+      const registration = validateRegistrationFiles(
+        readRegistrationFiles(registrationDirFor(source)),
+        validated,
+        today,
+      ).data;
+      const races = attachRegistration(validated, registration, today);
+      const byId = new Map(races.map((r) => [r.id, r]));
+      const font = (pattern: RegExp) => Object.keys(bundle).find((f) => pattern.test(f));
+      const fonts = {
+        sans: font(/inter-latin-wght-normal-[\w-]+\.woff2$/),
+        display: font(/barlow-condensed-latin-700-normal-[\w-]+\.woff2$/),
+      };
+      for (const race of races) {
         this.emitFile({
           type: 'asset',
           fileName: `race/${race.id}/index.html`,
-          source: racePageHtml(race, siteUrl, race.continuedAs ? names.get(race.continuedAs) : undefined, today),
+          source: racePageHtml(race, {
+            siteUrl,
+            today,
+            successor: race.continuedAs ? byId.get(race.continuedAs) : undefined,
+            nearby: nearbyRaces(race, races),
+            fonts,
+          }),
         });
       }
+      this.emitFile({ type: 'asset', fileName: 'robots.txt', source: robotsTxt(siteUrl) });
+      if (siteUrl) this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: sitemapXml(siteUrl, races) });
     },
   };
 }

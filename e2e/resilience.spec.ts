@@ -92,7 +92,10 @@ test('the tab title names the open race', async ({ page }) => {
   await expect(page).toHaveTitle(/^TriMap · /);
 });
 
-test('each race has a small page whose preview names it and forwards to the app', async ({ page, request }) => {
+test('each race has a page of its own whose preview names it and that opens the race in the app', async ({
+  page,
+  request,
+}) => {
   const res = await request.get('/race/ironman-frankfurt-full/');
   expect(res.status()).toBe(200);
   const html = await res.text();
@@ -105,8 +108,20 @@ test('each race has a small page whose preview names it and forwards to the app'
   expect(replaced).not.toContain('Open entry.');
   await page.clock.setFixedTime(FIXED_NOW);
   await page.goto('/race/ironman-frankfurt-full/');
+  // A page to read (and index), not a redirect: the details are there without the app.
+  await expect(page.getByRole('heading', { level: 1, name: 'IRONMAN Frankfurt' })).toBeVisible();
+  await expect(page.getByText('Full distance: 3.8 km swim, 180 km bike, 42.2 km run (226 km)')).toBeVisible();
+  await page.getByRole('link', { name: 'Open on the map' }).click();
   await expect(page).toHaveURL(/\/\?race=ironman-frankfurt-full$/);
   await expect(page.getByRole('heading', { level: 2, name: 'IRONMAN Frankfurt' })).toBeVisible();
+});
+
+test('the build writes robots.txt and a sitemap of the race pages', async ({ request }) => {
+  expect(await (await request.get('/robots.txt')).text()).toMatch(/^User-agent: \*\nAllow: \//);
+  // The build knows the site's URL from the git remote (or GitHub Actions), as the sitemap needs.
+  const sitemap = await request.get('/sitemap.xml');
+  expect(sitemap.status()).toBe(200);
+  expect(await sitemap.text()).toContain('/race/ironman-frankfurt-full/</loc>');
 });
 
 test('a shared "in map area" search reopens the same map view and results', async ({ page }) => {
