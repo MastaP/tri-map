@@ -1,0 +1,693 @@
+[
+  {
+    "id": "ironman-chennai-olympic",
+    "name": "5150 Chennai",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Chennai",
+    "country": "IN",
+    "lat": 12.8249,
+    "lng": 80.247,
+    "url": "https://www.ironman.com/races/5150-chennai",
+    "editions": [
+      {
+        "date": "2026-01-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "First held January 2026; flat coastal course. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/5150-chennai",
+      "https://labs-v2.competitor.com/results/event/bcb7933c-be95-4534-aa8a-fac5d3773eed"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-guimaras-olympic",
+    "name": "5150 Guimaras",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Guimaras",
+    "country": "PH",
+    "lat": 10.5707,
+    "lng": 122.6084,
+    "url": "https://www.ironman.com/races/5150-guimaras",
+    "editions": [
+      {
+        "date": "2026-03-08",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "hilly",
+    "run": "hilly",
+    "notes": "Island race with a hilly bike and run. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/5150-guimaras",
+      "https://labs-v2.competitor.com/results/event/cbd52b87-e406-4b7c-8a93-1d2f20f22bfd"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-nelson-mandela-bay-olympic",
+    "name": "5150 Nelson Mandela Bay",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Gqeberha (Port Elizabeth)",
+    "country": "ZA",
+    "lat": -33.981,
+    "lng": 25.6597,
+    "url": "https://www.ironman.com/races/5150-nelson-mandela-bay",
+    "editions": [
+      {
+        "date": "2026-04-18",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-01-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Swim at Hobie Beach, flat seafront bike and run; the day before IRONMAN 70.3 Nelson Mandela Bay in 2027.",
+    "sources": [
+      "https://www.ironman.com/races/5150-nelson-mandela-bay",
+      "https://labs-v2.competitor.com/results/event/8cad8bc2-f895-e611-9410-005056951bf1"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-camiguin-olympic",
+    "name": "5150 Camiguin",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Camiguin",
+    "country": "PH",
+    "lat": 9.2504,
+    "lng": 124.7004,
+    "url": "https://www.ironman.com/races/5150-camiguin",
+    "editions": [
+      {
+        "date": "2026-05-03",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-09",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Swim from the beach at the Sunken Cemetery, bike and run on the island's coastal road.",
+    "sources": [
+      "https://www.ironman.com/races/5150-camiguin",
+      "https://labs-v2.competitor.com/results/event/48aa57ff-22de-405f-baa2-11e5995a013d"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-salinas-olympic",
+    "name": "5150 Salinas",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Salinas",
+    "country": "EC",
+    "lat": -2.2095,
+    "lng": -80.9681,
+    "url": "https://www.ironman.com/races/5150-salinas",
+    "editions": [
+      {
+        "date": "2026-05-17",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-16",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Pacific swim, one-loop bike and two-loop run in the beach resort of Salinas.",
+    "sources": [
+      "https://www.ironman.com/races/5150-salinas",
+      "https://labs-v2.competitor.com/results/event/0e47464c-1fe7-4730-93f8-f1bec237909e"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-kraichgau-olympic",
+    "name": "5150 Kraichgau",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Bad Schönborn",
+    "country": "DE",
+    "lat": 49.2108,
+    "lng": 8.6549,
+    "url": "https://www.ironman.com/races/5150-kraichgau",
+    "editions": [
+      {
+        "date": "2026-05-31",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-05-23",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "hilly",
+    "run": "rolling",
+    "notes": "Hardtsee swim, one-loop hilly bike, finish in Bad Schönborn; same weekend as IRONMAN 70.3 Kraichgau.",
+    "sources": [
+      "https://www.ironman.com/races/5150-kraichgau",
+      "https://labs-v2.competitor.com/results/event/fe5e173f-d20b-44cc-80d0-875a8634a292"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-mont-tremblant-olympic",
+    "name": "5150 Mont-Tremblant",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Mont-Tremblant",
+    "country": "CA",
+    "lat": 46.2127,
+    "lng": -74.588,
+    "url": "https://www.ironman.com/races/5150-mont-tremblant",
+    "editions": [
+      {
+        "date": "2026-06-20",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-19",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
+    "notes": "Lac Tremblant swim on parts of the IRONMAN course; the day before IRONMAN 70.3 Mont-Tremblant.",
+    "sources": [
+      "https://www.ironman.com/races/5150-mont-tremblant",
+      "https://labs-v2.competitor.com/results/event/08673af6-8cb3-4a51-b0d4-9cd7fb695681"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-westfriesland-olympic",
+    "name": "5150 Westfriesland",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Hoorn",
+    "country": "NL",
+    "lat": 52.6424,
+    "lng": 5.0602,
+    "url": "https://www.ironman.com/races/5150-westfriesland",
+    "editions": [
+      {
+        "date": "2026-06-21",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-20",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Swim in Hoorn's old harbour, flat bike into the countryside; same day as IRONMAN 70.3 Westfriesland.",
+    "sources": [
+      "https://www.ironman.com/races/5150-westfriesland",
+      "https://labs-v2.competitor.com/results/event/4169b31f-c518-e911-a972-000d3a36478d"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-iquique-olympic",
+    "name": "5150 Iquique",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Iquique",
+    "country": "CL",
+    "lat": -20.2363,
+    "lng": -70.1497,
+    "url": "https://www.ironman.com/races/5150-iquique",
+    "editions": [
+      {
+        "date": "2026-06-28",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-06-27",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
+    "notes": "First held June 2026; Pacific swim and finish at Playa Cavancha.",
+    "sources": [
+      "https://www.ironman.com/races/5150-iquique",
+      "https://g5noticias.cl/2026/06/28/benjamin-adriazola-y-francisca-garrido-se-coronan-campeones-de-la-primera-edicion-del-5150-iquique-triathlon-2026/"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-ruidoso-olympic",
+    "name": "5150 Ruidoso New Mexico",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Ruidoso",
+    "country": "US",
+    "lat": 33.3322,
+    "lng": -105.6749,
+    "url": "https://www.ironman.com/races/5150-ruidoso-new-mexico",
+    "editions": [
+      {
+        "date": "2026-07-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "rolling",
+    "run": "hilly",
+    "notes": "Held once, in 2026; IRONMAN lists it as discontinued.",
+    "recurring": false,
+    "sources": [
+      "https://www.ironman.com/races/5150-ruidoso-new-mexico",
+      "https://labs-v2.competitor.com/results/event/6e85846e-2d9b-4f87-bbc2-8abeb5db783f"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-bohol-olympic",
+    "name": "5150 Bohol Philippines",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Panglao",
+    "country": "PH",
+    "lat": 9.551,
+    "lng": 123.772,
+    "url": "https://www.ironman.com/races/5150-bohol",
+    "editions": [
+      {
+        "date": "2026-07-12",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
+    "notes": "Island race on Panglao, Bohol. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/5150-bohol",
+      "https://labs-v2.competitor.com/results/event/51a4d596-41ef-e411-9400-005056951bf1"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-gdynia-olympic",
+    "name": "5150 Gdynia",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Gdynia",
+    "country": "PL",
+    "lat": 54.5189,
+    "lng": 18.5305,
+    "url": "https://www.ironman.com/races/5150-gdynia",
+    "editions": [
+      {
+        "date": "2026-07-19",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "rolling",
+    "run": "rolling",
+    "notes": "Gulf of Gdańsk swim; same day as IRONMAN 70.3 Gdynia. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/5150-gdynia",
+      "https://labs-v2.competitor.com/results/event/98ccc57b-9946-4d79-9766-2ff3758ceb5c"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-desaru-coast-olympic",
+    "name": "5150 Desaru Coast",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Desaru",
+    "country": "MY",
+    "lat": 1.5623,
+    "lng": 104.2512,
+    "url": "https://www.ironman.com/races/5150-desaru-coast",
+    "editions": [
+      {
+        "date": "2026-07-25",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "rolling",
+    "run": "rolling",
+    "notes": "The day before IRONMAN 70.3 Desaru Coast. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/5150-desaru-coast",
+      "https://labs-v2.competitor.com/results/event/d21b906d-b7b7-e911-a986-000d3a364086"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-hradec-kralove-olympic",
+    "name": "5150 Hradec Králové",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Hradec Králové",
+    "country": "CZ",
+    "lat": 50.2094,
+    "lng": 15.8326,
+    "url": "https://www.ironman.com/races/5150-hradec-kralove",
+    "editions": [
+      {
+        "date": "2026-08-16",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "river",
+    "bike": "rolling",
+    "run": "flat",
+    "notes": "Swim in the Elbe (Labe) in the city centre; same day as IRONMAN 70.3 Hradec Králové. 2027 date TBA.",
+    "sources": [
+      "https://www.ironman.com/races/5150-hradec-kralove",
+      "https://labs-v2.competitor.com/results/event/a784d6d6-1bf7-4ff2-b19c-2bc6273dd3fa"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-poznan-olympic",
+    "name": "5150 Poznan",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Poznań",
+    "country": "PL",
+    "lat": 52.3977,
+    "lng": 16.8581,
+    "url": "https://www.ironman.com/races/5150-poznan",
+    "editions": [
+      {
+        "date": "2026-08-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Lake Kierskie swim, finish at Enea Stadium; same day as IRONMAN 70.3 Poznan. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/5150-poznan",
+      "https://labs-v2.competitor.com/results/event/c17552a7-c370-4cd8-b53c-3075faae83e9"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-cartagena-olympic",
+    "name": "5150 Cartagena",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Cartagena",
+    "country": "CO",
+    "lat": 10.3997,
+    "lng": -75.5144,
+    "url": "https://www.ironman.com/races/5150-cartagena",
+    "editions": [
+      {
+        "date": "2026-09-06",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-05",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Swim in Bahía de las Ánimas from Muelle de la Bodeguita, bike and run through the old city. Hot.",
+    "sources": [
+      "https://www.ironman.com/races/5150-cartagena",
+      "https://labs-v2.competitor.com/results/event/028d3f59-0937-4d1b-be6c-6c506756143f"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-erkner-olympic",
+    "name": "5150 Erkner",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Erkner",
+    "country": "DE",
+    "lat": 52.4259,
+    "lng": 13.7447,
+    "url": "https://www.ironman.com/races/5150-erkner",
+    "editions": [
+      {
+        "date": "2026-09-12",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-11",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Dämeritzsee swim, flat bike along the Spree; the day before IRONMAN 70.3 Erkner.",
+    "sources": [
+      "https://www.ironman.com/races/5150-erkner",
+      "https://labs-v2.competitor.com/results/event/7d978e9b-25a4-4914-89d9-457a3e708412"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-cervia-olympic",
+    "name": "5150 Cervia",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Cervia",
+    "country": "IT",
+    "lat": 44.2635,
+    "lng": 12.3477,
+    "url": "https://www.ironman.com/races/5150-cervia",
+    "editions": [
+      {
+        "date": "2026-09-20",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "Adriatic swim; same day as IRONMAN 70.3 Emilia Romagna. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/5150-cervia",
+      "https://labs-v2.competitor.com/results/event/392527de-6796-44a2-9170-bb56f993b969"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-samal-olympic",
+    "name": "5150 Samal",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Samal",
+    "country": "PH",
+    "lat": 7.1105,
+    "lng": 125.6662,
+    "url": "https://www.ironman.com/races/5150-samal",
+    "editions": [
+      {
+        "date": "2026-09-20",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-09-19",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
+    "notes": "Island Garden City of Samal, off Davao; start and transition at Bridgeport.",
+    "sources": [
+      "https://www.ironman.com/races/5150-samal",
+      "https://labs-v2.competitor.com/results/event/3126ed54-181c-403b-8e2c-7fc7ee46e985"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-coquimbo-olympic",
+    "name": "5150 Coquimbo",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Coquimbo",
+    "country": "CL",
+    "lat": -29.9602,
+    "lng": -71.317,
+    "url": "https://www.ironman.com/races/5150-coquimbo",
+    "editions": [
+      {
+        "date": "2026-10-04",
+        "status": "confirmed"
+      },
+      {
+        "date": "2027-10-03",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "flat",
+    "run": "flat",
+    "notes": "First held October 2026; Pacific swim, flat bike and run.",
+    "sources": [
+      "https://www.ironman.com/races/5150-coquimbo",
+      "https://www.latercera.com/el-deportivo/noticia/coquimbo-debuta-en-el-circuito-de-triatlon-5150-con-2000-inscritos/"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-san-juan-olympic",
+    "name": "5150 San Juan",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "San Juan",
+    "country": "AR",
+    "lat": -31.5318,
+    "lng": -68.5531,
+    "url": "https://www.ironman.com/races/5150-san-juan",
+    "editions": [
+      {
+        "date": "2026-10-30",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "rolling",
+    "run": "flat",
+    "notes": "Reservoir swim; held on the Friday before IRONMAN San Juan in 2026. 2027 date not yet announced.",
+    "sources": [
+      "https://www.ironman.com/races/5150-san-juan",
+      "https://labs-v2.competitor.com/results/event/dff4786f-f94f-40e9-b77a-00d1ceb03b15"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-jujuy-olympic",
+    "name": "5150 Jujuy",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "San Salvador de Jujuy",
+    "country": "AR",
+    "lat": -24.1946,
+    "lng": -65.2971,
+    "url": "https://www.ironman.com/races/5150-jujuy",
+    "editions": [
+      {
+        "date": "2027-02-21",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "lake",
+    "bike": "rolling",
+    "run": "rolling",
+    "notes": "New race, first edition 2027. Swim in the Dique La Ciénaga, finish at the Cabildo.",
+    "sources": [
+      "https://www.ironman.com/races/5150-jujuy",
+      "https://www.todojujuy.com/jujuy/del-dique-la-cienaga-al-cabildo-asi-sera-el-ironman-jujuy-n290999"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-ha-long-bay-olympic",
+    "name": "5150 Ha Long Bay",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Ha Long",
+    "country": "VN",
+    "lat": 20.9374,
+    "lng": 107.1297,
+    "url": "https://www.ironman.com/races/5150-ha-long-bay",
+    "editions": [
+      {
+        "date": "2027-03-20",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "hilly",
+    "run": "flat",
+    "notes": "New race, first edition 2027. Swim and transition at Hon Gai Beach; the day before IRONMAN 70.3 Ha Long Bay.",
+    "sources": [
+      "https://www.ironman.com/races/5150-ha-long-bay"
+    ],
+    "verifiedAt": "2026-11-23"
+  },
+  {
+    "id": "ironman-subic-bay-olympic",
+    "name": "5150 Subic Bay Philippines",
+    "brand": "ironman",
+    "series": "IRONMAN 5150",
+    "distance": "olympic",
+    "city": "Subic Bay",
+    "country": "PH",
+    "lat": 14.8297,
+    "lng": 120.2986,
+    "url": "https://www.ironman.com/races/5150-subic-bay-philippines",
+    "editions": [
+      {
+        "date": "2027-04-04",
+        "status": "confirmed"
+      }
+    ],
+    "swim": "ocean",
+    "bike": "rolling",
+    "run": "flat",
+    "notes": "New race, first edition 2027. Swim from the Subic Bay Boardwalk, two-loop bike and run.",
+    "sources": [
+      "https://www.ironman.com/races/5150-subic-bay-philippines"
+    ],
+    "verifiedAt": "2026-11-23"
+  }
+]

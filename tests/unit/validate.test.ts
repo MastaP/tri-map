@@ -223,6 +223,26 @@ describe('races other than long-distance triathlons', () => {
     ]);
   });
 
+  it('keeps IRONMAN 5150 races in their own file, as Olympic-distance IRONMAN races', () => {
+    const im = (overrides: Parameters<typeof makeRecord>[0]) =>
+      makeRecord({ series: 'IRONMAN 5150', distance: 'olympic', bike: 'flat', run: 'flat', ...overrides });
+    const r = validateRaceFiles(
+      [
+        file('ironman-5150.json', [
+          im({ id: 'ironman-erkner-olympic', lat: 52.4259, lng: 13.7447 }),
+          im({ id: 'ironman-kraichgau-olympic', series: '5150', lat: 49.2108, lng: 8.6549 }),
+          im({ id: 'ironman-erkner-half', series: 'IRONMAN 70.3', distance: 'half', lat: 52.4259, lng: 13.7447 }),
+        ]),
+      ],
+      TODAY,
+    );
+    expect(r.errorCount).toBe(0);
+    expect(r.issues.map((i) => `${i.id ?? i.file}: ${i.message}`)).toEqual([
+      'ironman-kraichgau-olympic: series should be "IRONMAN 5150"',
+      'ironman-erkner-half: distance "half" does not belong in ironman-5150.json',
+    ]);
+  });
+
   it('asks only for the course profiles of the legs a race has', () => {
     const r = validateRaceFiles(
       [

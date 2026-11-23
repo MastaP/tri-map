@@ -172,18 +172,11 @@ export function normalizeRaceUrl(url: string): string {
   }
 }
 
-/** Short course (5150) races: on the finder, not in TriMap. */
-export function isIgnoredCard(card: IronmanCard): boolean {
-  return /\/races\/5150-/i.test(new URL(card.url).pathname);
-}
-
 export interface IronmanMatch {
   /** Race id → status entry. */
   entries: Record<string, RegistrationEntry>;
-  /** Cards of races TriMap does not have (and that are not ignored on purpose). */
+  /** Cards of races TriMap does not have. */
   unmatched: IronmanCard[];
-  /** Cards ignored on purpose (5150 short course). */
-  ignored: IronmanCard[];
   /** Cards whose tag is not a status ("By Qualification Only"). */
   skipped: { card: IronmanCard; raceIds: string[] }[];
   /** Cards with a tag this script does not know, or none: no status written. */
@@ -206,7 +199,6 @@ export function matchIronmanCards(cards: readonly IronmanCard[], races: readonly
   const out: IronmanMatch = {
     entries: {},
     unmatched: [],
-    ignored: [],
     skipped: [],
     unknownLabel: [],
     withoutCard: [],
@@ -215,10 +207,6 @@ export function matchIronmanCards(cards: readonly IronmanCard[], races: readonly
   };
   const carded = new Set<string>();
   for (const card of cards) {
-    if (isIgnoredCard(card)) {
-      out.ignored.push(card);
-      continue;
-    }
     const matched = byUrl.get(normalizeRaceUrl(card.url)) ?? [];
     if (!matched.length) {
       out.unmatched.push(card);
@@ -568,7 +556,6 @@ export function ironmanSummary(r: IronmanRefresh): string {
     const shown = kind === 'register-page' ? done.filter((c) => c.status !== 'open') : done;
     lines.push(...shown.map(check));
   }
-  if (m.ignored.length) lines.push(`${m.ignored.length} short-course (5150) cards ignored.`);
   if (m.skipped.length) {
     lines.push(`${m.skipped.length} cards whose tag is no status (entry rule), not written:`);
     lines.push(...m.skipped.map((s) => card(s.card)));

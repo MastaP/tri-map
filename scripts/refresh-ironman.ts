@@ -1,7 +1,7 @@
 /**
  * npm run refresh:ironman [-- --dry-run]
  *
- * Reads the registration status of every IRONMAN and IRONMAN 70.3 race from ironman.com
+ * Reads the registration status of every IRONMAN, IRONMAN 70.3 and 5150 race from ironman.com
  * and writes data/registration/ironman.json (then commit and push it): the race finder's
  * status tags, the registration page of each race tagged "Flex90 Eligible" (whose general
  * entry may be sold out), and the race page of each race with an announced next edition

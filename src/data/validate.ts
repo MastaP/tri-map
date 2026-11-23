@@ -56,6 +56,7 @@ export const FILE_SCOPES: Record<string, FileScope> = {
     distance: 'half',
     regions: ['asia', 'oceania', 'middle-east', 'africa'],
   },
+  'ironman-5150.json': { brand: 'ironman', distance: 'olympic' },
   'challenge.json': { brand: 'challenge' },
   't100.json': { brand: 't100', distance: 't100' },
   'independent.json': { brand: 'independent' },
@@ -68,6 +69,7 @@ export const FILE_SCOPES: Record<string, FileScope> = {
 const EXPECTED_SERIES: Partial<Record<`${BrandId}:${DistanceId}`, string[]>> = {
   'ironman:full': ['IRONMAN'],
   'ironman:half': ['IRONMAN 70.3'],
+  'ironman:olympic': ['IRONMAN 5150'],
   't100:t100': ['T100 World Championship Tour', 'T100 Challenger'],
   'xterra:cross': ['XTERRA World Cup', 'XTERRA'],
   'world-triathlon:olympic': ['T50 World Championship Tour'],

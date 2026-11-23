@@ -9,7 +9,7 @@ import { cn } from '../lib/cn.ts';
 import { formatDayMonth } from '../lib/dates.ts';
 import { TOUCH_INLINE } from '../lib/touch.ts';
 
-/** "IRONMAN and IRONMAN 70.3 from ironman.com, checked 26 Sep 2026" */
+/** "IRONMAN, IRONMAN 70.3 and 5150 from ironman.com, checked 26 Sep 2026" */
 function sourceText(s: RegistrationSourceSummary): string {
   const info = REGISTRATION_SOURCES[s.id];
   const when = formatDayMonth(checkedDay(s.checkedAt), { year: true });

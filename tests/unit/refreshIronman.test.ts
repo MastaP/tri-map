@@ -20,17 +20,21 @@ inTimeZone('UTC');
 
 const page = (n: number) => registrationSample(`ironman/races-page-${n}.html`);
 
+const SERIES = { full: 'IRONMAN', half: 'IRONMAN 70.3', olympic: 'IRONMAN 5150' } as const;
+
 /** TriMap races for the cards in the fixture pages, by race-page slug and date. */
-const race = (id: string, slug: string, date: string, extra: Record<string, unknown> = {}) =>
-  makeRecord({
+const race = (id: string, slug: string, date: string, extra: Record<string, unknown> = {}) => {
+  const distance = (['half', 'olympic'] as const).find((d) => id.endsWith(`-${d}`)) ?? 'full';
+  return makeRecord({
     id,
     brand: 'ironman',
-    distance: id.endsWith('-half') ? 'half' : 'full',
-    series: id.endsWith('-half') ? 'IRONMAN 70.3' : 'IRONMAN',
+    distance,
+    series: SERIES[distance],
     url: `https://www.ironman.com/races/${slug}`,
     editions: [{ date, status: 'confirmed' }],
     ...extra,
   });
+};
 const races = deriveRaces(
   [
     race('ironman-nice-world-championship-half', 'im703-world-championship-2026', '2026-09-12', {
@@ -44,6 +48,7 @@ const races = deriveRaces(
     race('ironman-calella-barcelona-full', 'im-barcelona', '2026-10-04'),
     race('ironman-waco-half', 'im703-waco', '2026-10-04'),
     race('ironman-kona-full', 'im-world-championship-kona', '2026-10-10', { entry: 'qualification' }),
+    race('ironman-coquimbo-olympic', '5150-coquimbo', '2026-10-04'),
     race('ironman-encarnacion-half', 'im703-encarnacion', '2026-10-11'),
     race('ironman-san-juan-half', 'im703-san-juan', '2027-04-11'),
     race('ironman-leeds-full', 'im-leeds', '2027-08-15'),
@@ -164,11 +169,12 @@ describe('matchIronmanCards', () => {
     expect(m.entries['ironman-chattanooga-full']?.status).toBe('closed');
     expect(m.entries['ironman-waco-half']?.status).toBe('general-sold-out');
     expect(m.entries['ironman-leeds-full']).toMatchObject({ status: 'open', label: 'Flex90 Eligible' });
-    expect(Object.keys(m.entries)).toHaveLength(10);
+    // 5150 races are IRONMAN races like any other.
+    expect(m.entries['ironman-coquimbo-olympic']).toMatchObject({ status: 'sold-out', editionDate: '2026-10-04' });
+    expect(Object.keys(m.entries)).toHaveLength(11);
   });
 
   it('reports what it could not use', () => {
-    expect(m.ignored.map((c) => c.title)).toEqual(['5150 Coquimbo']);
     expect(m.skipped.map((s) => s.raceIds)).toEqual([['ironman-kona-full']]);
     expect(m.unmatched).toEqual([]);
     expect(m.withoutCard.map((r) => r.id)).toEqual(['ironman-nowhere-full']);
@@ -236,7 +242,7 @@ describe('refreshIronman', () => {
     expect(r.file!.races['ironman-gurye-full']?.method).toBe('finder');
     const summary = ironmanSummary(r);
     expect(summary).toMatch(
-      /10 TriMap races with a status: 1 open, 1 opening-soon, 2 sold-out, 2 general-sold-out, 4 closed/,
+      /11 TriMap races with a status: 1 open, 1 opening-soon, 3 sold-out, 2 general-sold-out, 4 closed/,
     );
     expect(summary).toMatch(/1 "Flex90 Eligible" cards checked on their registration page: 1 general-sold-out\./);
     expect(summary).toMatch(/ironman-nowhere-full: no status: HTTP 404/);
@@ -394,9 +400,9 @@ describe('refreshIronman', () => {
   it('refuses to write when there are no cards or too few races got a status', async () => {
     const empty = await refreshIronman({ fetcher: served({ 0: ok(page(2)) }), races, now, today: TODAY });
     expect(empty).toMatchObject({ ok: false, error: expect.stringMatching(/no race cards/) });
-    // Page 1 alone gives 2 of the 11 listed races a status (Leeds's registration page is missing): less than half.
+    // Page 1 alone gives 3 of the 12 listed races a status (Leeds's registration page is missing): less than half.
     const few = await refreshIronman({ fetcher: served({ 0: ok(page(1)) }), races, now, today: TODAY });
-    expect(few).toMatchObject({ ok: false, error: expect.stringMatching(/only 2 of 11 listed IRONMAN races/) });
+    expect(few).toMatchObject({ ok: false, error: expect.stringMatching(/only 3 of 12 listed IRONMAN races/) });
     expect(few.file).toBeUndefined();
   });
 });

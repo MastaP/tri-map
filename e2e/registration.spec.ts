@@ -39,7 +39,7 @@ test.describe('registration status', () => {
     await expect(card(page, 't100-dubai-t100')).toBeVisible();
     await expect(badge(page, 't100-dubai-t100')).toHaveCount(0);
     const sources = page.getByTestId('registration-sources');
-    await expect(sources).toContainText('IRONMAN and IRONMAN 70.3 from ironman.com, checked 24 Sep 2026');
+    await expect(sources).toContainText('IRONMAN, IRONMAN 70.3 and 5150 from ironman.com, checked 24 Sep 2026');
     await expect(sources).toContainText(
       'T100 World Championship Tour from t100triathlon.com and the PTO entry platform, checked 1 Aug 2026 (too old to show)',
     );

@@ -9,8 +9,8 @@ half on the same weekend (e.g. Challenge Almere-Amsterdam), that is two records.
 
 TriMap covers long-distance triathlons (full, half, T100) worldwide. Shorter triathlons
 (Olympic, sprint), off-road triathlons, duathlons and bike time trials are covered where
-a file below says so: XTERRA, the age-group races at T50 World Championship Tour stops
-and the major duathlons worldwide, and every distance of the Dutch race series.
+a file below says so: IRONMAN 5150, XTERRA, the age-group races at T50 World Championship
+Tour stops and the major duathlons worldwide, and every distance of the Dutch race series.
 
 ## Files
 
@@ -20,6 +20,7 @@ and the major duathlons worldwide, and every distance of the Dutch race series.
 | `ironman-703-europe.json` | IRONMAN 70.3 races in Europe (incl. Turkey) |
 | `ironman-703-americas.json` | IRONMAN 70.3 races in North, Central and South America and the Caribbean |
 | `ironman-703-apac-mea.json` | IRONMAN 70.3 races in Asia, Oceania, the Middle East and Africa |
+| `ironman-5150.json` | IRONMAN 5150 Olympic-distance races worldwide (`distance: "olympic"`) |
 | `challenge.json` | Challenge Family full- and half-distance races (incl. Challenge Roth, The Championship) |
 | `t100.json` | T100 World Championship Tour stops and (from 2027) T100 Challenger events |
 | `independent.json` | Notable non-branded full/half races (Xtri World Tour, Outlaw, Embrunman, …) |
@@ -127,8 +128,9 @@ the Americas (negative) and of `lat` in the southern hemisphere (negative).
 
 ### Brand vs series
 
-- `brand: "ironman"` covers both IRONMAN (`distance: "full"`, `series: "IRONMAN"`) and
-  IRONMAN 70.3 (`distance: "half"`, `series: "IRONMAN 70.3"`).
+- `brand: "ironman"` covers IRONMAN (`distance: "full"`, `series: "IRONMAN"`), IRONMAN
+  70.3 (`distance: "half"`, `series: "IRONMAN 70.3"`) and 5150 (`distance: "olympic"`,
+  `series: "IRONMAN 5150"`, named as on ironman.com: "5150 Kraichgau").
 - `brand: "challenge"`, `series: "Challenge Family"` (or `"Challenge Roth"` / `"The Championship"` where apt).
 - `brand: "t100"`, `distance: "t100"`, all in `t100.json`:
   - `series: "T100 World Championship Tour"`: the PTO / World Triathlon T100 tour stops.

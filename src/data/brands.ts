@@ -47,7 +47,7 @@ export const BRANDS: Record<BrandId, BrandStyle> = {
   ironman: {
     id: 'ironman',
     label: 'IRONMAN',
-    description: 'IRONMAN and IRONMAN 70.3',
+    description: 'IRONMAN, IRONMAN 70.3 and 5150',
     color: '#D42A1F',
     ink: '#FFFFFF',
     shape: 'circle',

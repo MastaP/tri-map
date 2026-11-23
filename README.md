@@ -3,8 +3,8 @@
 **Find your next triathlon or duathlon to enter.** TriMap is built for age-group
 athletes choosing their next race, not for following pro racing. It puts every IRONMAN,
 IRONMAN 70.3, Challenge Family, T100 and notable independent full- and half-distance race
-that age-groupers can race on one world map, together with XTERRA off-road triathlons,
-the age-group races at World Triathlon's T50 World Championship Tour stops, the major duathlons and the Dutch race series at every distance (DTS and TriHard: sprint
+that age-groupers can race on one world map, together with IRONMAN's 5150 Olympic-distance
+races, XTERRA off-road triathlons, the age-group races at World Triathlon's T50 World Championship Tour stops, the major duathlons and the Dutch race series at every distance (DTS and TriHard: sprint
 and Olympic triathlons, duathlons, bike time trials). Everything is searchable in seconds by **distance**,
 **date**, **region**, **how you get a start** and **how hilly the course is**.
 
@@ -57,7 +57,7 @@ build (`npm run build && npm run preview`) when the UI changes._
 - **Can I just sign up?** Races that need a qualifying slot carry a "Qualifier only"
   badge, lottery/application races a "Ballot" badge (on cards, in the detail and in the
   map tooltip). **Open entry only** hides both.
-- **Can I still enter?** IRONMAN, IRONMAN 70.3 and T100 World Tour races show whether
+- **Can I still enter?** IRONMAN, IRONMAN 70.3, 5150 and T100 World Tour races show whether
   their next edition is sold out ("Sold out", "Waitlist"), partly sold out ("General entry
   sold out": charity or travel-package places may remain), closed or not open yet ("Opens
   soon"), always with the date it was checked ("as of 26 Sep"); the detail explains it in
@@ -274,7 +274,7 @@ Whether a race can still be entered lives in `data/registration/`: `ironman.json
 do not edit them by hand. The file format and each status's exact meaning are in
 [`data/README.md`](data/README.md#registration-status).
 
-**Coverage.** IRONMAN and IRONMAN 70.3 races, and the T100 World Championship Tour
+**Coverage.** IRONMAN, IRONMAN 70.3 and 5150 races, and the T100 World Championship Tour
 stops. Challenge Family, independent races and T100 Challenger events (which take
 entries on Active.com) show no status.
 

@@ -28,7 +28,7 @@ export const REGISTRATION_SOURCE_IDS = ['ironman', 't100'] as const;
 export type RegistrationSourceId = (typeof REGISTRATION_SOURCE_IDS)[number];
 
 export interface RegistrationSourceInfo {
-  /** Which races the source covers, in words ("IRONMAN and IRONMAN 70.3"). */
+  /** Which races the source covers, in words ("IRONMAN, IRONMAN 70.3 and 5150"). */
   covers: string;
   /** Where the status is read ("ironman.com race finder"). */
   from: string;
@@ -37,7 +37,7 @@ export interface RegistrationSourceInfo {
 }
 
 export const REGISTRATION_SOURCES: Record<RegistrationSourceId, RegistrationSourceInfo> = {
-  ironman: { covers: 'IRONMAN and IRONMAN 70.3', from: 'ironman.com', brand: 'ironman' },
+  ironman: { covers: 'IRONMAN, IRONMAN 70.3 and 5150', from: 'ironman.com', brand: 'ironman' },
   t100: { covers: 'T100 World Championship Tour', from: 't100triathlon.com and the PTO entry platform', brand: 't100' },
 };
 
