@@ -16,6 +16,7 @@
     "test:e2e": "playwright test --project=chromium",
     "screenshots": "playwright test --project=screenshots",
     "og-image": "tsx scripts/og-image.ts",
+    "race-images": "tsx scripts/race-images.ts",
     "validate:data": "tsx scripts/validate-data.ts",
     "refresh:ironman": "tsx scripts/refresh-ironman.ts",
     "refresh:t100": "tsx scripts/refresh-t100.ts",
@@ -44,6 +45,7 @@
     "@types/node": "^24.13.6",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@types/topojson-client": "^3.1.5",
     "@vitejs/plugin-react": "^6.1.1",
     "eslint": "^10.11.0",
     "eslint-plugin-react-hooks": "^7.1.1",
@@ -52,10 +54,12 @@
     "prettier": "^3.9.9",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.3",
+    "topojson-client": "^3.1.0",
     "tsx": "^4.23.15",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.70.1",
     "vite": "^8.3.1",
-    "vitest": "^5.0.2"
+    "vitest": "^5.0.2",
+    "world-atlas": "^2.0.2"
   }
 }

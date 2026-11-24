@@ -105,7 +105,8 @@ build (`npm run build && npm run preview`) when the UI changes._
   (`?dist=full&region=europe&when=6m&open=1&bike=flat,rolling&sort=near&race=challenge-roth-full`),
   including the map area of an "In map area" search (`bbox=west,south,east,north`), so
   a link made on a desktop shows the same races on a phone. A race's "Copy link" points
-  at the race's own page (`race/<id>/`), whose preview names the race in chat apps.
+  at the race's own page (`race/<id>/`), whose preview in chat apps is an image of that
+  race: name, next date, venue, distance and a map of the region with the races around it.
 - **A page per race** that works without JavaScript and that search engines can read:
   date, venue, distance, course, entry, registration status, editions, sources and races
   nearby, with an **Open on the map** button. A confirmed next date carries schema.org
@@ -147,6 +148,7 @@ npm run dev:fixtures    # same, with the 19-race fixture set (tests/fixtures/rac
 | `npm run test:e2e`                      | Playwright smoke + accessibility tests against a fixture build                     |
 | `npm run screenshots`                   | Regenerate `docs/screenshots/*.png`                                                |
 | `npm run og-image`                      | Regenerate the share image `public/og-image.png`                                   |
+| `npm run race-images`                   | Render each race's share image into a build (`dist/race/<id>/og.jpg`)              |
 | `npm run typecheck` / `lint` / `format` | TypeScript, ESLint, Prettier                                                       |
 
 For the e2e tests install Chromium once with `npx playwright install chromium` (on a bare
@@ -339,15 +341,15 @@ To set up a fork:
 1. Push the repository to GitHub.
 2. In **Settings → Pages**, set **Source** to **GitHub Actions**.
 3. Push to `main`. `.github/workflows/deploy.yml` runs `npm ci`, `refresh:t100`,
-   `validate:data`, `typecheck`, `test`, `build`, and deploys `dist/` with
-   `actions/deploy-pages`.
+   `validate:data`, `typecheck`, `test`, `build`, `race-images`, and deploys `dist/`
+   with `actions/deploy-pages`.
 
 The workflow also runs every day at 05:00 UTC. That run refreshes the T100 registration
 status before building. It also rewrites the per-race pages (`race/<id>/`), their
-"next date" text and registration status, and the sitemap, which are produced at build
-time, so they stay current between pushes. GitHub pauses scheduled workflows in a
-repository with no activity for 60 days; if that happens, re-enable the workflow under
-**Actions**.
+"next date" text, registration status and share images, and the sitemap, which are
+produced at build time, so they stay current between pushes. GitHub pauses scheduled
+workflows in a repository with no activity for 60 days; if that happens, re-enable the
+workflow under **Actions**.
 
 The build uses `base: './'`, so it works under any Pages sub-path
 (`https://<user>.github.io/<repo>/`). The GitHub link in the header and the "Report a
@@ -395,9 +397,13 @@ previews, e2e runs and forks on other hosts send nothing.
   `sitemap.xml` (`scripts/sitemap.ts`), and injects absolute `og:image` / `og:url` /
   canonical tags when the site URL is known (`VITE_SITE_URL`, else the GitHub Pages URL
   of the repo; without one there is no sitemap).
-  The app icons are static files. `public/og-image.png`, the image those previews show,
-  is rendered from `scripts/ogImage.ts` by `npm run og-image` (Playwright's Chromium),
-  so it follows the brand list and logos; regenerate and commit it when they change.
+  The app icons are static files. `public/og-image.png`, the image the home page's
+  previews show, is rendered from `scripts/ogImage.ts` by `npm run og-image` (Playwright's
+  Chromium), so it follows the brand list and logos; regenerate and commit it when they
+  change. Each race page's preview shows its own image instead, `race/<id>/og.jpg`,
+  rendered after the build by `npm run race-images` (`scripts/raceImage.ts`, with a
+  region map from Natural Earth outlines in `scripts/regionMap.ts`). The deploy workflow
+  runs it; a local build has no race images unless you run it too.
 - Flags are SVGs from [`flag-icons`](https://github.com/lipis/flag-icons) because
   Windows does not render flag emoji; the heaviest ones (coats of arms) are small PNGs
   in `src/assets/flags`.
@@ -408,7 +414,7 @@ src/
   lib/         filters, URL state, dates, geo, .ics, search
   components/  header, filters, time histogram, results list, race detail, sheets
   map/         MapView (lazy), marker builders, legend
-scripts/       validate-data.ts, racePages.ts + sitemap.ts (per-race pages, sitemap), refresh-{ironman,t100,registration}.ts (registration status)
+scripts/       validate-data.ts, racePages.ts + sitemap.ts (per-race pages, sitemap), race-images.ts + raceImage.ts + regionMap.ts (per-race share images), refresh-{ironman,t100,registration}.ts (registration status)
 tests/         unit tests + fixture races
 e2e/           Playwright smoke, accessibility and screenshot specs
 ```

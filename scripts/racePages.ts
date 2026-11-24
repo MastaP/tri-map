@@ -44,7 +44,7 @@ export function raceWhenText(race: Race): string | null {
 }
 
 /** The last edition held before `today`, if any (cancelled ones do not count). */
-function lastHeld(race: Race, today: ISODate): ISODate | null {
+export function lastHeld(race: Race, today: ISODate): ISODate | null {
   return race.editions.findLast((e) => e.status !== 'cancelled' && (e.endDate ?? e.date) < today)?.date ?? null;
 }
 
@@ -168,7 +168,9 @@ export function racePageHtml(race: Race, opts: RacePageOptions): string {
   const summary = entry ? `${description}. ${entry}` : `${description}.`;
   const app = `../../?race=${encodeURIComponent(race.id)}`;
   const abs = siteUrl ? `${siteUrl}race/${race.id}/` : '';
-  const image = siteUrl ? `${siteUrl}og-image.png` : '../../og-image.png';
+  // The race's own share image (scripts/raceImage.ts), written next to the page by
+  // `npm run race-images` after the build.
+  const image = abs ? `${abs}og.jpg` : 'og.jpg';
   const event = raceEventData(race, abs, image, summary);
   const reg = race.registration;
   const brand = BRANDS[race.brand];
@@ -247,6 +249,7 @@ export function racePageHtml(race: Race, opts: RacePageOptions): string {
     <meta property="og:image" content="${esc(image)}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="${esc(`${race.name}: ${dateLine}, ${race.city}, ${race.countryName}`)}" />
     <meta name="twitter:card" content="summary_large_image" />${
       abs
         ? `

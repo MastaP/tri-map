@@ -23,7 +23,9 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Pinned: Playwright (race-images below) installs its browser's system packages only on
+    # the Ubuntu releases it supports, and ubuntu-latest can move to a newer one first.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
 
@@ -59,6 +61,13 @@ jobs:
       # the custom domain, for the absolute og:image / og:url / canonical tags and the
       # per-race share pages.
       - run: npm run build
+        env:
+          VITE_SITE_URL: https://trimap.live/
+
+      # Each race page's share image (race/<id>/og.jpg: name, date, venue, distance, region
+      # map), rendered into dist/ with Playwright's Chromium. The pages' og:image points at it.
+      - run: npx playwright install --with-deps chromium
+      - run: npm run race-images
         env:
           VITE_SITE_URL: https://trimap.live/
 

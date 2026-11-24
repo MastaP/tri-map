@@ -35,6 +35,9 @@ describe('per-race pages', () => {
       'Sun 27 Jun 2027 · Frankfurt am Main, Germany · Full distance (3.8 / 180 / 42.2 km). Open entry.',
     );
     expect(html).toContain('<link rel="canonical" href="https://x.github.io/tri-map/race/ironman-frankfurt-full/" />');
+    // Its own share image (npm run race-images), not the site's generic one.
+    expect(meta(html, 'og:image')).toBe('https://x.github.io/tri-map/race/ironman-frankfurt-full/og.jpg');
+    expect(meta(html, 'og:image:alt')).toBe('IRONMAN Frankfurt: Sun 27 Jun 2027, Frankfurt am Main, Germany');
     // The app's icons, with a PNG for browsers without SVG favicons and one for iOS.
     expect(html).toContain('<link rel="icon" type="image/svg+xml" href="../../favicon.svg" />');
     expect(html).toContain('<link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png" />');
@@ -123,7 +126,7 @@ describe('event data for search engines', () => {
         geo: { latitude: 50.1106, longitude: 8.6821 },
       },
       url: 'https://x.github.io/tri-map/race/ironman-frankfurt-full/',
-      image: ['https://x.github.io/tri-map/og-image.png'],
+      image: ['https://x.github.io/tri-map/race/ironman-frankfurt-full/og.jpg'],
       organizer: { '@type': 'Organization', name: 'IRONMAN', url: 'https://www.ironman.com' },
     });
   });

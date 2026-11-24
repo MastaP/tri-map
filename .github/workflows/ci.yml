@@ -26,4 +26,6 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npx playwright install --with-deps chromium
+      # The share images the deploy renders after the build: a failure here would fail it.
+      - run: npm run race-images
       - run: npm run test:e2e
