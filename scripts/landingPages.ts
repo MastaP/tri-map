@@ -19,7 +19,7 @@ import { formatDate, formatDayMonth, type ISODate } from '../src/lib/dates.ts';
 import { DEFAULT_FILTERS, filterRaces, type Filters } from '../src/lib/filters.ts';
 import { ENTRY_BADGE, REGISTRATION_BADGE, seriesLabel, TERRAIN_LABEL } from '../src/lib/raceText.ts';
 import { serializeUrlState } from '../src/lib/urlState.ts';
-import { fontFaceCss, lastHeld, PAGE_THEME_CSS } from './racePages.ts';
+import { fontFaceCss, lastHeld, PAGE_THEME_CSS, SUPPORT_LINE } from './racePages.ts';
 import { fitView, outlinePaths, projectPoint, type WorldOutlines } from './regionMap.ts';
 
 const esc = (s: string) =>
@@ -626,6 +626,7 @@ function pageShell(opts: {
       .links a:hover { border-color: var(--muted); }
       .links span { color: var(--muted); }
       footer { color: var(--muted); font-size: 12px; padding: 4px 4px 24px; }
+      footer p { margin: 0 0 6px; }
       @media (max-width: 560px) {
         h1 { font-size: 32px; }
         .race { grid-template-columns: 44px 1fr; }
@@ -644,8 +645,11 @@ function pageShell(opts: {
 ${opts.body}
       </main>
       <footer>
-        Dates can change; always confirm on the official website. Updated daily. TriMap is not affiliated with
-        IRONMAN, Challenge Family, PTO/T100, World Triathlon or XTERRA.
+        <p>
+          Dates can change; always confirm on the official website. Updated daily. TriMap is not affiliated with
+          IRONMAN, Challenge Family, PTO/T100, World Triathlon or XTERRA.
+        </p>
+        ${SUPPORT_LINE}
       </footer>
     </div>
   </body>

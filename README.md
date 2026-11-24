@@ -365,7 +365,8 @@ correction" links are derived from the repository automatically in Actions; set
 `VITE_REPO_URL` to override it (for example for a local build). Share previews need the
 site's absolute URL: it defaults to the repository's GitHub Pages URL; set
 `VITE_SITE_URL` for a custom domain (`deploy.yml` sets `https://trimap.live/`; a fork
-should change or remove it).
+should change or remove it). Likewise the "Buy me a coffee" link (`src/support.ts`) and
+the repository's Sponsor button (`.github/FUNDING.yml`) name this project's account.
 
 Pull requests run `.github/workflows/ci.yml` (checks, build and the e2e suite) without
 deploying.
@@ -429,6 +430,11 @@ scripts/       validate-data.ts, racePages.ts + landingPages.ts + sitemap.ts (pe
 tests/         unit tests + fixture races
 e2e/           Playwright smoke, accessibility and screenshot specs
 ```
+
+## Support
+
+TriMap is free. If it helps you find your next race, you can
+[buy me a coffee](https://buymeacoffee.com/mastap) ☕.
 
 ## Disclaimer
 

@@ -54,6 +54,7 @@ describe('per-race pages', () => {
     expect(text).toContain('Sun 28 Jun 2026 · held');
     expect(text).toContain('Sun 27 Jun 2027');
     expect(html).not.toContain('noindex');
+    expect(html).toContain('<a href="https://buymeacoffee.com/mastap" rel="noopener">Buy me a coffee</a>');
   });
 
   it('never states an estimated date: the next date is "not announced yet"', () => {

@@ -183,6 +183,10 @@ describe('the race calendars index and the sitemap', () => {
     for (const p of pages) expect(hub).toContain(`href="../races/${p.path}/"`);
     expect(bodyText(hub)).toContain('Europe · Full distance 6');
     expect(hub).toContain('<link rel="canonical" href="https://x.github.io/tri-map/races/" />');
+    // The footer, shared with the calendar pages.
+    for (const doc of [hub, html('europe')]) {
+      expect(doc).toContain('<a href="https://buymeacoffee.com/mastap" rel="noopener">Buy me a coffee</a>');
+    }
   });
 
   it('puts the calendars in the sitemap, dated by their latest checked race', () => {

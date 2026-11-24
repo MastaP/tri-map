@@ -8,6 +8,7 @@ import {
 import { cn } from '../lib/cn.ts';
 import { formatDayMonth } from '../lib/dates.ts';
 import { TOUCH_INLINE } from '../lib/touch.ts';
+import { SUPPORT_URL } from '../support.ts';
 
 /** "IRONMAN, IRONMAN 70.3 and 5150 from ironman.com, checked 26 Sep 2026" */
 function sourceText(s: RegistrationSourceSummary): string {
@@ -65,6 +66,17 @@ export function Footer({
             Source on GitHub
           </a>
         )}
+        <a
+          href={SUPPORT_URL}
+          target="_blank"
+          rel="noreferrer"
+          className={cn('font-medium text-muted underline underline-offset-2 hover:text-fg', TOUCH_INLINE)}
+        >
+          Buy me a coffee
+          <span aria-hidden="true" className="ml-1">
+            ☕
+          </span>
+        </a>
         <span>
           Map ©{' '}
           <a

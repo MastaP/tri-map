@@ -21,6 +21,15 @@ test.describe('TriMap smoke', () => {
     await expect(page.getByText('Race data checked Sep 2026').first()).toBeVisible();
   });
 
+  test('the footer links to the race calendars and to support', async ({ page }) => {
+    await openApp(page);
+    await expect(page.getByRole('link', { name: 'Race calendars' })).toHaveAttribute('href', './races/');
+    await expect(page.getByRole('link', { name: 'Buy me a coffee' })).toHaveAttribute(
+      'href',
+      'https://buymeacoffee.com/mastap',
+    );
+  });
+
   test('map canvas and brand markers are present', async ({ page }) => {
     await openApp(page);
     await waitForMap(page);

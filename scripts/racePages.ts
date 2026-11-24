@@ -29,9 +29,13 @@ import {
   SWIM_LONG,
   TERRAIN_LABEL,
 } from '../src/lib/raceText.ts';
+import { SUPPORT_URL } from '../src/support.ts';
 
 const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+
+/** The footer's invitation to support TriMap, on the race and calendar pages. */
+export const SUPPORT_LINE = `<p>Find TriMap useful? <a href="${SUPPORT_URL}" rel="noopener">Buy me a coffee</a> <span aria-hidden="true">☕</span></p>`;
 
 /** JSON for a <script> element: "<" escaped, so no string in it can close the element. */
 const scriptJson = (value: unknown) => JSON.stringify(value).replace(/</g, '\\u003c');
@@ -321,6 +325,7 @@ export function racePageHtml(race: Race, opts: RacePageOptions): string {
       .faint { color: var(--muted); }
       .sources a { overflow-wrap: anywhere; }
       footer { color: var(--muted); font-size: 12px; padding: 4px 4px 24px; }
+      footer p { margin: 0 0 6px; }
       @media (max-width: 480px) {
         dl { grid-template-columns: 1fr; gap: 2px; }
         dd { margin-bottom: 8px; }
@@ -394,8 +399,11 @@ export function racePageHtml(race: Race, opts: RacePageOptions): string {
         </section>
       </main>
       <footer>
-        Dates can change; always confirm on the official website. TriMap is not affiliated with IRONMAN,
-        Challenge Family, PTO/T100, World Triathlon or XTERRA.
+        <p>
+          Dates can change; always confirm on the official website. TriMap is not affiliated with IRONMAN,
+          Challenge Family, PTO/T100, World Triathlon or XTERRA.
+        </p>
+        ${SUPPORT_LINE}
       </footer>
     </div>
   </body>
