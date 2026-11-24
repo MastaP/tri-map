@@ -39,6 +39,12 @@ export function Footer({
       )}
       <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
         {freshness && <span>Race data checked {freshness}</span>}
+        <a
+          href="./races/"
+          className={cn('font-medium text-muted underline underline-offset-2 hover:text-fg', TOUCH_INLINE)}
+        >
+          Race calendars
+        </a>
         {correction && (
           <a
             href={correction}

@@ -110,8 +110,16 @@ build (`npm run build && npm run preview`) when the UI changes._
 - **A page per race** that works without JavaScript and that search engines can read:
   date, venue, distance, course, entry, registration status, editions, sources and races
   nearby, with an **Open on the map** button. A confirmed next date carries schema.org
-  `SportsEvent` data. The build also writes `sitemap.xml` (the home page and every listed
-  race) and `robots.txt`; pages of races with no future edition are `noindex`.
+  `SportsEvent` data. The build also writes `sitemap.xml` (the home page, the race
+  calendars and every listed race) and `robots.txt`; pages of races with no future
+  edition are `noindex`.
+- **Race calendars** (`races/`): a page per distance, series, course type, region and
+  country, and per region or country and distance ("Half-distance triathlons in
+  Germany"), when at least 3–5 races match. Each lists its races by month with course,
+  entry and registration badges, maps them, lists the races whose next date is not
+  announced yet, and links to the pages around it. A page is defined by the app's own
+  filters, so its **Open these on the map** shows the same races. `races/` lists them all;
+  race pages link to the calendars they are on, and the app's footer links to `races/`.
 - **Race detail** with swim/bike/run distances, swim type and bike/run profiles, how to
   enter, championship, countdown, all known editions, venue, notes, sources, **Add to
   calendar** (.ics, all-day), copy link, and a "Report a correction" link that
@@ -160,7 +168,7 @@ Linux box also `npx playwright install-deps chromium`).
 | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | T100 registration status                       | Automatic: the deploy workflow runs `npm run refresh:t100` before every build                                                   | Daily, 05:00 UTC                                                        |
 | **IRONMAN registration status**                | **By hand:** `npm run refresh:registration`, check the summary, commit, push ([below](#refreshing-registration-status-by-hand)) | Every 1–2 weeks. A status older than 30 days is no longer shown         |
-| Per-race pages, their "next date" and status   | Automatic: rebuilt by the daily deploy                                                                                          | Daily                                                                   |
+| Race and calendar pages, dates and status      | Automatic: rebuilt by the daily deploy                                                                                          | Daily                                                                   |
 | Race dates, new editions, new or dropped races | By hand: edit `data/races/*.json`, `npm run validate:data`, commit ([Updating data](#updating-data))                            | When organisers announce; most next-season dates appear October–January |
 
 ### Refreshing registration status by hand
@@ -346,10 +354,10 @@ To set up a fork:
 
 The workflow also runs every day at 05:00 UTC. That run refreshes the T100 registration
 status before building. It also rewrites the per-race pages (`race/<id>/`), their
-"next date" text, registration status and share images, and the sitemap, which are
-produced at build time, so they stay current between pushes. GitHub pauses scheduled
-workflows in a repository with no activity for 60 days; if that happens, re-enable the
-workflow under **Actions**.
+"next date" text, registration status and share images, the race calendars (`races/`),
+and the sitemap, which are produced at build time, so they stay current between
+pushes. GitHub pauses scheduled workflows in a repository with no activity for 60
+days; if that happens, re-enable the workflow under **Actions**.
 
 The build uses `base: './'`, so it works under any Pages sub-path
 (`https://<user>.github.io/<repo>/`). The GitHub link in the header and the "Report a
@@ -393,8 +401,11 @@ previews, e2e runs and forks on other hosts send nothing.
   edition when fresh (`src/data/registration.ts`); the refresh scripts live in
   `scripts/registration/`.
 - The build also writes `race/<id>/index.html` for every race (a static page with the
-  race's details and share previews, see `scripts/racePages.ts`), `robots.txt` and
-  `sitemap.xml` (`scripts/sitemap.ts`), and injects absolute `og:image` / `og:url` /
+  race's details and share previews, see `scripts/racePages.ts`), the race calendars
+  `races/<path>/index.html` and their index `races/index.html` (`scripts/landingPages.ts`;
+  the pages, their thresholds and their links are worked out from the data on each
+  build, with maps drawn from `scripts/regionMap.ts`), `robots.txt` and `sitemap.xml`
+  (`scripts/sitemap.ts`), and injects absolute `og:image` / `og:url` /
   canonical tags when the site URL is known (`VITE_SITE_URL`, else the GitHub Pages URL
   of the repo; without one there is no sitemap).
   The app icons are static files. `public/og-image.png`, the image the home page's
@@ -414,7 +425,7 @@ src/
   lib/         filters, URL state, dates, geo, .ics, search
   components/  header, filters, time histogram, results list, race detail, sheets
   map/         MapView (lazy), marker builders, legend
-scripts/       validate-data.ts, racePages.ts + sitemap.ts (per-race pages, sitemap), race-images.ts + raceImage.ts + regionMap.ts (per-race share images), refresh-{ironman,t100,registration}.ts (registration status)
+scripts/       validate-data.ts, racePages.ts + landingPages.ts + sitemap.ts (per-race pages, race calendars, sitemap), race-images.ts + raceImage.ts + regionMap.ts (per-race share images), refresh-{ironman,t100,registration}.ts (registration status)
 tests/         unit tests + fixture races
 e2e/           Playwright smoke, accessibility and screenshot specs
 ```

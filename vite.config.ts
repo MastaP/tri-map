@@ -1,5 +1,6 @@
 /// <reference types="vitest/config" />
 import { execSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { relative, resolve } from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
@@ -9,7 +10,9 @@ import { RaceFileSchema } from './src/data/schema.ts';
 import { validateRaceFiles } from './src/data/validate.ts';
 import { validateRegistrationFiles } from './src/data/validateRegistration.ts';
 import { dataDirFor, readRaceFiles, readRegistrationFiles, registrationDirFor } from './scripts/raceFiles.ts';
+import { calendarsFor, landingHubHtml, landingPageHtml, landingPages } from './scripts/landingPages.ts';
 import { nearbyRaces, racePageHtml } from './scripts/racePages.ts';
+import { loadWorld } from './scripts/regionMap.ts';
 import { robotsTxt, sitemapXml } from './scripts/sitemap.ts';
 import { attachRegistration } from './src/data/registration.ts';
 
@@ -153,8 +156,10 @@ function resolveSiteUrl(explicit: string | undefined, repoUrl: string): string {
  * - one page per race (race/<id>/index.html): the race's details, readable without
  *   JavaScript and by search engines, with preview tags that name the race (so a shared
  *   link unfurls in chats) and a link that opens it in the app (./?race=<id>);
- * - robots.txt, and sitemap.xml (home page and every race the app lists) when the site
- *   URL is known.
+ * - race calendar pages (races/ and races/<path>/: by distance, series, course, region
+ *   and country, see scripts/landingPages.ts), linked from the race pages;
+ * - robots.txt, and sitemap.xml (home page, calendars and every race the app lists) when
+ *   the site URL is known.
  */
 function sitePages(source: string | undefined, siteUrl: string): Plugin {
   return {
@@ -196,6 +201,8 @@ function sitePages(source: string | undefined, siteUrl: string): Plugin {
         sans: font(/inter-latin-wght-normal-[\w-]+\.woff2$/),
         display: font(/barlow-condensed-latin-700-normal-[\w-]+\.woff2$/),
       };
+      const calendars = landingPages(races, today);
+      const world = loadWorld(readFileSync(resolve('node_modules/world-atlas/countries-50m.json'), 'utf8'));
       for (const race of races) {
         this.emitFile({
           type: 'asset',
@@ -205,12 +212,27 @@ function sitePages(source: string | undefined, siteUrl: string): Plugin {
             today,
             successor: race.continuedAs ? byId.get(race.continuedAs) : undefined,
             nearby: nearbyRaces(race, races),
+            calendars: calendarsFor(race, calendars).slice(0, 6),
             fonts,
           }),
         });
       }
+      this.emitFile({
+        type: 'asset',
+        fileName: 'races/index.html',
+        source: landingHubHtml(calendars, { siteUrl, fonts }),
+      });
+      for (const page of calendars) {
+        this.emitFile({
+          type: 'asset',
+          fileName: `races/${page.path}/index.html`,
+          source: landingPageHtml(page, calendars, { siteUrl, today, world, fonts }),
+        });
+      }
       this.emitFile({ type: 'asset', fileName: 'robots.txt', source: robotsTxt(siteUrl) });
-      if (siteUrl) this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: sitemapXml(siteUrl, races) });
+      if (siteUrl) {
+        this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: sitemapXml(siteUrl, races, calendars) });
+      }
     },
   };
 }

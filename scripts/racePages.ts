@@ -75,6 +75,8 @@ export interface RacePageOptions {
   successor?: Pick<Race, 'id' | 'name'>;
   /** Races to link as nearby, nearest first (see nearbyRaces). */
   nearby?: readonly NearbyRace[];
+  /** Race calendar pages this race is listed on (scripts/landingPages.ts), most specific first. */
+  calendars?: readonly { title: string; path: string }[];
   /** Bundled font files (paths from the site root), so the page uses the app's typefaces. */
   fonts?: { sans?: string; display?: string };
 }
@@ -135,11 +137,33 @@ function nearbyWhen(next: NextEdition | null): string {
 
 const kmText = (km: number) => (km < 1 ? 'same venue' : `${Math.round(km).toLocaleString('en-US')} km away`);
 
-const fontFace = (family: string, file: string, weight: string) =>
-  `@font-face { font-family: '${family}'; src: url('../../${file}') format('woff2'); font-weight: ${weight}; font-display: swap; }`;
+/** @font-face rules for the bundled fonts; `root` is the way back to the site root ("../../"). */
+export function fontFaceCss(fonts: { sans?: string; display?: string }, root: string): string {
+  const face = (family: string, file: string, weight: string) =>
+    `@font-face { font-family: '${family}'; src: url('${root}${file}') format('woff2'); font-weight: ${weight}; font-display: swap; }`;
+  return [
+    fonts.sans ? face('Inter Variable', fonts.sans, '100 900') : '',
+    fonts.display ? face('Barlow Condensed', fonts.display, '700') : '',
+  ]
+    .filter(Boolean)
+    .join('\n      ');
+}
+
+/** The app's colours, light and dark, as CSS custom properties (shared with the calendar pages). */
+export const PAGE_THEME_CSS = `:root {
+        color-scheme: light dark;
+        --bg: #f3f4f7; --surface: #ffffff; --line: #e2e6ec; --fg: #0c1220; --muted: #545e6f;
+        --ink: #0c1220; --on-ink: #ffffff; --badge-bg: #ffedd5; --badge-fg: #7c2d12;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #080b11; --surface: #0f141d; --line: #222b39; --fg: #e9eef6; --muted: #a2acbc;
+          --ink: #e9eef6; --on-ink: #0a0e15; --badge-bg: rgb(251 146 60 / 0.15); --badge-fg: #fed7aa;
+        }
+      }`;
 
 export function racePageHtml(race: Race, opts: RacePageOptions): string {
-  const { siteUrl, today, successor, nearby = [], fonts = {} } = opts;
+  const { siteUrl, today, successor, nearby = [], calendars = [], fonts = {} } = opts;
   const d = DISTANCES[race.distance];
   const when = raceWhenText(race);
   const held = lastHeld(race, today);
@@ -223,12 +247,10 @@ export function racePageHtml(race: Race, opts: RacePageOptions): string {
     .map((s) => `<li><a href="${esc(s)}" rel="noopener">${esc(s.replace(/^https:\/\/(www\.)?/, ''))}</a></li>`)
     .join('\n          ');
 
-  const faces = [
-    fonts.sans ? fontFace('Inter Variable', fonts.sans, '100 900') : '',
-    fonts.display ? fontFace('Barlow Condensed', fonts.display, '700') : '',
-  ]
-    .filter(Boolean)
-    .join('\n      ');
+  const faces = fontFaceCss(fonts, '../../');
+  const calendarItems = calendars
+    .map((c) => `<li><a href="../../races/${esc(c.path)}/">${esc(c.title)}</a></li>`)
+    .join('\n          ');
 
   return `<!doctype html>
 <html lang="en">
@@ -267,17 +289,7 @@ export function racePageHtml(race: Race, opts: RacePageOptions): string {
     }
     <style>
       ${faces}
-      :root {
-        color-scheme: light dark;
-        --bg: #f3f4f7; --surface: #ffffff; --line: #e2e6ec; --fg: #0c1220; --muted: #545e6f;
-        --ink: #0c1220; --on-ink: #ffffff; --badge-bg: #ffedd5; --badge-fg: #7c2d12;
-      }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg: #080b11; --surface: #0f141d; --line: #222b39; --fg: #e9eef6; --muted: #a2acbc;
-          --ink: #e9eef6; --on-ink: #0a0e15; --badge-bg: rgb(251 146 60 / 0.15); --badge-fg: #fed7aa;
-        }
-      }
+      ${PAGE_THEME_CSS}
       * { box-sizing: border-box; }
       body {
         margin: 0;
@@ -359,6 +371,16 @@ export function racePageHtml(race: Race, opts: RacePageOptions): string {
           <h2 id="nearby">Races nearby</h2>
           <ul class="plain">
           ${nearbyItems}
+          </ul>
+        </section>`
+            : ''
+        }${
+          calendarItems
+            ? `
+        <section class="card" aria-labelledby="calendars">
+          <h2 id="calendars">More races like this</h2>
+          <ul class="plain">
+          ${calendarItems}
           </ul>
         </section>`
             : ''
