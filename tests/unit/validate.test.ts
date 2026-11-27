@@ -93,6 +93,15 @@ describe('validateRaceFiles', () => {
           makeRecord({ verifiedAt: '2024-01-01', editions: [{ date: '2026-03-01', status: 'confirmed' }] }),
           makeRecord({ id: 'ironman-testville-2-full', name: 'IRONMAN Testville 2027' }),
         ]),
+        file('independent.json', [
+          makeRecord({
+            id: 'independent-oneoff-full',
+            name: 'One-off Triathlon',
+            brand: 'independent',
+            series: undefined,
+            lat: 52.345,
+          }),
+        ]),
       ],
       TODAY,
     );
@@ -106,6 +115,7 @@ describe('validateRaceFiles', () => {
     );
     expect(text).toMatch(/ironman-testville-2-full: name should not contain a year/);
     expect(text).toMatch(/ironman-testville-2-full: possible duplicate of ironman-testville-full/);
+    expect(text).toMatch(/independent-oneoff-full: a one-off race \(no series\) should name its "organizer"/);
   });
 
   it('accepts a near-standard course, warns about one within 5% and rejects one out of scope', () => {

@@ -162,6 +162,9 @@ export function validateRaceFiles(files: readonly SourceFile[], today: ISODate):
       if (expectedSeries && (!rec.series || !expectedSeries.includes(rec.series))) {
         push('warning', file, `series should be ${expectedSeries.map((s) => `"${s}"`).join(' or ')}`, id);
       }
+      if (rec.brand === 'independent' && !rec.series && !rec.organizer) {
+        push('warning', file, 'a one-off race (no series) should name its "organizer"', id);
+      }
       if (rec.brand === 't100' && rec.distance !== 't100') {
         push('warning', file, 'T100 races should use distance "t100"', id);
       }

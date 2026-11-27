@@ -42,6 +42,7 @@
     "id": "independent-alpe-dhuez-duathlon",
     "name": "Duathlon de l'Alpe d'Huez",
     "brand": "independent",
+    "organizer": "Triathlon Alpe d'Huez",
     "distance": "duathlon",
     "city": "Alpe d'Huez",
     "country": "FR",

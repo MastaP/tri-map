@@ -132,6 +132,15 @@ describe('event data for search engines', () => {
     });
   });
 
+  it("names a one-off race's own organiser, at its official website", () => {
+    const embrunman = race('independent-embrunman-full');
+    const data = eventData(page('independent-embrunman-full'));
+    expect(embrunman.series).toBeUndefined();
+    expect(data).toMatchObject({
+      organizer: { '@type': 'Organization', name: "Association de l'Embrunman", url: new URL(embrunman.url).origin },
+    });
+  });
+
   it('leaves out a date that is not confirmed, and races with no edition to enter', () => {
     // Norseman 2027 is "TBC"; Wanaka's half has been replaced.
     expect(race('independent-norseman-full').nextEdition).toMatchObject({ status: 'tentative' });
