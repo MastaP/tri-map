@@ -39,6 +39,7 @@ A World Championship goes in the file for its region/brand like any other race.
   "name": "IRONMAN Frankfurt",              // required, official event name, no year
   "brand": "ironman",                       // required: "ironman" | "challenge" | "t100" | "world-triathlon" | "xterra" | "independent"
   "series": "IRONMAN",                      // optional: sub-brand / series, e.g. "IRONMAN 70.3", "Xtri World Tour", "Outlaw"
+  "organizer": "113 Events",                // one-off independent races (no series): who runs it, see below
   "distance": "full",                       // required: "full" (3.8/180/42.2) | "half" (1.9/90/21.1) | "t100" (2/80/18)
                                             //   | "olympic" (1.5/40/10) | "sprint" (0.75/20/5) | "cross" | "duathlon" | "time-trial" (see "Distances")
   "championship": "IRONMAN European Championship", // optional: only if the race is a world/regional championship
@@ -153,7 +154,12 @@ the Americas (negative) and of `lat` in the southern hemisphere (negative).
   for World Cup races (including the XTERRA World Championship), else `"XTERRA"`.
 - `brand: "independent"` for everything else; put the series/organiser in `series`
   (e.g. `"Xtri World Tour"`, `"Outlaw"`, `"Dutch Triathlon Series"`, `"TriHard"`,
-  `"Powerman"`) or omit it for a one-off race.
+  `"Powerman"`) or omit it for a one-off race. A one-off race names who runs it in
+  `organizer`, as its official website does: the organiser it names, else the company
+  or club in its imprint or copyright line (without "Ltd", "GmbH", "e.V." and the
+  like), else the race's own name (`"113 Events"`, `"Moritzburger Triathlonverein"`,
+  `"Patagonman"`). Race pages give it to search engines as the event's organizer;
+  validation warns when it is missing.
 
 ### Distances
 

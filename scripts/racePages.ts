@@ -101,7 +101,7 @@ const ORGANIZERS: Record<Exclude<BrandId, 'independent'>, string> = {
 export function raceEventData(race: Race, pageUrl: string, imageUrl: string, description: string): object | null {
   const next = race.nextEdition;
   if (!next || next.estimated || next.status !== 'confirmed') return null;
-  const organizer = race.brand === 'independent' ? race.series : ORGANIZERS[race.brand];
+  const organizer = race.organizer ?? (race.brand === 'independent' ? race.series : ORGANIZERS[race.brand]);
   return {
     '@context': 'https://schema.org',
     '@type': 'SportsEvent',

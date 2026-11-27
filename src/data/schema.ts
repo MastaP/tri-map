@@ -79,6 +79,7 @@ export const RaceSchema = z
     name: z.string().trim().min(3),
     brand: z.enum(BRAND_IDS),
     series: z.string().trim().min(1).optional(),
+    organizer: z.string().trim().min(1).optional(),
     distance: z.enum(DISTANCE_IDS),
     championship: z.string().trim().min(3).optional(),
     city: z.string().trim().min(1),
